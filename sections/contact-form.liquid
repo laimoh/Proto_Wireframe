@@ -1,0 +1,102 @@
+{{ 'contact-form.css' | asset_url | stylesheet_tag }}
+
+
+<div class="form-wrapper">
+  <h1>{{ section.settings.section-title }}</h1>
+  {% form 'contact', class: 'form' %}
+    {% if form.errors %}
+      <div class="error">
+        <p>There's been an error in submitting message.</p>
+      </div>
+      <ul>
+        {% for error in form.errors %}
+          <li>
+            {% if error == 'form' %}
+              {{ form.errors.messages[error] }}
+            {% else %}
+              {{ form.errors.translated_fields[error] }} - {{ form.errors.messages[error] }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% elsif form.posted_successfully? %}
+      <div class="success">
+        <p>Message was submitted successfully</p>
+      </div>
+    {% endif %}
+    <div class="first-name field">
+      <label for="first-name">{{ section.settings.firstname }}</label>
+      <div class="line"></div>
+      <input
+        type="text"
+        name="contact[first_name]"
+        id="first-name" />
+    </div>
+    <div class="last-name field">
+      <label for="last-name">{{ section.settings.lastname }}</label>
+      <div class="line"></div>
+      <input
+        type="text"
+        name="contact[last_name]"
+        id="last-name" />
+    </div>
+    <div class="email field">
+      <label for="email">{{ section.settings.email }}</label>
+      <div class="line"></div>
+      <input
+        type="email"
+        name="contact[email]"
+        id="email" />
+    </div>
+    <div class="message field">
+      <label for="message">{{ section.settings.message }}</label>
+      <div class="line"></div>
+      <textarea name="contact[body]" id="message"></textarea>
+    </div>
+    <div class="submit field">
+      <input type="submit" value="Send" />
+    </div>
+  {% endform %}
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Form",
+    "presets": [
+      {
+        "name": "Contact Form"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "section-title",
+        "label": "Title",
+        "default": "Reach Out To Us"
+      },
+      {
+        "type": "text",
+        "id": "firstname",
+        "label": "Label",
+        "default": "First Name"
+      },
+      {
+        "type": "text",
+        "id": "lastname",
+        "label": "Label",
+        "default": "Last Name"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email",
+        "default": "Email"
+      }, {
+        "type": "text",
+        "id": "message",
+        "label": "Message",
+        "default": "Message"
+      }
+    ]
+  }
+{% endschema %}

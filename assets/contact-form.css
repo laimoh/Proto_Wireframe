@@ -1,0 +1,53 @@
+.form-wrapper {
+   display: grid;
+   grid-template-rows: auto 1fr;
+}
+
+.form-wrapper h1 {
+   padding: 1rem;
+   font-size: 1.5rem;
+}
+
+.form {
+   margin: auto;
+   display: flex;
+   flex-direction: column;
+   max-width: 40vw;
+   min-width: 30vw;
+}
+
+.line {
+   margin: 2%;
+   flex-grow: 2;
+}
+
+.field {
+   /* display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 8%; */
+   display: grid;
+   grid-template-columns: auto 1fr 1fr;
+   gap: 4%;
+   padding: 6% 0%;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.field label {
+   white-space: nowrap;
+}
+
+.message textarea, .field input {
+  width: auto;
+}
+
+.submit {
+   align-self: end;
+}
+
+input, textarea {
+   background: none;
+   outline: none;
+   border: none;
+}

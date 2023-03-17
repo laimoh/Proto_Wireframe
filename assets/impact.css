@@ -1,0 +1,96 @@
+/* IMPACT */
+.impact-content {
+   display: grid;
+   height: 100vh;
+   grid-template-rows: 1fr auto auto;
+   overflow: hidden;
+}
+
+.cover {
+   grid-area: 1 / 1 / -1 / -1;
+}
+
+.cover img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.impact-content h1 {
+   z-index: 1;
+}
+
+.centered  {
+
+   align-self: center;
+    justify-self: center;
+    grid-area: 1 / 1 / -1 / -1;
+    margin-top: 12rem;
+    font-size: 6rem;
+    width: 45vw;
+    font-family: "Exposure";
+    color: var(--marshmellow);
+    text-align: center;
+    line-height: 0.9;
+    font-variation-settings: 'EXPO' 0;
+}
+
+.word3 {
+   font-variation-settings: 'EXPO' -50;
+}
+
+.leftBottom {
+   align-self: end;
+   justify-self: start;
+   grid-area: 2 / 1;
+   font-family: "Exposure";
+   color: var(--marshmellow);
+    line-height: 0.9;
+    font-variation-settings: 'EXPO' 0;
+    font-size: 8rem;
+    margin: var(--margin);
+
+}
+
+.impact-content a {
+   grid-area: 3 / 1;
+   text-transform: uppercase;
+   z-index: 2;
+   font-family: "Pressura";
+   font-size: 14px;
+   color: var(--marshmellow);
+   padding: calc(var(--margin)/2);
+   border-bottom: solid 1px black;
+}
+.impact-content a::before {
+   filter: invert(94%) sepia(2%) saturate(2004%) hue-rotate(324deg) brightness(104%) contrast(87%);
+   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
+   display: inline;
+   vertical-align: middle; 
+   padding-left: 2%;
+   padding-right: 1%;
+    
+}
+
+/* .impact-content a {
+   text-transform: uppercase;
+   grid-area: 3 / 1;
+   align-self: end;
+   z-index: 2;
+   font-family: "Pressura";
+   font-size: 14px;
+   color: var(--marshmellow);
+   margin: var(--margin);
+   border-bottom: solid 1px black;
+}
+.impact-content a::before {
+   filter: invert(94%) sepia(2%) saturate(2004%) hue-rotate(324deg) brightness(104%) contrast(87%);
+   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
+   display: inline;
+   vertical-align: middle; 
+    padding: 0.4%;
+} */
+
+.impact-content a::before:hover {
+   transform: rotateX(45deg);
+}

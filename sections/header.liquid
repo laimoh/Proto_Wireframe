@@ -1,0 +1,115 @@
+
+<div class="container" x-data="{ mobilemenuOpen: false}">
+  <header id="header-global">
+    <a class="home bigboy" href="{{ link.url }}">
+      <div class="wrapper-logo">
+        {% comment %} {% render 'logo-letters' %} {% endcomment %}
+        {% render 'logo-pill' %}
+      </div>
+    </a>
+    {% for link in linklists.main-menu.links %}
+      {% assign handle = link.title %}
+      {% case handle %}
+        {% when 'Home' %}
+        {% when 'Search' %}
+        <div class="join desktop">
+          <a class="border_left" href="{{ link.url }}">{% render 'search-icon' %}</a>
+          {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+               <a class="border_left" href="/Accounts">
+              {{ 'log out' | customer_logout_link }}
+              {% else %}
+              {% comment %} {{ 'log in ' | customer_login_link }}
+              {{ 'register' | customer_register_link }} {% endcomment %}
+              <a class="border_left" href="/Accounts">
+                {% render 'user-icon' %}
+              </a>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="link border_right desktop">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </div>
+      {% endcase %}
+    {% endfor %}
+
+
+    {% assign cart_filled = 'nav.cart-count_html' | t: itemCount: cart.item_count %}
+    {% assign cart_empty = 'nav.cart' | t %}
+    {% assign cart_close = 'cart.copy.action.close' | t %}
+
+    <a class="link border_left desktop" href="{{ routes.cart_url }}">
+      {% if cart.item_count > 0 %}
+        {{ cart_filled }}
+      {% else %}
+        {{ cart_empty }}
+      {% endif %}
+    </a>
+    {% comment %} {{ cart_close }} {% endcomment %}
+       <div class="mobileNav">
+      <div x-bind:class="mobilemenuOpen ? 'hidden' : ''" class="topbar">
+             <button x-on:click="mobilemenuOpen = true" class="mainmenu-icon">
+            {% render 'menu-icon' %}
+            </button>
+            <button class="righticons">{% render 'search-icon' %}</button>
+            <button class="righticons">{% render 'cart-icon' %}</button>
+      </div>
+      <div x-show="mobilemenuOpen" class="dropdown">
+         {% for link in linklists.mobile-menu.links %}
+            <ul>
+               <li><a href="{{ link.url }}"></a>{{ link.title }}</li>
+            </ul>
+         {% endfor %}
+         <button class="closebtn" x-on:click="mobilemenuOpen = false">CLOSE</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+
+{% javascript %}
+//   const grid = document.querySelector("#header-global");
+//   wrapGrid(grid, {duration : 600});
+//   console.log(grid)
+  const headerlogo = document.querySelector('.home')
+   // console.log(headerlogo)
+
+    window.addEventListener('scroll', () => {
+      const position = window.pageYOffset;
+        if (position > 1) {
+         headerlogo.classList.remove('bigboy')
+        } else {
+         headerlogo.classList.add('bigboy')
+        }
+    }, { passive: true }); 
+{% endjavascript %}
+
+{% comment %}
+     // const headerlogo = document.querySelector('.home')
+   // console.log(headerlogo)
+
+   //  window.addEventListener('scroll', () => {
+   //    const position = window.pageYOffset;
+   //      if (position > 1) {
+   //       headerlogo.classList.remove('bigboy')
+   //      } else {
+   //       headerlogo.classList.add('bigboy')
+   //      }
+   //  }, { passive: true }); 
+{% endcomment %}
+
+
+    
+
+
+   
+
+
+{% schema %}
+   {
+      "name": "Header",
+      "tag": "section",
+      "class": "index-header"
+   }
+{% endschema %}

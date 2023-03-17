@@ -1,0 +1,47 @@
+<div class="error-wrapper">
+  <div class="error-content">
+    <h1>{{ section.settings.title }}</h1>
+    <div class="line"></div>
+    <p>
+      {{ section.settings.subtext }}
+    </p>
+    <div class="line"></div>
+    {% if section.settings.button_url == blank %}
+      {% assign buttonURL = shop.secure_url %}
+    {% else %}
+      {% assign buttonURL = section.settings.button_url %}
+    {% endif %}
+    <a href={{ buttonURL }}>{{ section.settings.button_text }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "template 404",
+    "tag": "section",
+    "class": "error-wrapper",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Sorry",
+        "label": "Error Page Heading"
+      }, {
+        "type": "text",
+        "id": "subtext",
+        "default": "The page you are looking for does not exist.",
+        "label": "Error Page Subtext"
+      }, {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Link"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "default": "Back to Proto",
+        "label": "Button Text"
+      }
+    ]
+
+  }
+{% endschema %}

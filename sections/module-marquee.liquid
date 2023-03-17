@@ -1,0 +1,101 @@
+{{ 'marquee.css' | asset_url | stylesheet_tag }}
+
+<div class="marquee-content" style="background-color: {{ section.settings.bg_color }};">
+  <div class="cover">
+    <div class="clipped" style="background-image: url({{ section.settings.cover-img | img_url: 'master' }});"></div>
+  </div>
+  <div class="marquee">
+    <h1>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50}};" class="marquee-word1">{{ section.settings.marquee-word1 }}</span>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word2 | minus: 50}};" class="marquee-word2">{{ section.settings.marquee-word2 }}</span>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word3 | minus: 50}};" class="marquee-word3">{{ section.settings.marquee-word3 }}</span>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50}};" class="marquee-word1">{{ section.settings.marquee-word1 }}</span>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word2 | minus: 50}};" class="marquee-word2">{{ section.settings.marquee-word2 }}</span>
+      <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word3 | minus: 50}};" class="marquee-word3">{{ section.settings.marquee-word3 }}</span>
+    </h1>
+  </div>
+  <a href={{ section.settings.btn_url }}>
+    {{ section.settings.btn_title }}</a>
+</div>
+
+{% schema %}
+  {
+    "name": "Marquee Module",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_button",
+        "label": "Show Button",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#7D7C99"
+      },
+      {
+        "type": "image_picker",
+        "id": "cover-img",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "marquee-word1",
+        "label": "Word",
+        "default": "Outdoors"
+      }, {
+        "type": "range",
+        "id": "expo-word1",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 100
+      }, {
+        "type": "text",
+        "id": "marquee-word2",
+        "label": "Word",
+        "default": "Everywhere"
+      }, {
+        "type": "range",
+        "id": "expo-word2",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 0
+      }, {
+        "type": "text",
+        "id": "marquee-word3",
+        "label": "Word",
+        "default": "Proto"
+      }, {
+        "type": "range",
+        "id": "expo-word3",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 100
+      }, {
+        "type": "text",
+        "id": "btn_title",
+        "label": "Button Text",
+        "default": "SHOP NOW"
+      }, {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Marquee Module",
+        "category": "Custom"
+      }
+    ],
+    "templates": ["index"]
+  }
+{% endschema %}

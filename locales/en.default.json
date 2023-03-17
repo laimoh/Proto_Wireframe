@@ -1,0 +1,59 @@
+{
+  "general": {
+    "404": {
+      "title": "Not found",
+      "subtext_html": "The page you were looking for does not exist"
+    }
+  },
+  "nav": {
+    "shop": "Shop",
+    "about": "About",
+    "cart": "Cart",
+    "cart-count_html": "Cart --- <span class=\"js-cart-item-count\">{{ itemCount }}<\/span>"
+  },
+  "product": {
+    "button_copy": {
+      "expand": "Read more",
+      "shipping": "Shipping Info",
+      "sizing": "Sizing Help",
+      "bag": "Add To Bag"
+    },
+    "form": {
+      "size-helper": "Pick a",
+      "quantity": "add quantity"
+    }
+  },
+  "cart": {
+    "nav": {
+      "filled": "CART ----",
+      "empty": "CART ---- 0"
+    },
+    "copy": {
+      "empty": "your Cart is Empty",
+      "action": {
+        "checkout": "checkout",
+        "close": "close"
+      }
+    }
+  },
+  "footer": {
+    "top": {
+      "leftmodule": {
+        "header": "Sign Up For",
+        "instagram": "INSTAGRAM",
+        "instagramURL": "https:\/\/www.instagram.com\/protocollective\/",
+        "text": "Text Us ☻",
+        "textURL": "https:\/\/my.community.com\/protocollective"
+      },
+      "rightmodule": {
+        "proto-title": "Proto",
+        "help-title": "Help"
+      }
+    },
+    "bottom": {
+      "copyright": "© {{ date }} | Proto Collective | ",
+      "creditURL": "http:\/\/laimoh.com\/",
+      "credit": "Site Credit"
+    }
+  }
+}

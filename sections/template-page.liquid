@@ -1,0 +1,27 @@
+{{ 'impact.css' | asset_url | stylesheet_tag }}
+<div class="about-content">
+  <section class="about-proto">
+    <div class="about-proto" ">
+      <p>{{ page.content }}</p>
+    </div>
+    <div class="subtext">
+      <p>{{ section.settings.subtext }}</p>
+    </div>
+  </section>
+  <section class="contact-form"></section>
+</div>
+
+{% schema %}
+  {
+    "name": "About",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtext",
+        "label": "Subtext",
+        "default": "Practice is Perfect"
+      }
+    ]
+  }
+{% endschema %}

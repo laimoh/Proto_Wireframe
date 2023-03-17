@@ -1,0 +1,9 @@
+<div class="product-card stacked">
+  <a href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></a>
+  <div class="card-content">
+    <p class="product-title">{{ product.title }}</p>
+    <p class="product-type">{{ product.type }}</p>
+    <p class="product-price">{{ product.price | money }}</p>
+    <button class="product-buynow">ADD TO BAG</button>
+  </div>
+</div>

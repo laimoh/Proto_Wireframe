@@ -1,0 +1,88 @@
+.pill-content {
+   display: grid;
+height: 100vh;
+grid-template-rows: 1fr auto;
+overflow: hidden;
+}
+
+.cover-crop {
+   grid-area: 1 / 1 / -1 / -1;
+    justify-self: center; 
+    position: relative;
+
+    
+}
+.pill-wrapper {
+   position: relative;
+    width: 100vw;
+    height: 125vh;;
+    z-index: -1;
+
+}
+.pill-wrapper img {
+   position: absolute;
+
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+  /* clip-path: url(#slant-pill); */
+}
+/*  width="695" height="690" */
+
+.large-pill {
+   position: absolute;
+   width: 100vw;
+   height: 135vh;
+   transform: translateY(-10%);
+}
+.mask-pill {
+   margin-left: 50vw;
+}
+
+.pill-content h1 {
+   font-family: "Exposure";
+   font-size: 8rem;
+   justify-self: center;
+   display: grid;
+   width: 100%;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 0.5fr 0.75fr 0.5fr 0.5fr;
+   gap: 2%;
+   margin-left: var(--margin);
+   margin-right: var(--margin);
+}
+
+.pill-content h1 span {
+   letter-spacing: -10px;
+}
+
+.pill-word1 {
+  justify-self: end;
+}
+.pill-word2 {
+   grid-row: 2;
+   justify-self: end;
+}
+.pill-word3 {
+   grid-area: 3 / 2;
+   justify-self: start;
+}
+
+.pill-content a {
+   text-transform: uppercase;
+      align-self: end;
+      z-index: 2;
+      font-family: "Pressura";
+      font-size: 14px;
+      color: black;
+      padding: calc(var(--margin)/2);
+      border-bottom: solid 1px black;
+}
+.pill-content a::before {
+   filter: invert(0%) sepia(8%) saturate(7468%) hue-rotate(114deg) brightness(89%) contrast(107%);
+   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
+   display: inline;
+   vertical-align: middle; 
+   padding-left: 2%;
+   padding-right: 1%;
+}

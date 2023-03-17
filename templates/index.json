@@ -1,0 +1,97 @@
+{
+  "sections": {
+    "impact": {
+      "type": "module-impact",
+      "settings": {
+        "enable_button": true,
+        "cover-img": "shopify:\/\/shop_images\/image_3.png",
+        "word1": "Practice",
+        "word2": "is",
+        "word3": "Perfect",
+        "title_alignment": "centered",
+        "btn_title": "READ ABOUT PROTO",
+        "btn_url": "shopify:\/\/pages\/sizing-chart"
+      }
+    },
+    "pill_crop": {
+      "type": "module-pill_crop",
+      "settings": {
+        "enable_button": true,
+        "cover-img": "shopify:\/\/shop_images\/image_6.png",
+        "btn_title": "SEE APPAREL",
+        "btn_url": "shopify:\/\/collections",
+        "pill-word1": "Practice",
+        "expo-word1": 19,
+        "vertical_alignment-word1": "top",
+        "horizontal_alignment-word1": "left",
+        "pill-word2": "",
+        "expo-word2": 0,
+        "vertical_alignment-word2": "middle",
+        "horizontal_alignment-word2": "left",
+        "pill-word3": "is Perfect",
+        "expo-word3": 100,
+        "vertical_alignment-word3": "bottom",
+        "horizontal_alignment-word3": "right"
+      }
+    },
+    "8229b6a6-447d-47f7-a591-dee57561e504": {
+      "type": "module-impact",
+      "settings": {
+        "enable_button": true,
+        "cover-img": "shopify:\/\/shop_images\/Frame301.png",
+        "word1": "Drop",
+        "word2": "#1",
+        "word3": "",
+        "title_alignment": "leftBottom",
+        "btn_title": "SEE PROCESS",
+        "btn_url": "shopify:\/\/collections"
+      }
+    },
+    "marquee": {
+      "type": "module-marquee",
+      "settings": {
+        "enable_button": false,
+        "bg_color": "#7d7c99",
+        "cover-img": "shopify:\/\/shop_images\/image_10.png",
+        "marquee-word1": "Outdoors",
+        "expo-word1": 100,
+        "marquee-word2": "Everywhere",
+        "expo-word2": 0,
+        "marquee-word3": "Proto",
+        "expo-word3": 100,
+        "btn_title": "Shop now",
+        "btn_url": "shopify:\/\/products\/231-ipsum"
+      }
+    },
+    "editorial": {
+      "type": "module-editorial",
+      "settings": {
+        "enable_button": true,
+        "background": "#937d6a",
+        "blog_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "cover-img": "shopify:\/\/shop_images\/MATRIX_SKETCH_DESIGN_101122_4.png",
+        "btn_title": "READ ABOUT THE PROCESS",
+        "btn_url": "https:\/\/www.w3.org\/Provider\/Style\/dummy.html"
+      }
+    },
+    "ending": {
+      "type": "module-ending",
+      "settings": {
+        "enable_button": true,
+        "background": "#efe5dc",
+        "cover-img": "shopify:\/\/shop_images\/Group_78.png",
+        "title": "Join The Community",
+        "btn_title": "Shop now",
+        "btn_url": ""
+      }
+    }
+  },
+  "order": [
+    "impact",
+    "pill_crop",
+    "8229b6a6-447d-47f7-a591-dee57561e504",
+    "marquee",
+    "editorial",
+    "ending"
+  ]
+}

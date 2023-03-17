@@ -1,0 +1,73 @@
+<div class="footer-topbar">
+  <div class="left-section">
+    <div class="signup-section">
+      <p>{{ 'footer.top.leftmodule.header' | t }}
+        <span class="updates">Updates</span>
+      </p>
+      <div className="email">
+        <div class="klaviyo-form-SQVWwG"></div>
+      </div>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="sitemap">
+      <p>Proto</p>
+      <ul class="proto-links">
+        {% for link in linklists.proto-footer-links.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            [{% for childlink in linklists[child_list_handle].links %}
+              <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            {% endfor %}]
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <p>{{ linklists.footer.title | remove: "Footer links" }}</p>
+      <ul class="help-links">
+        {% for link in linklists.footer.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            [{% for childlink in linklists[child_list_handle].links %}
+              <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            {% endfor %}]
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-bottombar">
+  <div class="contact-buttons">
+    <a
+      className='ig'
+      target="new"
+      href="{{'footer.top.leftmodule.instagramURL' | t}}"
+      target="new">{{ "footer.top.leftmodule.instagram" | t }}</a>
+    <a
+      className='textproto'
+      target="new"
+      href="{{'footer.top.leftmodule.textURL' | t}}"
+      target="new">{{ "footer.top.leftmodule.text" | t }}</a>
+  </div>
+  <div class="copyright">
+    {% assign copyrightDate = 'now' | date: '%Y' %}
+    <span>
+      {{ "footer.bottom.copyright" | t: date: copyrightDate }}
+      <a href="{{ 'footer.bottom.creditURL' | t }}" target="new">{{ 'footer.bottom.credit' | t }}</a>
+    </span>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "tag": "section",
+    "class": "footer-wrapper"
+  }
+{% endschema %}

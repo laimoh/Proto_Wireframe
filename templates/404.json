@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-error",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "template"
+  ]
+}

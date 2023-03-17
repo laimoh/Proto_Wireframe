@@ -1,0 +1,95 @@
+{{ 'impact.css' | asset_url | stylesheet_tag }}
+
+<div class="impact-content">
+  <div class="cover">
+    <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
+  </div>
+  <h1
+    {% if section.settings.title_alignment == 'centered' %}
+    class="centered"
+    {% elsif section.settings.title_alignment == 'leftBottom' %}
+    class="leftBottom"
+    {% endif %}
+    ><span class="word1">{{ section.settings.word1 }}</span>
+    <span class="word2">{{ section.settings.word2 }}</span>
+    <span class="word3">{{ section.settings.word3 }}</span>
+    </h1>
+  {% if section.settings.enable_button == true %}
+    {% if section.settings.btn_url == blank %}
+      {% assign buttonURL = shop.secure_url %}
+    {% else %}
+      {% assign buttonURL = section.settings.btn_url %}
+    {% endif %}
+    <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Impact Module",
+    "tag": "section",
+    "class": "impact-module-wrapper",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_button",
+        "label": "Show Button",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "cover-img",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "word1",
+        "label": "Word",
+        "default": "Practice"
+      },
+      {
+        "type": "text",
+        "id": "word2",
+        "label": "Word",
+        "default": "is"
+      },
+      {
+        "type": "text",
+        "id": "word3",
+        "label": "Word",
+        "default": "Perfect"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title Alignment",
+        "options": [
+          {
+            "value": "leftBottom",
+            "label": "Left Bottom"
+          }, {
+            "value": "centered",
+            "label": "Centered"
+          }
+        ],
+        "default": "centered"
+      }, {
+        "type": "text",
+        "id": "btn_title",
+        "label": "Button Text",
+        "default": "Shop now"
+      }, {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Impact Module",
+        "category": "Custom"
+      }
+    ],
+    "templates": ["index"]
+  }
+{% endschema %}

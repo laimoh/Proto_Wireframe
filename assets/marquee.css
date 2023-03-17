@@ -1,0 +1,93 @@
+
+.marquee-content {
+   display: grid;
+   width: 100vw;
+   height: 100vh;
+   grid-template-rows: 1fr auto auto;
+   overflow: hidden;
+}
+
+.cover {
+   grid-area: 1 / 1 / -1 / -1;
+   position: relative;
+}
+
+.clipped {
+   /* position: absolute;
+   top: 40%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 100vw;
+   height: 100vh;
+   background-size: cover;
+   clip-path: url(#pill-marquee);
+   justify-self: center; */
+   position: absolute;
+   top: 45%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   width: 80vw;
+   height: 60vh;
+   background-size: cover;
+   border-radius: 300px;
+   border: solid black 1px;
+
+}
+
+.marquee {
+   margin-left: var(--margin);
+   margin-right: var(--margin);
+    overflow-x: hidden;
+    grid-area: 2 / 1;
+    height: 100%;
+    z-index: 2;
+}
+
+.marquee h1 {
+   margin-left: var(--margin);
+   margin-right: var(--margin);
+   display: flex;
+   align-items: center;
+   color: black;
+   padding: 0 6rem;
+   animation: marquee 27s linear infinite;
+}
+
+.marquee-content span {
+   font-family: "Exposure";
+   font-size: 9rem;
+   padding: 0 1rem;
+   flex-shrink: 0;
+   letter-spacing: -5px;
+  
+}
+
+@keyframes marquee {
+   0% { transform: translateX(0); }
+   100% { transform: translateX(-100%); }
+ }
+
+.marquee-content a {
+   text-transform: uppercase;
+   grid-area: 3 / 1;
+   align-self: end;
+   z-index: 2;
+   font-family: "Pressura";
+   font-size: 14px;
+   color: black;
+   padding: calc(var(--margin)/2);
+   border-top: solid 1px black;
+   border-bottom: solid 1px black;
+}
+.marquee-content a::before {
+
+   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
+   display: inline;
+   vertical-align: middle; 
+   padding-left: 2%;
+   padding-right: 1%;
+}
+
+.marquee-content a::before:hover {
+   transform: rotateX(45deg);
+}

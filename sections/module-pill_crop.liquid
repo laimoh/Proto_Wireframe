@@ -1,0 +1,268 @@
+{{ 'pill_crop.css' | asset_url | stylesheet_tag }}
+
+<div class="pill-content">
+  <div class="cover-crop">
+    <div class="pill-wrapper">
+      <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
+      <svg
+        class="large-pill"
+        viewBox="0 0 695 690"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M644.837 281.446L280.293 641.676C215.161 706.037 110.218 706.037 47.2991 641.676C-16.5822 577.315 -15.565 472.608 49.5575 409.208L414.101 48.978C446.181 17.2778 488.703 0.947406 531.065 0.947403C573.428 0.947399 615.632 17.2778 647.095 48.978C710.986 112.378 709.969 217.085 644.837 281.446Z"
+          stroke="black"
+          stroke-width="1"
+          fill="none" />
+        <defs>
+          <clipPath id="slant-pill">
+            <path
+              d="M108.054 1108.88L108.048 1108.87C-34.4552 965.629 -34.4476 732.598 108.043 591.507L108.048 591.502L907.799 -212.393C977.982 -282.941 1071.56 -319.285 1165.14 -319.285C1258.72 -319.285 1352.3 -282.941 1422.49 -212.393L1422.49 -212.388C1564.98 -71.2968 1564.99 161.734 1422.49 304.976L622.736 1108.87C480.235 1252.11 248.415 1252.1 108.054 1108.88Z"
+              fill="white"
+              stroke-width="1" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <h1>{% liquid
+     assign vertical = section.settings.vertical_alignment-word1 
+    case vertical 
+      when 'top' 
+      assign row = "grid-row: 1" 
+      when 'middle' 
+      assign row = "grid-row: 2" 
+    else 
+      assign row = "grid-row: 3" 
+    endcase 
+    assign horizontal = section.settings.horizontal_alignment-word1 
+    case horizontal 
+      when 'left' 
+      assign col = "grid-column: 1" 
+      when 'right' 
+      assign col = "grid-column: 2" 
+  else
+    endcase %}
+    <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50 }}; {{row}}; {{col}}" class="pill-word1">
+      {{ section.settings.pill-word1 }}
+    </span>
+    {% liquid
+     assign vertical2 = section.settings.vertical_alignment-word2 
+    case vertical2 
+      when 'top' 
+      assign row2 = "grid-row: 1" 
+      when 'middle' 
+      assign row2 = "grid-row: 2" 
+    else 
+      assign row2 = "grid-row: 3" 
+    endcase 
+    assign horizontal2 = section.settings.horizontal_alignment-word2 
+    case horizontal2 
+      when 'left' 
+      assign col2 = "grid-column: 1" 
+      when 'right' 
+      assign col2 = "grid-column: 2" 
+  else
+    endcase %}
+    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }}; {{ col2 }}; {{ row2 }};" class="pill-word2">{{ section.settings.pill-word2 }}</span>
+
+    {% liquid
+    assign vertical3 = section.settings.vertical_alignment-word3 
+   case vertical3 
+     when 'top' 
+     assign row3 = "grid-row: 1" 
+     when 'middle' 
+     assign row3 = "grid-row: 2" 
+   else 
+     assign row3 = "grid-row: 3" 
+   endcase 
+   assign horizontal3 = section.settings.horizontal_alignment-word3 
+   case horizontal3 
+     when 'left' 
+     assign col3 = "grid-column: 1" 
+     when 'right' 
+     assign col3 = "grid-column: 2" 
+ else
+   endcase %}
+    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }}; {{ col3 }}; {{ row3 }};" class="pill-word3">{{ section.settings.pill-word3 }}</span>
+  </h1>
+  {% if section.settings.enable_button == true %}
+    {% if section.settings.btn_url == blank %}
+      {% assign buttonURL = shop.secure_url %}
+    {% else %}
+      {% assign buttonURL = section.settings.btn_url %}
+    {% endif %}
+    <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Pill Crop Module",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_button",
+        "label": "Show Button",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "cover-img",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "btn_title",
+        "label": "Button Text",
+        "default": "SHOP NOW"
+      },
+      {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button Link"
+      }, {
+        "type": "text",
+        "id": "pill-word1",
+        "label": "Word #1",
+        "default": "Practice is"
+      }, {
+        "type": "range",
+        "id": "expo-word1",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 0
+      }, {
+        "type": "select",
+        "id": "vertical_alignment-word1",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          }, {
+            "value": "middle",
+            "label": "Middle"
+          }, {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "middle"
+      }, {
+        "type": "select",
+        "id": "horizontal_alignment-word1",
+        "label": "Horizontal alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "text",
+        "id": "pill-word2",
+        "label": "Word #2",
+        "default": "0"
+      }, {
+        "type": "range",
+        "id": "expo-word2",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 0
+      }, {
+        "type": "select",
+        "id": "vertical_alignment-word2",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          }, {
+            "value": "middle",
+            "label": "Middle"
+          }, {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "middle"
+      }, {
+        "type": "select",
+        "id": "horizontal_alignment-word2",
+        "label": "Horizontal alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }, {
+        "type": "text",
+        "id": "pill-word3",
+        "label": "Word #3",
+        "default": "Perfect"
+      }, {
+        "type": "range",
+        "id": "expo-word3",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 100
+      }, {
+        "type": "select",
+        "id": "vertical_alignment-word3",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          }, {
+            "value": "middle",
+            "label": "Middle"
+          }, {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "middle"
+      }, {
+        "type": "select",
+        "id": "horizontal_alignment-word3",
+        "label": "Horizontal alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Pill Crop Module",
+        "category": "Custom"
+      }
+    ],
+    "templates": ["index"]
+  }
+{% endschema %}

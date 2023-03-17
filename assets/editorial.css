@@ -1,0 +1,53 @@
+
+.editorial-content {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+   align-items: end;
+}
+
+.editorial-grid {
+   height: 90%;
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+   width: 100%;
+}
+
+.editorial-img {
+   margin-left: var(--margin);
+   margin-right: var(--margin);
+   background-size: cover;
+   border-radius: 28px;
+}
+
+.editorial-grid h1 {
+   width: 100%;
+   font-family: "Pressura";
+   text-transform: uppercase;
+   padding: 1%;
+   justify-self: stretch;
+   text-align: center;
+   font-size: 14px;
+
+   border-bottom: solid 1px black;
+}
+
+.editorial-content a {
+   text-transform: uppercase;
+   z-index: 2;
+   font-family: "Pressura";
+   font-size: 14px;
+   color: black;
+   padding: calc(var(--margin)/2);
+   border-top: solid 1px black;
+   border-bottom: solid 1px black;
+}
+.editorial-content a::before {
+
+   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
+   display: inline;
+   vertical-align: middle; 
+    padding-left: 2%;
+    padding-right: 1%;
+    
+}
