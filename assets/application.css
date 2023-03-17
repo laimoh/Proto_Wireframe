@@ -145,6 +145,8 @@ svg * {
 body {
    display: grid;
    grid-template-rows: auto 1fr auto;
+   /* height: 100vh; */
+   overflow: hidden;
 }
 
 /* main {
@@ -157,6 +159,24 @@ body {
    position: fixed;
    width: 100%;
    font-family: "Pressura";
+}
+.template-index main {
+   overflow: scroll;
+   height: 100vh;
+   scroll-snap-points-y: repeat(100vh);
+   scroll-snap-type: y mandatory;
+}
+
+.template-index main section {
+
+   min-width: 100vw;
+	height: 100vh;
+	scroll-snap-align: start;
+}
+
+.template-index main .footer-wrapper {
+   min-width: unset;
+	height: unset;
 }
 
 .template-collection .header {
@@ -437,6 +457,7 @@ body {
 }
 
 .card-content {
+  
    margin: calc(var(--margin)/2);
    font-size: var(--shop-notation);
    display: grid;
@@ -464,6 +485,8 @@ body {
 }
 
 .product-buynow {
+   all: initial;
+   /* margin: calc(var(--margin)/2); */
    grid-area: buybtn;
    align-self: end;
    justify-self: start;
@@ -474,7 +497,7 @@ body {
   display: flex;
 }
 .pill-icon {
-   margin-left: 10%;
+   margin-right: 10%;
    width: 14px;
    height: 18px;
    /* margin: 0;
