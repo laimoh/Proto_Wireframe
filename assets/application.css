@@ -1,15 +1,17 @@
 @font-face {
    font-family: "Exposure";
    src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/exposure.woff2?v=1678893020) format("truetype");
- }
- @font-face {
+}
+
+@font-face {
    font-family: "Pressura";
    src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Pressura-Mono-Regular.woff2?v=1678895659) format("woff2");
- }
- @font-face {
+}
+
+@font-face {
    font-family: "Walsheim";
    src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Walsheim-Regular-Trial.woff2?v=1679004112) format("woff2");
- }
+}
 
 :root {
    --marshmellow: #EFE5DC;
@@ -23,10 +25,14 @@
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
-   --body-size: 0.9vw;
+   /* --body-size: 0.9vw;
    --notation-size: 12px;
    --btn-small: 14px;
-   --btn-large: 16px;
+   --btn-large: 16px; */
+   --shop-notation: 10px;
+   --header-notation: 10px;
+   --footer-notation: 10px;
+   /* --shop-font: "Pressura"; */
 }
 
 /* base */
@@ -95,6 +101,7 @@ img {
 .border_left {
    border-left: 1px solid black;
 }
+
 .border_right {
    border-right: 1px solid black;
 }
@@ -112,8 +119,9 @@ img {
    border: var(--wireframe);
    width: 100%;
    height: 1px;
-}  
-.fixed{
+}
+
+.fixed {
    position: fixed;
 }
 
@@ -126,11 +134,11 @@ svg * {
    background-color: #A72828;
 }
 
-.index-header {
+/* .index-header {
    grid-area: 1 / 1;
    z-index: 2;
    font-family: "Pressura";
-}
+} */
 
 /* theme */
 
@@ -139,19 +147,35 @@ body {
    grid-template-rows: auto 1fr auto;
 }
 
-main {
+/* main {
    grid-area: 1 / 1;
+} */
+
+.template-index .header {
+   grid-area: 1 / 1;
+   z-index: 2;
+   position: fixed;
+   width: 100%;
+   font-family: "Pressura";
 }
+
+.template-collection .header {
+   position: sticky;
+   top: 0;
+   background-color: var(--marshmellow);
+   z-index: 1;
+}
+
 
 /*  nav */
 
 .container {
-   position: fixed;
-   width: 100%;
+    font-family: "Pressura";
 }
 
+
 .header-wrapper {
-  z-index: 2;
+   z-index: 2;
 }
 
 #header-global {
@@ -201,20 +225,22 @@ main {
 
 .LETTER-P {
    -webkit-mask: url(#mask-p);
-           mask: url(#mask-p);
+   mask: url(#mask-p);
 }
 
 .LETTER-R {
    -webkit-mask: url(#mask-r);
-           mask: url(#mask-r);
+   mask: url(#mask-r);
 }
+
 .LETTER-O1 {
    -webkit-mask: url(#mask-o1);
-           mask: url(#mask-o1);
+   mask: url(#mask-o1);
 }
+
 .LETTER-O2 {
    -webkit-mask: url(#mask-o2);
-           mask: url(#mask-o2);
+   mask: url(#mask-o2);
 }
 
 .link {
@@ -256,9 +282,9 @@ main {
 
 .footer-topbar {
    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    margin-left: var(--margin);
-    margin-right: var(--margin);
+   grid-template-columns: 1fr 0.5fr;
+   margin-left: var(--margin);
+   margin-right: var(--margin);
 }
 
 .left-section {
@@ -280,13 +306,15 @@ main {
    letter-spacing: -2px;
 
 }
+
 .signup-section span {
-   font-variation-settings: 'EXPO' -50;
+   font-variation-settings: 'EXPO'-50;
 }
 
 .right-section {
    justify-self: center;
 }
+
 .sitemap {
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -294,17 +322,19 @@ main {
    width: 90%;
 }
 
-.proto-links, .help-links {
+.proto-links,
+.help-links {
    display: flex;
-    flex-direction: column;
-    padding: 0;
+   flex-direction: column;
+   padding: 0;
 }
 
 .proto-links {
    grid-area: 2 / 1;
 }
 
-.proto-links a, .help-links a {
+.proto-links a,
+.help-links a {
    font-family: 'Walsheim';
    padding: 4%;
    white-space: nowrap;
@@ -312,11 +342,11 @@ main {
 }
 
 .sitemap p {
-  font-family: "Pressura";
-  text-transform: uppercase;
-  color: var(--red);
-  padding: 6% 6%;
-  align-self: end;
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: var(--red);
+   padding: 6% 6%;
+   align-self: end;
 }
 
 .contact-buttons {
@@ -368,8 +398,10 @@ main {
 .error-content * {
    margin: var(--margin);
 }
-.error-content p, .error-content a {
-  white-space: nowrap;
+
+.error-content p,
+.error-content a {
+   white-space: nowrap;
 }
 
 /* SHOP ALL */
@@ -385,16 +417,18 @@ main {
 .product-card {
    border-right: var(--wireframethick);
    border-bottom: var(--wireframethick);
+   
 }
+
 .product-card:nth-child(3n) {
    border-right: unset;
- }
+}
 
 .card-img {
    display: block;
 }
 
-.card-img img{
+.card-img img {
    width: 100%;
    height: 100%;
    aspect-ratio: 1;
@@ -404,10 +438,11 @@ main {
 
 .card-content {
    margin: calc(var(--margin)/2);
+   font-size: var(--shop-notation);
    display: grid;
-   grid-template-areas: 
-   "title type"
-   "price buybtn";
+   grid-template-areas:
+      "title type"
+      "buybtn price";
 }
 
 .product-title {
@@ -415,27 +450,46 @@ main {
    align-self: start;
    justify-self: start;
 }
+
 .product-type {
    grid-area: type;
    align-self: start;
    justify-self: end;
 }
+
 .product-price {
    grid-area: price;
-   align-self: end;
-   justify-self: start;
-}
-.product-buynow {
-   grid-area: buybtn;
    align-self: end;
    justify-self: end;
 }
 
-.stacked {
-   display: grid;
+.product-buynow {
+   grid-area: buybtn;
+   align-self: end;
+   justify-self: start;
+   font-size: var(--shop-notation);
+   font-family: "Pressura";
+   white-space: nowrap;
+   align-items: center;
+  display: flex;
+}
+.pill-icon {
+   margin-left: 10%;
+   width: 14px;
+   height: 18px;
+   /* margin: 0;
+   padding: 0; */
 }
 
-.stacked > * {
+.stacked {
+   display: grid;
+       display: grid;
+    font-family: "Pressura";
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.stacked>* {
    grid-column: 1 / 2;
    grid-row: 1 / 2;
 }
@@ -543,11 +597,11 @@ main {
    display: none;
 }
 
-@media screen and (width <= 458px) {
+@media screen and (width <=458px) {
    .right {
       right: calc(var(--margin)/2);
    }
-   
+
    .left {
       left: calc(var(--margin)/2);
    }
@@ -564,7 +618,7 @@ main {
       grid-template-columns: unset;
       grid-template-rows: auto;
       height: unset;
-    margin-top: calc(var(--margin)/2);
+      margin-top: calc(var(--margin)/2);
    }
 
    .logo {
@@ -594,7 +648,8 @@ main {
       margin-left: var(--margin);
    }
 
-   .mainmenu-icon svg, .righticons svg {
+   .mainmenu-icon svg,
+   .righticons svg {
       width: 6vw;
       height: auto;
    }
@@ -615,5 +670,5 @@ main {
       padding: calc(var(--margin)/2);
    }
 
-   
+
 }
