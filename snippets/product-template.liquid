@@ -18,6 +18,22 @@ max-height: 3rem;
             <div class="MetaItem ProductDescription">
                 {{ product.description }}
             </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">Read More</div>
+            </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">SHIPPING INFO</div>
+            </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">SIZING HELP</div>
+            </div>
+
             </div>
     </div>
 
@@ -50,9 +66,19 @@ max-height: 3rem;
                     {% endfor %}
                     </div>
                     {% endfor %}
-
+                    <div class="productQty">
+                        <span style="text-transform:uppercase">Add Quantity</span>
+                        <div class="qty">
+                            {% render 'qty', product: product %}
+                        </div>
+                    </div>
                 {% endform %}
+
             </div>
     </div>
-
+<div class="stickyATC">
+<span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money }} </span>
+<div class="stickySpacer"></div>
+<span>ADD TO BAG</span>
+</div>
 </div>

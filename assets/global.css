@@ -9,6 +9,38 @@
 }
 
 
+.qty--wrapper{
+    display: flex;
+    font-size: 1.3rem;
+}
+
+.qty--button{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.Collapsible{
+    margin: 10px 0;
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+
+}
+
+.Collapsible--button{
+    height: 2rem;
+    width: 1.4rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin-right: 5px;
+}
+
+.Collapsible--label{
+    text-transform: uppercase;
+}
+
 /*Global CSS Mobile*/
 
 @media screen and (width <= 458px){  
