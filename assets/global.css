@@ -1,0 +1,18 @@
+/*Global CSS to be Reused*/
+
+.SectionContainer{
+    padding: 0 calc(var(--margin));
+}
+
+.SectionContainer:first-of-type{
+    padding-top: 4rem;
+}
+
+
+/*Global CSS Mobile*/
+
+@media screen and (width <= 458px){  
+.SectionContainer{
+    padding: 0 calc(var(--margin)/2);
+}
+}

@@ -1,0 +1,28 @@
+.ProductContainer{
+    display:flex;
+    font-family: "Pressura";
+}
+
+.ProductMeta--Container, .ProductVariant--Container{
+    width: 25%;
+    position: sticky;
+    top: 4rem;
+}
+
+.ProductMeta--Container{
+
+}
+
+.ProductMeta{
+    position: absolute;
+    bottom: 0;
+}
+
+.ProductMedia{
+    padding: 0 3rem;
+}
+
+.ProductMedia img{
+    width: 100%;
+    margin-bottom: var(--margin);
+}

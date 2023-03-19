@@ -10,7 +10,11 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
+
+    <script defer src="{{ 'theme.js' | asset_url }}"></script>
+    {{ 'global.css' | asset_url | stylesheet_tag }}
+    {{ 'flickity.css' | asset_url | stylesheet_tag }}
+    {{ 'flickity.js' | asset_url | script_tag }} 
     <script
       async
       type="text/javascript"
