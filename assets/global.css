@@ -37,6 +37,10 @@
     margin-right: 5px;
 }
 
+.hide{
+    display: none!important;
+}
+
 .Collapsible--label{
     text-transform: uppercase;
 }

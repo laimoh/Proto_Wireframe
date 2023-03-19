@@ -73,10 +73,17 @@ max-height: 3rem;
                         </div>
                     </div>
                 {% endform %}
-
+                <textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
+                    {{ product.variants | json }}
+                  </textarea>
+                  {%- if product.options.size > 1 -%}
+                    <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
+                      {{ current_variant | json }}
+                    </textarea>
+                  {%- endif -%}
             </div>
     </div>
-<div class="stickyATC">
+<div data-sticky class="stickyATC">
 <span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money }} </span>
 <div class="stickySpacer"></div>
 <span>ADD TO BAG</span>
