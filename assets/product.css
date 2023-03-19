@@ -20,6 +20,10 @@
     border: 1px solid black;
 }
 
+.ProductMedia--Container{
+    max-width: 50%;
+}
+
 .ProductMedia{
     padding: 0 3rem;
 }

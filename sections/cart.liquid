@@ -1,0 +1,8 @@
+<div id="CartDrawer">
+
+{% for item in cart.items %}
+    {% render 'cart-item', item: item %}
+{% endfor %}
+
+
+</div>

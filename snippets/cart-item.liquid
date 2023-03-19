@@ -1,0 +1,19 @@
+<div class="CartItem">
+<div class="CartItem--Header">
+<span class="CartItemTitle">
+{{ item.title | split: " " | first }}
+</span>
+
+<span class="CartItemTitle">
+{{ item.product.title | split: " " | [1] }}
+</span>
+
+<span>
+{% unless item.product.has_only_default_variant%}
+{{ item.title }}
+{%endunless%}
+</span>
+
+</div>
+
+</div>
