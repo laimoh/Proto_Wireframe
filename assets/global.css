@@ -45,6 +45,49 @@
     text-transform: uppercase;
 }
 
+
+#CartDrawer{
+    position: fixed;
+    width: 350px;
+    right: -350px;
+    height: 100vh;
+    transition: all 0.2s ease-in;
+    top: 0;
+    z-index: 20;
+    background: var(--marshmellow);
+    font-size: 1.3rem;
+    border-left: 1px solid black;
+}
+
+#CartDrawer[aria-hidden="false"]{
+    right:0;
+}
+
+.CartProducts{
+    padding-top: 20px;
+    overflow: scroll;
+    max-height: calc(100% - 10rem);
+}
+
+.CartItem--Header,.CartItem--footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.CartItem--Image{
+    text-align: center;
+}
+
+.CartItem{
+    border-bottom: 1px solid black;
+}
+
+.CartItem img{
+    width: 60%;
+}
+
 /*Global CSS Mobile*/
 
 @media screen and (width <= 458px){  

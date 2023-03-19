@@ -1,19 +1,35 @@
-<div class="CartItem">
+<div class="CartItem" data-section-type="CartDrawer">
+
 <div class="CartItem--Header">
 <span class="CartItemTitle">
 {{ item.title | split: " " | first }}
 </span>
-
 <span class="CartItemTitle">
-{{ item.product.title | split: " " | [1] }}
+{{ item.product.type }}
 </span>
-
 <span>
 {% unless item.product.has_only_default_variant%}
-{{ item.title }}
+{{ item.variant.title }}
 {%endunless%}
 </span>
+</div>
+
+<div class="CartItem--Image">
+    <img class="" src="{{item.product.featured_image | img_url: "200x"}}">
+</div>
+
+<div class="CartItem--footer">
+<div class="CartItem--remove">
+-
+</div>
+
+<div class="CartItem--qty">
+    {% render 'qty' %}
+</div>
+
+<div class="CartItem--price">{{ item.price | money }}</div>
 
 </div>
+
 
 </div>

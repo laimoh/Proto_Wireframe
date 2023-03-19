@@ -1,8 +1,7 @@
-<div id="CartDrawer">
-
+<div id="CartDrawer" aria-hidden="true">
+<div class="CartProducts">
 {% for item in cart.items %}
     {% render 'cart-item', item: item %}
 {% endfor %}
-
-
+</div>
 </div>

@@ -12,6 +12,17 @@
     addedProduct: function(variant){
       console.log(variant);
     },
+    cart:{
+      toggle: function(){
+        console.log('hi');
+        var CartDrawer = document.querySelector('#CartDrawer');
+        var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
+        if(hidden){
+          CartDrawer.setAttribute('aria-hidden', false);
+        }
+
+      }
+    },
     sections: {
       Product: function(section){
         var headerHeight = document.querySelector('#shopify-section-header').clientHeight;
@@ -73,6 +84,15 @@
 
         });
 
+      },
+      CartDrawer: function(section){
+        var cartLinks = document.querySelectorAll('a[href="/cart"]');
+        cartLinks.forEach((link) =>{
+          link.setAttribute('href', "#");
+          link.addEventListener('click', function(){
+            Theme.cart.toggle()
+          });
+        });
       }
     },
     helpers: {
