@@ -26,3 +26,29 @@
     width: 100%;
     margin-bottom: var(--margin);
 }
+
+.ProductVariant{
+    display: block;
+}
+
+.optionValuesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.optionValuesContainer label{
+    flex-basis: calc(100% / 7);
+    text-align: center;
+    padding: 1rem 0rem;
+    transition: border 0.2s ease-in;
+    border: 1px solid transparent;
+    border-radius: 200px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+label{ 
+    font-weight: bold; 
+    border: 1px solid black;
+    border-radius: 200px;
+} 

@@ -34,7 +34,24 @@ max-height: 3rem;
 
         <div data-variant-container class="ProductVariant--Container">
             <div class="ProductVariant">
-                TEST
+                {% form 'product',product %}
+                    {% for options in product.options_with_values %}
+                        {% assign optionrow = forloop.index %}
+                        {%assign downcased_option = options.name | downcase%}
+                    {% if downcased_option == "size" %}
+                    <div class="optionsNameContainer"> SELECT A SIZE </div>
+                    {% else %}
+                    <div class="optionsNameContainer"> {{options.name | upcase}} </div>
+                    {%endif%}
+                    <div class="optionValuesContainer">
+                    {% for value in options.values %}
+                    <input name="{{option | append: "--" | append: optionrow}}" id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" style="display:none" {%if forloop.first%}checked="checked"{%endif%} type="radio" value="{{value}}" data-option="{{optionrow}}">
+                    <label for="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{value}}</label>
+                    {% endfor %}
+                    </div>
+                    {% endfor %}
+
+                {% endform %}
             </div>
     </div>
 
