@@ -23,16 +23,20 @@
     {% comment %} <script type="module" src="https://unpkg.com/animate-css-grid@latest"></script> {% endcomment %}
     <script src="{{ 'application.js' | asset_url }}" defer></script>
   </head>
-  <body>
+  <body class="template-{{ template | replace: '.', '-' | replace: '/', '-' }}">
     <div class="wire left"></div>
     <div class="wire right"></div>
     {% section 'header' %}
+
     {% section 'cart' %}
 
-    <main role="main">
+
+
+    <main class="content" role="main">
+
       {{ content_for_layout }}
+        {% section 'footer' %}
     </main>
-    {% section 'footer' %}
 
   </body>
 </html>
