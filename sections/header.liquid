@@ -67,43 +67,31 @@
   </header>
 </div>
 
+{% comment %} <script src="https://unpkg.com/animate-css-grid@latest"></script> {% endcomment %}
+
 
 {% javascript %}
-//   const grid = document.querySelector("#header-global");
-//   wrapGrid(grid, {duration : 600});
-//   console.log(grid)
+   // console.log(template)
   const headerlogo = document.querySelector('.home')
-   // console.log(headerlogo)
+   const main = document.querySelector('.content')
+   const centered = document.querySelector('.centered')
+   const grid = document.querySelector("#header-global");
+//   animateCSSGrid.wrapGrid(grid, {duration : 600});
 
-    window.addEventListener('scroll', () => {
-      const position = window.pageYOffset;
-        if (position > 1) {
-         headerlogo.classList.remove('bigboy')
-        } else {
-         headerlogo.classList.add('bigboy')
-        }
-    }, { passive: true }); 
+main.addEventListener("scroll", (event) => {
+//  console.log(`scrollTop: ${main.scrollTop}`);
+ const position = main.scrollTop;
+ if (position > 0) {
+      headerlogo.classList.remove('bigboy')
+      // centered.classList.add('reset')
+ } else {
+      headerlogo.classList.add('bigboy')
+      // centered.classList.remove('reset')
+ }
+}
+, { passive: true });
+
 {% endjavascript %}
-
-{% comment %}
-     // const headerlogo = document.querySelector('.home')
-   // console.log(headerlogo)
-
-   //  window.addEventListener('scroll', () => {
-   //    const position = window.pageYOffset;
-   //      if (position > 1) {
-   //       headerlogo.classList.remove('bigboy')
-   //      } else {
-   //       headerlogo.classList.add('bigboy')
-   //      }
-   //  }, { passive: true }); 
-{% endcomment %}
-
-
-    
-
-
-   
 
 
 {% schema %}

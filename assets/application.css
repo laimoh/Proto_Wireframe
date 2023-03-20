@@ -134,24 +134,20 @@ svg * {
    background-color: #A72828;
 }
 
-/* .index-header {
-   grid-area: 1 / 1;
-   z-index: 2;
-   font-family: "Pressura";
-} */
 
 /* theme */
-
+/* 
 body {
    display: grid;
    grid-template-rows: auto 1fr auto;
-   /* height: 100vh; */
-   overflow: hidden;
+} */
+
+.template-index {
+  /* height: 100vh; */
+  overflow: hidden;
 }
 
-/* main {
-   grid-area: 1 / 1;
-} */
+
 
 .template-index .header {
    grid-area: 1 / 1;
@@ -186,13 +182,9 @@ body {
    z-index: 1;
 }
 
-
-/*  nav */
-
 .container {
     font-family: "Pressura";
 }
-
 
 .header-wrapper {
    z-index: 2;
@@ -618,6 +610,11 @@ body {
 
 .mobileNav {
    display: none;
+}
+
+/* reset */
+.reset {
+   margin-top: 0;
 }
 
 @media screen and (width <=458px) {
