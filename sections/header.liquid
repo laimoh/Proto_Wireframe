@@ -1,16 +1,21 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
 
 <div class="container" x-data="{ mobilemenuOpen: false}">
   <header id="header-global">
-    <a class="home bigboy" href="{{ link.url }}">
+    {% comment %} <a class="home bigboy" href="/">
       <div class="wrapper-logo">
-        {% comment %} {% render 'logo-letters' %} {% endcomment %}
         {% render 'logo-pill' %}
       </div>
-    </a>
+    </a> {% endcomment %}
     {% for link in linklists.main-menu.links %}
       {% assign handle = link.title %}
       {% case handle %}
         {% when 'Home' %}
+         <a class="home" href="/">
+      <div class="wrapper-logo">
+        {% render 'logo-pill' %}
+      </div>
+    </a>
         {% when 'Search' %}
         <div class="join desktop">
           <a class="border_left" href="{{ link.url }}">{% render 'search-icon' %}</a>
@@ -67,13 +72,11 @@
   </header>
 </div>
 
-{% comment %} <script src="https://unpkg.com/animate-css-grid@latest"></script> {% endcomment %}
-
 
 {% javascript %}
    // console.log(template)
   const headerlogo = document.querySelector('.home')
-   const main = document.querySelector('.content')
+   const main = document.querySelector('.template-index .content')
    const centered = document.querySelector('.centered')
    const grid = document.querySelector("#header-global");
 //   animateCSSGrid.wrapGrid(grid, {duration : 600});
@@ -90,6 +93,8 @@ main.addEventListener("scroll", (event) => {
  }
 }
 , { passive: true });
+
+
 
 {% endjavascript %}
 
