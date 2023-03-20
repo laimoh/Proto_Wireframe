@@ -38,7 +38,6 @@
 /* base */
 
 * {
-   font-family: "Pressura";
    box-sizing: border-box;
 }
 
@@ -492,8 +491,7 @@ body {
    margin-right: 10%;
    width: 14px;
    height: 18px;
-   /* margin: 0;
-   padding: 0; */
+
 }
 
 .stacked {
