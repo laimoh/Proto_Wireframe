@@ -1,0 +1,91 @@
+{{'product.css' | asset_url | stylesheet_tag }}
+<style>
+/*Temporary PDP Fix*/
+.letters{
+display:none;
+}
+#shopify-section-header{
+max-height: 3rem;
+}
+
+</style>
+
+
+<div data-section-type="Product" class="SectionContainer ProductContainer">
+    <div data-meta class="ProductMeta--Container">
+            <div class="ProductMeta">
+                <div class="ProductTitle"> {{ product.title }}</div>
+            <div class="MetaItem ProductDescription">
+                {{ product.description }}
+            </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">Read More</div>
+            </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">SHIPPING INFO</div>
+            </div>
+
+            <div class="Collapsible">
+                <div class="Collapsible--button"></div>
+                <div class="Collapsible--label">SIZING HELP</div>
+            </div>
+
+            </div>
+    </div>
+
+        <div class="ProductMedia--Container">
+            <div class="ProductMedia">
+        {% for media in product.media %}
+        {% case media.media_type %}
+        {% when 'image' %}
+        <div class="Product--Image"><img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}"></div>
+        {% endcase %}
+        {% endfor %}
+            </div>
+        </div>
+
+        <div data-variant-container class="ProductVariant--Container">
+            <div class="ProductVariant">
+                {% form 'product',product %}
+                    {% for options in product.options_with_values %}
+                        {% assign optionrow = forloop.index %}
+                        {%assign downcased_option = options.name | downcase%}
+                    {% if downcased_option == "size" %}
+                    <div class="optionsNameContainer"> SELECT A SIZE </div>
+                    {% else %}
+                    <div class="optionsNameContainer"> {{options.name | upcase}} </div>
+                    {%endif%}
+                    <div class="optionValuesContainer">
+                    {% for value in options.values %}
+                    <input name="{{option | append: "--" | append: optionrow}}" id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" style="display:none" {%if forloop.first%}checked="checked"{%endif%} type="radio" value="{{value}}" data-option="{{optionrow}}">
+                    <label for="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{value}}</label>
+                    {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div class="productQty">
+                        <span style="text-transform:uppercase">Add Quantity</span>
+                        <div class="qty">
+                            {% render 'qty', product: product %}
+                        </div>
+                    </div>
+                {% endform %}
+                <textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
+                    {{ product.variants | json }}
+                  </textarea>
+                  {%- if product.options.size > 1 -%}
+                    <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
+                      {{ current_variant | json }}
+                    </textarea>
+                  {%- endif -%}
+            </div>
+    </div>
+<div data-sticky class="stickyATC">
+<span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money }} </span>
+<div class="stickySpacer"></div>
+<span>ADD TO BAG</span>
+</div>
+</div>

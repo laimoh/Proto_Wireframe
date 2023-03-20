@@ -1,0 +1,97 @@
+/*Global CSS to be Reused*/
+
+.SectionContainer{
+    padding: 0 calc(var(--margin));
+}
+
+.SectionContainer:first-of-type{
+    padding-top: 4rem;
+}
+
+
+.qty--wrapper{
+    display: flex;
+    font-size: 1.3rem;
+}
+
+.qty--button{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.Collapsible{
+    margin: 10px 0;
+    display: flex;
+    font-size: 1.3rem;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+
+}
+
+.Collapsible--button{
+    height: 2rem;
+    width: 1.4rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin-right: 5px;
+}
+
+.hide{
+    display: none!important;
+}
+
+.Collapsible--label{
+    text-transform: uppercase;
+}
+
+
+#CartDrawer{
+    position: fixed;
+    width: 350px;
+    right: -350px;
+    height: 100vh;
+    transition: all 0.2s ease-in;
+    top: 0;
+    z-index: 20;
+    background: var(--marshmellow);
+    font-size: 1.3rem;
+    border-left: 1px solid black;
+}
+
+#CartDrawer[aria-hidden="false"]{
+    right:0;
+}
+
+.CartProducts{
+    padding-top: 20px;
+    overflow: scroll;
+    max-height: calc(100% - 10rem);
+}
+
+.CartItem--Header,.CartItem--footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.CartItem--Image{
+    text-align: center;
+}
+
+.CartItem{
+    border-bottom: 1px solid black;
+}
+
+.CartItem img{
+    width: 60%;
+}
+
+/*Global CSS Mobile*/
+
+@media screen and (width <= 458px){  
+.SectionContainer{
+    padding: 0 calc(var(--margin)/2);
+}
+}
