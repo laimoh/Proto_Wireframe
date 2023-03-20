@@ -145,16 +145,6 @@ body {
   /* height: 100vh; */
   overflow: hidden;
 }
-
-
-
-.template-index .header {
-   grid-area: 1 / 1;
-   z-index: 2;
-   position: fixed;
-   width: 100%;
-   font-family: "Pressura";
-}
 .template-index main {
    overflow: scroll;
    height: 100vh;
@@ -174,121 +164,14 @@ body {
 	height: unset;
 }
 
-.template-collection .header {
-   position: sticky;
-   top: 0;
-   background-color: var(--marshmellow);
-   z-index: 1;
-}
 
-.container {
-    font-family: "Pressura";
-}
-
-.header-wrapper {
-   z-index: 2;
-}
-
-#header-global {
-   display: grid;
-   border-top: var(--wireframe);
-   border-bottom: var(--wireframe);
-   grid-template-columns: repeat(5, 1fr);
-   justify-items: center;
-   align-items: center;
-}
-
-.wrapper-logo {
-   position: relative;
-   display: flex;
-   justify-content: center;
-   width: 100%;
-}
-
-.home {
-   grid-area: 1 / 3;
-   transition: all 0.2s ease-in;
-}
-
-.bigboy {
-   grid-area: 2 / 1 / 2 / -1;
-   justify-self: stretch;
-   border-top: 1px solid black;
-}
-
-.letters {
-   /* // svg */
-   width: 100%;
-   height: auto;
-}
-
-.pill {
-   /* // svg */
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 100%;
-   height: 100%;
-   z-index: 1;
-   /* // display: none; */
-}
-
-.LETTER-P {
-   -webkit-mask: url(#mask-p);
-   mask: url(#mask-p);
-}
-
-.LETTER-R {
-   -webkit-mask: url(#mask-r);
-   mask: url(#mask-r);
-}
-
-.LETTER-O1 {
-   -webkit-mask: url(#mask-o1);
-   mask: url(#mask-o1);
-}
-
-.LETTER-O2 {
-   -webkit-mask: url(#mask-o2);
-   mask: url(#mask-o2);
-}
-
-.link {
-   justify-self: stretch;
-   align-self: stretch;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   text-transform: uppercase;
-   padding: 1.2rem;
-}
-
-.join {
-   display: grid;
-   grid-template-columns: 2fr 0.5fr;
-   justify-self: stretch;
-   align-self: stretch;
-   grid-column: 4;
-}
-
-.join a {
-   justify-content: center;
-   align-items: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.join svg {
-   width: 20px;
-}
 
 /* FOOTER */
 
 .footer-wrapper {
    display: grid;
    grid-template-rows: 1fr auto auto;
+   border-top: 1px solid black;
 }
 
 .footer-topbar {
@@ -509,7 +392,7 @@ body {
 
 .loadmorebtn {
    border-top: 1px solid black;
-   border-bottom: 1px solid black;
+   /* border-bottom: 1px solid black; */
    display: block;
    width: 100%;
    padding: 0.5rem;

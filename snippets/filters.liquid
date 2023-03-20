@@ -1,0 +1,17 @@
+<form class="filter-form">
+   <div class="group-type-content">
+      <ul>
+         {% for link in linklists.collection-links.links %}
+         <li><a href="{{ link.url }}" {% if link.active %} aria-current="page"{% endif %}>
+            {{ link.title }}
+          </a></li>
+       {% endfor %}
+      </ul>
+   </div>
+   <div class="group-size-content">
+    
+   </div>
+   <div class="group-color-content">
+    
+   </div>
+</form>

@@ -1,3 +1,6 @@
+<div class="filters-wrapper">
+   {% render 'filters' %}
+</div>
 {% paginate collection.products by 6 %}
   <div data-next-page="{{ paginate.next.url }}" class="product-grid current-products">
     {% for product in collection.products %}
