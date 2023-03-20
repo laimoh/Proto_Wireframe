@@ -100,3 +100,29 @@ input[type="radio"]:checked+label{
     border-radius: 1rem;
     margin:0 5px;
 }
+
+@media screen and (width < 649px){
+    .ProductMedia--Container{
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .Product--Image{
+        width: 100%;
+        padding:0;
+    }
+
+    .Product--Image img{
+        width: 100%;
+    }
+
+    .ProductMeta--Container, .ProductVariant--Container{
+        position: static;
+        width: 100%;
+    }
+
+    .ProductContainer{
+        display: block;
+    }
+}

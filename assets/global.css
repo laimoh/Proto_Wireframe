@@ -1,5 +1,16 @@
 /*Global CSS to be Reused*/
 
+
+
+/*Templfixes Laiqa*/
+body{
+    overflow-x: hidden;
+}
+
+.footer-wrapper{
+    overflow-x: hidden;
+}
+
 .SectionContainer{
     padding: 0 calc(var(--margin));
 }
@@ -76,6 +87,19 @@
     padding: 15px;
 }
 
+.CartItem--remove{
+    aspect-ratio: 1 / 1;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
 .CartItem--Image{
     text-align: center;
 }
@@ -95,3 +119,10 @@
     padding: 0 calc(var(--margin)/2);
 }
 }
+
+@media screen and (width < 649px){  
+    .SectionContainer{
+        padding: 0 calc(var(--margin)/2);
+    }
+
+    }

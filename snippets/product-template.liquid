@@ -38,7 +38,7 @@ max-height: 3rem;
     </div>
 
         <div class="ProductMedia--Container">
-            <div class="ProductMedia">
+            <div data-media class="ProductMedia">
         {% for media in product.media %}
         {% case media.media_type %}
         {% when 'image' %}
