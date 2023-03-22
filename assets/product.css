@@ -13,6 +13,10 @@
 
 }
 
+.ProductMedia--Mobile{
+    display:none!important;
+}
+
 .ProductMeta{
     position: absolute;
     bottom: 0;
@@ -115,6 +119,15 @@ input[type="radio"]:checked+label{
 
     .Product--Image img{
         width: 100%;
+        height: auto;
+    }
+
+    .ProductMedia{
+        display:none;
+    }
+
+    .ProductMedia--Mobile{
+        display:block!important;
     }
 
     .ProductMeta--Container, .ProductVariant--Container{
@@ -123,6 +136,15 @@ input[type="radio"]:checked+label{
     }
 
     .ProductContainer{
-        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ProductMeta--Container{
+        order: 2;
+    }
+
+    .ProductMeta{
+        position: static;
     }
 }

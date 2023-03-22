@@ -1,6 +1,43 @@
   var Theme = {
     init: function(){
       var sections = document.querySelectorAll('[data-section-type]');
+
+
+      if (window.innerWidth > 679){
+        var logo = document.querySelector('#DesktopLogo');
+        var logoheight = logo.clientHeight;
+        var goal = logo.closest('.MainMenu--center').clientHeight;
+        var main = document.querySelector('main');
+        console.log(main);
+        mainSection = main.querySelector('.shopify-section');
+        console.log(mainSection);
+        mainSection.style.paddingTop = logoheight+'px';
+        var header = document.querySelector('.MainMenu.Fixed');
+        window.addEventListener('scroll', function(){
+          if (header.getAttribute('animation-finished')){
+            return
+          }
+          var current = window.scrollY;
+          var newHeight = logoheight - current;
+          console.log(newHeight);
+
+          var currentLogoHeight = logo.clientHeight;
+
+          if (newHeight < (logoheight) && newHeight >= 0){
+            if (newHeight <= goal){
+              header.classList.remove('Fixed');
+              header.setAttribute('animation-finished',true);
+
+              return;
+            }
+             mainSection.style.paddingTop = newHeight+'px';
+             logo.style.height = newHeight+'px';
+          }
+
+        });
+        
+      }
+
       sections.forEach((section) => {
 
           if (!this.sections[section.getAttribute('data-section-type')]) {
@@ -13,14 +50,32 @@
       console.log(variant);
     },
     cart:{
+      status: function(){
+      var CartDrawer = document.querySelector('#CartDrawer');
+      var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
+      if(hidden){
+        return true
+      }else{
+        return false
+      }
+      },
       toggle: function(){
-        console.log('hi');
         var CartDrawer = document.querySelector('#CartDrawer');
         this.init(CartDrawer);
         var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
         if(hidden){
           CartDrawer.setAttribute('aria-hidden', false);
+        }else{
+          CartDrawer.setAttribute('aria-hidden', true);
         }
+      },
+      close: function(){
+        var CartDrawer = document.querySelector('#CartDrawer');
+        var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
+        if(hidden){
+          return
+        }
+        CartDrawer.setAttribute('aria-hidden', true);
       },
       init: function(CartDrawer){
         var qtys = CartDrawer.querySelectorAll('.qty--wrapper');
@@ -32,8 +87,18 @@
       }
 
     },
+    initqty: function(section){
+      var qtys = CartDrawer.querySelectorAll('.qty--wrapper');
+      qtys.forEach((quantity) => {
+        quantity.addEventListener('click', function(event){
+          Theme.helpers.qty(event,quantity,true);
+        })
+      });
+    },
     sections: {
       Product: function(section){
+        //Theme.initqty(section);
+
         var headerHeight = document.querySelector('#shopify-section-header').clientHeight;
         var sectionHeight = window.innerHeight - headerHeight;
 
@@ -43,9 +108,8 @@
           productMeta.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
           variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4)  + 'px';  
         }else{
-          var productMedia = section.querySelector('[data-media]');
+          var productMedia = section.querySelector('[data-media-mobile]');
           var flkty = new Flickity( productMedia, {
-            // options
             cellAlign: 'left',
             adaptiveHeight: true
           });
@@ -106,10 +170,20 @@
       CartDrawer: function(section){
         var cartLinks = document.querySelectorAll('a[href="/cart"]');
         cartLinks.forEach((link) =>{
+          console.log(link);
           link.setAttribute('href', "#");
           link.addEventListener('click', function(){
             Theme.cart.toggle()
           });
+
+          document.addEventListener('click', function(e){
+            if (!e.target.closest('#CartDrawer')){
+              if (!e.target.closest('[href="#"]')){
+              Theme.cart.close()
+              }
+            }
+          })
+
         });
       }
     },
