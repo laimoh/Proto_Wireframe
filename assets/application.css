@@ -22,6 +22,7 @@
    --grid-gutter: var(--margin) * 2;
    --wireframe: 0.5px solid rgb(0, 0, 0);
    --wireframethick: 1px solid black;
+   --shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px;
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
@@ -98,24 +99,37 @@ img {
 }
 
 .border_left {
-   border-left: 1px solid black;
+   border-left: var(--wireframethick);
 }
 
 .border_right {
-   border-right: 1px solid black;
+   border-right: var(--wireframethick);
 }
 
 .border_bottom {
-   border-bottom: 1px solid black;
+   border-bottom: var(--wireframethick);
 }
 
+.pill-tiny {
+   position: absolute;
+   background-color: var(--marshmellow);
+   top: 50%;
+   left: 0%;
+   transform: translate(-0%, -50%) rotate(0deg);
+   width: 12px;
+   height: 24px;
+   border: var(--wireframethick);
+   border-radius: 20px;
+   transition: all 0.4s ease;
+ }
 
 .hidden {
    opacity: 0;
 }
 
 .line {
-   border: var(--wireframe);
+   /* border: var(--wireframe); */
+   box-shadow: var(--shadow);
    width: 100%;
    height: 1px;
 }
@@ -133,16 +147,7 @@ svg * {
    background-color: #A72828;
 }
 
-
-/* theme */
-/* 
-body {
-   display: grid;
-   grid-template-rows: auto 1fr auto;
-} */
-
 .template-index {
-  /* height: 100vh; */
   overflow: hidden;
 }
 .template-index main {
@@ -296,106 +301,6 @@ body {
 .error-content p,
 .error-content a {
    white-space: nowrap;
-}
-
-/* SHOP ALL */
-.product-grid {
-   display: grid;
-   margin-left: var(--margin);
-   margin-right: var(--margin);
-   grid-template-columns: repeat(3, 1fr);
-   /* grid-template-columns: repeat(auto-fit, minmax(20em, 2fr)) */
-   /* grid-template-rows: repeat(3, 1fr); */
-}
-
-.product-card {
-   border-right: var(--wireframethick);
-   border-bottom: var(--wireframethick);
-   
-}
-
-.product-card:nth-child(3n) {
-   border-right: unset;
-}
-
-.card-img {
-   display: block;
-}
-
-.card-img img {
-   width: 100%;
-   height: 100%;
-   aspect-ratio: 1;
-   object-fit: cover;
-   mix-blend-mode: multiply;
-}
-
-.card-content {
-  
-   margin: calc(var(--margin)/2);
-   font-size: var(--shop-notation);
-   display: grid;
-   grid-template-areas:
-      "title type"
-      "buybtn price";
-}
-
-.product-title {
-   grid-area: title;
-   align-self: start;
-   justify-self: start;
-}
-
-.product-type {
-   grid-area: type;
-   align-self: start;
-   justify-self: end;
-}
-
-.product-price {
-   grid-area: price;
-   align-self: end;
-   justify-self: end;
-}
-
-.product-buynow {
-   all: initial;
-   /* margin: calc(var(--margin)/2); */
-   grid-area: buybtn;
-   align-self: end;
-   justify-self: start;
-   font-size: var(--shop-notation);
-   font-family: "Pressura";
-   white-space: nowrap;
-   align-items: center;
-  display: flex;
-}
-.pill-icon {
-   margin-right: 10%;
-   width: 14px;
-   height: 18px;
-
-}
-
-.stacked {
-   display: grid;
-       display: grid;
-    font-family: "Pressura";
-    text-transform: uppercase;
-    font-size: 10px;
-}
-
-.stacked>* {
-   grid-column: 1 / 2;
-   grid-row: 1 / 2;
-}
-
-.loadmorebtn {
-   border-top: 1px solid black;
-   /* border-bottom: 1px solid black; */
-   display: block;
-   width: 100%;
-   padding: 0.5rem;
 }
 
 /* // PDP */

@@ -1,18 +1,37 @@
+/* SHOP ALL */
+
+/* filter  */
+.filters-wrapper {
+   border-bottom: var(--wireframe);
+   position: sticky;
+   width: 100vw;
+   top: 8.7%;
+   z-index: 1;
+   background-color: var(--marshmellow);
+   height: auto;
+   transition: all 0.5s ease;
+}
+
+
 .filter-form {
-   display: flex;
-    width: 100%;
-    justify-content: space-around;
-    border-bottom: var(--wireframethick);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.2fr 1fr;
+    margin: 0 var(--margin);
+    justify-items: center;
+    align-items: center;
+    padding: 0.2%;
+    
+}
+
+.filter-form > * {
+   min-width: 12vw;
 }
 
 .filter-group-collection {
-   outline: 1px solid green;
-   min-width: 15vw;
-   max-width: 20vw;
+   /* padding: 2% 24%; */
 }
 
 .filter-group-collection ul {
-   outline: 1px solid green;
    text-decoration: none;
    margin: 0;
    padding: 0;
@@ -25,14 +44,322 @@
 
 
 .item-filter_title {
-   outline: 1px solid green;
    text-decoration: none;
    list-style: none;
    font-family: "Exposure";
-   font-size: 1.3vw;
-   padding: 1px;
+   font-size: 1rem;
+   transition: all 0.2s ease-out;
 }
 
-.item-filter_title a[aria-selected="true"] {
-   font-variation-settings: 'EXPO'-50;
+.item-filter_title:hover { 
+   font-variation-settings: 'EXPO'-40;
 }
+
+.item-filter_title a[aria-current="true"] {
+   font-variation-settings: 'EXPO'-40;
+}
+
+details[open] .filter-value{
+   background-color: aquamarine;
+   opacity: 0;
+}
+
+details summary::-webkit-details-marker {
+   display:none;
+ }
+ details > summary {
+   list-style: none;
+ }
+ details > summary::-webkit-details-marker {
+   display: none;
+ }
+
+ details {
+   position: relative;
+   margin: 2%;
+   /* max-width: 10vw; */
+ }
+
+details .filter-group:hover {
+   font-variation-settings: 'EXPO'-40;
+   cursor: pointer;
+}
+ 
+ .filter-group {
+   /* outline: 1px solid green; */
+   height: 100%;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+
+ .line {
+   margin: 0 6%;
+ }
+
+.filter-value {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   font-size: 0.8rem;
+transition: all 0.1s ease;
+}
+
+.filter-label {
+   font-family: "Exposure";
+   font-size: 1rem
+}
+
+ .toggleViewBtn {
+   display: flex;
+   font-family: "Pressura";
+   align-items: center;
+   
+ }
+
+ .slider-ui {
+   width: 100%;
+   position: relative;
+   margin: 0 8%
+ }
+
+ .slider-ui .line {
+   margin: 0 10%;
+ }
+
+ .group-transition {
+   background-color: var(--marshmellow);
+   position: absolute;
+   right: 0;
+   width: 120%;
+   height: 20vh;
+   top: 150%;
+   box-shadow: rgb(0, 0, 0) 0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px 0.5px 0px;
+ }
+
+.filter-group-display__list {
+   margin: 0;
+   list-style: none;   
+   overflow: scroll;
+   padding: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.list-color {
+
+   justify-items: end;
+   align-items: end;
+   grid-template-columns: 1fr;
+}
+
+.filter-group-display__list-item label{
+   font-family: "Exposure";
+   font-size: 2rem;
+  padding: 1%;
+}
+
+.filter-group-display__list-item .size-label {
+
+   font-family: "Pressura";
+   font-size: 1rem;
+   margin: 30%;
+   display: flex;
+   justify-content: center;
+}
+
+input[type="checkbox"]:checked {
+   background: grey;
+   color: aqua;
+   outline: 1px solid green;
+}
+
+.inputbox {
+   /* opacity: 0; */
+   display: contents;
+}
+
+.color-input {
+   -webkit-transition: all .2s;
+        transition: all .2s;
+}
+
+.color-input:checked:checked  {
+   background-color: aqua;
+   outline: 1px solid black;
+}
+
+/* .filter-group-display__list-item input:checked + label {
+   color: red;
+ } */
+
+ @keyframes noblur {
+   0% {
+      filter: blur(5px);
+   } 
+   100% {
+      filter: blur(0px);
+   }
+ }
+
+
+.product-grid {
+   mix-blend-mode: multiply;
+   display: grid;
+   margin-left: var(--margin);
+   margin-right: var(--margin);
+  
+   animation: noblur 1s ease-in;
+   /* grid-template-columns: repeat(auto-fit, minmax(20em, 2fr)) */
+   /* grid-template-rows: repeat(3, 1fr); */
+}
+
+/* https://www.youtube.com/watch?v=S7po62YNhrk */
+.triple-grid {
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+}
+
+.shuffle-grid {
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.product-card {
+ 
+   box-shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px;
+
+}
+
+.product-card:hover {
+   /* border-right: unset;
+   border-bottom: unset;
+   border: 1px solid var(--red); */
+   /* border-bottom: 1px solid var(--red); */
+   
+}
+
+/* .product-card:nth-child(3n) {
+   border-right: unset;
+} */
+
+.card-img {
+   display: block;
+}
+
+.card-img img {
+   width: 100%;
+   height: 100%;
+   aspect-ratio: 1;
+   object-fit: cover;
+   mix-blend-mode: multiply;
+}
+
+.card-content {
+  
+   margin: calc(var(--margin)/2);
+   font-size: var(--shop-notation);
+   display: grid;
+   grid-template-areas:
+      "title type"
+      "buybtn price";
+}
+
+.product-title {
+   grid-area: title;
+   align-self: start;
+   justify-self: start;
+}
+
+.product-type {
+   grid-area: type;
+   align-self: start;
+   justify-self: end;
+}
+
+.product-price {
+   grid-area: price;
+   align-self: end;
+   justify-self: end;
+}
+
+.product-buynow {
+   all: initial;
+   position: relative;
+   grid-area: buybtn;
+   align-self: end;
+   justify-self: start;
+   font-size: var(--shop-notation);
+   font-family: "Pressura";
+   white-space: nowrap;
+   align-items: center;
+  display: flex;
+  margin: 2% 1%;
+}
+
+.link-text {
+   margin-left: 36%;
+   transform: translateX(0px);
+   transition: all 0.2s ease;
+}
+
+.product-buynow:hover {
+   cursor: pointer;
+}
+
+.product-buynow:hover .pill-tiny {
+   transform: translate(-0%, -50%) rotate(45deg);
+}
+.product-buynow:hover .link-text {
+   transform: translateX(8%);
+}
+
+.stacked {
+   display: grid;
+       display: grid;
+    font-family: "Pressura";
+    text-transform: uppercase;
+}
+
+.stacked>* {
+   grid-column: 1 / 2;
+   grid-row: 1 / 2;
+}
+
+.loadmorebtn {
+   border-top: 1px solid black;
+
+   display: block;
+   width: 100%;
+   padding: 0.5rem;
+}
+
+
+.clear {
+   font-family: "Pressura";
+   font-size: 0.8rem;
+   min-width: auto;
+ }
+
+ @keyframes rollOut {
+   0% {
+      transform: scaleY(0);
+      
+   }
+   100% {
+      transform: scaleY(1);
+   }
+ }
+ details[open] > .filter-form {
+   transform-origin: top;
+   animation-name: rollOut;
+   animation-duration: 1s;
+ }
+
+ .filter-form {
+   transform-origin: top;
+   animation-name: rollOut;
+   animation-duration: 1s;
+ }
+ 

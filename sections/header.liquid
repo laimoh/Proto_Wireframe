@@ -67,33 +67,6 @@
   </header>
 </div>
 
-{% comment %} <script src="https://unpkg.com/animate-css-grid@latest"></script> {% endcomment %}
-
-
-{% javascript %}
-   // console.log(template)
-  const headerlogo = document.querySelector('.home')
-   const main = document.querySelector('.content')
-   const centered = document.querySelector('.centered')
-   const grid = document.querySelector("#header-global");
-//   animateCSSGrid.wrapGrid(grid, {duration : 600});
-
-main.addEventListener("scroll", (event) => {
-//  console.log(`scrollTop: ${main.scrollTop}`);
- const position = main.scrollTop;
- if (position > 0) {
-      headerlogo.classList.remove('bigboy')
-      // centered.classList.add('reset')
- } else {
-      headerlogo.classList.add('bigboy')
-      // centered.classList.remove('reset')
- }
-}
-, { passive: true });
-
-{% endjavascript %}
-
-
 {% schema %}
    {
       "name": "Header",

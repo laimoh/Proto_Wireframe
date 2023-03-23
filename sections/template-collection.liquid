@@ -1,18 +1,18 @@
 {{ 'shop.css' | asset_url | stylesheet_tag }}
 
-        <div class="filters-wrapper">
-          {% render 'filters' %}
-        </div>
-        {% paginate collection.products by 6 %}
-          <div data-next-page="{{ paginate.next.url }}" class="product-grid current-products">
-            {% for product in collection.products %}
-              {% render 'product-card', product: product %}
-            {% else %}
-              <p>Products don't exist yet!</p>
-            {% endfor %}
-            {% if paginate.pages > 0 %}{% endif %}
-          {% endpaginate %}
-        </div>
-        <button role="loadproducts" class="loadmorebtn">
-          <a href="{{ paginate.next.url }}">Load More</a>
-        </button>
+<div class="filters-wrapper">
+  {% render 'filters' %}
+</div>
+{% paginate collection.products by 6 %}
+  <div data-next-page="{{ paginate.next.url }}" class="product-grid current-products triple-grid">
+    {% for product in collection.products %}
+      {% render 'product-card', product: product %}
+    {% else %}
+      <p>Products don't exist yet!</p>
+    {% endfor %}
+    {% if paginate.pages > 0 %}{% endif %}
+  {% endpaginate %}
+</div>
+<button role="loadproducts" class="loadmorebtn">
+  <a href="{{ paginate.next.url }}">Load More</a>
+</button>
