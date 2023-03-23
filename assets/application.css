@@ -26,11 +26,14 @@
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
-
+   /* --body-size: 0.9vw;
+   --notation-size: 12px;
+   --btn-small: 14px;
+   --btn-large: 16px; */
    --shop-notation: 10px;
    --header-notation: 10px;
    --footer-notation: 10px;
-
+   /* --shop-font: "Pressura"; */
 }
 
 /* base */
@@ -147,17 +150,14 @@ svg * {
 .template-index {
   overflow: hidden;
 }
-
-
-.template-index .content {
-
+.template-index main {
    overflow: scroll;
    height: 100vh;
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-type: y mandatory;
 }
 
-.template-index .content section {
+.template-index main section {
 
    min-width: 100vw;
 	height: 100vh;
@@ -168,6 +168,8 @@ svg * {
    min-width: unset;
 	height: unset;
 }
+
+
 
 /* FOOTER */
 
@@ -399,4 +401,80 @@ svg * {
 /* reset */
 .reset {
    margin-top: 0;
+}
+
+@media screen and (width <=458px) {
+   .right {
+      right: calc(var(--margin)/2);
+   }
+
+   .left {
+      left: calc(var(--margin)/2);
+   }
+
+   .desktop {
+      display: none;
+   }
+
+   .border_left {
+      border-left: unset;
+   }
+
+   #header-global {
+      grid-template-columns: unset;
+      grid-template-rows: auto;
+      height: unset;
+      margin-top: calc(var(--margin)/2);
+   }
+
+   .logo {
+      width: 100%;
+      grid-area: 1 / 1 / 1 / -1;
+      padding: 0px calc(var(--margin)/2);
+   }
+
+   .mobileNav {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      border-top: var(--wireframethick);
+   }
+
+   .topbar {
+      margin: calc(var(--margin)/2);
+      /* width: inherit; */
+      display: flex;
+      justify-content: space-between;
+   }
+
+   .mainmenu-icon {
+      flex-grow: 2;
+      align-self: center;
+      text-align-last: left;
+      margin-left: var(--margin);
+   }
+
+   .mainmenu-icon svg,
+   .righticons svg {
+      width: 6vw;
+      height: auto;
+   }
+
+   .righticons {
+      vertical-align: middle;
+      margin-right: var(--margin);
+   }
+
+   .dropdowns {
+      margin: calc(var(--margin)/2);
+      width: 95vw;
+   }
+
+   .closebtn {
+      width: 100%;
+      border-top: var(--wireframethick);
+      padding: calc(var(--margin)/2);
+   }
+
+
 }

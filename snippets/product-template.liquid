@@ -8,10 +8,6 @@ display:none;
 max-height: 3rem;
 }
 
-#shopify-section-footer{
-display:none;
-}
-
 </style>
 
 
@@ -42,7 +38,7 @@ display:none;
     </div>
 
         <div class="ProductMedia--Container">
-            <div data-media class="ProductMedia">
+            <div class="ProductMedia">
         {% for media in product.media %}
         {% case media.media_type %}
         {% when 'image' %}
@@ -50,20 +46,7 @@ display:none;
         {% endcase %}
         {% endfor %}
             </div>
-
-
-
-        <div data-media-mobile class="ProductMedia--Mobile">
-            {% for media in product.media %}
-            {% case media.media_type %}
-            {% when 'image' %}
-            <div class="Product--Image"><img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}"></div>
-            {% endcase %}
-            {% endfor %}
-                </div>
-
         </div>
-
 
         <div data-variant-container class="ProductVariant--Container">
             <div class="ProductVariant">
