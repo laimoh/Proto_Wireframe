@@ -1,42 +1,56 @@
   var Theme = {
     init: function(){
       var sections = document.querySelectorAll('[data-section-type]');
+      setTimeout(function(){
+        window.onbeforeunload = function () {
+          window.scrollTo(0, 0);
+        }
 
+        if (window.innerWidth > 679){
+          window.scrollTo(0, 0);
+          var logo = document.querySelector('#DesktopLogo');
+          var logoheight = logo.getBoundingClientRect().height
+          console.log(logoheight);
+          console.log(logo);
+          var goal = logo.closest('.MainMenu--center').clientHeight;
+          var headerHeight = logo.closest('.MainMenu--Wrapper').clientHeight;
+          var main = document.querySelector('main');
+          mainSection = main.querySelector('.shopify-section');
+          let root = document.documentElement;
+          root.style.setProperty('--headerHeight', (headerHeight + logoheight)  + "px");
+          //mainSection.style.paddingTop = logoheight+'px';
 
-      if (window.innerWidth > 679){
-        var logo = document.querySelector('#DesktopLogo');
-        var logoheight = logo.clientHeight;
-        var goal = logo.closest('.MainMenu--center').clientHeight;
-        var main = document.querySelector('main');
-        console.log(main);
-        mainSection = main.querySelector('.shopify-section');
-        console.log(mainSection);
-        mainSection.style.paddingTop = logoheight+'px';
-        var header = document.querySelector('.MainMenu.Fixed');
-        window.addEventListener('scroll', function(){
-          if (header.getAttribute('animation-finished')){
-            return
-          }
-          var current = window.scrollY;
-          var newHeight = logoheight - current;
-          console.log(newHeight);
-
-          var currentLogoHeight = logo.clientHeight;
-
-          if (newHeight < (logoheight) && newHeight >= 0){
-            if (newHeight <= goal){
-              header.classList.remove('Fixed');
-              header.setAttribute('animation-finished',true);
-
-              return;
+  
+          var header = document.querySelector('.MainMenu.Fixed');
+          window.scrollTo(0, 0);
+          window.addEventListener('scroll', function(){
+            if (header.getAttribute('animation-finished')){
+              return
             }
-             mainSection.style.paddingTop = newHeight+'px';
-             logo.style.height = newHeight+'px';
-          }
-
-        });
-        
-      }
+            var current = window.scrollY;
+            var newHeight = logoheight - current;
+            console.log(newHeight);
+  
+            var currentLogoHeight = logo.clientHeight;
+  
+            if (newHeight < (logoheight) && newHeight >= 0){
+              if (newHeight <= goal){
+                header.classList.remove('Fixed');
+                header.setAttribute('animation-finished',true);
+                logo.style.height = '100%';
+              root.style.setProperty('--headerHeight', (headerHeight)  + "px");
+                
+                return;
+              }
+              root.style.setProperty('--headerHeight', (newHeight)  + "px");
+              logo.style.height = newHeight+'px';
+            }
+  
+          });
+          
+        }
+      },500)
+      
 
       sections.forEach((section) => {
 
