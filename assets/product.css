@@ -6,7 +6,7 @@
 .ProductMeta--Container, .ProductVariant--Container{
     width: 25%;
     position: sticky;
-    top: 4rem;
+    top: calc(var(--headerHeight) - 2px);
 }
 
 .ProductMeta--Container{

@@ -20,8 +20,13 @@ body{
     transition: all 0.2s ease-in;
 }
 
+main {
+    padding-top: var(--headerHeight);
+}
+
 .MainMenu{
     position: fixed;
+    background: var(--marshmellow);
     left: 0;
     right: 0;
     top: 0;
@@ -32,28 +37,38 @@ body{
     left: 0;
     right: 0;
     top: 0;
+
 }
+
 
 .MainMenu.Fixed .MainMenu--center{
     position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .MainMenu.Fixed *{
-border-color: transparent;
-color: transparent;
 }
 
 .MainMenu.Fixed .icon{
-    opacity: 0;
 }
 
 .MainMenu.Fixed .MainMenu--center .Logo{
-   height: 200%;
-   position: absolute;
-   left: 0;
-   right: 0;
-   top: 0;
-   margin: 0 auto;
+    width: calc(100vw - 2*var(--margin));
+    position: absolute;
+    right: auto;
+    top: 100%;
+    margin: 0 auto;
+    max-width: unset;
+    height: auto;
+}
+
+.MainMenu.Fixed .MainMenu--center .Logo::after{
+content: "";
+padding-bottom: 100%;
 }
 
 .MainMenu--center{
@@ -70,7 +85,6 @@ color: transparent;
 
 .MainMenu--left,.MainMenu--right{
     display: flex;
-    /**/
     flex-basis: 30%;
     flex-grow: 1;
     align-items: center;
@@ -115,7 +129,7 @@ color: transparent;
 }
 
 .SectionContainer:first-of-type{
-    padding-top: 4rem;
+    
 }
 
 
