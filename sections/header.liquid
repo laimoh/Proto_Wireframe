@@ -1,3 +1,42 @@
+
+<div class="MainMenu Fixed">
+<div class="MainMenu--Wrapper">
+<div class="MainMenu--left">
+  <div class="MainMenu--leftItem">
+    <a href="/collections/all">Shop</a>
+  </div>
+  <div class="MainMenu--leftItem">
+    <a href="/collections/all">About</a>
+  </div>
+</div>
+
+<div class="MainMenu--center">
+<img id="DesktopLogo" class="Logo" src="{{'logo.svg' | asset_url }}">
+</div>
+
+
+<div class="MainMenu--right">
+
+  <div class="MainMenu--rightItem icon search">
+    <a href="/collections/all">
+      <img class="" src="{{'search.svg' | asset_url}}"></a>
+  </div>
+  
+  <div class="MainMenu--rightItem icon">
+    <a href="/collections/all">
+      <img class="" src="{{'user.svg' | asset_url}}"></a>
+  </div>
+  
+  <a href="/cart" class="MainMenu--rightItem">
+    <span>Cart</span>
+  </a>
+</div>
+
+
+</div>
+
+
+=======
 {{ 'header.css' | asset_url | stylesheet_tag }}
 
 <div class="container" x-data="{ mobilemenuOpen: false}">
@@ -66,6 +105,7 @@
     </div>
   </header>
 </div>
+
 
 {% schema %}
    {
