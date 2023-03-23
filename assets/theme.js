@@ -36,14 +36,17 @@
             if (newHeight < (logoheight) && newHeight >= 0){
               if (newHeight <= goal){
                 header.classList.remove('Fixed');
-                header.setAttribute('animation-finished',true);
+                //header.setAttribute('animation-finished',true);
                 logo.style.height = '100%';
               root.style.setProperty('--headerHeight', (headerHeight)  + "px");
                 
                 return;
+              }else {
+                header.classList.add('Fixed');
+                root.style.setProperty('--headerHeight', (newHeight + headerHeight)  + "px");
+                logo.style.height = newHeight+'px';
               }
-              root.style.setProperty('--headerHeight', (newHeight)  + "px");
-              logo.style.height = newHeight+'px';
+
             }
   
           });
