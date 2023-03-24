@@ -1,8 +1,13 @@
-<div class="product-card stacked">
-          <a href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></a>
+<div data-ajax-card class="product-card stacked">
+          <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
           <div class="card-content">
+            <div class="card--header">
             <p class="product-title">{{ product.title }}</p>
             <p class="product-type">{{ product.type }}</p>
+            </div>
+
+
+            <div class="card--footer">
             <button class="product-buynow">
               <span class="pill-icon">
                 <svg
@@ -17,8 +22,40 @@
                     stroke="#000" />
                 </svg>
               </span>
-              <a class="product-buynow">ADD TO BAG</a>
+              <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="product-buynow">ADD TO BAG</a>
             </button>
             <p class="product-price">{{ product.price | money }}</p>
           </div>
-        </div>
+          </div>
+  
+  <div data-variant-popup class="VariantSelectors--Ajax">
+    {% for options in product.options_with_values %}
+      {% assign optionrow = forloop.index %}
+      {%assign downcased_option = options.name | downcase%}
+  <div class="optionValuesContainer">
+    <div class="CardValues {%if downcased_option == 'color' %}ColorValues{%endif%}">
+  {% for value in options.values %}
+  <input name="{{option | append: "--" | append: optionrow}}" id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" style="display:none" {%if forloop.first%}checked="checked"{%endif%} type="radio" value="{{value}}" data-option="{{optionrow}}">
+  <label for="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{value}}</label>
+  {% endfor %}
+</div>
+    <div class="optionsNameContainer"> {{options.name}} <div class="line"></div> </div>
+  </div>
+  {% endfor %}
+  <div class="productQty">
+      <span data-ajax-add="{{product.selected_or_first_available_variant.id}}" style="text-transform:uppercase">Add to Cart</span>
+      <div class="qty">
+          
+      </div>
+  </div>
+<textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
+  {{ product.variants | json }}
+</textarea>
+{%- if product.options.size > 1 -%}
+  <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
+    {{ current_variant | json }}
+  </textarea>
+{%- endif -%}
+  
+  </div>
+  </div>

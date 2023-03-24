@@ -298,22 +298,14 @@ body {
 
 /* SHOP ALL */
 .product-grid {
-   display: grid;
-   margin-left: var(--margin);
-   margin-right: var(--margin);
-   grid-template-columns: repeat(3, 1fr);
-   /* grid-template-columns: repeat(auto-fit, minmax(20em, 2fr)) */
-   /* grid-template-rows: repeat(3, 1fr); */
+ display: flex;
+ padding:0px var(--margin);
+ flex-wrap: wrap;
 }
 
 .product-card {
    border-right: var(--wireframethick);
    border-bottom: var(--wireframethick);
-   
-}
-
-.product-card:nth-child(3n) {
-   border-right: unset;
 }
 
 .card-img {
@@ -329,13 +321,17 @@ body {
 }
 
 .card-content {
-  
    margin: calc(var(--margin)/2);
    font-size: var(--shop-notation);
-   display: grid;
-   grid-template-areas:
-      "title type"
-      "buybtn price";
+   z-index: 2;
+   position:absolute;
+   top:0;
+   right:0;
+   left:0;
+   bottom: 0;
+   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-title {
@@ -367,6 +363,7 @@ body {
    white-space: nowrap;
    align-items: center;
   display: flex;
+  cursor: pointer;
 }
 .pill-icon {
    margin-right: 10%;
@@ -377,12 +374,64 @@ body {
 }
 
 .stacked {
-   display: grid;
-       display: grid;
     font-family: "Pressura";
     text-transform: uppercase;
     font-size: 10px;
+    flex-basis: 33.33333%;
+    aspect-ratio: 1 / 1 ;
+    position: relative;
+    overflow: hidden;
 }
+
+.card--footer,.card--header{
+   display: flex;
+   justify-content: space-between;
+}
+
+/* Product Cards */
+
+.VariantSelectors--Ajax{
+   position: absolute;
+   transform: translateY(100%);
+   font-size: 1rem;
+   bottom: 0;
+   transition: all 0.2s ease-in-out;
+   width: 100%;
+   z-index: 3;
+   
+}
+
+.VariantSelectors--Ajax.display{
+   transform: translateY(0%);
+   background: var(--marshmellow)
+}
+
+.CardValues{
+   width: 70%;
+   margin: 0 auto;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.ColorValues{
+   flex-direction: column;
+   font-family: "Exposure";
+}
+
+.ColorValues input[type="radio"]:checked+label{
+   border-color: transparent!important;
+   font-weight: bold;
+   font-variation-settings: 'EXPO'-50
+}
+
+
+.VariantSelectors--Ajax .optionsNameContainer{
+   border: none;
+   display:flex;
+   align-items: center;
+}
+
+/**/
 
 .stacked>* {
    grid-column: 1 / 2;
@@ -402,7 +451,6 @@ body {
 #page-pdp-main {
    margin: var(--margin);
    grid-template-columns: 0.5fr 2fr 0.5fr;
-   // grid-template-rows: minmax(auto, max-content);
 }
 
 #AddToBag {

@@ -62,6 +62,53 @@
           }
           this.sections[section.getAttribute('data-section-type')](section);
       });
+
+    this.initAjax();
+    },
+    initAjax: function(){
+      var ajaxAtc = document.querySelectorAll('[data-ajax-add]');
+      ajaxAtc.forEach((addToCart) => {
+        var id = addToCart.getAttribute('data-ajax-add');
+        if (!id){
+          console.log('somethings wrong with ajax');
+          return
+        }
+        addToCart.addEventListener('click', function(){
+          Theme.addToCart(id);
+        });
+      });
+
+      var ajaxSelectorPopups = document.querySelectorAll('[data-ajax-open]');
+      ajaxSelectorPopups.forEach((trigger) => {
+        var popupContainer = trigger.closest('[data-ajax-card]');
+        trigger.addEventListener('click', function(){
+          popupContainer.querySelector('[data-variant-popup]').classList.add('display');
+        });
+
+        var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
+        var atc = popupContainer.querySelector('[data-ajax-add]');
+        console.log(variants);
+        popupContainer.querySelector('[data-variant-popup]').addEventListener('change', function(){
+          if (variants){
+            function getVariant(section){
+              var selectedOptions = [];
+              var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
+              var variantContainers = popupContainer.querySelectorAll('.optionValuesContainer'); 
+              variantContainers.forEach((container) => {
+                var checked = container.querySelector('input:checked').value;
+                console.log(checked);
+                selectedOptions.push(checked);
+              });
+              return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+            }
+          if (getVariant().id){
+            atc.setAttribute('data-ajax-add',getVariant().id);
+          }
+          }
+        });
+
+      });
+
     },
     addedProduct: function(variant){
       console.log(variant);
@@ -112,6 +159,29 @@
         })
       });
     },
+    addToCart: function(variantID){
+      let formData = {
+        'items': [{
+         'id': variantID,
+         'quantity': 1
+         }]
+       };
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+          Theme.addedProduct(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    },
     sections: {
       Product: function(section){
         //Theme.initqty(section);
@@ -156,31 +226,9 @@
         });
 
 
-        stickyATC.addEventListener('click', function(){
+        stickyATC.addEventListener('click', async function(){
           var variantID = getVariant(section).id;
-          let formData = {
-            'items': [{
-             'id': variantID,
-             'quantity': 1
-             }]
-           };
-
-          fetch(window.Shopify.routes.root + 'cart/add.js', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          })
-          .then(response => response.json())
-          .then(data => {
-              console.log(data);
-              Theme.addedProduct(data.items[0]);
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-
+          await Theme.addedProduct(variantID);
         });
 
       },
