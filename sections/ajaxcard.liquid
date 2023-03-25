@@ -1,5 +1,4 @@
-{% for item in cart.items | limit: 1%}
-    
+{% for item in cart.items | limit: 1 %}
     <div id="" data-ajax-card class="product-card stacked">
         <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
         <div class="card-content">
