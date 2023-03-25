@@ -1,10 +1,10 @@
-{% for product in cart.items limit: 1%}
-    <div class="product-card stacked">
+{% for item in cart.items limit: 1%}
+    <div id="" data-ajax-card class="product-card stacked">
         <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
         <div class="card-content">
           <div class="card--header">
-          <p class="product-type">{{ product.type }}</p>
           <p class="product-title">{{ product.title }}</p>
+          <p class="product-type">{{ product.type }}</p>
           </div>
           <div class="card--footer">
           <button class="product-buynow">
@@ -21,7 +21,7 @@
                   stroke="#000" />
               </svg>
             </span>
-            <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="product-buynow"></a>
+            <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="product-buynow">ADD TO BAG</a>
           </button>
           <p class="product-price">{{ product.price | money }}</p>
         </div>
@@ -32,6 +32,6 @@
 {% endfor %}
 {% schema %}
 {
-  "name": "ajaxcard"
+  "name": "mini-cart"
 }
 {% endschema %}

@@ -249,9 +249,36 @@ padding-bottom: 100%;
 [data-ajax-popup]{
     position: absolute;
     bottom: 0;
-    transform: translateY(calc(100% + 1px));
+    transform: translateY(calc(-100% + 0px));
     background: var(--marshmellow);
     width:100%;
-    border: 1px solid black;
     border-top: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+}
+
+[data-ajax-popup].visible{
+    transform: translateY(calc(100% + 1px));
+    border: 1px solid black;
+}
+
+[data-ajax-popup].visible .stacked{
+border: none;
+}
+
+#cartButtonDrawer{
+    position: absolute;
+    top: 100%;
+    height: 0;
+    background: var(--marshmellow);
+    border-top: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    border-left: 1px solid black;
+    margin-left: -1px;
+    font-size: 10px;
+}
+
+#cartButtonDrawer[aria-hidden=true] {
+    height: calc(100vh - 100%);
 }

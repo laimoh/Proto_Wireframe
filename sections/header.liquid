@@ -28,12 +28,25 @@
       <img class="" src="{{'user.svg' | asset_url}}"></a>
   </div>
   
-  <a href="/cart" class="MainMenu--rightItem">
-    <span>Cart</span>
+  <div data-opencart href="/cart" class="MainMenu--rightItem">
     <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
-      lelel
     </div>
-  </a>
+
+    <span>Cart</span>
+    <div class=""  id="cartButtonDrawer">
+        <div class="CartProducts">
+          {% render 'cart-items' %}
+        </div>
+        <div class="Subtotal--price"><span>Subtotal</span><div class="line"></div> <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
+        <div>
+          <a href="/checkout">Checkout</a>
+          <div data-closecart>Close</div>
+        </div>
+    </div>
+
+
+
+  </div>
 </div>
 
 
