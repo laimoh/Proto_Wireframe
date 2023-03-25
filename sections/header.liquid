@@ -11,6 +11,8 @@
 
 <div class="MainMenu--center">
 <img id="DesktopLogo" class="Logo" src="{{'logo.svg' | asset_url }}">
+<img id="DesktopLogoPlaceholder" style="opacity:0; visibility: hidden;" class="LogoPlaceholder" src="{{'logo.svg' | asset_url }}">
+
 </div>
 
 
@@ -21,13 +23,16 @@
       <img class="" src="{{'search.svg' | asset_url}}"></a>
   </div>
   
-  <div class="MainMenu--rightItem icon">
+  <div class="MainMenu--rightItem icon login">
     <a href="/collections/all">
       <img class="" src="{{'user.svg' | asset_url}}"></a>
   </div>
   
   <a href="/cart" class="MainMenu--rightItem">
     <span>Cart</span>
+    <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
+      lelel
+    </div>
   </a>
 </div>
 

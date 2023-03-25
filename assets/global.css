@@ -16,8 +16,8 @@ body{
     display: flex;
     width: 100%;
     padding-top: 1rem;
-    padding-bottom: 1rem;
     transition: all 0.2s ease-in;
+    background: var(--marshmellow);
 }
 
 main {
@@ -30,6 +30,8 @@ main {
     left: 0;
     right: 0;
     top: 0;
+    z-index: 3;
+
 }
 
 .MainMenu.Fixed{
@@ -72,7 +74,8 @@ padding-bottom: 100%;
 }
 
 .MainMenu--center{
-    flex-basis: 40%;
+    flex-basis: 17%;
+    max-width: 17%;
     text-align: center;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -85,7 +88,7 @@ padding-bottom: 100%;
 
 .MainMenu--left,.MainMenu--right{
     display: flex;
-    flex-basis: 30%;
+    flex-basis: 41.5%;
     flex-grow: 1;
     align-items: center;
     border: 1px solid black;
@@ -112,16 +115,14 @@ padding-bottom: 100%;
     align-items: center;
     display: flex;
     justify-content: center;
-
+    position: relative;
 }
 
 .MainMenu--rightItem.icon{
-    flex-grow: 0;
-    padding: 20px 40px;
 }
 
-.MainMenu--rightItem.icon.search{
-    flex-basis: 30%;
+.MainMenu--rightItem.icon.login{
+    max-width: 75px;
 }
 
 .SectionContainer{
@@ -130,7 +131,6 @@ padding-bottom: 100%;
 
 .SectionContainer:first-of-type{
 }
-
 
 .qty--wrapper{
     display: flex;
@@ -163,12 +163,9 @@ padding-bottom: 100%;
 .hide{
     display: none!important;
 }
-
 .Collapsible--label{
     text-transform: uppercase;
 }
-
-
 #CartDrawer{
     position: fixed;
     width: 350px;
@@ -238,5 +235,23 @@ padding-bottom: 100%;
     .SectionContainer{
         padding: 0 calc(var(--margin)/2);
     }
+}
 
-    }
+.template-product #DesktopLogoPlaceholder{
+    opacity: 1!important;
+    visibility: visible!important;
+}
+
+.template-product #DesktopLogo{
+    display:none;
+}
+
+[data-ajax-popup]{
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc(100% + 1px));
+    background: var(--marshmellow);
+    width:100%;
+    border: 1px solid black;
+    border-top: none;
+}

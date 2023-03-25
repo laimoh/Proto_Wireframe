@@ -84,7 +84,7 @@ img {
    position: fixed;
    top: 0;
    height: 100%;
-   z-index: 2;
+   z-index: 5;
 }
 
 .right {
@@ -543,4 +543,9 @@ body {
 /* reset */
 .reset {
    margin-top: 0;
+}
+
+
+[data-ajax-add]{
+   cursor: pointer!important;
 }

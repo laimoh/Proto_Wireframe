@@ -9,6 +9,7 @@
         if (window.innerWidth > 679){
           window.scrollTo(0, 0);
           var logo = document.querySelector('#DesktopLogo');
+          var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
           var logoheight = logo.getBoundingClientRect().height
           console.log(logoheight);
           console.log(logo);
@@ -38,6 +39,7 @@
                 header.classList.remove('Fixed');
                 //header.setAttribute('animation-finished',true);
                 logo.style.height = '100%';
+                placeHolderLogo.style.display = 'none';
               root.style.setProperty('--headerHeight', (headerHeight)  + "px");
                 
                 return;
@@ -45,6 +47,8 @@
                 header.classList.add('Fixed');
                 root.style.setProperty('--headerHeight', (newHeight + headerHeight)  + "px");
                 logo.style.height = newHeight+'px';
+                placeHolderLogo.style.display = 'block';
+
               }
 
             }
@@ -110,8 +114,14 @@
       });
 
     },
-    addedProduct: function(variant){
-      console.log(variant);
+    addedProduct: function(data){
+      console.log(data);
+      if (data.sections){
+        if (data.sections.ajaxcard){
+          var cardcontainer = document.querySelector('#ajaxCardContainer');
+          cardcontainer.innerHTML=data.sections.ajaxcard;
+        }
+      }
     },
     cart:{
       status: function(){
@@ -164,7 +174,8 @@
         'items': [{
          'id': variantID,
          'quantity': 1
-         }]
+         }],
+         'sections':  "ajaxcard"
        };
       fetch(window.Shopify.routes.root + 'cart/add.js', {
         method: 'POST',
