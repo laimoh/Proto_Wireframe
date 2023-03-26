@@ -1,6 +1,6 @@
+<div data-section-type="collection" data-section-id="{{section.id}}">
 {{ 'shop.css' | asset_url | stylesheet_tag }}
-{% render 'filters' %}
-
+{% render 'filters-2' %}
 {% paginate collection.products by 6 %}
 <div data-next-page="{{ paginate.next.url }}" class="product-grid current-products">
             {% for product in collection.products %}
@@ -14,3 +14,4 @@
         <button role="loadproducts" class="loadmorebtn">
           <a href="{{ paginate.next.url }}">Load More</a>
         </button>
+</div>

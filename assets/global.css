@@ -232,6 +232,17 @@ padding-bottom: 100%;
 }
 
 @media screen and (width < 649px){  
+
+    .stacked{
+        flex-basis: 100%;
+        border:none;
+        border-bottom: 1px solid black;
+    }
+
+    .product-grid{
+        padding: 0 calc(var(--margin)/2);
+    }
+
     .SectionContainer{
         padding: 0 calc(var(--margin)/2);
     }

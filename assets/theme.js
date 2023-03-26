@@ -67,6 +67,7 @@
       });
 
     this.initAjax();
+
     },
     isInViewPort: function(element) {
       const rect = element.getBoundingClientRect();
@@ -89,38 +90,19 @@
           Theme.addToCart(id);
         });
       });
-
-      var ajaxSelectorPopups = document.querySelectorAll('[data-ajax-open]');
-      ajaxSelectorPopups.forEach((trigger) => {
-        var popupContainer = trigger.closest('[data-ajax-card]');
-        trigger.addEventListener('click', function(){
-          popupContainer.querySelector('[data-variant-popup]').classList.add('display');
+    },
+    initAjaxSection: function(section){
+      var ajaxAtc = section.querySelectorAll('[data-ajax-add]');
+      ajaxAtc.forEach((addToCart) => {
+        var id = addToCart.getAttribute('data-ajax-add');
+        if (!id){
+          console.log('somethings wrong with ajax');
+          return
+        }
+        addToCart.addEventListener('click', function(){
+          Theme.addToCart(id);
         });
-
-        var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
-        var atc = popupContainer.querySelector('[data-ajax-add]');
-        console.log(variants);
-        popupContainer.querySelector('[data-variant-popup]').addEventListener('change', function(){
-          if (variants){
-            function getVariant(section){
-              var selectedOptions = [];
-              var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
-              var variantContainers = popupContainer.querySelectorAll('.optionValuesContainer'); 
-              variantContainers.forEach((container) => {
-                var checked = container.querySelector('input:checked').value;
-                console.log(checked);
-                selectedOptions.push(checked);
-              });
-              return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
-            }
-          if (getVariant().id){
-            atc.setAttribute('data-ajax-add',getVariant().id);
-          }
-          }
-        });
-
       });
-
     },
     addedProduct: function(data){
       console.log(data);
@@ -254,6 +236,7 @@
     },
     rerenderCart: function(){
       console.log('rerender cart');
+
       fetch(window.Shopify.routes.root + "?sections=mini-cart")
       .then(response => response.json())
       .then(data => {
@@ -276,6 +259,74 @@
     });
     },
     sections: {
+      collection:
+      function(section){
+        var filterForm = section.querySelector('#storeFrontFilters');
+        console.log(section);
+        if (filterForm){
+          console.log(filterForm);
+          filterForm.addEventListener('change', function(){
+            console.log(new URLSearchParams(new FormData(filterForm)).toString());
+            var searchParams = new URLSearchParams(new FormData(filterForm)).toString();
+            var baseURL = window.location.pathname;
+            var sectionID = section.getAttribute('data-section-id');
+            const url = baseURL+'?section_id='+sectionID+'&'+searchParams;
+            
+            fetch(url)
+            .then(response => response.text())
+            .then(data => {
+              console.log(data); 
+              var html = document.createElement('div');
+              html.innerHTML = data;
+              var newProducts = html.querySelector('[data-next-page]').innerHTML; 
+              section.querySelector('[data-next-page]').innerHTML = newProducts;
+              Theme.sections.collectionHelpers.init(section);
+
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+
+
+          });
+        }
+        this.collectionHelpers.init(section);
+      },
+      collectionHelpers:{
+        init: function(section){
+          var ajaxSelectorPopups = section.querySelectorAll('[data-ajax-open]');
+        ajaxSelectorPopups.forEach((trigger) => {
+        var popupContainer = trigger.closest('[data-ajax-card]');
+        trigger.addEventListener('click', function(){
+          popupContainer.querySelector('[data-variant-popup]').classList.add('display');
+        });
+
+        var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
+        var atc = popupContainer.querySelector('[data-ajax-add]');
+        console.log(variants);
+        popupContainer.querySelector('[data-variant-popup]').addEventListener('change', function(){
+          if (variants){
+            function getVariant(section){
+              var selectedOptions = [];
+              var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
+              var variantContainers = popupContainer.querySelectorAll('.optionValuesContainer'); 
+              variantContainers.forEach((container) => {
+                var checked = container.querySelector('input:checked').value;
+                console.log(checked);
+                selectedOptions.push(checked);
+              });
+              return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+            }
+          if (getVariant().id){
+            atc.setAttribute('data-ajax-add',getVariant().id);
+          }
+          }
+        });
+        Theme.initAjaxSection(section);
+
+      });
+      }
+      },
       Product: function(section){
         //Theme.initqty(section);
 
@@ -433,6 +484,129 @@
     }
   };
 
+
+
+  Theme.AjaxRenderer = (function () {
+    function AjaxRenderer({ sections, onReplace, debug } = {}) {
+      this.sections = sections || [];
+      this.cachedSections = [];
+      this.onReplace = onReplace;
+      this.debug = Boolean(debug);
+    }
+  
+    AjaxRenderer.prototype = Object.assign({}, AjaxRenderer.prototype, {
+      renderPage: function (basePath, newParams, updateURLHash = true) {
+        const currentParams = new URLSearchParams(window.location.search);
+        const updatedParams = this.getUpdatedParams(currentParams, newParams)
+  
+        const sectionRenders = this.sections.map(section => {
+  
+          const url = `${basePath}?section_id=${section.sectionId}&${updatedParams.toString()}`;
+          const cachedSectionUrl = cachedSection => cachedSection.url === url;
+  
+          return this.cachedSections.some(cachedSectionUrl)
+            ? this.renderSectionFromCache(cachedSectionUrl, section)
+            : this.renderSectionFromFetch(url, section);
+        });
+  
+        if (updateURLHash) this.updateURLHash(updatedParams);
+  
+        return Promise.all(sectionRenders);
+      },
+  
+      renderSectionFromCache: function (url, section) {
+        const cachedSection = this.cachedSections.find(url);
+  
+        this.log(`[AjaxRenderer] rendering from cache: url=${cachedSection.url}`);
+        this.renderSection(cachedSection.html, section);
+        return Promise.resolve(section);
+      },
+  
+      renderSectionFromFetch: function (url, section) {
+        this.log(`[AjaxRenderer] redering from fetch: url=${url}`);
+  
+        return new Promise((resolve, reject) => {
+          fetch(url)
+            .then(response => response.text())
+            .then(responseText => {
+              const html = responseText;
+              this.cachedSections = [...this.cachedSections, { html, url }];
+              this.renderSection(html, section);
+              resolve(section);
+            })
+            .catch(err => reject(err));
+        });
+      },
+  
+      renderSection: function (html, section) {
+        this.log(
+          `[AjaxRenderer] rendering section: section=${JSON.stringify(section)}`,
+        );
+  
+        const newDom = new DOMParser().parseFromString(html, 'text/html');
+        if (this.onReplace) {
+          this.onReplace(newDom, section);
+        } else {
+          if (typeof section.nodeId === 'string') {
+            var newContentEl = newDom.getElementById(section.nodeId);
+            if (!newContentEl) {
+              return;
+            }
+  
+            document.getElementById(section.nodeId).innerHTML =
+              newContentEl.innerHTML;
+          } else {
+            section.nodeId.forEach(id => {
+              document.getElementById(id).innerHTML =
+                newDom.getElementById(id).innerHTML;
+            });
+          }
+        }
+  
+        return section;
+      },
+  
+      getUpdatedParams: function (currentParams, newParams) {
+        const clone = new URLSearchParams(currentParams);
+        const preservedParams = ['sort_by', 'q', 'options[prefix]', 'type'];
+  
+        // Find what params need to be removed
+        // delete happens first as we cannot specify keys based off of values
+        for (const [key, value] of clone.entries()) {
+          if (!newParams.getAll(key).includes(value) && !preservedParams.includes(key)) {
+            clone.delete(key);
+          };
+        }
+  
+        // Find what params need to be added
+        for (const [key, value] of newParams.entries()) {
+          if (!clone.getAll(key).includes(value) && value !== '') {
+            clone.append(key, value);
+          }
+        }
+  
+        return clone;
+      },
+  
+      updateURLHash: function (searchParams) {
+        history.pushState(
+          {},
+          '',
+          `${window.location.pathname}${
+            searchParams && '?'.concat(searchParams)
+          }`,
+        );
+      },
+  
+      log: function (...args) {
+        if (this.debug) {
+          console.log(...args);
+        }
+      },
+    });
+  
+    return AjaxRenderer;
+  })();
 
   document.addEventListener("DOMContentLoaded", (event) => {
     Theme.init();
