@@ -37,12 +37,18 @@
         <div class="CartProducts">
           {% render 'cart-items' %}
         </div>
-        <div class="Subtotal--price"><span>Subtotal</span><div class="line"></div> <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
-        <div>
-          <a href="/checkout">Checkout</a>
-          <div data-closecart>Close</div>
+<div class="Cart--Buttons">
+        <div class="Subtotal--price">
+          <span>Subtotal</span>
+          
+          <div class="line"></div> 
+        <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
         </div>
-    </div>
+        <div>
+          <a class="Button--action" data-checkout href="/checkout">Checkout</a>
+          <div class="Button--action" data-closecart onclick=Theme.cart.close()>Close</div>
+        </div>
+   </div>
 
 
 

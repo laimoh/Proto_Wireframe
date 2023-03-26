@@ -1,5 +1,4 @@
-<div data-item="{{item.key}}" class="CartItem" data-section-type="CartDrawer">
-
+<div data-item="{{item.key}}" class="CartItem">
 <div class="CartItem--Header">
 <span class="CartItemTitle">
 {{ item.title | split: " " | first }}
@@ -24,7 +23,11 @@
 </div>
 
 <div class="CartItem--qty">
-    {% render 'qty' %}
+    <div class="qty--wrapper">
+        <div class="qty--button minus">-</div>
+        <div class="qty--text" data-value="{{item.quantity}}">{{item.quantity}}</div>
+        <div class="qty--button plus">+</div>
+        </div>
 </div>
 
 <div class="CartItem--price">{{ item.price | money }}</div>
