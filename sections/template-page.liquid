@@ -1,14 +1,17 @@
-{{ 'impact.css' | asset_url | stylesheet_tag }}
+{{ 'about.css' | asset_url | stylesheet_tag }}
+
 <div class="about-content">
   <section class="about-proto">
-    <div class="about-proto" ">
+    <div class="about-text" ">
       <p>{{ page.content }}</p>
     </div>
     <div class="subtext">
-      <p>{{ section.settings.subtext }}</p>
+      <p>Practice is
+        <span>Perfect</span>
+      </p>
+      {% comment %} <p>{{ section.settings.subtext }}</p> {% endcomment %}
     </div>
   </section>
-  <section class="contact-form"></section>
 </div>
 
 {% schema %}
@@ -20,7 +23,7 @@
         "type": "text",
         "id": "subtext",
         "label": "Subtext",
-        "default": "Practice is Perfect"
+        "default": "Practice is /<span>Perfect</span>/"
       }
     ]
   }

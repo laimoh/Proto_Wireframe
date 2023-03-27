@@ -127,6 +127,10 @@ img {
    opacity: 0;
 }
 
+.remove {
+   display: none;
+}
+
 .line {
    /* border: var(--wireframe); */
    box-shadow: var(--shadow);
@@ -141,10 +145,6 @@ img {
 svg * {
    transform-box: fill-box;
    display: block;
-}
-
-.about-proto {
-   background-color: #A72828;
 }
 
 .template-index {

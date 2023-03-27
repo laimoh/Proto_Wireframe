@@ -1,19 +1,27 @@
+ .form-wrapper * {
+   /* outline: 1px solid gray; */
+ }
+
 .form-wrapper {
    display: grid;
    grid-template-rows: auto 1fr;
+   font-family: "Exposure";
+   font-variation-settings: 'EXPO'0;
+   
 }
 
 .form-wrapper h1 {
    padding: 1rem;
-   font-size: 1.5rem;
+   margin-left: var(--margin);
+   font-size: 1.6rem;
 }
 
 .form {
    margin: auto;
+   transform: translateX(3rem);
    display: flex;
    flex-direction: column;
-   max-width: 40vw;
-   min-width: 30vw;
+   width: 30vw;
 }
 
 .line {
@@ -22,20 +30,18 @@
 }
 
 .field {
-   /* display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   padding: 8%; */
    display: grid;
    grid-template-columns: auto 1fr 1fr;
    gap: 4%;
    padding: 6% 0%;
    align-items: center;
    justify-content: space-between;
+   font-size: 0.9rem;
 }
 
 .field label {
    white-space: nowrap;
+
 }
 
 .message textarea, .field input {
@@ -51,3 +57,30 @@ input, textarea {
    outline: none;
    border: none;
 }
+
+
+#first-name[contenteditable]:empty::before {
+   content: "Proto";
+   color: gray;
+ }
+ #last-name[contenteditable]:empty::before {
+   content: "Collective";
+   color: gray;
+ }
+ #email[contenteditable]:empty::before {
+   content: "email@email.com";
+   color: gray;
+ }
+
+ #message {
+   /* display: block; */
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+ }
+ #message[contenteditable]:empty::before {
+   content: "Give us a short summary";
+   color: gray;
+ }

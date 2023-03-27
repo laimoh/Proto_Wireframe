@@ -24,65 +24,94 @@
         <summary class="filter-group">
           <span class="filter-label">{{ filter.label }}</span>
           <span class="line"></span>
-          {%- if filter.active_values.size > 0 -%}
-            {%- for filter_value in filter.active_values -%}
-              <span class="filter-value">{{ filter_value.label }}</span>
-            {%- endfor -%}
-          {% else %}
-            <span class="filter-value">all</span>
-          {% endif %}
+          <p>
+            {%- if filter.active_values.size > 0 -%}
+              {%- for filter_value in filter.active_values limit: 3 -%}
+                {% if forloop.index == 3 and filter.active_values.size > 3 %}
+                  <span class="filter-value">{{ filter_value.label }}...</span>
+                {% else %}
+                  <span class="filter-value">{{ filter_value.label }}</span>
+                  /
+                {% endif %}
+              {%- endfor -%}
+            {% else %}
+              <span class="filter-value">all</span>
+            {% endif %}
+          </p>
         </summary>
         <div class="group-transition">
-          <ul class="filter-group-display__list ">
+          <ul class="filter-group-display__list list-size">
             {%- for filter_value in filter.values -%}
               <li class="filter-group-display__list-item">
-                <label class="size-label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
-                  <input
-                    class="inputbox"
-                    type="checkbox"
-                    name="{{ filter_value.param_name }}"
-                    value="{{ filter_value.value }}"
-                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                    {% if filter_value.active -%}checked{%- endif %}
-                    {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>{{ filter_value.label }}</label>
+                <input
+                  class="checkbox-size remove"
+                  class="inputbox"
+                  type="checkbox"
+                  name="{{ filter_value.param_name }}"
+                  value="{{ filter_value.value }}"
+                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                  {% if filter_value.active -%}checked{%- endif %}
+                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+                <label class="label-size" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                  {{ filter_value.label }}</label>
               </li>
             {%- endfor -%}
           </ul>
           <div class="filter-group-display__submit">
-            <input type="submit" value="Apply">
+            <div class="pill-tiny"></div>
+            <input
+              class="applychanges"
+              type="submit"
+              value="Apply">
           </div>
         </div>
 
 
         {% when "Color" %}
         <summary class="filter-group">
+
           <span class="filter-label">{{ filter.label }}</span>
           <span class="line"></span>
-          {%- if filter.active_values.size > 0 -%}
-            {%- for filter_value in filter.active_values -%}
-              <span class="filter-value">{{ filter_value.label }}</span>
-            {%- endfor -%}
-          {% else %}
-            <span class="filter-value">all</span>
-          {% endif %}
+          <p>
+            {%- if filter.active_values.size > 0 -%}
+              {%- for filter_value in filter.active_values limit: 2 -%}
+                {% if forloop.index == 2 and filter.active_values.size > 2 %}
+                  <span class="filter-value">{{ filter_value.label }}...</span>
+                {% else %}
+                  <span class="filter-value">{{ filter_value.label }}</span>
+                  /
+                {% endif %}
+              {%- endfor -%}
+            {% else %}
+              <span class="filter-value">all</span>
+            {% endif %}
+          </p>
         </summary>
         <div class="group-transition">
           <ul class="filter-group-display__list list-color">
             {%- for filter_value in filter.values -%}
               <li class="filter-group-display__list-item">
-                <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
-                  <input
-                    type="checkbox"
-                    name="{{ filter_value.param_name }}"
-                    value="{{ filter_value.value }}"
-                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                    {% if filter_value.active -%}checked{%- endif %}
-                    {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>{{ filter_value.label }}</label>
+                <input
+                  class="checkbox-color remove"
+                  type="checkbox"
+                  name="{{ filter_value.param_name }}"
+                  value="{{ filter_value.value }}"
+                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                  {% if filter_value.active -%}checked{%- endif %}
+                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+
+                <label class="label-color" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                  {{ filter_value.label }}</label>
               </li>
+
             {%- endfor -%}
           </ul>
           <div class="filter-group-display__submit">
-            <input type="submit" value="Apply">
+            <div class="pill-tiny"></div>
+            <input
+              class="applychanges"
+              type="submit"
+              value="Apply">
           </div>
         </div>
       {% endcase %}
@@ -100,15 +129,29 @@
       {% endif %}
       ">CLEAR</a>
   </div>
-
-
-
-  <button class="toggleViewBtn">
-    <p class="toggle_label-grid">GRID</p>
+  {% comment %} if item is checked then get the value in js {% endcomment %}
+  {% comment %} <label class="toggleViewBtn">
+    <p class="toggle_label-grid">GRID</p> {% endcomment %}
+{% comment %} 
     <div class="slider-ui">
+      <input
+        class="toggleView"
+        type="checkbox"
+        checked>
       <div class="pill-tiny"></div>
       <div class="line"></div>
     </div>
     <p class="toggle_label-shuffle">SHUFFLE</p>
-  </button>
-</form>
+  </label> {% endcomment %}
+
+ <div class="toggleViewBtn">
+  <p class="toggle_label-grid">GRID</p>
+  <div class="slider-ui">
+    <div id="toggle" class="pill-tiny"></div>
+    <div class="line"></div>
+  </div>
+  <p class="toggle_label-shuffle">SHUFFLE</p>
+  </div> 
+  </form>
+
+ 
