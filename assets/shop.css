@@ -364,8 +364,6 @@ transition: all 0.1s ease;
 }
 
 .stacked {
-   display: grid;
-       display: grid;
     font-family: "Pressura";
     text-transform: uppercase;
 }
