@@ -1,17 +1,35 @@
 <div data-section-type="collection" data-section-id="{{section.id}}">
 {{ 'shop.css' | asset_url | stylesheet_tag }}
-{% render 'filters-2' %}
-{% paginate collection.products by 6 %}
-<div data-next-page="{{ paginate.next.url }}" class="product-grid current-products">
-            {% for product in collection.products %}
-              {% render 'product-card', product: product %}
-            {% else %}
-              <p>Products don't exist yet!</p>
-            {% endfor %}
-            {% if paginate.pages > 0 %}{% endif %}
- {% endpaginate %}
-        </div>
-        <button role="loadproducts" class="loadmorebtn">
-          <a href="{{ paginate.next.url }}">Load More</a>
-        </button>
+<div class="filters-wrapper">
+  {% render 'filters-2' %}
 </div>
+{% paginate collection.products by 9 %}
+   <div class="product-grid">
+    {% for product in collection.products %}
+      {% cycle '<div class="row">', '', '' %}
+      {% render 'product-card', product: product %}
+      {% cycle '', '', '</div>' %}
+    {% endfor %}
+  </div>
+
+  <nav>
+   {%- if paginate.previous -%}
+        <a
+          class="loadmorebtn" 
+          href="{{ paginate.previous.url }}"
+          >
+          PREVIOUS
+        </a>
+    {%- endif -%}
+    {%- if paginate.next -%}
+      <a
+        class="loadmorebtn"
+        href="{{ paginate.next.url }}"
+        >
+        NEXT
+      </a>
+  {%- endif -%}
+  </nav>
+{% endpaginate %}
+
+<script src="{{ 'shop.js' | asset_url }}" async></script>
