@@ -1,17 +1,52 @@
 {% assign random_number = "now" | date: "%N" | modulo: product.images.size | plus: 0 %}
-
-<div class="product-card stacked">
-  <a href="{{ product.url }}" class="card-link">
+<div data-ajax-card class="product-card stacked">
+    <a href="{{ product.url }}" class="card-link">
     <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
     <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img remove"></div>
   </a>
-  <div class="card-content">
-    <p class="product-title">{{ product.title }}</p>
-    <p class="product-type">{{ product.type }}</p>
-    <button class="product-buynow">
-      <div class="pill-tiny"></div>
-      <a class="link-text" class="">ADD TO BAG</a>
-    </button>
-    <p class="product-price">{{ product.price | money }}</p>
-  </div>
+          <div class="card-content">
+            <div class="card--header">
+            <p class="product-title">{{ product.title }}</p>
+            <p class="product-type">{{ product.type }}</p>
+            </div>
+            <div class="card--footer">
+            <button class="product-buynow">
+              <div class="pill-tiny"></div>
+   
+              <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text product-buynow">ADD TO BAG</a>
+            </button>
+            <p class="product-price">{{ product.price | money }}</p>
+          </div>
+          </div>
+  
+  <div data-variant-popup class="VariantSelectors--Ajax">
+    {% for options in product.options_with_values %}
+      {% assign optionrow = forloop.index %}
+      {%assign downcased_option = options.name | downcase%}
+  <div class="optionValuesContainer">
+    <div class="CardValues {%if downcased_option == 'color' %}ColorValues{%endif%}">
+  {% for value in options.values %}
+  <input name="{{option | append: "--" | append: optionrow}}" id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" style="display:none" {%if forloop.first%}checked="checked"{%endif%} type="radio" value="{{value}}" data-option="{{optionrow}}">
+  <label for="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{value}}</label>
+  {% endfor %}
 </div>
+    <div class="optionsNameContainer"> {{options.name}} <div class="line"></div> </div>
+  </div>
+  {% endfor %}
+  <div class="productQty">
+      <span data-ajax-add="{{product.selected_or_first_available_variant.id}}" style="text-transform:uppercase">Add to Bag</span>
+      <div class="qty">
+          
+      </div>
+  </div>
+<textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
+  {{ product.variants | json }}
+</textarea>
+{%- if product.options.size > 1 -%}
+  <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
+    {{ current_variant | json }}
+  </textarea>
+{%- endif -%}
+  
+  </div>
+  </div>

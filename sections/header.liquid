@@ -1,71 +1,63 @@
-{{ 'header.css' | asset_url | stylesheet_tag }}
-
-<div class="container" x-data="{ mobilemenuOpen: false}">
-  <header id="header-global">
-    {% for link in linklists.main-menu.links %}
-      {% assign handle = link.title %}
-      {% case handle %}
-        {% when 'Home' %}
-         <a class="home" href="{{ link.url }}">
-            <div class="wrapper-logo">
-              {% render 'logo-pill' %}
-            </div>
-          </a>
-        {% when 'Search' %}
-        <div class="join desktop">
-          <a class="border_left" href="{{ link.url }}">{% render 'search-icon' %}</a>
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-               <a class="border_left" href="/Accounts">
-              {{ 'log out' | customer_logout_link }}
-              {% else %}
-              {% comment %} {{ 'log in ' | customer_login_link }}
-              {{ 'register' | customer_register_link }} {% endcomment %}
-              <a class="border_left" href="/Accounts">
-                {% render 'user-icon' %}
-              </a>
-            {% endif %}
-          {% endif %}
-        </div>
-      {% else %}
-        <div class="link border_right desktop">
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        </div>
-      {% endcase %}
-    {% endfor %}
-
-
-    {% assign cart_filled = 'nav.cart-count_html' | t: itemCount: cart.item_count %}
-    {% assign cart_empty = 'nav.cart' | t %}
-    {% assign cart_close = 'cart.copy.action.close' | t %}
-
-    <a class="link border_left desktop" href="{{ routes.cart_url }}">
-      {% if cart.item_count > 0 %}
-        {{ cart_filled }}
-      {% else %}
-        {{ cart_empty }}
-      {% endif %}
-    </a>
-    {% comment %} {{ cart_close }} {% endcomment %}
-       <div class="mobileNav">
-      <div x-bind:class="mobilemenuOpen ? 'hidden' : ''" class="topbar">
-             <button x-on:click="mobilemenuOpen = true" class="mainmenu-icon">
-            {% render 'menu-icon' %}
-            </button>
-            <button class="righticons">{% render 'search-icon' %}</button>
-            <button class="righticons">{% render 'cart-icon' %}</button>
-      </div>
-      <div x-show="mobilemenuOpen" class="dropdown">
-         {% for link in linklists.mobile-menu.links %}
-            <ul>
-               <li><a href="{{ link.url }}"></a>{{ link.title }}</li>
-            </ul>
-         {% endfor %}
-         <button class="closebtn" x-on:click="mobilemenuOpen = false">CLOSE</button>
-      </div>
-    </div>
-  </header>
+<div class="MainMenu Fixed">
+<div class="MainMenu--Wrapper">
+<div class="MainMenu--left">
+  <div class="MainMenu--leftItem">
+    <a href="/collections/all">Shop</a>
+  </div>
+  <div class="MainMenu--leftItem">
+    <a href="/collections/all">About</a>
+  </div>
 </div>
+
+<div class="MainMenu--center">
+<img id="DesktopLogo" class="Logo" src="{{'logo.svg' | asset_url }}">
+<a href="/"> <img id="DesktopLogoPlaceholder" style="opacity:0; visibility: hidden;" class="LogoPlaceholder" src="{{'logo.svg' | asset_url }}"> </a>
+
+</div>
+
+
+<div class="MainMenu--right">
+
+  <div class="MainMenu--rightItem icon search">
+    <a href="/collections/all">
+      <img class="" src="{{'search.svg' | asset_url}}"></a>
+  </div>
+  
+  <div class="MainMenu--rightItem icon login">
+    <a href="/collections/all">
+      <img class="" src="{{'user.svg' | asset_url}}"></a>
+  </div>
+  
+  <div data-opencart href="/cart" class="MainMenu--rightItem">
+    <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
+    </div>
+
+    <span>Cart</span>
+    <div class=""  id="cartButtonDrawer">
+        <div class="CartProducts">
+          {% render 'cart-items' %}
+        </div>
+<div class="Cart--Buttons">
+        <div class="Subtotal--price">
+          <span>Subtotal</span>
+          
+          <div class="line"></div> 
+        <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
+        </div>
+        <div>
+          <a class="Button--action" data-checkout href="/checkout">Checkout</a>
+          <div class="Button--action" data-closecart onclick=Theme.cart.close()>Close</div>
+        </div>
+   </div>
+
+
+
+  </div>
+</div>
+
+
+</div>
+
 
 {% schema %}
    {

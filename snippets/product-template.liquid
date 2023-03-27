@@ -5,7 +5,6 @@
 display:none;
 }
 #shopify-section-header{
-max-height: 3rem;
 }
 
 </style>
@@ -38,7 +37,18 @@ max-height: 3rem;
     </div>
 
         <div class="ProductMedia--Container">
+            <div data-media class="ProductMedia">
+            <div class="ProductMedia--Counter">
+        {% for media in product.media %}
+                {% case media.media_type %}
+                    {% when 'image' %}
+                    <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
+                    {% endcase %}
+        {% endfor %}
+            </div>
+
             <div class="ProductMedia">
+
         {% for media in product.media %}
         {% case media.media_type %}
         {% when 'image' %}

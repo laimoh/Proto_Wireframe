@@ -1,13 +1,138 @@
 /*Global CSS to be Reused*/
 
+
+
+
+/*Templfixes Laiqa*/
+body{
+    overflow-x: hidden;
+}
+
+.footer-wrapper{
+    overflow-x: hidden;
+}
+
+.MainMenu--Wrapper{
+    padding: 0 calc(var(--margin));
+    display: flex;
+    width: 100%;
+    padding-top: 1rem;
+    transition: all 0.2s ease-in;
+    background: var(--marshmellow);
+}
+
+main {
+    padding-top: var(--headerHeight);
+}
+
+.MainMenu{
+    position: fixed;
+    background: var(--marshmellow);
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 3;
+
+}
+
+.MainMenu.Fixed{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
+}
+
+
+.MainMenu.Fixed .MainMenu--center{
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.MainMenu.Fixed *{
+}
+
+.MainMenu.Fixed .icon{
+}
+
+.MainMenu.Fixed .MainMenu--center .Logo{
+    width: calc(100vw - 2*var(--margin));
+    position: absolute;
+    right: auto;
+    top: 100%;
+    margin: 0 auto;
+    max-width: unset;
+    height: auto;
+}
+
+.MainMenu.Fixed .MainMenu--center .Logo::after{
+content: "";
+padding-bottom: 100%;
+}
+
+.MainMenu--center{
+    flex-basis: 17%;
+    max-width: 17%;
+    text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+}
+
+.MainMenu--leftItem,.MainMenu--center,.MainMenu--rightItem{
+    border-left: 1px solid black; 
+}
+
+.MainMenu--left,.MainMenu--right{
+    display: flex;
+    flex-basis: 41.5%;
+    flex-grow: 1;
+    align-items: center;
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    font-size: 1.3rem;
+    font-family: "Pressura";
+}
+
+.MainMenu--leftItem{
+    flex-grow: 1;
+    text-align: center;
+    height: 100%;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainMenu--rightItem{
+    flex-grow: 1;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.MainMenu--rightItem.icon{
+}
+
+.MainMenu--rightItem.icon.login{
+    max-width: 75px;
+}
+
+
 .SectionContainer{
     padding: 0 calc(var(--margin));
 }
 
 .SectionContainer:first-of-type{
-    padding-top: 4rem;
 }
-
 
 .qty--wrapper{
     display: flex;
@@ -40,12 +165,9 @@
 .hide{
     display: none!important;
 }
-
 .Collapsible--label{
     text-transform: uppercase;
 }
-
-
 #CartDrawer{
     position: fixed;
     width: 350px;
@@ -88,10 +210,116 @@
     width: 60%;
 }
 
+
+
 /*Global CSS Mobile*/
 
 @media screen and (width <= 458px){  
 .SectionContainer{
     padding: 0 calc(var(--margin)/2);
 }
+
+}
+
+@media screen and (width < 649px){  
+
+    .stacked{
+        flex-basis: 100%;
+        border:none;
+        border-bottom: 1px solid black;
+    }
+
+    .product-grid{
+        padding: 0 calc(var(--margin)/2);
+    }
+
+    .SectionContainer{
+        padding: 0 calc(var(--margin)/2);
+    }
+
+    .left{
+        left: calc(var(--margin)/2);
+    }
+
+    .right{
+        right: calc(var(--margin)/2);
+    }
+
+    }
+}
+
+.template-product #DesktopLogoPlaceholder{
+    opacity: 1!important;
+    visibility: visible!important;
+}
+
+.template-product #DesktopLogo{
+    display:none;
+}
+
+[data-ajax-popup]{
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc(-100% + 0px));
+    background: var(--marshmellow);
+    width:100%;
+    border-top: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+}
+
+[data-ajax-popup].visible{
+    transform: translateY(calc(100% + 1px));
+    border: 1px solid black;
+}
+
+[data-ajax-popup].visible .stacked{
+border: none;
+}
+
+#cartButtonDrawer{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 0;
+    background: var(--marshmellow);
+    border-top: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    border-left: 1px solid black;
+    margin-left: -1px;
+    font-size: 10px;
+}
+
+#cartButtonDrawer[aria-hidden=true] {
+    height: calc(100vh - 100%);
+}
+
+#cartButtonDrawer[aria-hidden=false] .Button--action{
+    display:none
+}
+
+.Cart--Buttons{
+    position: absolute;
+    width: 100%;
+    bottom: calc(var(--margin) * 1);
+    font-size: 1.1rem;
+}
+
+.Cart--Buttons .Button--action{
+width: 100%;
+display: block;
+padding: var(--margin);
+border-top: 1px solid black;
+cursor: pointer;
+}
+
+.Subtotal--price{
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    font-family: "Exposure";
+    padding: var(--margin)
+
+
 }
