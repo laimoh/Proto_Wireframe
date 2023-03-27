@@ -331,3 +331,11 @@ cursor: pointer;
     font-family: "Exposure";
     padding: var(--margin)
 }
+
+.filter-form input{
+    display:none!important;
+}
+
+.filter-form input:checked+label{
+    font-weight: bold;
+}
