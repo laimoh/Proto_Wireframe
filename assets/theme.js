@@ -275,7 +275,7 @@
             fetch(url)
             .then(response => response.text())
             .then(data => {
-              console.log(data); 
+            //   console.log(data); 
               var html = document.createElement('div');
               html.innerHTML = data;
               var newProducts = html.querySelector('[data-next-page]').innerHTML; 

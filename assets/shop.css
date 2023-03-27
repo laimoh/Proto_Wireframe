@@ -3,6 +3,7 @@
 /* filter  */
 .filters-wrapper {
    border-bottom: var(--wireframe);
+   border-top: var(--wireframe);
    position: sticky;
    width: 100vw;
    top: 8.7%;

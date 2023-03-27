@@ -1,4 +1,4 @@
-<form class="filter-form">
+<form class="filter-form" id="storeFrontFilters">
 
   <div class="filter-group-collection">
     <ul>
@@ -131,27 +131,23 @@
   </div>
   {% comment %} if item is checked then get the value in js {% endcomment %}
   {% comment %} <label class="toggleViewBtn">
-    <p class="toggle_label-grid">GRID</p> {% endcomment %}
-{% comment %} 
+  <p class="toggle_label-grid">GRID</p> {% endcomment %}{% comment %} 
+  <div class="slider-ui">
+  <input
+  class="toggleView"
+  type="checkbox"
+  checked>
+  <div class="pill-tiny"></div>
+  <div class="line"></div>
+  </div>
+  <p class="toggle_label-shuffle">SHUFFLE</p>
+  </label> {% endcomment %}
+
+    <div class="toggleViewBtn"> <p class="toggle_label-grid">GRID</p>
     <div class="slider-ui">
-      <input
-        class="toggleView"
-        type="checkbox"
-        checked>
-      <div class="pill-tiny"></div>
+      <div id="toggle" class="pill-tiny"></div>
       <div class="line"></div>
     </div>
     <p class="toggle_label-shuffle">SHUFFLE</p>
-  </label> {% endcomment %}
-
- <div class="toggleViewBtn">
-  <p class="toggle_label-grid">GRID</p>
-  <div class="slider-ui">
-    <div id="toggle" class="pill-tiny"></div>
-    <div class="line"></div>
   </div>
-  <p class="toggle_label-shuffle">SHUFFLE</p>
-  </div> 
-  </form>
-
- 
+</form>

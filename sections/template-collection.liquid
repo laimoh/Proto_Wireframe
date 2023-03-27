@@ -1,7 +1,7 @@
 <div data-section-type="collection" data-section-id="{{section.id}}">
 {{ 'shop.css' | asset_url | stylesheet_tag }}
 <div class="filters-wrapper">
-  {% render 'filters-2' %}
+  {% render 'filters' %}
 </div>
 {% paginate collection.products by 9 %}
    <div class="product-grid">
