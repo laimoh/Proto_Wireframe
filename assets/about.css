@@ -1,0 +1,38 @@
+.about-proto {
+   border-bottom: var(--wireframe);
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.about-text {
+   max-width: 80vw;
+   margin: var(--margin);
+   padding: 5% var(--margin);
+}
+
+.about-text p {
+   text-transform: lowercase;
+   color: var(--red);
+   font-family: "Walsheim";
+   font-size: 3rem;
+   line-height: 0.9;
+}
+
+.subtext {
+   align-self: end;
+   margin-right: 2%;
+}
+
+.subtext p {
+   max-width: 12vw;
+   line-height: 0.8;
+   margin: var(--margin);
+   text-align: end;
+   font-family: "Exposure";
+   font-size: 2rem;
+   color: var(--red);
+}
+.subtext span { 
+   font-variation-settings: 'EXPO'-40;
+}

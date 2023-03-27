@@ -1,5 +1,9 @@
+{% assign random_number = "now" | date: "%N" | modulo: product.images.size | plus: 0 %}
 <div data-ajax-card class="product-card stacked">
-          <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
+    <a href="{{ product.url }}" class="card-link">
+    <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
+    <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img remove"></div>
+  </a>
           <div class="card-content">
             <div class="card--header">
             <p class="product-title">{{ product.title }}</p>
@@ -7,20 +11,9 @@
             </div>
             <div class="card--footer">
             <button class="product-buynow">
-              <span class="pill-icon">
-                <svg
-                  viewBox="0 0 15 33"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"><rect
-                    x="0.5"
-                    y="0.5"
-                    width="14"
-                    height="28"
-                    rx="7"
-                    stroke="#000" />
-                </svg>
-              </span>
-              <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="product-buynow">ADD TO BAG</a>
+              <div class="pill-tiny"></div>
+   
+              <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text product-buynow">ADD TO BAG</a>
             </button>
             <p class="product-price">{{ product.price | money }}</p>
           </div>
