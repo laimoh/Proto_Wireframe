@@ -103,7 +103,11 @@ display:none;
 
 <!--/* Mobile Components */-->
 
-<div data-mobile-slider class="Mobile--ProductSlider">
+<a href="/collections/all" class="Button Block Bordered HeaderBtn">
+Back to Products
+</a>
+
+<div data-mobile-slider class="Mobile--ProductSlider hide--desktop">
     {% for media in product.media %}
         {% case media.media_type %}
         {% when 'image' %}

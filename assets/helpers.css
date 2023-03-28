@@ -1,0 +1,10 @@
+.Block{
+    display: block;
+}
+.Bordered {
+    border: 1px solid black;
+}
+.HeaderBtn{
+    padding: 10px;
+    text-align: center;
+}

@@ -1,3 +1,4 @@
+var cartOpen = false;
 var Theme = {
   init: function(){
     var sections = document.querySelectorAll('[data-section-type]');
@@ -137,14 +138,12 @@ var Theme = {
       if (window.innerWidth > 679){
       var CartDrawer = document.querySelector('#cartButtonDrawer');
       }
-      var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
-      if(hidden){
-        if (window.innerWidth > 679){
-          return
-          }
-        CartDrawer.setAttribute('aria-hidden', false);
+      if (!cartOpen){
+        Theme.cart.open();
+        cartOpen = true
       }else{
-        CartDrawer.setAttribute('aria-hidden', true);
+        Theme.cart.close();
+        cartOpen = false
       }
     },
     close: function(){
@@ -154,7 +153,6 @@ var Theme = {
       }
       var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
       CartDrawer.setAttribute('aria-hidden', false);
-
     },
     open: function(){
       var CartDrawer = document.querySelector('#CartDrawer');
@@ -348,7 +346,7 @@ var Theme = {
         productMeta.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
         variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4)  + 'px';  
       }else{
-        var productMedia = section.querySelector('[data-media-mobile]');
+        var productMedia = section.querySelector('[data-mobile-slider]');
         setTimeout(() => {
           var flkty = new Flickity( productMedia, {
             cellAlign: 'left',
@@ -431,21 +429,15 @@ var Theme = {
     },
     CartDrawer: function(section){
       var cartLinks = document.querySelectorAll('[data-opencart]');
-      console.log(cartLinks);
       cartLinks.forEach((link) =>{
-        console.log(link);
         //link.setAttribute('href', "#");
         link.addEventListener('click', function(e){
-          console.log(e.target);
-          if (e.target.closest('[data-closecart]')){
-          Theme.cart.close();
+          if(e.target !== link){
             return
           }
           Theme.cart.open();
         });
-
       Theme.cart.init();
-
       });
     }
   },

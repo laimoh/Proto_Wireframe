@@ -135,10 +135,35 @@ input[type="radio"]:checked+label{
 }
 
 .Mobile--ProductImage{
+    width: 100%;
+}
+
+.Mobile--ProductImage img{
+    width: 100%;
+    max-width: 100%;
 }
 
 @media screen and (width < 649px){
 
+.Mobile--ProductSlider{
+}
+
+.flickity-page-dots{
+    bottom: -30px;
+}
+
+.flickity-prev-next-button{
+    top:unset;
+    transform:unset;
+    background: transparent;
+}
+
+.flickity-page-dots .dot{
+width: 30px;
+transition: all 0.2s ease-in;
+border-radius: 5px;
+border: 1px solid black;
+}
     .data-variant-price{
         display:none;
     }
