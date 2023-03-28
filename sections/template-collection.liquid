@@ -4,7 +4,7 @@
   {% render 'filters' %}
 </div>
 {% paginate collection.products by 9 %}
-   <div class="product-grid">
+   <div data-next-page class="product-grid">
     {% for product in collection.products %}
       {% cycle '<div class="row">', '', '' %}
       {% render 'product-card', product: product %}

@@ -26,9 +26,8 @@
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
-
    --headerHeight: 350px;
-
+   --headerMargin: 1rem;
    --shop-notation: 10px;
    --header-notation: 10px;
    --footer-notation: 10px;
@@ -78,7 +77,6 @@ img {
 .grid {
    display: grid;
    column-gap: var(--grid-gutter);
-   // row-gap: var(--grid-gutter);
 }
 
 .wire {
@@ -149,14 +147,18 @@ svg * {
 .template-index {
   overflow: hidden;
 }
-.template-index main {
+.template-index .MainMenu--Wrapper{
+   background: none;
+ }
+
+.template-index .content {
    overflow: scroll;
    height: 100vh;
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-type: y mandatory;
 }
 
-.template-index main section {
+.template-index .content section {
 
    min-width: 100vw;
 	height: 100vh;
@@ -313,17 +315,8 @@ svg * {
    border-bottom: var(--wireframethick);
 }
 
-.card-img {
-   display: block;
-}
 
-.card-img img {
-   width: 100%;
-   height: 100%;
-   aspect-ratio: 1;
-   object-fit: cover;
-   mix-blend-mode: multiply;
-}
+
 
 .card-content {
    margin: calc(var(--margin)/2);

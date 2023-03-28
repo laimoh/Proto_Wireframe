@@ -13,7 +13,7 @@
             row.lastElementChild.className = 'product-card stacked rowChild widen'
          });
          cardImgs.forEach(card => {
-               card.classList.toggle('remove')
+            card.classList.toggle('remove')
          })
       } else {
          oddRows.forEach(row => {
@@ -22,8 +22,18 @@
          });
          cardImgs.forEach(card => {
             card.classList.toggle('remove')
-      })
+         })
       }
-     
+
    });
 })(document);
+
+const details = document.querySelectorAll('.details')
+
+document.querySelectorAll('.details').forEach((el) => {
+   el.addEventListener('click', () => {
+      const filterGroup = el.lastElementChild;
+      filterGroup.classList.toggle('grow');
+      el.classList.toggle('grow');
+   });
+});

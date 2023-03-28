@@ -1,4 +1,5 @@
 .about-proto {
+   border-top: var(--wireframe);
    border-bottom: var(--wireframe);
    width: 100%;
    display: flex;

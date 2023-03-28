@@ -19,8 +19,6 @@
           mainSection = main.querySelector('.shopify-section');
           let root = document.documentElement;
           root.style.setProperty('--headerHeight', (headerHeight + logoheight)  + "px");
-          //mainSection.style.paddingTop = logoheight+'px';
-
   
           var header = document.querySelector('.MainMenu.Fixed');
           window.scrollTo(0, 0);
@@ -262,9 +260,9 @@
       collection:
       function(section){
         var filterForm = section.querySelector('#storeFrontFilters');
-        console.log(section);
+      
         if (filterForm){
-          console.log(filterForm);
+        
           filterForm.addEventListener('change', function(){
             console.log(new URLSearchParams(new FormData(filterForm)).toString());
             var searchParams = new URLSearchParams(new FormData(filterForm)).toString();

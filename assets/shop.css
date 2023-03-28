@@ -6,11 +6,11 @@
    border-top: var(--wireframe);
    position: sticky;
    width: 100vw;
-   top: 8.7%;
+   top: calc(var(--headerHeight) + var(--headerMargin));
    z-index: 1;
    background-color: var(--marshmellow);
    height: auto;
-   transition: all 0.5s ease;
+   transition: all 0.2s ease;
 }
 
 
@@ -21,7 +21,9 @@
     justify-items: center;
     align-items: center;
     padding: 0.2%;
-    
+    height: auto;
+    max-height: 100%;
+    transition: all 0.2s ease-in;
 }
 
 .filter-group-collection {
@@ -40,7 +42,6 @@
    height: 100%;
 }
 
-
 .item-filter_title {
    text-decoration: none;
    list-style: none;
@@ -49,50 +50,14 @@
    transition: all 0.2s ease-out;
 }
 
-.item-filter_title:hover { 
-   font-variation-settings: 'EXPO'-40;
-}
-
 .item-filter_title a[aria-current="true"] {
-   font-variation-settings: 'EXPO'-40;
-}
-
-details .group-transition{
-   transform-origin: top;
-   transform: scaleY(0);
-   transition: transform 0.1s ease-in-out;
-}
-
-details[open] .group-transition{
-   
-   transform: scaleY(1);
-}
-
-details summary::-webkit-details-marker {
-   display:none;
- }
- details > summary {
-   list-style: none;
- }
- details > summary::-webkit-details-marker {
-   display: none;
- }
-
- details {
-   position: relative;
-   margin: 2%;
-   min-width: 16vw;
- }
-
-details .filter-group:hover {
-   font-variation-settings: 'EXPO'-40;
-   cursor: pointer;
+   font-variation-settings: 'EXPO' -40;
 }
  
  .filter-group {
    /* outline: 1px solid green; */
-   height: 100%;
-
+   /* height: 100%; */
+   padding: 0.5rem;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -126,10 +91,13 @@ transition: all 0.1s ease;
    grid-area: 1 / 5;
  }
 
+ .toggle_label {
+   margin: 0px 4%;
+ }
+
  .slider-ui {
    width: 100%;
    position: relative;
-   margin: 0 8%
  }
 
  .pill-tiny.active {
@@ -142,14 +110,38 @@ transition: all 0.1s ease;
    margin: 0 10%;
  }
 
+
+ .details{
+   overflow: hidden;
+   height: 50%;
+   transform-origin: top;
+   transition: all 0.1s ease-in-out;
+}
+
+
+ .details {
+   position: relative;
+   margin: 2%;
+   min-width: 16vw;
+ }
+
  .group-transition {
    background-color: var(--marshmellow);
-   position: absolute;
-   right: 0;
-   padding: 8%;
-   top: 150%;
-   height: auto;
-   box-shadow: rgb(0, 0, 0) 0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px 0.5px 0px;
+   overflow-y: scroll;
+   padding-top: 8%;
+   height: 0;
+   width: 100%;
+   transform-origin: top;
+   transform: scaleY(0);
+   opacity: 0;
+   transition: all 0.2s ease-in;
+ }
+
+ .grow {
+   transform: scaleY(1);
+   height: 100%;
+   opacity: 1;
+   transition: all 0.2s ease-in;
  }
 
 .filter-group-display__list {
@@ -163,9 +155,7 @@ transition: all 0.1s ease;
    align-items: center;
    grid-template-columns: 1fr;
    gap: 0.5rem;
-   max-height: 60%;
-   margin: -4% 0% 20% 0%;
-   overflow-y: scroll;
+
 }
 
 .list-color label{
@@ -177,13 +167,13 @@ transition: all 0.1s ease;
 
 .list-size {
    grid-template-columns: repeat(6, 1fr);
-   width: 100%;
-   height: 150%;
+   /* width: 100%;
+   height: 150%; */
    justify-items: center;
    align-items: center;
    gap: 0px 22px;
    padding: 0;
-   margin-bottom: 2rem;
+   /* margin-bottom: 2rem; */
 }
 
 .list-size li {
@@ -261,27 +251,6 @@ transition: all 0.1s ease;
    width: 100%;
    transition: width 0.6s ease;
 }
-
- @keyframes widen {
-   0% {
-     width: 0%;
-   }
-   100% {
-     width: 100%;
-   }
- }
-
-
-@keyframes resize {
-   0% {
-     grid-template-columns: 1fr 1fr 1fr;
-   }
-   
-   100% {
-      grid-template-columns: 2fr 1fr;
-   }
-   
- }
 
 .product-card {
  
@@ -410,17 +379,6 @@ transition: all 0.1s ease;
       transform: scaleY(1);
    }
  }
- details[open] > .filter-form {
-   transform-origin: top;
-   animation-name: rollOut;
-   animation-duration: 1s;
- }
-
- .filter-form {
-   transform-origin: top;
-   animation-name: rollOut;
-   animation-duration: 1s;
- }
  
  .checkbox-color:disabled + .label-color {
    color: black;
@@ -428,13 +386,21 @@ transition: all 0.1s ease;
    pointer-events: none;
  }
 
-
- .checkbox-color:disabled + .applychanges {
-   opacity: 0.2;
-   pointer-events: none;
- }
+.filter-group:hover {
+   font-variation-settings: 'EXPO'-40;
+   cursor: pointer;
+}
 
  .checkbox-size:checked + .label-size {
    border-radius: 80px;
    border: var(--wireframe);
+ }
+ .checkbox-color:checked + .label-color {
+   font-variation-settings: 'EXPO'-40;
+   cursor: pointer;
+ }
+
+.label-color:hover {
+   font-variation-settings: 'EXPO'-40;
+   cursor: pointer;
  }
