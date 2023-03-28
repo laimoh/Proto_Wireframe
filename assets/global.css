@@ -223,6 +223,11 @@ padding-bottom: 100%;
 
 @media screen and (width < 649px){  
 
+.hide--phone{
+    display:none!important;
+}
+
+
 #DesktopLogo{
     width:100%!important;
     position: static!important;
@@ -265,7 +270,6 @@ main {
     }
 
     .MainMenu--center a{
-        display:none;
     }
 
     .product-grid{
@@ -292,7 +296,10 @@ main {
 }
 
 .template-product #DesktopLogo{
+    display:none;
 }
+
+
 
 [data-ajax-popup]{
     position: absolute;
