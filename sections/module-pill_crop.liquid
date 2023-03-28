@@ -92,7 +92,10 @@
     {% else %}
       {% assign buttonURL = section.settings.btn_url %}
     {% endif %}
-    <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    <button class="module-link">
+      <div class="pill-tiny"></div>
+      <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    </button>
   {% endif %}
 </div>
 

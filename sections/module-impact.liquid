@@ -1,26 +1,41 @@
 {{ 'impact.css' | asset_url | stylesheet_tag }}
 
+{% assign mediaType = section.settings.media_select %}
+
 <div class="impact-content">
-  <div class="cover">
-    <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
-  </div>
+  {% if mediaType == 'video' %}
+    <div class="cover">
+      {% if section.settings.video != nil %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="cover">
+      <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
+    </div>
+  {% endif %}
+
   <h1
     {% if section.settings.title_alignment == 'centered' %}
     class="centered"
     {% elsif section.settings.title_alignment == 'leftBottom' %}
     class="leftBottom"
-    {% endif %}
-    ><span class="word1">{{ section.settings.word1 }}</span>
-    <span class="word2">{{ section.settings.word2 }}</span>
-    <span class="word3">{{ section.settings.word3 }}</span>
-    </h1>
+    {% endif %}>
+    <span class="word1" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word1 | minus: 50 }};">{{ section.settings.word1 }}</span>
+    <span class="word2" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }};">{{ section.settings.word2 }}</span>
+    <span class="word3" tyle="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }};">{{ section.settings.word3 }}</span>
+  </h1>
   {% if section.settings.enable_button == true %}
     {% if section.settings.btn_url == blank %}
       {% assign buttonURL = shop.secure_url %}
     {% else %}
       {% assign buttonURL = section.settings.btn_url %}
     {% endif %}
-    <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    <button class="module-link">
+      <div class="pill-tiny"></div>
+      <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    </button>
+
   {% endif %}
 </div>
 
@@ -37,29 +52,69 @@
         "default": false
       },
       {
-        "type": "image_picker",
-        "id": "cover-img",
-        "label": "Image"
+        "type": "radio",
+        "id": "media_select",
+        "label": "Select a Media Type",
+        "options": [
+          {
+            "value": "video",
+            "label": "Video"
+          }, {
+            "value": "image",
+            "label": "Image"
+          }
+        ],
+        "default": "image"
       },
       {
+        "type": "image_picker",
+        "id": "cover-img",
+        "label": "Image Picker"
+      },
+      {
+        "type": "video",
+        "id": "video",
+        "label": "Video Picker"
+      }, {
         "type": "text",
         "id": "word1",
         "label": "Word",
         "default": "Practice"
-      },
-      {
+      }, {
+        "type": "range",
+        "id": "expo-word1",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 0
+      }, {
         "type": "text",
         "id": "word2",
         "label": "Word",
         "default": "is"
-      },
-      {
+      }, {
+        "type": "range",
+        "id": "expo-word2",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 0
+      }, {
         "type": "text",
         "id": "word3",
         "label": "Word",
         "default": "Perfect"
-      },
-      {
+      }, {
+        "type": "range",
+        "id": "expo-word3",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount",
+        "default": 100
+      }, {
         "type": "select",
         "id": "title_alignment",
         "label": "Title Alignment",

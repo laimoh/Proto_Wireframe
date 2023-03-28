@@ -4,10 +4,15 @@
       "type": "module-impact",
       "settings": {
         "enable_button": true,
+        "media_select": "video",
         "cover-img": "shopify:\/\/shop_images\/image_3.png",
+        "video": "shopify:\/\/files\/videos\/vinyl-57307.mp4",
         "word1": "Practice",
+        "expo-word1": 100,
         "word2": "is",
+        "expo-word2": 100,
         "word3": "Perfect",
+        "expo-word3": 100,
         "title_alignment": "centered",
         "btn_title": "READ ABOUT PROTO",
         "btn_url": "shopify:\/\/pages\/sizing-chart"
@@ -38,10 +43,14 @@
       "type": "module-impact",
       "settings": {
         "enable_button": true,
+        "media_select": "image",
         "cover-img": "shopify:\/\/shop_images\/Frame301.png",
         "word1": "Drop",
+        "expo-word1": 0,
         "word2": "#1",
+        "expo-word2": 0,
         "word3": "",
+        "expo-word3": 100,
         "title_alignment": "leftBottom",
         "btn_title": "SEE PROCESS",
         "btn_url": "shopify:\/\/collections"
@@ -50,7 +59,7 @@
     "marquee": {
       "type": "module-marquee",
       "settings": {
-        "enable_button": false,
+        "enable_button": true,
         "bg_color": "#7d7c99",
         "cover-img": "shopify:\/\/shop_images\/image_10.png",
         "marquee-word1": "Outdoors",

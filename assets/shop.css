@@ -6,7 +6,8 @@
    border-top: var(--wireframe);
    position: sticky;
    width: 100vw;
-   top: calc(var(--headerHeight) + var(--headerMargin));
+   top: calc(var(--headerHeight) - var(--headerMargin));
+   /* top: var(--headerHeight); */
    z-index: 1;
    background-color: var(--marshmellow);
    height: auto;
@@ -98,6 +99,10 @@ transition: all 0.1s ease;
  .slider-ui {
    width: 100%;
    position: relative;
+ }
+ 
+ .slider-ui .pill-tiny {
+     background-color: var(--marshmellow);
  }
 
  .pill-tiny.active {

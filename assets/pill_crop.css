@@ -67,7 +67,7 @@ overflow: hidden;
    grid-area: 3 / 2;
    justify-self: start;
 }
-
+/* 
 .pill-content a {
    text-transform: uppercase;
       align-self: end;
@@ -85,4 +85,4 @@ overflow: hidden;
    vertical-align: middle; 
    padding-left: 2%;
    padding-right: 1%;
-}
+} */

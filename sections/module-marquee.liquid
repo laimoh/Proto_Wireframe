@@ -14,8 +14,17 @@
       <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word3 | minus: 50}};" class="marquee-word3">{{ section.settings.marquee-word3 }}</span>
     </h1>
   </div>
-  <a href={{ section.settings.btn_url }}>
-    {{ section.settings.btn_title }}</a>
+  {% if section.settings.enable_button == true %}
+    {% if section.settings.btn_url == blank %}
+      {% assign buttonURL = shop.secure_url %}
+    {% else %}
+      {% assign buttonURL = section.settings.btn_url %}
+    {% endif %}
+    <button class="module-link">
+      <div class="pill-tiny"></div>
+      <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    </button>
+  {% endif %}
 </div>
 
 {% schema %}

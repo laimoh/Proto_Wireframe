@@ -109,16 +109,45 @@ img {
 
 .pill-tiny {
    position: absolute;
-   background-color: var(--marshmellow);
+   /* background-color: var(--marshmellow); */
    top: 50%;
    left: 0%;
    transform: translate(-0%, -50%) rotate(0deg);
    width: 12px;
    height: 24px;
-   border: var(--wireframethick);
+   border: 1px solid var(--marshmellow);
+   border: 1px solid black;
    border-radius: 20px;
    transition: all 0.4s ease;
  }
+
+.module-link {
+   position: relative;
+   grid-area: 3 / 1;
+   z-index: 2;
+   border-bottom: solid 1px black;
+   display: flex;
+}
+
+.module-link a {
+   margin-left: calc(2*var(--margin));
+   text-transform: uppercase;
+   padding: calc(var(--margin));
+   font-family: "Pressura";
+   font-size: 11px;
+   color: black;
+  
+}
+
+.module-link .pill-tiny {
+     margin-left: calc(var(--margin));
+     left: 10px;
+}
+
+.module-link:hover .pill-tiny  {
+   transform: translate(-0%, -50%) rotate(45deg);
+   cursor: pointer;
+}
 
 .hidden {
    opacity: 0;

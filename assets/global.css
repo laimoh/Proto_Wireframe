@@ -133,11 +133,21 @@ main {
    position: relative;
 }
 
-.MainMenu--rightItem.icon {}
-
-.MainMenu--rightItem.icon.login {
-   max-width: 75px;
+.MainMenu--rightItem.icon {
+   width: 5%;
 }
+
+.MainMenu--rightItem.icon a{
+   width: 5%;
+}
+
+.MainMenu--rightItem img {
+   width: 100%;
+   height: auto;
+}
+/* .MainMenu--rightItem.icon.login {
+   max-width: 75px;
+} */
 
 
 .SectionContainer {

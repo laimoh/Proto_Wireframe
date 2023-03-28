@@ -16,7 +16,7 @@
     {{ 'product.css' | asset_url | stylesheet_tag }}
 
     {{ 'flickity.css' | asset_url | stylesheet_tag }}
-    {{ 'flickity.js' | asset_url | script_tag }} 
+    {{ 'flickity.js' | asset_url | script_tag }}
     <script
       async
       type="text/javascript"
@@ -37,7 +37,7 @@
     <main class="content" role="main">
 
       {{ content_for_layout }}
-        {% section 'footer' %}
+      {% section 'footer' %}
     </main>
 
   </body>
