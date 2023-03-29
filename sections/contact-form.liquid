@@ -2,7 +2,7 @@
 
 
 <div class="form-wrapper">
-  <h1>{{ section.settings.section-title }}</h1>
+  <h1 class="page-title">{{ section.settings.section-title }}</h1>
   {% form 'contact', class: 'form' %}
     {% if form.errors %}
       <div class="error">
@@ -78,6 +78,7 @@
       {% comment %} <textarea name="contact[body]" id="message"></textarea> {% endcomment %}
     </div>
     <div class="submit field">
+      <div class="pill-tiny"></div>
       <input type="submit" value="Send" />
     </div>
   {% endform %}

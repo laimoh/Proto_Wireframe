@@ -1,6 +1,5 @@
 .about-proto {
    border-top: var(--wireframe);
-   border-bottom: var(--wireframe);
    width: 100%;
    display: flex;
    flex-direction: column;
@@ -36,4 +35,16 @@
 }
 .subtext span { 
    font-variation-settings: 'EXPO'-40;
+}
+
+.divider-button {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   padding: 1rem;
+   display: inline;
+   border-top: var(--wireframe);
+}
+
+.divider-button:hover { 
+
 }

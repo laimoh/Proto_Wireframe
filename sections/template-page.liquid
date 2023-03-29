@@ -1,29 +1,21 @@
-{{ 'about.css' | asset_url | stylesheet_tag }}
-
-<div class="about-content">
-  <section class="about-proto">
-    <div class="about-text" ">
-      <p>{{ page.content }}</p>
-    </div>
-    <div class="subtext">
-      <p>Practice is
-        <span>Perfect</span>
-      </p>
-      {% comment %} <p>{{ section.settings.subtext }}</p> {% endcomment %}
-    </div>
-  </section>
+<div class="page-wrapper">
+  <h1 class="page-title">
+    {{ page.title | escape }}
+  </h1>
+  <div class="page-content">
+    {{ page.content }}
+  </div>
 </div>
 
 {% schema %}
   {
-    "name": "About",
+    "name": "Main Page Template",
     "tag": "section",
+    "class": "section",
     "settings": [
       {
-        "type": "text",
-        "id": "subtext",
-        "label": "Subtext",
-        "default": "Practice is /<span>Perfect</span>/"
+        "type": "header",
+        "content": "header"
       }
     ]
   }

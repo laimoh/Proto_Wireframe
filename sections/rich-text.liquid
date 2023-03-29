@@ -1,0 +1,58 @@
+{{ 'about.css' | asset_url | stylesheet_tag }}
+
+<div class="about-content">
+  <section class="about-proto">
+    <div class="about-text" ">
+      <p>{{ page.content }}</p>
+    </div>
+    <div class="subtext">
+      <p>Practice is
+        <span>Perfect</span>
+      </p>
+    </div>
+    {% if section.settings.enable_button == true %}
+      {% if section.settings.btn_url == blank %}
+        {% assign buttonURL = shop.secure_url %}
+      {% else %}
+        {% assign buttonURL = section.settings.btn_url %}
+      {% endif %}
+      <button class="divider-button">
+        <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+      </button>
+    {% endif %}
+  </section>
+</div>
+
+{% schema %}
+  {
+    "name": "Rich Text",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtext",
+        "label": "Subtext",
+        "default": "Practice is Perfect"
+      }, {
+        "type": "checkbox",
+        "id": "enable_button",
+        "label": "Show Button",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "btn_title",
+        "label": "Button Text",
+        "default": "View Our Blog"
+      }, {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "About Proto"
+      }
+    ]
+  }
+{% endschema %}

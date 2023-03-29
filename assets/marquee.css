@@ -66,6 +66,10 @@
    0% { transform: translateX(0); }
    100% { transform: translateX(-100%); }
  }
+
+ .marquee-content .module-link { 
+   border-top: solid 1px black;
+}
 /* 
 .marquee-content a {
    text-transform: uppercase;

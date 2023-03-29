@@ -1,0 +1,88 @@
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+
+<div class="collapsible-wrapper">
+  {% if section.settings.heading != blank %}
+    <h1 class="page-title">{{ section.settings.heading }}</h1>
+  {% else %}
+    <h1>FAQ</h1>
+  {% endif %}
+  <div class="collapsible-container">
+
+    {% for block in section.blocks %}
+      <div class="accordion" {{ block.shopify_attributes }}>
+        <details
+          {% if section.settings.open_first_collapsible_row and forloop.first %}
+          open
+          {% endif %}>
+          <summary>
+            <div class="pill-tiny"></div>
+            <h3 class="accordion__title">
+              {{ block.settings.heading | default: block.settings.page.title }}
+            </h3>
+          </summary>
+          <div class="collapsible-content">
+            <p>{{ block.settings.row_content }}</p>
+          </div>
+        </details>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collapsible Content",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Collapsible content"
+      }, {
+        "type": "checkbox",
+        "id": "open_first_collapsible_row",
+        "default": false,
+        "label": "Open First Row?"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collapsible_row",
+        "name": "Collapsible Row",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "default": "Collapsible row",
+            "label": "Row Heading",
+            "info": "Row Heading"
+          }, {
+            "type": "richtext",
+            "id": "row_content",
+            "label": "Row Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "collapsible row",
+        "blocks": [
+          {
+            "type": "collapsible_row"
+          }, {
+            "type": "collapsible_row"
+          }, {
+            "type": "collapsible_row"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

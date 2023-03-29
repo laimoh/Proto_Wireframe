@@ -33,6 +33,9 @@
    z-index: 2;
    transform: translateY(1%);
 }
+.ending-content .module-link { 
+   border-top: solid 1px black;
+}
 
 /* .ending-content a {
    text-transform: uppercase;

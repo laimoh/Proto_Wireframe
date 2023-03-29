@@ -1,14 +1,8 @@
 {
-  "sections": {
-    "main": {
-      "type": "main-account",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+   "sections": {
+      "template": {
+         "type": "template-login"
       }
-    }
-  },
-  "order": [
-    "main"
-  ]
+   },
+   "order": ["template"]
 }

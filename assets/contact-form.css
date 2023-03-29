@@ -7,14 +7,9 @@
    grid-template-rows: auto 1fr;
    font-family: "Exposure";
    font-variation-settings: 'EXPO'0;
-   
+   border-top: var(--wireframe);
 }
 
-.form-wrapper h1 {
-   padding: 1rem;
-   margin-left: var(--margin);
-   font-size: 1.6rem;
-}
 
 .form {
    margin: auto;
@@ -52,28 +47,53 @@
    align-self: end;
 }
 
+.submit input {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   cursor: pointer;
+}
+
+.form-wrapper .pill-tiny {
+   position: relative;
+   top: 0;
+   left: 0;
+   transform: unset;
+   margin-right: 0;
+   /* display: inline-grid; */
+ }
+
+ .submit:hover .pill-tiny {
+   transform: rotate(45deg);
+ }
 input, textarea {
    background: none;
    outline: none;
    border: none;
 }
 
+[contenteditable] {
+   cursor: pointer;
+}
+
 
 #first-name[contenteditable]:empty::before {
    content: "Proto";
    color: gray;
+   font-variation-settings: 'EXPO' 50;
  }
  #last-name[contenteditable]:empty::before {
    content: "Collective";
    color: gray;
+   font-variation-settings: 'EXPO' 50;
  }
  #email[contenteditable]:empty::before {
    content: "email@email.com";
    color: gray;
+   font-variation-settings: 'EXPO' 50;
  }
 
  #message {
-   /* display: block; */
+   font-variation-settings: 'EXPO' 50;
   width: 100%;
   overflow: hidden;
   resize: both;

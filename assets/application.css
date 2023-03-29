@@ -69,6 +69,18 @@ a {
    text-decoration: none;
 }
 
+[contenteditable] {
+   outline: 0px solid transparent;
+ }
+
+ details > summary {
+   list-style: none;
+ }
+ details > summary::-webkit-details-marker {
+   display: none;
+ }
+ 
+
 img {
    max-width: 100%;
 }
@@ -575,6 +587,28 @@ svg * {
 
 [data-ajax-add]{
    cursor: pointer!important;
+}
+   /* page styles */
+
+.page-title {
+   padding: 2rem;
+   margin-left: var(--margin);
+   font-size: 1.6rem;
+   font-family: "Exposure";
+ 
+}
+
+.page-content {
+   padding: 2rem;
+   margin-left: var(--margin);
+   font-family: "Walsheim";
+   max-width: 70vw;
+}
+
+.page-content h1 {
+   font-family: "Pressura";
+   font-size: 0.8rem;
+}
 
 @media screen and (width <=458px) {
    .right {
