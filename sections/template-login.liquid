@@ -31,8 +31,7 @@
          </button>
          {% if form.errors %}
          <div class="error-form" role="alert">
-            <strong class="error-title">Error : </strong>
-           
+            <strong class="error-title">Error  </strong>
             <p class="error-message">{{ form.errors | default_errors }}</p>
          </div>
       {% endif %}
@@ -51,8 +50,8 @@
          <div class="email field">
             <label for="email">Email</label>
             <div class="line"></div>
-            <span id="email" name="email" type="email" autocomplete="email" role="textbox"
-               contenteditable></span>
+            <input id="email" name="email" type="email" autocomplete="email" role="textbox"
+               contenteditable></input>
          </div>
     
          <button class="submit">

@@ -1,0 +1,47 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="login-content">
+  <div class="title-group">
+    <h1 class="page-title">Reset Your Password</h1>
+    <div class="forgotPW">
+      <a href="{{ routes.account_login_url }}">Back to Login</a>
+    </div>
+  </div>
+  <div class="login-form">
+    <div class="input-area">
+      {% form 'reset_customer_password' %}
+
+        <div class="password field">
+          <label for="password">New Password</label>
+          <div class="line"></div>
+          <input
+            id="password"
+            name="customer[password]"
+            type="password"
+            autocomplete="new-password"
+            role="textbox" placeholder="*****"></input>
+        </div>
+        <div class="password field">
+         <label for="password_confirmation">Confirm Password</label>
+         <div class="line"></div>
+         <input
+           id="password_confirmation"
+           name="customer[password_confirmation]"
+           type="password"
+           autocomplete="new-password"
+           role="textbox" placeholder="Confirm Password"></input>
+       </div>
+
+        <button class="submit">
+          <div class="pill-tiny"></div>
+          <input type="submit" value="Reset Password" />
+        </button>
+        {% if form.errors %}
+          <div class="error-form" role="alert">
+            <p class="error-message">{{ form.errors | default_errors }}</p>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</div>
