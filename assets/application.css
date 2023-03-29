@@ -195,6 +195,8 @@ svg * {
 .template-index .content {
    overflow: scroll;
    height: 100vh;
+   position: relative;
+   top: var(--headerHeight);
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-type: y mandatory;
 }
