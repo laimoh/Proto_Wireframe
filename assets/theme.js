@@ -482,6 +482,16 @@ var Theme = {
 
 
   }
+  },
+  mobile_menu:{
+  open: function(){
+    var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
+    mobileMenu.style.height = mobileMenu.scrollHeight + 'px';
+  },
+  close: function(){
+    var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
+    mobileMenu.style.height = 0 + 'px';
+  }
   }
 };
 

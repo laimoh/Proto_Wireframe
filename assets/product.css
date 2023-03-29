@@ -196,7 +196,11 @@ border: 1px solid black;
         position: static;
         width: 100%;
     }
-
+    .ProductVariant--Container{
+    order: 2;
+    margin-top: 50px;
+    }
+    
     .ProductContainer{
         display: flex;
         flex-direction: column;

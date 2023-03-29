@@ -54,9 +54,40 @@
 
   </div>
 </div>
-
-
 </div>
+
+
+<div class="MainMenu--mobile hide--desktop">
+<div class="Icon--Menu" onclick="Theme.mobile_menu.open()"><img src="{{'mobilemenu.svg' | asset_url }}"></div>
+<div class="Menu--middle">
+<a href="/collections/all" class="Button BackToCollection">
+Back to Products
+</a>
+<div class="Button BackToCollection FilterButton">
+Filter
+</div>
+</div>
+<div class="Icon--Menu"><img src="{{'search.svg' | asset_url }}"></div>
+<div class="Icon--Menu"><a href="/account"><img src="{{'user.svg' | asset_url }}"></a></div>
+</div>
+
+<div class="MobileMenu--Items">
+<div class="MobileMenu--Content">
+Mobile<br>
+menu<br>
+here<br>
+</div>
+<div class="closeButton" onclick="Theme.mobile_menu.close()">CLOSE</div>
+</div>
+
+<div class="MobileMenu--Filters">
+  <div class="MobileMenu--Content">
+  Mobile<br>
+  Filters<br>
+  here<br>
+  </div>
+  <div class="closeButton" onclick="Theme.mobile_menu.closeFilter()">CLOSE</div>
+  </div>
 
 
 {% schema %}

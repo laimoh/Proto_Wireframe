@@ -234,6 +234,52 @@ padding-bottom: 100%;
 }
 
 
+.MainMenu--mobile{
+    display: flex!important;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.Icon--Menu{
+    width: 44px;
+    height: 44px;
+}
+
+.Icon--Menu img{
+    width: 100%;
+    padding: 10px;
+}
+
+.MobileMenu--Items{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.MobileMenu--Items .closeButton{
+padding: 10px;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+width: 100%;
+text-align: center;
+}
+
+.MainMenu--Wrapper{
+    padding: 0 calc(var(--margin) / 2);
+}
+
+.MainMenu--mobile .Menu--middle{
+    flex-grow: 1;
+}
+
+.MainMenu--Wrapper{
+    flex-direction: column;
+}
+
+
 #DesktopLogo{
     width:100%!important;
     position: static!important;

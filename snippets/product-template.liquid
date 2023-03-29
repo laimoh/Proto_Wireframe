@@ -59,7 +59,7 @@ display:none;
             </div>
         </div>
 
-        <div data-variant-container class="ProductVariant--Container hide--phone">
+        <div data-variant-container class="ProductVariant--Container">
             <div class="ProductVariant">
                 {% form 'product',product %}
                     {% for options in product.options_with_values %}
@@ -94,18 +94,16 @@ display:none;
                   {%- endif -%}
             </div>
     </div>
-<div data-sticky class="stickyATC hide--phone">
-<span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money }} </span>
-<div class="stickySpacer"></div>
+<div data-sticky class="stickyATC">
+<span data-variant-price class="ProductPrice hide--phone">{{ product.selected_or_first_available_variant.price | money }} </span>
+<div class="stickySpacer hide--phone"></div>
 <span>ADD TO BAG</span>
+<div class="stickySpacer hide--desktop"></div>
 </div>
 
 
 <!--/* Mobile Components */-->
 
-<a href="/collections/all" class="Button Block Bordered HeaderBtn">
-Back to Products
-</a>
 
 <div data-mobile-slider class="Mobile--ProductSlider hide--desktop">
     {% for media in product.media %}
