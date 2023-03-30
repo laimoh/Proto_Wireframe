@@ -416,7 +416,6 @@ border: none;
 }
 
 #cartButtonDrawer .CartProducts{
-  pointer-events: none;
 }
 
 #cartButtonDrawer[aria-hidden=true] {
