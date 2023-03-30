@@ -408,3 +408,5 @@ transition: all 0.1s ease;
    font-variation-settings: 'EXPO'-40;
    cursor: pointer;
  }
+
+ .product-grid.random .row:first-child{opacity: 50%; transition:all 0.2s ease;}
