@@ -1,28 +1,64 @@
-
-  var Theme = {
-    init: function(){
-      var sections = document.querySelectorAll('[data-section-type]');
-      const isProduct = window.location.pathname.includes('products')
-        if (window.innerWidth > 679 && !isProduct) {        
-          var logo = document.querySelector('#DesktopLogo');
-          var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
-         var navHeight = document.querySelector('.MainMenu--Wrapper').offsetHeight
-         document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
-         window.addEventListener('scroll', () => {
-            let scrolled = window.scrollY;
-            console.log(scrolled)
-            if (scrolled > 25) {
-               logo.classList.add('endState');
-               placeHolderLogo.classList.remove('hidden');
-            } else {
-               logo.classList.remove('endState');
-               placeHolderLogo.classList.add('hidden');
-            }
-         }, {passive: true})
-      
-      } else if (isProduct) {
-         document.querySelector('main').style.paddingTop = '0px'
+var cartOpen = false;
+var Theme = {
+  init: function(){
+    var sections = document.querySelectorAll('[data-section-type]');
+    setTimeout(function(){
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
       }
+
+      if (window.innerWidth > 679){
+        window.scrollTo(0, 0);
+        var logo = document.querySelector('#DesktopLogo');
+        var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
+        var logoheight = logo.getBoundingClientRect().height
+        console.log(logoheight);
+        console.log(logo);
+        var goal = logo.closest('.MainMenu--center').clientHeight;
+        var headerHeight = logo.closest('.MainMenu--Wrapper').clientHeight;
+        var main = document.querySelector('main');
+        mainSection = main.querySelector('.shopify-section');
+        let root = document.documentElement;
+        root.style.setProperty('--headerHeight', (headerHeight + logoheight)  + "px");
+        //mainSection.style.paddingTop = logoheight+'px';
+
+
+        var header = document.querySelector('.MainMenu.Fixed');
+        window.scrollTo(0, 0);
+        window.addEventListener('scroll', function(){
+          if (header.getAttribute('animation-finished')){
+            return
+          }
+          var current = window.scrollY;
+          var newHeight = logoheight - current;
+          console.log(newHeight);
+
+          var currentLogoHeight = logo.clientHeight;
+
+          if (newHeight < (logoheight) && newHeight >= 0){
+            if (newHeight <= goal){
+              header.classList.remove('Fixed');
+              //header.setAttribute('animation-finished',true);
+              logo.style.height = '100%';
+              placeHolderLogo.style.display = 'none';
+            root.style.setProperty('--headerHeight', (headerHeight)  + "px");
+              
+              return;
+            }else {
+              header.classList.add('Fixed');
+              root.style.setProperty('--headerHeight', (newHeight + headerHeight)  + "px");
+              logo.style.height = newHeight+'px';
+              placeHolderLogo.style.display = 'block';
+
+            }
+
+          }
+
+        },{passive: true});
+        
+      }
+    },500)
+    
 
     sections.forEach((section) => {
         if (!this.sections[section.getAttribute('data-section-type')]) {
@@ -456,6 +492,16 @@
     var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
     mobileMenu.style.height = 0 + 'px';
   }
+  },
+  filter:{
+    open: function(){
+    var filter = document.querySelector('#FilterMobile');
+    filter.style.height =  filter.scrollHeight + 'px';
+    },
+    close: function(){
+      var filter = document.querySelector('#FilterMobile');
+      filter.style.height =  0 + 'px';
+      }
   }
 };
 
@@ -586,4 +632,3 @@ Theme.AjaxRenderer = (function () {
 document.addEventListener("DOMContentLoaded", (event) => {
   Theme.init();
 });
-

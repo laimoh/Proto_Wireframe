@@ -4,30 +4,30 @@
 
 
 /*Templfixes Laiqa*/
-body {
+body{
    overflow-x: hidden;
 }
 
-.footer-wrapper {
+.footer-wrapper{
    overflow-x: hidden;
 }
 
-.MainMenu--Wrapper {
+.MainMenu--Wrapper{
+   padding: 0 calc(var(--margin));
    display: flex;
    width: 100%;
-   margin-top: var(--headerMargin);
+   padding-top: 1rem;
    transition: all 0.2s ease-in;
    background: var(--marshmellow);
 }
 
 main {
    padding-top: var(--headerHeight);
-   /* padding-top: calc(2*var(--margin) + var(--headerHeight)); */
 }
 
-.MainMenu {
+.MainMenu{
    position: fixed;
-
+   background: var(--marshmellow);
    left: 0;
    right: 0;
    top: 0;
@@ -35,7 +35,7 @@ main {
 
 }
 
-.MainMenu.Fixed {
+.MainMenu.Fixed{
    position: fixed;
    left: 0;
    right: 0;
@@ -44,7 +44,7 @@ main {
 }
 
 
-.MainMenu.Fixed .MainMenu--center {
+.MainMenu.Fixed .MainMenu--center{
    position: relative;
    text-align: center;
    display: flex;
@@ -53,82 +53,41 @@ main {
 
 }
 
-.MainMenu.Fixed * {}
+.MainMenu.Fixed *{
+}
 
-.MainMenu.Fixed .icon {}
+.MainMenu.Fixed .icon{
+}
 
-.MainMenu.Fixed .MainMenu--center .Logo {
-   width: calc(98vw - 2*var(--margin));
+.MainMenu.Fixed .MainMenu--center .Logo{
+   width: calc(100vw - 2*var(--margin));
    position: absolute;
    right: auto;
-   top: 110%;
+   top: 100%;
    margin: 0 auto;
    max-width: unset;
    height: auto;
-   transition: all 0.4s ease;
 }
 
-.MainMenu.Fixed .MainMenu--center .Logo::after {
-   content: "";
-   padding-bottom: 100%;
+.MainMenu.Fixed .MainMenu--center .Logo::after{
+content: "";
+padding-bottom: 100%;
 }
 
-.MainMenu--center {
+.MainMenu--center{
    flex-basis: 17%;
    max-width: 17%;
    text-align: center;
    border-top: 1px solid black;
    border-bottom: 1px solid black;
+   
 }
 
-
-#DesktopLogo, .LogoPlaceholder {
-   transition: all ease 0.4s;
+.MainMenu--leftItem,.MainMenu--center,.MainMenu--rightItem{
+   border-left: 1px solid black; 
 }
 
-.MainMenu.Fixed .MainMenu--center .Logo.endState {
-   /* height: 3.5vw; */
-   width: 100%;
-   top: 0%;
-   opacity: 0;
-   z-index: -1;
-}
-
-.LogoPlaceholder {
-   width: 100%;
-   height: 100%;
-   padding: 0.5%;
-   padding-top: 1%;
-}
-
-.paddingtop {
-   padding-top: calc(2*var(--margin) + var(--headerHeight));
-}
-
-.paddingtop {
-   padding-top: calc(2*var(--margin) + var(--headerHeight));
-}
-
-
-.MainMenu--leftItem,
-.MainMenu--center,
-.MainMenu--rightItem {
-   border-left: 1px solid black;
-   font-family: "Pressura";
-   text-transform: uppercase;
-   font-size: 0.9rem;
-}
-
-.MainMenu--leftItem {
-   border-left: none;
-}
-
-.shop {
-   border-right: 1px solid black;
-}
-
-.MainMenu--left,
-.MainMenu--right {
+.MainMenu--left,.MainMenu--right{
    display: flex;
    flex-basis: 41.5%;
    flex-grow: 1;
@@ -140,7 +99,7 @@ main {
    font-family: "Pressura";
 }
 
-.MainMenu--leftItem {
+.MainMenu--leftItem{
    flex-grow: 1;
    text-align: center;
    height: 100%;
@@ -148,11 +107,9 @@ main {
    display: flex;
    align-items: center;
    justify-content: center;
-
-
 }
 
-.MainMenu--rightItem {
+.MainMenu--rightItem{
    flex-grow: 1;
    text-align: center;
    height: 100%;
@@ -162,33 +119,32 @@ main {
    position: relative;
 }
 
-.MainMenu--rightItem.icon {
-  
+.MainMenu--rightItem.icon{
+}
+
+.MainMenu--rightItem.icon.login{
+   max-width: 75px;
 }
 
 
-.MainMenu--rightItem img {
-   width: 100%;
-   height: auto;
-}
-
-.SectionContainer {
+.SectionContainer{
    padding: 0 calc(var(--margin));
 }
 
-.SectionContainer:first-of-type {}
+.SectionContainer:first-of-type{
+}
 
-.qty--wrapper {
+.qty--wrapper{
    display: flex;
    font-size: 1.3rem;
 }
 
-.qty--button {
+.qty--button{
    margin: 0 5px;
    cursor: pointer;
 }
 
-.Collapsible {
+.Collapsible{
    margin: 10px 0;
    display: flex;
    font-size: 1.3rem;
@@ -198,7 +154,7 @@ main {
 
 }
 
-.Collapsible--button {
+.Collapsible--button{
    height: 2rem;
    width: 1.4rem;
    border: 1px solid black;
@@ -206,15 +162,13 @@ main {
    margin-right: 5px;
 }
 
-.hide {
-   display: none !important;
+.hide{
+   display: none!important;
 }
-
-.Collapsible--label {
+.Collapsible--label{
    text-transform: uppercase;
 }
-
-#CartDrawer {
+#CartDrawer{
    position: fixed;
    width: 350px;
    right: -350px;
@@ -227,111 +181,112 @@ main {
    border-left: 1px solid black;
 }
 
-#CartDrawer[aria-hidden="false"] {
-   right: 0;
+#CartDrawer[aria-hidden="false"]{
+   right:0;
 }
 
-.CartProducts {
+.CartProducts{
    padding-top: 20px;
    overflow: scroll;
    max-height: calc(100% - 10rem);
 }
 
-.CartItem--Header,
-.CartItem--footer {
+.CartItem--Header,.CartItem--footer{
    display: flex;
    align-items: center;
    justify-content: space-between;
    padding: 15px;
 }
 
-.CartItem--Image {
+.CartItem--Image{
    text-align: center;
 }
 
-.CartItem {
+.CartItem{
    border-bottom: 1px solid black;
 }
 
-.CartItem img {
+.CartItem img{
    width: 60%;
 }
+
+
+
 /*Global CSS Mobile*/
 
-@media screen and (width <=458px) {
-   .SectionContainer {
-      padding: 0 calc(var(--margin)/2);
-   }
-
+@media screen and (width <= 458px){  
+.SectionContainer{
+   padding: 0 calc(var(--margin)/2);
 }
-
-@media screen and (width < 649px) {
-
-   .stacked {
-      flex-basis: 100%;
-      border: none;
-      border-bottom: 1px solid black;
-   }
-
-   .product-grid {
-      padding: 0 calc(var(--margin)/2);
-   }
-
-   .SectionContainer {
-      padding: 0 calc(var(--margin)/2);
-   }
-
-   .left {
-      left: calc(var(--margin)/2);
-   }
-
-   .right {
-      right: calc(var(--margin)/2);
-   }
 
 }
 
 
-
-/* Use this for Hiding, showing on mobile/desk */
 .hide--desktop{
-   display:none;
+  display:none;
 }
 @media screen and (width < 649px){  
-   .hide--desktop{
-      display:block!important;
-   }
+  .hide--desktop{
+     display:block!important;
+  }
 .hide--phone{
-    display:none!important;
+   display:none!important;
 }
 
 
 .MainMenu--mobile{
-    display: flex!important;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+   display: flex!important;
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
 }
 
 .Icon--Menu{
-    width: 44px;
-    height: 44px;
+   width: 44px;
+   height: 44px;
 }
 
 .Icon--Menu img{
-    width: 100%;
-    padding: 10px;
+   width: 100%;
+   padding: 10px;
 }
 
 .MobileMenu--Items{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 0;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   height: 0;
+   overflow: hidden;
+   transition: all 0.2s ease-in-out;
 }
 
-.MobileMenu--Items .closeButton{
+#FilterMobile{
+   height: 0px;
+   overflow: hidden;
+   transition: all 0.2s ease-in-out;
+
+}
+
+.Menu--middle .Button{
+   font-size: 1.2rem;
+   text-transform: uppercase;
+   text-align: center;
+   line-height: 100%;
+   vertical-align: text-bottom;
+   display: none!important;
+   align-items: center;
+   justify-content: center;
+   flex-grow: 1;
+   height: 100%;
+}
+
+.template-product .Menu--middle .Button.BackToCollection{
+   display: flex!important;
+}
+.template-collection .Menu--middle .Button.FilterButton{
+   display: flex!important;
+}
+
+.MobileMenu--Items .closeButton,.MobileMenu--Filters .closeButton{
 padding: 10px;
 border-top: 1px solid black;
 border-bottom: 1px solid black;
@@ -339,114 +294,114 @@ width: 100%;
 text-align: center;
 }
 
+
 .MainMenu--Wrapper{
-    padding: 0 calc(var(--margin) / 2);
+   padding: 0 calc(var(--margin) / 2);
 }
 
 .MainMenu--mobile .Menu--middle{
-    flex-grow: 1;
+   flex-grow: 1;
 }
 
 .MainMenu--Wrapper{
-    flex-direction: column;
+   flex-direction: column;
 }
 
 
 #DesktopLogo{
-    width:100%!important;
-    position: static!important;
+   width:100%!important;
+   position: static!important;
 }
 
 main {
-    padding-top: calc(var(--headerHeight) + var(--margin));
+   padding-top: calc(var(--headerHeight) + var(--margin));
 }
 
-    .stacked{
-        flex-basis: 100%;
-        border:none;
-        border-bottom: 1px solid black;
-    }
+   .stacked{
+       flex-basis: 100%;
+       border:none;
+       border-bottom: 1px solid black;
+   }
 
-    .product-grid{
-        padding: 0!important;
-        width: 100%!important;
-        margin: 0!important;
-    }
+   .product-grid{
+       padding: 0!important;
+       width: 100%!important;
+       margin: 0!important;
+   }
 
-    .product-card{
-        height: auto!important;
-        aspect-ratio:  1 / 1;
-    }
+   .product-card{
+       height: auto!important;
+       aspect-ratio:  1 / 1;
+   }
 
-    .MainMenu--Wrapper{
-        width: 100vw;
-        overflow: hidden;
-    }
+   .MainMenu--Wrapper{
+       width: 100vw;
+       overflow: hidden;
+   }
 
-    .MainMenu--right,.MainMenu--left{
-        display:none;
-    }
+   .MainMenu--right,.MainMenu--left{
+       display:none;
+   }
 
-    .MainMenu--center{
-        flex-basis: 100%;
-        max-width: unset;
-        border:none;
-    }
+   .MainMenu--center{
+       flex-basis: 100%;
+       max-width: unset;
+       border:none;
+   }
 
-    .MainMenu--center a{
-    }
+   .MainMenu--center a{
+   }
 
-    .product-grid{
-        margin: 0;
-    }
+   .product-grid{
+       margin: 0;
+   }
 
-    .SectionContainer{
-        padding: 0 calc(var(--margin)/2);
-    }
+   .SectionContainer{
+       padding: 0 calc(var(--margin)/2);
+   }
 
-    .left{
-        left: calc(var(--margin)/2);
-    }
+   .left{
+       left: calc(var(--margin)/2);
+   }
 
-    .right{
-        right: calc(var(--margin)/2);
-    }
+   .right{
+       right: calc(var(--margin)/2);
+   }
 
-    }
+   }
 
-.template-product #DesktopLogo {
-   display: none;
+.template-product #DesktopLogoPlaceholder{
+   opacity: 1!important;
+   visibility: visible!important;
 }
 
-[data-ajax-popup] {
-   position: absolute;
-   bottom: 0;
-   transform: translateY(calc(-100% + 0px));
-   background: var(--marshmellow);
-   width: 100%;
-   border-top: none;
-   overflow: hidden;
-   transition: all 0.2s ease-in;
+.template-product #DesktopLogo{
+   display:none;
 }
 
 
 
 [data-ajax-popup]{
-    position: absolute;
-    bottom: 0;
-    transform: translateY(calc(-100% + 0px));
-    background: var(--marshmellow);
-    width:100%;
-    border-top: none;
-    overflow: hidden;
-    transition: all 0.2s ease-in;
+   position: absolute;
+   bottom: 0;
+   transform: translateY(calc(-100% + 0px));
+   background: var(--marshmellow);
+   width:100%;
+   border-top: none;
+   overflow: hidden;
+   transition: all 0.2s ease-in;
 }
 
-[data-ajax-popup].visible .stacked {
-   border: none;
+[data-ajax-popup].visible{
+   transform: translateY(calc(100% + 1px));
+   border: 1px solid black;
 }
 
-#cartButtonDrawer {
+[data-ajax-popup].visible .stacked{
+border: none;
+}
+
+#cartButtonDrawer{
    position: absolute;
    top: 100%;
    width: 100%;
@@ -461,38 +416,38 @@ main {
 }
 
 #cartButtonDrawer .CartProducts{
-   pointer-events: none;
+  pointer-events: none;
 }
 
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
 }
 
-#cartButtonDrawer[aria-hidden=false] .Button--action {
-   display: none
+#cartButtonDrawer[aria-hidden=false] .Button--action{
+   display:none
 }
 
-.Cart--Buttons {
+.Cart--Buttons{
    position: absolute;
    width: 100%;
    bottom: calc(var(--margin) * 1);
    font-size: 1.1rem;
 }
 
-.Cart--Buttons .Button--action {
-   width: 100%;
-   display: block;
-   padding: var(--margin);
-   border-top: 1px solid black;
-   cursor: pointer;
+.Cart--Buttons .Button--action{
+width: 100%;
+display: block;
+padding: var(--margin);
+border-top: 1px solid black;
+cursor: pointer;
 }
 
 .Subtotal--price{
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    font-family: "Exposure";
-    padding: var(--margin)
+   font-size: 1.1rem;
+   display: flex;
+   align-items: center;
+   font-family: "Exposure";
+   padding: var(--margin)
 
 
 }
