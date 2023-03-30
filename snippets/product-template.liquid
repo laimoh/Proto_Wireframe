@@ -11,7 +11,7 @@ display:none;
 
 
 <div data-section-type="Product" class="SectionContainer ProductContainer">
-    <div data-meta class="ProductMeta--Container">
+    <div data-meta class="ProductMeta--Container hide--phone">
             <div class="ProductMeta">
                 <div class="ProductTitle"> {{ product.title }}</div>
             <div class="MetaItem ProductDescription">
@@ -95,8 +95,30 @@ display:none;
             </div>
     </div>
 <div data-sticky class="stickyATC">
-<span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money }} </span>
-<div class="stickySpacer"></div>
+<span data-variant-price class="ProductPrice hide--phone">{{ product.selected_or_first_available_variant.price | money }} </span>
+<div class="stickySpacer hide--phone"></div>
 <span>ADD TO BAG</span>
+<div class="stickySpacer hide--desktop"></div>
 </div>
+
+
+<!--/* Mobile Components */-->
+
+
+<div data-mobile-slider class="Mobile--ProductSlider hide--desktop">
+    {% for media in product.media %}
+        {% case media.media_type %}
+        {% when 'image' %}
+        <div class="Mobile--ProductImage"><img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}"></div>
+        {% endcase %}
+{% endfor %}
+
+</div>
+
+
+
+
+
+
+
 </div>

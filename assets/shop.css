@@ -160,7 +160,6 @@ transition: all 0.1s ease;
    align-items: center;
    grid-template-columns: 1fr;
    gap: 0.5rem;
-
 }
 
 .list-color label{

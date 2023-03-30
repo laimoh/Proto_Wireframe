@@ -62,4 +62,14 @@
     {%- endif -%}
 
   </div>
-</div>
+<textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
+  {{ product.variants | json }}
+</textarea>
+{%- if product.options.size > 1 -%}
+  <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
+    {{ current_variant | json }}
+  </textarea>
+{%- endif -%}
+  
+  </div>
+  </div>

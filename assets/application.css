@@ -201,7 +201,7 @@ svg * {
    scroll-snap-type: y mandatory;
 }
 
-.template-index .content section {
+.template-index main section {
 
    min-width: 100vw;
 	height: 100vh;
