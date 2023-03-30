@@ -22,14 +22,16 @@
    --grid-gutter: var(--margin) * 2;
    --wireframe: 0.5px solid rgb(0, 0, 0);
    --wireframethick: 1px solid black;
-   --shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px;
+   /* --shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px; */
+   --shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1;
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
    --headerHeight: 25%;
-   --headerMargin: 17px;
-   --shop-notation: 10px;
-   --header-notation: 10px;
+   --headerMargin: 1rem;
+   --shop-card-notation: 10px;
+   --filter-notation: 0.8rem;
+   --filter-exposure: 0.9rem;
    --footer-notation: 10px;
    /* --shop-font: "Pressura"; */
 }
@@ -165,8 +167,8 @@ img {
 }
 
 .line {
-   /* border: var(--wireframe); */
-   box-shadow: var(--shadow);
+   border: var(--wireframe);
+   /* box-shadow: var(--shadow); */
    width: 100%;
    height: 1px;
 }
@@ -349,8 +351,9 @@ svg * {
 } */
 
 .product-card {
-   border-right: var(--wireframethick);
-   border-bottom: var(--wireframethick);
+   /* border-right: var(--wireframethick);
+   border-bottom: var(--wireframethick); */
+   box-shadow: var(--shadow);
 }
 
 
@@ -358,7 +361,7 @@ svg * {
 
 .card-content {
    margin: calc(var(--margin)/2);
-   font-size: var(--shop-notation);
+   font-size: var(--shop-card-notation);
    z-index: 2;
    position:absolute;
    top:0;
@@ -368,45 +371,6 @@ svg * {
    display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.product-title {
-   grid-area: title;
-   align-self: start;
-   justify-self: start;
-}
-
-.product-type {
-   grid-area: type;
-   align-self: start;
-   justify-self: end;
-}
-
-.product-price {
-   grid-area: price;
-   align-self: end;
-   justify-self: end;
-}
-
-.product-buynow {
-   all: initial;
-   /* margin: calc(var(--margin)/2); */
-   grid-area: buybtn;
-   align-self: end;
-   justify-self: start;
-   font-size: var(--shop-notation);
-   font-family: "Pressura";
-   white-space: nowrap;
-   align-items: center;
-  display: flex;
-  cursor: pointer;
-}
-.pill-icon {
-   margin-right: 10%;
-   width: 14px;
-   height: 18px;
-   /* margin: 0;
-   padding: 0; */
 }
 
 .stacked {
@@ -419,10 +383,7 @@ svg * {
     overflow: hidden;
 }
 
-.card--footer,.card--header{
-   display: flex;
-   justify-content: space-between;
-}
+
 
 /* Product Cards */
 
@@ -469,10 +430,7 @@ svg * {
 
 /**/
 
-.stacked>* {
-   grid-column: 1 / 2;
-   grid-row: 1 / 2;
-}
+
 
 .loadmorebtn {
    border-top: 1px solid black;
@@ -617,7 +575,7 @@ svg * {
       left: calc(var(--margin)/2);
    }
 
-   .desktop {
+   /* .desktop {
       display: none;
    }
 
@@ -679,7 +637,7 @@ svg * {
       width: 100%;
       border-top: var(--wireframethick);
       padding: calc(var(--margin)/2);
-   }
+   } */
 
 
 

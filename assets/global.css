@@ -1,8 +1,3 @@
-/*Global CSS to be Reused*/
-
-
-
-
 /*Templfixes Laiqa*/
 body{
    overflow-x: hidden;
@@ -13,12 +8,18 @@ body{
 }
 
 .MainMenu--Wrapper{
-   padding: 0 calc(var(--margin));
+   /* padding: 0 calc(var(--margin)); */
    display: flex;
    width: 100%;
-   padding-top: 1rem;
+   margin-top: var(--headerMargin);
    transition: all 0.2s ease-in;
    background: var(--marshmellow);
+}
+
+.MainMenu--Wrapper a, .MainMenu--Wrapper span {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   font-size: 0.8rem;
 }
 
 main {
@@ -27,13 +28,14 @@ main {
 
 .MainMenu{
    position: fixed;
-   background: var(--marshmellow);
+   /* background: var(--marshmellow); */
    left: 0;
    right: 0;
    top: 0;
    z-index: 3;
-
+   
 }
+
 
 .MainMenu.Fixed{
    position: fixed;
@@ -53,26 +55,20 @@ main {
 
 }
 
-.MainMenu.Fixed *{
-}
-
-.MainMenu.Fixed .icon{
-}
-
 .MainMenu.Fixed .MainMenu--center .Logo{
-   width: calc(100vw - 2*var(--margin));
-   position: absolute;
-   right: auto;
-   top: 100%;
-   margin: 0 auto;
-   max-width: unset;
-   height: auto;
+   width: calc(100vw - 4*var(--margin));
+    position: absolute;
+    right: auto;
+    top: 110%;
+    margin: 0 auto;
+    max-width: unset;
+    height: auto;
 }
 
-.MainMenu.Fixed .MainMenu--center .Logo::after{
+/* .MainMenu.Fixed .MainMenu--center .Logo::after{
 content: "";
 padding-bottom: 100%;
-}
+} */
 
 .MainMenu--center{
    flex-basis: 17%;
@@ -80,11 +76,40 @@ padding-bottom: 100%;
    text-align: center;
    border-top: 1px solid black;
    border-bottom: 1px solid black;
+   padding: 0px 2px;
    
 }
+#DesktopLogo, .LogoPlaceholder {
+   transition: all 0.3s ease;
+}
 
-.MainMenu--leftItem,.MainMenu--center,.MainMenu--rightItem{
-   border-left: 1px solid black; 
+.LogoPlaceholder {
+   width: 100%;
+   height: 100%;
+   padding: 0.5%;
+   padding-top: 1%;
+}
+
+.MainMenu.Fixed .MainMenu--center .Logo.endState {
+   width: 100%;
+   top: 0%;
+   opacity: 0;
+   z-index: -1;
+}
+.paddingtop {
+   padding-top: calc(2*var(--margin) + var(--headerHeight));
+}
+
+.paddingtop {
+   padding-top: calc(2*var(--margin) + var(--headerHeight));
+}
+
+.MainMenu--leftItem {
+   box-shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) 0px -1px 0px;
+}
+
+.MainMenu--rightItem{
+   box-shadow: rgb(0, 0, 0) -1px 1px 0px, rgb(0, 0, 0) -1px -1px 0px;
 }
 
 .MainMenu--left,.MainMenu--right{

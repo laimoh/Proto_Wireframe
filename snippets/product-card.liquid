@@ -1,8 +1,8 @@
 {% assign random_number = "now" | date: "%N" | modulo: product.images.size | plus: 0 %}
 <div data-ajax-card class="product-card stacked">
   <a href="{{ product.url }}" class="card-link">
-    <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img hideRandom"></div>
-    <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img showRandom"></div>
+    <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
+    <div style="background-image: url({{ product.images[random_number].src | img_url: 'large' }});" class="card-img remove"></div>
   </a>
   <div class="card-content">
     <div class="card--header">

@@ -11,7 +11,7 @@
          window.addEventListener('scroll', () => {
             let scrolled = window.scrollY;
             console.log(scrolled)
-            if (scrolled > 25) {
+            if (scrolled > 20) {
                logo.classList.add('endState');
                placeHolderLogo.classList.remove('hidden');
             } else {
