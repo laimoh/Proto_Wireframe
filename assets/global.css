@@ -415,6 +415,9 @@ border: none;
    font-size: 10px;
 }
 
+#cartButtonDrawer .CartProducts{
+}
+
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
 }
