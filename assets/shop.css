@@ -6,9 +6,9 @@
    border-top: var(--wireframe);
    position: sticky;
    width: 100vw;
-   top: calc(var(--headerHeight) - var(--headerMargin));
-   /* top: var(--headerHeight); */
-   z-index: 1;
+   /* top: calc(var(--headerHeight) - var(--headerMargin)); */
+   top: calc(var(--navHeight) + var(--headerMargin));
+   z-index: 3;
    background-color: var(--marshmellow);
    height: auto;
    transition: all 0.2s ease;

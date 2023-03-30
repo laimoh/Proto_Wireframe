@@ -26,8 +26,8 @@
    --module-title-size: 58px;
    --section-title-size-large: 36px;
    --section-title-size: 24px;
-   --headerHeight: 350px;
-   --headerMargin: 1rem;
+   --headerHeight: 25%;
+   --headerMargin: 17px;
    --shop-notation: 10px;
    --header-notation: 10px;
    --footer-notation: 10px;
@@ -611,6 +611,7 @@ svg * {
    font-family: "Pressura";
    font-size: 0.8rem;
 }
+
 
 @media screen and (width <=458px) {
    .right {

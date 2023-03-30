@@ -21,8 +21,8 @@ body {
 }
 
 main {
-   /* padding-top: var(--headerHeight); */
-   padding-top: calc(2*var(--margin) + var(--headerHeight));
+   padding-top: var(--headerHeight);
+   /* padding-top: calc(2*var(--margin) + var(--headerHeight)); */
 }
 
 .MainMenu {
@@ -61,10 +61,11 @@ main {
    width: calc(98vw - 2*var(--margin));
    position: absolute;
    right: auto;
-   top: 120%;
+   top: 110%;
    margin: 0 auto;
    max-width: unset;
    height: auto;
+   transition: all 0.4s ease;
 }
 
 .MainMenu.Fixed .MainMenu--center .Logo::after {
@@ -78,8 +79,36 @@ main {
    text-align: center;
    border-top: 1px solid black;
    border-bottom: 1px solid black;
-
 }
+
+
+#DesktopLogo, .LogoPlaceholder {
+   transition: all ease 0.4s;
+}
+
+.MainMenu.Fixed .MainMenu--center .Logo.endState {
+   /* height: 3.5vw; */
+   width: 100%;
+   top: 0%;
+   opacity: 0;
+   z-index: -1;
+}
+
+.LogoPlaceholder {
+   width: 100%;
+   height: 100%;
+   padding: 0.5%;
+   padding-top: 1%;
+}
+
+.paddingtop {
+   padding-top: calc(2*var(--margin) + var(--headerHeight));
+}
+
+.paddingtop {
+   padding-top: calc(2*var(--margin) + var(--headerHeight));
+}
+
 
 .MainMenu--leftItem,
 .MainMenu--center,
@@ -134,21 +163,14 @@ main {
 }
 
 .MainMenu--rightItem.icon {
-   width: 5%;
+  
 }
 
-.MainMenu--rightItem.icon a{
-   width: 5%;
-}
 
 .MainMenu--rightItem img {
    width: 100%;
    height: auto;
 }
-/* .MainMenu--rightItem.icon.login {
-   max-width: 75px;
-} */
-
 
 .SectionContainer {
    padding: 0 calc(var(--margin));
@@ -234,9 +256,6 @@ main {
 .CartItem img {
    width: 60%;
 }
-
-
-
 /*Global CSS Mobile*/
 
 @media screen and (width <=458px) {
