@@ -69,10 +69,6 @@ a {
    text-decoration: none;
 }
 
-[contenteditable] {
-   outline: 0px solid transparent;
- }
-
  details > summary {
    list-style: none;
  }
@@ -121,7 +117,6 @@ img {
 
 .pill-tiny {
    position: absolute;
-   /* background-color: var(--marshmellow); */
    top: 50%;
    left: 0%;
    transform: translate(-0%, -50%) rotate(0deg);

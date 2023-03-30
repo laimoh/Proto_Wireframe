@@ -98,7 +98,7 @@
 <a href="/collections/all" class="Button BackToCollection">
 Back to Products
 </a>
-<div class="Button BackToCollection FilterButton">
+<div class="Button BackToCollection FilterButton" onclick="Theme.filter.open()">
 Filter
 </div>
 </div>
@@ -106,7 +106,7 @@ Filter
 <div class="Icon--Menu"><a href="/account"><img src="{{'user.svg' | asset_url }}"></a></div>
 </div>
 
-<div class="MobileMenu--Items">
+<div class="MobileMenu--Items hide--desktop">
 <div class="MobileMenu--Content">
 Mobile<br>
 menu<br>
@@ -115,14 +115,15 @@ here<br>
 <div class="closeButton" onclick="Theme.mobile_menu.close()">CLOSE</div>
 </div>
 
-<div class="MobileMenu--Filters">
+<div id="FilterMobile" class="MobileMenu--Filters hide--desktop">
   <div class="MobileMenu--Content">
   Mobile<br>
   Filters<br>
   here<br>
   </div>
-  <div class="closeButton" onclick="Theme.mobile_menu.closeFilter()">CLOSE</div>
+  <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
   </div>
+
 
 
 {% schema %}
