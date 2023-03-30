@@ -259,13 +259,41 @@ padding-bottom: 100%;
     transition: all 0.2s ease-in-out;
 }
 
-.MobileMenu--Items .closeButton{
+#FilterMobile{
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.Menu--middle .Button{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: text-bottom;
+    display: none!important;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.template-product .Menu--middle .Button.BackToCollection{
+    display: flex!important;
+}
+.template-collection .Menu--middle .Button.FilterButton{
+    display: flex!important;
+}
+
+.MobileMenu--Items .closeButton,.MobileMenu--Filters .closeButton{
 padding: 10px;
 border-top: 1px solid black;
 border-bottom: 1px solid black;
 width: 100%;
 text-align: center;
 }
+
 
 .MainMenu--Wrapper{
     padding: 0 calc(var(--margin) / 2);

@@ -474,7 +474,7 @@ svg * {
 #product-info {
    display: flex;
    flex-direction: column;
-   // max-height: 45vh;
+    /*max-height: 45vh;*/
    border-top: var(--wireframe);
    border-right: var(--wireframe);
    align-self: end;
@@ -549,6 +549,8 @@ svg * {
 .reset {
    margin-top: 0;
 }
+
+
 
 
 [data-ajax-add]{

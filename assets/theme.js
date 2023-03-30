@@ -492,6 +492,16 @@ var Theme = {
     var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
     mobileMenu.style.height = 0 + 'px';
   }
+  },
+  filter:{
+    open: function(){
+    var filter = document.querySelector('#FilterMobile');
+    filter.style.height =  filter.scrollHeight + 'px';
+    },
+    close: function(){
+      var filter = document.querySelector('#FilterMobile');
+      filter.style.height =  0 + 'px';
+      }
   }
 };
 
