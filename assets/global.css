@@ -144,11 +144,12 @@ padding-bottom: 100%;
    position: relative;
 }
 
-.MainMenu--rightItem.icon{
+.MainMenu--rightItem.icon.search {
+   max-width: 36%;
 }
 
 .MainMenu--rightItem.icon.login{
-   max-width: 75px;
+   max-width: 12%;
 }
 
 

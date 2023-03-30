@@ -112,7 +112,7 @@
 }
 
 .slider-ui .line {
-   margin: 0 10%;
+   margin: unset;
 }
 
 
