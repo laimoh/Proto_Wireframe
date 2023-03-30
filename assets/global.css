@@ -293,7 +293,7 @@ main {
 
 
 
-
+/* Use this for Hiding, showing on mobile/desk */
 .hide--desktop{
    display:none;
 }
