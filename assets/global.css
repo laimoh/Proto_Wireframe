@@ -488,6 +488,40 @@ cursor: pointer;
    color: black;
 }
 
+#mobileSearch{
+   position: absolute;
+   left: 0;
+   right: 0;
+   padding: 0;
+   width: 100%;
+   margin: 0;
+   line-height: 1;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.2s ease-in;
+   background: var(--marshmellow);
+}
+
+#mobileSearch.visible{
+   opacity: 1;
+   visibility: visible;
+}
+
+#mobileSearch .Button{
+   width: 100%;
+   border-top: 1px solid black;
+   text-align: center;
+   padding: 10px;
+   font-family: Pressura;
+}
+
+#mobileSearch input{
+width: 100%;
+max-width: calc(100% - var(--margin));
+margin: 0 auto;
+display: block;
+}
+
 /* #DesktopLogo, #DesktopLogoPlaceholder .targetColor {
    fill: var(--marshmellow);
    color: var(--marshmellow);

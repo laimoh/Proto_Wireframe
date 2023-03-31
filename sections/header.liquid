@@ -95,6 +95,14 @@
 
 
 <div class="MainMenu--mobile hide--desktop">
+<div id="mobileSearch" class="Mobile--Search">
+<form class="search" action="/search">
+  <input type="hidden" name="type" value="product">
+    <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+</form>
+<div class="Button" onClick=Theme.search.submit()>Search</div>
+
+</div>
 <div class="Icon--Menu" onclick="Theme.mobile_menu.open()"><img src="{{'mobilemenu.svg' | asset_url }}"></div>
 <div class="Menu--middle">
 <a href="/collections/all" class="Button BackToCollection">
@@ -104,7 +112,7 @@ Back to Products
 Filter
 </div>
 </div>
-<div class="Icon--Menu"><img src="{{'search.svg' | asset_url }}"></div>
+<div onClick=Theme.search.open() class="Icon--Menu"><img src="{{'search.svg' | asset_url }}"></div>
 <div class="Icon--Menu"><a href="/account"><img src="{{'user.svg' | asset_url }}"></a></div>
 </div>
 

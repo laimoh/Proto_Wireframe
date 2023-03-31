@@ -487,7 +487,37 @@
     var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
     mobileMenu.style.height = 0 + 'px';
   }
-  }
+  },
+  filter:{
+    open: function(){
+      var filter = document.querySelector('#FilterMobile');
+      filter.style.height = filter.scrollHeight + 'px';
+    },
+    close: function(){
+      var filter = document.querySelector('#FilterMobile');
+      filter.style.height = 0 + 'px';
+    }
+    },
+    search:{
+      open: function(){
+        var search = document.querySelector('#mobileSearch');
+        search.classList.add('visible')
+      },
+      close: function(){
+        var search = document.querySelector('#mobileSearch');
+        search.classList.remove('visible')
+
+      },
+      submit: function(){
+        var value = document.querySelector('#mobileSearch input').value;
+        var form = document.querySelector('#mobileSearch form');
+
+        if (value){
+        console.log(value,form);
+         form.submit();
+        }
+      }
+      }
 };
 
 
