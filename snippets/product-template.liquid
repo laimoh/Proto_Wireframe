@@ -65,12 +65,13 @@
           {% assign optionrow = forloop.index %}
           {% assign downcased_option = options.name | downcase %}
           {% if downcased_option == "size" %}
-            <div class="optionsNameContainer">
+            <div class="optionsNameContainer topContainer">
               SELECT A SIZE
             </div>
           {% else %}
             <div class="optionsNameContainer">
-              {{ options.name | upcase }}
+              <span>
+                SELECT A {{ options.name | upcase }}</span>
             </div>
           {% endif %}
           <div class="optionValuesContainer">

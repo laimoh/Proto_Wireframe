@@ -3,11 +3,27 @@
     init: function(){
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
-        if (window.innerWidth > 679 && !isProduct) {        
+        if (window.innerWidth > 679 && !isProduct) {   
+
           var logo = document.querySelector('#DesktopLogo');
           var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
          var navHeight = document.querySelector('.MainMenu--Wrapper').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
+         let content = document.querySelector('.content');
+
+         if (document.body.classList.contains('template-index')){
+         content.addEventListener('scroll', () => {
+            let scrolled = content.scrollTop;
+            console.log(scrolled)
+            if (scrolled > 360) {
+               logo.classList.add('endState');
+               placeHolderLogo.classList.remove('hidden');
+            } else {
+               logo.classList.remove('endState');
+               placeHolderLogo.classList.add('hidden');
+            }
+         }, {passive: true})
+} else {
          window.addEventListener('scroll', () => {
             let scrolled = window.scrollY;
             console.log(scrolled)
@@ -19,7 +35,8 @@
                placeHolderLogo.classList.add('hidden');
             }
          }, {passive: true})
-      
+         
+      }
       } else if (isProduct) {
          document.querySelector('main').style.paddingTop = '0px'
       }

@@ -14,6 +14,9 @@ body{
    margin-top: var(--headerMargin);
    transition: all 0.2s ease-in;
    background: var(--marshmellow);
+   border-top: solid 1px;
+   border-bottom: solid 1px;
+   color: black;
 }
 
 .MainMenu--Wrapper a, .MainMenu--Wrapper span {
@@ -33,7 +36,6 @@ main {
    right: 0;
    top: 0;
    z-index: 3;
-   
 }
 
 
@@ -74,13 +76,15 @@ padding-bottom: 100%;
    flex-basis: 17%;
    max-width: 17%;
    text-align: center;
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
+   /* border-top: 1px solid black;
+   border-bottom: 1px solid black; */
+   /* box-shadow: 1px 1px 0px, 0px -1px 0px; */
    padding: 0px 2px;
    
 }
-#DesktopLogo, .LogoPlaceholder {
+#DesktopLogo, #DesktopLogoPlaceholder svg {
    transition: all 0.3s ease;
+   fill: var(--red);
 }
 
 .LogoPlaceholder {
@@ -105,11 +109,13 @@ padding-bottom: 100%;
 }
 
 .MainMenu--leftItem {
-   box-shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) 0px -1px 0px;
+   box-shadow: 1px 1px 0px, 0px -1px 0px;
+   color: black;
 }
 
 .MainMenu--rightItem{
-   box-shadow: rgb(0, 0, 0) -1px 1px 0px, rgb(0, 0, 0) -1px -1px 0px;
+   box-shadow: -1px 1px 0px, -1px -1px 0px;
+   color: black;
 }
 
 .MainMenu--left,.MainMenu--right{
@@ -117,7 +123,7 @@ padding-bottom: 100%;
    flex-basis: 41.5%;
    flex-grow: 1;
    align-items: center;
-   border: 1px solid black;
+
    border-left: none;
    border-right: none;
    font-size: 1.3rem;
@@ -375,8 +381,6 @@ main {
    display:none;
 }
 
-
-
 [data-ajax-popup]{
    position: absolute;
    bottom: 0;
@@ -445,4 +449,10 @@ cursor: pointer;
    padding: var(--margin)
 
 
+}
+
+.white-landing {
+   fill: var(--marshmellow);
+   color: var(--marshmellow);
+   /* box-shadow: 1px solid var(--marshmellow); */
 }

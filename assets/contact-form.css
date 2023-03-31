@@ -100,10 +100,6 @@ ul, li {
     color: var(--red);
 }
 
-.line {
-   border-color: var(--red);
-}
-
 .error * {
    padding-right: 1rem;
    white-space: nowrap;

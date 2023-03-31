@@ -18,10 +18,10 @@
 }
 
 .ProductMeta{
-    position: absolute;
-    bottom: var(--stickyHeight);
-    padding: 15% 20% 10% 15%;
-    border: 1px solid black;
+   position: absolute;
+   bottom: var(--stickyHeight);
+   padding: 10% 16% 4% 8%;
+   border: 1px solid black;
 }
 
 .ProductTitle{
@@ -36,7 +36,7 @@
    margin-bottom: 2rem;
 }
 
-.pill-tiny {
+.Collapsible .pill-tiny {
    position: relative;
     transform: rotate(0deg);
     margin-right: 5%;
@@ -107,8 +107,14 @@
     width: 100%;
     padding: 10px;
     font-size: var(--product-notation);
-    border-bottom: 1px solid black;
+    border-bottom:var(--wireframethick);
+    border-top: var(--wireframethick);
 }
+
+.optionsNameContainer.topContainer {
+   border-top: none;
+}
+
 
 .optionValuesContainer{
     padding: 6% 16%;
@@ -126,6 +132,11 @@
     border: 1px solid transparent;
     border-radius: 200px;
     cursor: pointer;
+    text-transform: uppercase;
+}
+
+.optionValuesContainer:last-child label {
+   padding: 0rem 1rem;
 }
 
 input[type="radio"]:checked+label{ 
