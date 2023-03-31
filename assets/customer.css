@@ -33,9 +33,6 @@ ul, li {
     margin: 0;
 }
 
-.line {
-   border-color: var(--red);
-}
 
 .errors ul {
    display: flex;

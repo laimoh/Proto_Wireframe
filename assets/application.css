@@ -6,6 +6,14 @@
 @font-face {
    font-family: "Pressura";
    src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Pressura-Mono-Regular.woff2?v=1678895659) format("woff2");
+ 
+
+}
+@font-face {
+   font-family: "Pressura Medium";
+   src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Pressura-Mono-Medium-Trial.woff2?v=1680276787) format("woff2");
+
+   
 }
 
 @font-face {
@@ -92,7 +100,7 @@ img {
 }
 
 .wire {
-   border: var(--wireframe);
+   border: 0.5px solid;
    position: fixed;
    top: 0;
    height: 100%;
@@ -162,6 +170,7 @@ img {
 
 .hidden {
    opacity: 0;
+   pointer-events: none;
 }
 
 .remove {
@@ -385,51 +394,6 @@ svg * {
     overflow: hidden;
 }
 
-
-
-/* Product Cards */
-
-.VariantSelectors--Ajax{
-   position: absolute;
-   transform: translateY(100%);
-   font-size: 1rem;
-   bottom: 0;
-   transition: all 0.2s ease-in-out;
-   width: 100%;
-   z-index: 3;
-   
-}
-
-.VariantSelectors--Ajax.display{
-   transform: translateY(0%);
-   background: var(--marshmellow)
-}
-
-.CardValues{
-   width: 70%;
-   margin: 0 auto;
-   display: flex;
-   flex-wrap: wrap;
-}
-
-.ColorValues{
-   flex-direction: column;
-   font-family: "Exposure";
-}
-
-.ColorValues input[type="radio"]:checked+label{
-   border-color: transparent!important;
-   font-weight: bold;
-   font-variation-settings: 'EXPO'-50
-}
-
-
-.VariantSelectors--Ajax .optionsNameContainer{
-   border: none;
-   display:flex;
-   align-items: center;
-}
-
 /**/
 
 
@@ -643,4 +607,4 @@ svg * {
 
 
 
-}
+

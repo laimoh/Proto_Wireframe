@@ -14,7 +14,7 @@
          if (document.body.classList.contains('template-index')){
          content.addEventListener('scroll', () => {
             let scrolled = content.scrollTop;
-            console.log(scrolled)
+            
             if (scrolled > 360) {
                logo.classList.add('endState');
                placeHolderLogo.classList.remove('hidden');
@@ -26,7 +26,7 @@
 } else {
          window.addEventListener('scroll', () => {
             let scrolled = window.scrollY;
-            console.log(scrolled)
+            // console.log(scrolled)
             if (scrolled > 30) {
                logo.classList.add('endState');
                placeHolderLogo.classList.remove('hidden');
@@ -40,6 +40,20 @@
       } else if (isProduct) {
          document.querySelector('main').style.paddingTop = '0px'
       }
+
+      const el = document.querySelectorAll('section');
+      const targetColors = document.querySelectorAll('.targetColor');
+      const observer = new IntersectionObserver(entries => {
+         entries.forEach(entry => {
+            if(entry.isIntersecting) {
+               console.log(entry)
+               // targetColors.forEach(t => t.classList.add('whiteColor'))
+            } else {
+               // targetColors.forEach(t => {t.classList.remove('whiteColor'); t.classList.add('classicColor');})
+            }
+         })
+      })
+      el.forEach(e => observer.observe(e))
 
     sections.forEach((section) => {
         if (!this.sections[section.getAttribute('data-section-type')]) {

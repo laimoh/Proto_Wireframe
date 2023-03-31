@@ -82,8 +82,11 @@ padding-bottom: 100%;
    padding: 0px 2px;
    
 }
-#DesktopLogo, #DesktopLogoPlaceholder svg {
+#DesktopLogo, #DesktopLogoPlaceholder {
    transition: all 0.3s ease;
+}
+
+.Logo, .LogoSVG{
    fill: var(--red);
 }
 
@@ -168,6 +171,15 @@ padding-bottom: 100%;
 
 .hide{
    display: none!important;
+}
+
+.MainMenu--rightItem a:hover, .MainMenu--leftItem a:hover {
+   cursor: pointer;
+   color: var(--accent-brown);
+}
+[data-opencart]:hover, .MainMenu--center a:hover {
+   background-color: var(--accent-brown);
+   cursor: pointer;
 }
 
 #CartDrawer{
@@ -448,11 +460,35 @@ cursor: pointer;
    font-family: "Exposure";
    padding: var(--margin)
 
-
 }
 
-.white-landing {
+.template-collection .MainMenu--leftItem:first-child a{
+   font-family: "Pressura Medium";
+}
+
+.template-page-about .MainMenu--leftItem:last-child a {
+   font-family: "Pressura Medium";
+}
+
+/* intersection observer */
+
+.whiteColor {
    fill: var(--marshmellow);
    color: var(--marshmellow);
    /* box-shadow: 1px solid var(--marshmellow); */
 }
+
+.blackColor {
+   fill: black;
+   color: black;
+}
+
+.classicColor {
+   fill: var(--red);
+   color: black;
+}
+
+/* #DesktopLogo, #DesktopLogoPlaceholder .targetColor {
+   fill: var(--marshmellow);
+   color: var(--marshmellow);
+} */

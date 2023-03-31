@@ -104,9 +104,11 @@
 }
 
 .optionsNameContainer{
-    width: 100%;
-    padding: 10px;
-    font-size: var(--product-notation);
+   width: 80%;
+   padding: 20px;
+   font-family: "Exposure";
+   text-transform: none;
+    font-size: var(--filter-exposure);
     border-bottom:var(--wireframethick);
     border-top: var(--wireframethick);
 }

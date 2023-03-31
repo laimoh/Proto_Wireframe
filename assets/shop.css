@@ -300,15 +300,18 @@
 }
 
 
+
+
 .product-buynow {
    all: initial;
    position: relative;
    font-size: var(--shop-card-notation);
    font-family: "Pressura";
+   text-transform: uppercase;
    white-space: nowrap;
    align-items: center;
    display: flex;
-   margin: 2% 1%;
+   margin: 5px;
 }
 
 .link-text {
@@ -337,17 +340,52 @@
    transform: translateX(8%);
 }
 
-/* .stacked {
-   display: grid;
-       display: grid;
-    font-family: "Pressura";
-    text-transform: uppercase;
+
+
+/* Product Cards */
+
+.VariantSelectors--Ajax{
+   position: absolute;
+   transform: translateY(100%);
+   font-size: 1rem;
+   bottom: 0;
+   transition: all 0.2s ease-in-out;
+   width: 100%;
+   z-index: 3;
+   
 }
 
-.stacked>* {
-   grid-column: 1 / 2;
-   grid-row: 1 / 2;
-} */
+.VariantSelectors--Ajax.display{
+   transform: translateY(0%);
+   background: var(--marshmellow);
+   border: 1px solid black;
+}
+
+.CardValues{
+   width: 70%;
+   margin: 0 auto;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.ColorValues{
+   flex-direction: column;
+   font-family: "Exposure";
+}
+
+.ColorValues input[type="radio"]:checked+label{
+   border-color: transparent!important;
+   font-weight: bold;
+   font-variation-settings: 'EXPO'-50
+}
+
+
+.VariantSelectors--Ajax .optionsNameContainer{
+   border: none;
+   display:flex;
+   align-items: center;
+}
+
 
 .loadmorebtn {
    border-top: var(--wireframe);
