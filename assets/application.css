@@ -28,13 +28,14 @@
    --section-title-size-large: 36px;
    --section-title-size: 24px;
    --headerHeight: 25%;
-   
+
    --headerMargin: 1rem;
    --shop-card-notation: 10px;
    --filter-notation: 0.8rem;
    --filter-exposure: 0.9rem;
    --footer-notation: 10px;
-   /* --shop-font: "Pressura"; */
+   --product-notation: 12px;
+ 
 }
 
 /* base */

@@ -20,12 +20,44 @@
 .ProductMeta{
     position: absolute;
     bottom: var(--stickyHeight);
-    padding: 20px 25px;
+    padding: 15% 20% 10% 15%;
     border: 1px solid black;
 }
 
+.ProductTitle{
+   font-family: "Exposure";
+   font-size: 1.3rem;
+   margin-bottom: 2rem;
+}
+
+.ProductDescription {
+   text-transform: uppercase;
+   font-size: var(--product-notation);
+   margin-bottom: 2rem;
+}
+
+.pill-tiny {
+   position: relative;
+    transform: rotate(0deg);
+    margin-right: 5%;
+}
+
+.Collapsible{
+   margin: 8% 0;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   font-weight: normal;
+}
+
+
+.Collapsible--label{
+   text-transform: uppercase;
+   font-size: var(--product-notation);
+}
+
 .ProductMedia--Container{
-    max-width: 50%;
+    max-width: 60%;
     position: relative;
 }
 
@@ -35,9 +67,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 0.5%;
     padding: 2rem;
-    top: var(--headerHeight);
+    top: calc(var(--headerHeight)/2);
     z-index: 5;
     width: 100%;
     left: 0;
@@ -45,11 +77,11 @@
 }
 
 .Product--Image--Anchor{
-    height: 5px;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 2rem;
-    cursor: pointer;
+   height: 4px;
+   border: var(--wireframethick);
+   border-radius: 15px;
+   width: 20px;
+   cursor: pointer;
 }
 
 .Product--Image--Anchor.active{
@@ -74,13 +106,15 @@
 .optionsNameContainer{
     width: 100%;
     padding: 10px;
+    font-size: var(--product-notation);
     border-bottom: 1px solid black;
 }
 
 .optionValuesContainer{
-    padding: 10px;
+    padding: 6% 16%;
     display: flex;
     flex-wrap: wrap;
+    font-size: var(--product-notation);
     justify-content: space-between;
 }
 
@@ -104,34 +138,46 @@ input[type="radio"]:checked+label{
     border-top: 1px solid black;
     padding: 10px;
     display: flex;
+    align-items: center;
+    font-size: var(--product-notation);
     justify-content: space-between;
 }
-
-.ProductTitle{
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+.qty--wrapper{
+   display: flex;
+   font-size: calc( 1.5 * var(--product-notation));
+}
+.qty--button {
+   font-size: calc( 1.5 * var(--product-notation));
+   margin: 0 10px;
+   cursor: pointer;
 }
 
 .stickyATC{
     cursor: pointer;
     position: fixed;
     width: 100vw;
-    padding: 20px 0;
+    padding: 0.8%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     border-top: 1px solid black;
     bottom: 0;
+    left: 0;
     background: var(--marshmellow);
 }
 
+.stickyATC:hover {
+   background-color: var(--accent-brown);
+   /* opacity: 0.5; */
+}
+
 .stickySpacer{
-    height: 1.4rem;
-    width: 2rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    margin:0 5px;
+   height: 12px;
+   width: 24px;
+   margin: 0% 0.5%;
+   border: 1px solid black;
+   border-radius: 20px;
 }
 
 .Mobile--ProductImage{
