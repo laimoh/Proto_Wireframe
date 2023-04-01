@@ -548,8 +548,6 @@ var Theme = {
    }
 };
 
-
-
 Theme.AjaxRenderer = (function () {
    function AjaxRenderer({
       sections,
