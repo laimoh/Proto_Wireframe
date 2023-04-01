@@ -47,7 +47,14 @@
 
 <div class="MainMenu--right">
   <div class="targetColor MainMenu--rightItem icon search">
-    <a class="targetColor" href="/collections/all">SEARCH</a>
+    
+    <form id="deskSearchForm" class="search" action="/search" style="display:none">
+      <input type="hidden" name="type" value="product">
+        <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+    <button class="" type="submit" value="Search">Search</button>
+    </form>
+
+    <a onclick=Theme.search.openDesk(); search-desk-button class="targetColor">SEARCH</a>
   </div>
   
   <div class="targetColor MainMenu--rightItem icon login">

@@ -593,6 +593,11 @@ var Theme = {
          var search = document.querySelector('#mobileSearch');
          search.classList.add('visible')
       },
+      openDesk: function () {
+         var search = document.querySelector('#deskSearchForm');
+         document.querySelector('[search-desk-button]').style.display = 'none';
+         search.style.display = 'block';
+      },
       close: function () {
          var search = document.querySelector('#mobileSearch');
          search.classList.remove('visible')

@@ -156,6 +156,7 @@ padding-bottom: 100%;
 
 .MainMenu--rightItem.icon.search {
    max-width: 36%;
+   position: relative;
 }
 
 .MainMenu--rightItem.icon.login{
