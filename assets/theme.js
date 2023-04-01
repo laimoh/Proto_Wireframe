@@ -254,11 +254,11 @@ var Theme = {
       }
 
    },
-   addToCart: function (variantID) {
+   addToCart: function (variantID,amount) {
       let formData = {
          'items': [{
             'id': variantID,
-            'quantity': 1
+            'quantity': amount
          }],
          'sections': "ajaxcard"
       };
@@ -450,7 +450,14 @@ var Theme = {
          root.style.setProperty('--stickyHeight', (stickyATC.clientHeight) + "px");
 
          var form = section.querySelector('form[action="/cart/add"]');
+         //HH88
 
+         var qtys = section.querySelectorAll('.qty--wrapper')
+         qtys.forEach((quantity) => {
+            quantity.addEventListener('click', function (event) {
+               Theme.helpers.qty(event, quantity, false);
+            })
+         });
          function getVariant(section) {
             var selectedOptions = [];
             var variants = JSON.parse(section.querySelector('[data-variant-json]').innerHTML);
@@ -470,8 +477,7 @@ var Theme = {
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
             stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
-            
-
+         
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
@@ -514,7 +520,8 @@ var Theme = {
 
          stickyATC.addEventListener('click', async function () {
             var variantID = getVariant(section).id;
-            Theme.addToCart(variantID, 1);
+            var amount = parseInt(section.querySelector('.productQty [data-value]').getAttribute('data-value'));
+            Theme.addToCart(variantID, amount);
          });
 
       },
