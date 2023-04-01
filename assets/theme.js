@@ -90,7 +90,7 @@ var Theme = {
 
          }
       } else if (isProduct) {
-         document.querySelector('main').style.paddingTop = '0px'
+         document.querySelector('main').style.paddingTop = navHeight + 'px'
       }
       const el = document.querySelectorAll('section');
       const options = {

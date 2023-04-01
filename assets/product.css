@@ -280,8 +280,11 @@ border: 1px solid black;
         flex-direction: column;
     }
 
+
     .ProductMeta--Container{
         order: 2;
+        top: unset;
+        height: auto;
     }
 
     .ProductMeta{
