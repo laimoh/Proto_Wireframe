@@ -79,7 +79,7 @@
           <span>Subtotal</span>
           
           <div class="line"></div> 
-        <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
+        <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money }}</span>
         </div>
         <div>
           <a class="Button--action" data-checkout href="/checkout">Checkout</a>

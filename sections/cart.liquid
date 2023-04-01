@@ -6,7 +6,7 @@
 {% endfor %}
 <div class="CartSubtotal">
 <div class="Subtotal--price"><span>Subtotal</span><div class="line"></div></div>
-<span class="Subtotal--Money">{{ cart.total_price | money }}</span>
+<span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money }}</span>
 </div>
 
 </div>
