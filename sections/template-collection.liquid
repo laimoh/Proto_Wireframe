@@ -6,14 +6,12 @@
 {% paginate collection.products by 9 %}
    <div data-next-page class="product-grid">
     {% for product in collection.products %}
-      {% assign newrow = forloop.index | modulo: 3 %}
-      {% if newrow  == 0 %}
-        <div class="row">
-        {% endif %}
+      {% cycle '<div class="row">', '', '' %}
+      
       {% render 'product-card', product: product %}
-      {% if newrow  == 0 %}
-        </div>
-      {% endif %}
+      
+      {% cycle '', '', '</div>' %}
+
     {% endfor %}
   </div>
 

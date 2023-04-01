@@ -10,7 +10,8 @@
 }
 
 .ProductMeta--Container{
-
+    top: var(--stickyHeight)!important;
+    height: calc(100vh - var(--stickyHeight));
 }
 
 .ProductMedia--Mobile{
@@ -34,6 +35,9 @@
    text-transform: uppercase;
    font-size: var(--product-notation);
    margin-bottom: 2rem;
+   height: 4rem;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 
 .Collapsible .pill-tiny {
@@ -202,6 +206,15 @@ input[type="radio"]:checked+label{
     max-width: 100%;
 }
 
+.MetaItem{
+    transition: all 0.2s ease-in;
+}
+
+[data-shipping-container],[data-sizing-container]{
+    overflow: hidden;
+    height: 0;
+}
+
 @media screen and (width < 649px){
 
 .Mobile--ProductSlider{
@@ -216,6 +229,8 @@ input[type="radio"]:checked+label{
     transform:unset;
     background: transparent;
 }
+
+
 
 .flickity-page-dots .dot{
 width: 30px;

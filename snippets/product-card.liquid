@@ -5,10 +5,10 @@
     <div style="background-image: url({{ product.images[random_number].src | img_url: 'large' }});" class="card-img remove"></div>
   </a>
   <div class="card-content">
-    <div class="card--header">
+    <a href="{{product.url}}" class="card--header">
       <p class="product-title">{{ product.title }}</p>
       <p class="product-type">{{ product.type }}</p>
-    </div>
+    </a>
     <div class="card--footer">
       <button class="product-buynow">
         <div class="pill-tiny"></div>

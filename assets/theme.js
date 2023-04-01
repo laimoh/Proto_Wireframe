@@ -405,6 +405,7 @@ var Theme = {
                      }
                      if (getVariant().id) {
                         atc.setAttribute('data-ajax-add', getVariant().id);
+                        atc.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(getVariant().price);
                      }
                   }
                });
@@ -416,13 +417,13 @@ var Theme = {
       Product: function (section) {
          //Theme.initqty(section);
 
-         var headerHeight = document.querySelector('#shopify-section-header').clientHeight;
+         var headerHeight = document.querySelector('.MainMenu.Fixed').clientHeight;
          var sectionHeight = window.innerHeight - headerHeight;
 
          if (window.innerWidth > 649) {
             var productMeta = section.querySelector('[data-meta]');
             var variantContainer = section.querySelector('[data-variant-container]');
-            productMeta.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
+            //productMeta.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
             variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
          } else {
             var productMedia = section.querySelector('[data-mobile-slider]');
@@ -437,7 +438,9 @@ var Theme = {
 
          var stickyATC = section.querySelector('[data-sticky]');
 
+
          let root = document.documentElement;
+         root.style.setProperty('--headerHeight', (headerHeight) + "px");
          root.style.setProperty('--stickyHeight', (stickyATC.clientHeight) + "px");
 
          var form = section.querySelector('form[action="/cart/add"]');
@@ -448,7 +451,6 @@ var Theme = {
             var variantContainers = section.querySelectorAll('.optionValuesContainer');
             variantContainers.forEach((container) => {
                var checked = container.querySelector('input:checked').value;
-               console.log(checked);
                selectedOptions.push(checked);
             });
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
@@ -460,6 +462,10 @@ var Theme = {
          form.addEventListener('change', function () {
             var selected = getVariant(section);
             stickyATC.setAttribute('data-selected', selected.id);
+            console.log(stickyATC.querySelector('[data-variant-price]'));
+            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
+            
+
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
@@ -521,6 +527,39 @@ var Theme = {
       }
    },
    helpers: {
+      openDesc: function(){
+         Theme.helpers.collapseProducts();
+         var desk = document.querySelector('.MetaItem.ProductDescription');
+         if (desk){
+            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
+            desk.style.height = desk.scrollHeight + 'px';
+         }
+      },
+      openShipping: function(){
+         Theme.helpers.collapseProducts();
+         var desk = document.querySelector('.MetaItem[data-shipping-container]');
+         if (desk){
+            desk.style.height = desk.scrollHeight + 'px';
+         }
+      },
+      openSizing: function(){
+         Theme.helpers.collapseProducts();
+         var desk = document.querySelector('.MetaItem[data-sizing-container]');
+         if (desk){
+            desk.style.height = desk.scrollHeight + 'px';
+         }
+      },
+      collapseProducts: function(){
+         var sizing = document.querySelector('.MetaItem[data-sizing-container]');
+         var shipping = document.querySelector('.MetaItem[data-shipping-container]');
+         var desk = document.querySelector('.MetaItem.ProductDescription');
+
+         desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
+         shipping.style.height = 0;
+         sizing.style.height = 0;
+
+
+      },
       convertRemToPixels: function (rem) {
          return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
       },
