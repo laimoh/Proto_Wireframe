@@ -85,6 +85,7 @@ var Theme = {
 
       this.initAjax();
       this.cart.init();
+      this.mobile_cart.init();
 
    },
    isInViewPort: function (element) {
@@ -258,15 +259,17 @@ var Theme = {
             console.log(data);
             var node = document.createElement('div');
             node.innerHTML = data['mini-cart'];
-            console.log(node);
             var html = node.querySelector('.shopify-section').innerHTML;
-            var CartDrawer = document.querySelector('#CartDrawer');
             if (window.innerWidth > 679) {
                var CartDrawer = document.querySelector('#cartButtonDrawer');
+               CartDrawer.querySelector('.CartProducts').innerHTML = html;
+            }else{
+               var CartDrawer = document.querySelector('#cartMobileItems');
+               CartDrawer.innerHTML = html;
             }
 
-            CartDrawer.querySelector('.CartProducts').innerHTML = html;
             Theme.cart.init();
+            Theme.mobile_cart.init();
 
          })
          .catch((error) => {
@@ -496,6 +499,12 @@ var Theme = {
 
 
 
+      },
+      remove: function (e, wrapper, ajaxCart) {
+         if (ajaxCart) {
+            var key = e.target.closest('[data-item]').getAttribute('data-item');
+            Theme.changeCart(key, 0);
+         }
       }
    },
    mobile_menu: {
@@ -540,10 +549,33 @@ var Theme = {
    },
    mobile_cart: {
       open: function () {
-         var cart = document.querySelector('#mobileCart');
+         var cart = document.querySelector('#cartMobile');
+         document.querySelector('#cartMobile').style.height = 'auto';
+         var cartHeight = cart.scrollHeight;
+         var headerHeight = document.querySelector('.MainMenu.Fixed').scrollHeight;
+         console.log(headerHeight,cartHeight, headerHeight - cartHeight);
+
+         //document.querySelector('#cartMobileItems').style.height = headerHeight - cartHeight + 'px';
+         let root = document.documentElement;
+         root.style.setProperty('--headerMobile', (headerHeight - cartHeight) + "px");
       },
       close: function () {
-         var cart = document.querySelector('#mobileCart');
+         var cart = document.querySelector('#cartMobile');
+      },
+      init: function(){
+         var cart = document.querySelector('#cartMobile');
+         var qtys = cart.querySelectorAll('.qty--wrapper');
+         var removeButtons = cart.querySelectorAll('.CartItem--remove');
+         qtys.forEach((quantity) => {
+            quantity.addEventListener('click', function (event) {
+               Theme.helpers.qty(event, quantity, true);
+            })
+         });
+         removeButtons.forEach((button) => {
+            button.addEventListener('click', function(event){
+               Theme.helpers.remove(event, 0, true);
+            })
+         })
       }
    }
 };

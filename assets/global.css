@@ -505,6 +505,26 @@ margin: 0 auto;
 display: block;
 }
 
+#cartMobile{
+   height: 0;
+   overflow: hidden;
+   transition: all 0.2s ease-in;
+}
+
+#cartMobileItems{
+   height: calc(100vh - var(--headerMobile) - 1rem - 22px);
+   overflow: scroll;
+}
+
+#cartMobileItems .checkOutButton{
+   padding: 10px;
+   text-align: center;
+}
+
+.MainMenu--Wrapper{
+   background: var(--marshmellow)!important;
+}
+
 /* #DesktopLogo, #DesktopLogoPlaceholder .targetColor {
    fill: var(--marshmellow);
    color: var(--marshmellow);

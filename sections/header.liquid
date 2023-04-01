@@ -135,12 +135,12 @@ here<br>
   </div>
 
   <div id="cartMobile" class="MobileMenu--Filters hide--desktop">
-    <div class="" data-ajax-cart>
+    <div class="" data-ajax-cart id="cartMobileItems">
       {% for item in cart.items %}
         {% render 'cart-item', item: item %}
     {% endfor %}
     </div>
-    <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
+    <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
     </div>
   
 {% schema %}
