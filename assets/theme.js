@@ -387,6 +387,12 @@ var Theme = {
                   popupContainer.querySelector('[data-variant-popup]').classList.add('display');
                });
 
+               var close = popupContainer.querySelector('.CartItem--remove');
+               close.addEventListener('click', function(){
+                  popupContainer.querySelector('[data-variant-popup]').classList.remove('display');
+                  
+               })
+
                var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
                var atc = popupContainer.querySelector('[data-ajax-add]');
                console.log(variants);

@@ -340,7 +340,11 @@
    transform: translateX(8%);
 }
 
-
+.optionValuesContainer .CartItem--remove{
+   position: absolute;
+   left: 10px;
+   top: 10px;
+}
 
 /* Product Cards */
 
