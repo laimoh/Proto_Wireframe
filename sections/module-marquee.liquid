@@ -5,7 +5,7 @@
     <div class="clipped" style="background-image: url({{ section.settings.cover-img | img_url: 'master' }});"></div>
   </div>
   <div class="marquee">
-    <h1>
+    <h1 style="font-size: {{ section.settings.fontSize }}rem">
       <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50}};" class="marquee-word1">{{ section.settings.marquee-word1 }}</span>
       <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word2 | minus: 50}};" class="marquee-word2">{{ section.settings.marquee-word2 }}</span>
       <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word3 | minus: 50}};" class="marquee-word3">{{ section.settings.marquee-word3 }}</span>
@@ -49,6 +49,15 @@
         "type": "image_picker",
         "id": "cover-img",
         "label": "Image"
+      },
+      {
+         "type": "range",
+         "id": "fontSize",
+         "min": 0,
+        "max": 10,
+        "step": 0.1,
+         "label": "Font Size",
+         "default": 4
       },
       {
         "type": "text",

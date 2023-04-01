@@ -3,20 +3,19 @@
  }
 
 .form-wrapper {
-   display: grid;
-   grid-template-rows: auto 1fr;
-   font-family: "Exposure";
-   font-variation-settings: 'EXPO'0;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    border-top: var(--wireframe);
 }
 
 
 .form {
    margin: auto;
-   transform: translateX(3rem);
+
+   width: 30vw;
    display: flex;
    flex-direction: column;
-   width: 30vw;
 }
 
 .line {
@@ -25,13 +24,13 @@
 }
 
 .field {
-   display: grid;
-   grid-template-columns: auto 1fr 1fr;
-   gap: 4%;
-   padding: 6% 0%;
-   align-items: center;
-   justify-content: space-between;
+   font-family: "Pressura";
+   text-transform: none;
+   padding: 4%;
+   border: 1px solid;
+   border-radius: 50px;
    font-size: 0.9rem;
+   margin-bottom: 4%;
 }
 
 .field label {
@@ -44,7 +43,9 @@
 }
 
 .submit {
-   align-self: end;
+   display: flex;
+   justify-content: end;
+   margin: 8%;
 }
 
 .submit input {
@@ -69,14 +70,13 @@ input, textarea {
    background: none;
    outline: none;
    border: none;
-   font-family: "Exposure";
 }
 
 
 input::placeholder {
-
-   color: gray;
-   font-family: "Exposure";
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: black;
 }
 
 

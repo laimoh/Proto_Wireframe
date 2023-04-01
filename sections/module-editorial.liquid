@@ -3,7 +3,7 @@
 {% assign bgColor = section.settings.background %}
 <div class="editorial-content" style="background:{{ bgColor }};">
   <div class="editorial-grid">
-    <h1>{{ section.settings.blog_info }}</h1>
+    <h1 style="font-size: {{ section.settings.fontSize }}rem">{{ section.settings.blog_info }}</h1>
     <div class="editorial-img" style="background-image: url({{ section.settings.cover-img | img_url: 'master' }});"></div>
     {% if section.settings.enable_button == true %}
       {% if section.settings.btn_url == blank %}
@@ -41,6 +41,15 @@
         "id": "blog_info",
         "label": "Welcome message",
         "default": "Welcome to my shop!"
+      },
+      {
+         "type": "range",
+         "id": "fontSize",
+         "min": 0,
+        "max": 10,
+        "step": 0.1,
+         "label": "Font Size",
+         "default": 4
       },
       {
         "type": "image_picker",

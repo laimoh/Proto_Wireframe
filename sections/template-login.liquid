@@ -11,17 +11,13 @@
       </div>
       <div class="input-area">
          {% form 'customer_login' %}
-         <div class="email field">
-            <label for="email-address">Email</label>
-            <div class="line"></div>
-            <input id="email-address" name="customer[email]" type="email" autocomplete="email" role="textbox"
+         <div class="field">
+            <input id="email-address" name="customer[email]" type="email" autocomplete="email" role="textbox" placeholder="Enter Email"
                contenteditable></input>
          </div>
          {% if form.password_needed %}
-         <div class="password field">
-            <label for="password">Password</label>
-            <div class="line"></div>
-            <input id="password" name="customer[password]" type="password" autocomplete="current-password" role="textbox"
+         <div class="field">
+            <input id="password" name="customer[password]" type="password" autocomplete="current-password" role="textbox" placeholder="Enter Password"
                contenteditable></input>
          </div>
          {% endif %}
@@ -48,9 +44,9 @@
          <div class="input-area">
          {% form 'recover_customer_password' %}
          <div class="email field">
-            <label for="email">Email</label>
-            <div class="line"></div>
-            <input id="email" name="email" type="email" autocomplete="email" role="textbox"
+            {% comment %} <label for="email">Email</label>
+            <div class="line"></div> {% endcomment %}
+            <input id="email" name="email" type="email" autocomplete="email" role="textbox" placeholder="Enter your email"
                contenteditable></input>
          </div>
     

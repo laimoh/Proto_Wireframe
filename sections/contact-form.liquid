@@ -5,46 +5,46 @@
   <h1 class="page-title">{{ section.settings.section-title }}</h1>
   {% form 'contact', class: 'form' %}
     <div class="first-name field">
-      <label for="first-name">{{ section.settings.firstname }}</label>
-      <div class="line"></div>
+      {% comment %} <label for="first-name">{{ section.settings.firstname }}</label>
+      <div class="line"></div> {% endcomment %}
       <input
         id="first-name"
         name="contact[first_name]"
         type="text"
         role="textbox"
-        placeholder="Proto"></input>
+        placeholder="{{ section.settings.firstname }}"></input>
     </div>
     <div class="last-name field">
-      <label for="last-name">{{ section.settings.lastname }}</label>
-      <div class="line"></div>
+      {% comment %} <label for="last-name">{{ section.settings.lastname }}</label>
+      <div class="line"></div> {% endcomment %}
       <input
         id="last-name"
         name="contact[last_name]"
         type="text"
         role="textbox"
-        placeholder="Collective"></input>
+        placeholder="{{ section.settings.lastname }}"></input>
     </div>
     <div class="email field">
-      <label for="email">{{ section.settings.email }}</label>
-      <div class="line"></div>
+      {% comment %} <label for="email">{{ section.settings.email }}</label>
+      <div class="line"></div> {% endcomment %}
       <input
         id="email"
         name="contact[email]"
         type="email"
         role="textbox"
-        placeholder="email@email.com"></input>
+        placeholder="{{ section.settings.email }}"></input>
     </div>
     <div class="message field">
-      <label for="message">{{ section.settings.message }}</label>
-      <div class="line"></div>
+      {% comment %} <label for="message">{{ section.settings.message }}</label>
+      <div class="line"></div> {% endcomment %}
       <input
         id="message"
         name="contact[body]"
         type="textarea"
         role="textbox"
-        placeholder="Give us a short summary"></input>
+        placeholder="{{ section.settings.message }}"></input>
     </div>
-    <div class="submit field">
+    <div class="submit">
       <div class="pill-tiny"></div>
       <input type="submit" value="Send" />
     </div>

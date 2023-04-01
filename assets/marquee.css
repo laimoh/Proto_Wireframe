@@ -55,7 +55,7 @@
 
 .marquee-content span {
    font-family: "Exposure";
-   font-size: 9rem;
+   /* font-size: 9rem; */
    padding: 0 1rem;
    flex-shrink: 0;
    letter-spacing: -5px;
