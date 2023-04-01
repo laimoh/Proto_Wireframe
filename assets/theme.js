@@ -523,7 +523,15 @@ var Theme = {
             form.submit();
          }
       }
-   }
+      },
+      mobile_cart:{
+        open: function(){
+          var cart = document.querySelector('#mobileCart');
+        },
+        close: function(){
+          var cart = document.querySelector('#mobileCart');
+        }
+        }
 };
 
 

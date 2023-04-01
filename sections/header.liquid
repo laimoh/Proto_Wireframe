@@ -113,7 +113,7 @@ Filter
 </div>
 </div>
 <div onClick=Theme.search.open() class="Icon--Menu"><img src="{{'search.svg' | asset_url }}"></div>
-<div class="Icon--Menu"><a href="/account"><img src="{{'user.svg' | asset_url }}"></a></div>
+<div class="Icon--Menu" onClick=Theme.mobile_cart.open();><img src="{{'cart_mobile.svg' | asset_url }}"></div>
 </div>
 
 <div class="MobileMenu--Items hide--desktop">
@@ -133,6 +133,15 @@ here<br>
   </div>
   <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
   </div>
+
+  <div id="cartMobile" class="MobileMenu--Filters hide--desktop">
+    <div class="" data-ajax-cart>
+      {% for item in cart.items %}
+        {% render 'cart-item', item: item %}
+    {% endfor %}
+    </div>
+    <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
+    </div>
   
 {% schema %}
    {
