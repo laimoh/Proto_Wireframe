@@ -24,26 +24,43 @@
 :root {
    --marshmellow: #EFE5DC;
    --red: #A72828;
+   --black: #000;
    --brown: #937D6A;
    --accent-brown: #C1B1A3;
    --margin: 16px;
    --grid-gutter: var(--margin) * 2;
    --wireframe: 0.5px solid rgb(0, 0, 0);
    --wireframethick: 1px solid black;
-   /* --shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px; */
    --shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1;
-   --module-title-size: 58px;
-   --section-title-size-large: 36px;
-   --section-title-size: 24px;
    --headerHeight: 25%;
-
    --headerMargin: 1rem;
    --shop-card-notation: 10px;
    --filter-notation: 0.8rem;
    --filter-exposure: 0.9rem;
    --footer-notation: 10px;
    --product-notation: 12px;
+
+   --colorHTML:var(var(--black));
+   --colorSVG: var(var(--red));
  
+}
+
+/* intersection observer */
+
+.whiteColor {
+   fill: var(--marshmellow);
+   color: var(--marshmellow);
+   /* box-shadow: 1px solid var(--marshmellow); */
+}
+
+.blackColor {
+   fill: black;
+   color: black;
+}
+
+.classicColor {
+   fill: var(--red);
+   color: black;
 }
 
 /* base */
@@ -105,6 +122,7 @@ img {
    top: 0;
    height: 100%;
    z-index: 5;
+   color: var(--colorHTML);
 }
 
 .right {
@@ -135,7 +153,7 @@ img {
    width: 12px;
    height: 24px;
    border: 1px solid var(--marshmellow);
-   border: 1px solid black;
+   border: 1px solid var(--colorHTML);
    border-radius: 20px;
    transition: all 0.4s ease;
  }
@@ -144,7 +162,7 @@ img {
    position: relative;
    grid-area: 3 / 1;
    z-index: 2;
-   border-bottom: solid 1px black;
+   border-bottom: solid 1px var(--colorHTML);;
    display: flex;
 }
 
@@ -154,7 +172,7 @@ img {
    padding: calc(var(--margin));
    font-family: "Pressura";
    font-size: 11px;
-   color: black;
+   color: var(--colorHTML);
   
 }
 

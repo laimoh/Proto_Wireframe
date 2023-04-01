@@ -16,13 +16,14 @@ body{
    background: var(--marshmellow);
    border-top: solid 1px;
    border-bottom: solid 1px;
-   color: black;
+   color: var(--colorHTML);
 }
 
 .MainMenu--Wrapper a, .MainMenu--Wrapper span {
    font-family: "Pressura";
    text-transform: uppercase;
    font-size: 0.8rem;
+   color: var(--colorHTML);
 }
 
 main {
@@ -87,7 +88,7 @@ padding-bottom: 100%;
 }
 
 .Logo, .LogoSVG{
-   fill: var(--red);
+   fill: var(--colorSVG);
 }
 
 .LogoPlaceholder {
@@ -113,12 +114,12 @@ padding-bottom: 100%;
 
 .MainMenu--leftItem {
    box-shadow: 1px 1px 0px, 0px -1px 0px;
-   color: black;
+   color: var(--colorHTML);
 }
 
 .MainMenu--rightItem{
    box-shadow: -1px 1px 0px, -1px -1px 0px;
-   color: black;
+   color: var(--colorHTML);
 }
 
 .MainMenu--left,.MainMenu--right{
@@ -468,24 +469,6 @@ cursor: pointer;
 
 .template-page-about .MainMenu--leftItem:last-child a {
    font-family: "Pressura Medium";
-}
-
-/* intersection observer */
-
-.whiteColor {
-   fill: var(--marshmellow);
-   color: var(--marshmellow);
-   /* box-shadow: 1px solid var(--marshmellow); */
-}
-
-.blackColor {
-   fill: black;
-   color: black;
-}
-
-.classicColor {
-   fill: var(--red);
-   color: black;
 }
 
 #mobileSearch{

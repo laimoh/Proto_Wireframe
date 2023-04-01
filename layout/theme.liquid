@@ -24,13 +24,12 @@
       type="text/javascript"
       src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SBNcmD"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    {% comment %} <script type="module" src="https://unpkg.com/animate-css-grid@latest"></script> {% endcomment %}
     <script src="{{ 'application.js' | asset_url }}" defer></script>
   </head>
 
   <body class="template-{{ template | replace: '.', '-' | replace: '/', '-' }}">
-    <div class="wire targetColor left"></div>
-    <div class="wire targetColor right"></div>
+    <div class="wire left"></div>
+    <div class="wire right"></div>
     {% section 'header' %}
     {% section 'cart' %}
     <main class="content" role="main">
