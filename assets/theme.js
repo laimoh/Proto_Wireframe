@@ -620,8 +620,18 @@ var Theme = {
          }
       }
    },
+   closeAll: function(){
+      var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
+      mobileMenu.style.height = 0 + 'px';
+      var filter = document.querySelector('#FilterMobile');
+      filter.style.height = 0 + 'px';
+      var cart = document.querySelector('#cartMobile');
+      document.querySelector('#cartMobile').style.height = '0';
+      cart.setAttribute('opened', false);
+   },
    mobile_menu: {
       open: function () {
+         Theme.closeAll();
          var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
          mobileMenu.style.height = mobileMenu.scrollHeight + 'px';
       },
@@ -632,6 +642,7 @@ var Theme = {
    },
    filter: {
       open: function () {
+         Theme.closeAll();
          var filter = document.querySelector('#FilterMobile');
          filter.style.height = filter.scrollHeight + 'px';
       },
@@ -642,6 +653,7 @@ var Theme = {
    },
    search: {
       open: function () {
+         Theme.closeAll();
          var search = document.querySelector('#mobileSearch');
          search.classList.add('visible')
       },
@@ -667,6 +679,7 @@ var Theme = {
    },
    mobile_cart: {
       open: function () {
+         Theme.closeAll();
          var cart = document.querySelector('#cartMobile');
          if (JSON.parse(cart.getAttribute('opened'))){
             Theme.mobile_cart.close();

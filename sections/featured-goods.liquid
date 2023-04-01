@@ -1,14 +1,80 @@
 <style>
 .featuredGoods--Wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.featuredGood-Product{
+width: 50%;
+max-width: 50%;
+position: relative;
+max-height: 400px;
+}
+
+.featuredGood-Product.first{
+border-right:1px solid black;
+}
+
+.featuredGood--Header{
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+padding-top: 10px;
+top: 0;
+z-index: 1;
+width: 100%;
+padding:10px var(--margin);
+font-size: 14px;
+font-family: pressura;
+border-bottom: 1px solid black;
+}
+
+.featuredGood--Image{
+    margin: 0 auto;
+    height: 100%;
+}
+
+.featuredGood--Image img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.featuredGoods--Title{
+    padding: 10px var(--margin);
+    width: 100%;
+    border-bottom: 1px solid black;
+    width: 100%;
+    font-family: "Exposure";
 
 }
+
 </style>
 
-<div class="featuredGoods--Wrapper">
-{% for product in product.metafields.shopify--discovery--product_recommendation.related_products_display %}
-{{ product.title }}
-{% endfor %}
+<div class="featuredGoods--Wrapper SectionContainer">
+<div class="featuredGoods--Title">
+Featured Goods
+</div>
+{% for product in product.metafields.shopify--discovery--product_recommendation.related_products.value limit: 2 %}
+<div class="featuredGood-Product {% if forloop.first %} first {% endif %}">
 
+<div class="featuredGood--Header">
+<div class="featuredGood--Title">
+    {{ product.title | split: " " | first }}
+</div>
+<div class="featuredGood--Category">
+    {{ product.type }}
+</div>
+</div>
+
+<div class="featuredGood--Image">
+<img class="" src="{{ product.featured_image | img_url: '1000x' }}">
+</div>
+
+
+</div>
+{% endfor %}
 </div>
 
 {% schema %}
