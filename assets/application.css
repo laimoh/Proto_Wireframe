@@ -39,29 +39,16 @@
    --filter-exposure: 0.9rem;
    --footer-notation: 10px;
    --product-notation: 12px;
-
-   --colorHTML:var(var(--black));
-   --colorSVG: var(var(--red));
+   --colorSVG: var(--red);
+   --colorHTML: var(--black);
  
 }
 
 /* intersection observer */
 
-.whiteColor {
-   fill: var(--marshmellow);
-   color: var(--marshmellow);
-   /* box-shadow: 1px solid var(--marshmellow); */
-}
 
-.blackColor {
-   fill: black;
-   color: black;
-}
 
-.classicColor {
-   fill: var(--red);
-   color: black;
-}
+
 
 /* base */
 
@@ -549,6 +536,10 @@ svg * {
    font-size: 0.8rem;
 }
 
+/* intersection observer */
+.targetColor {
+   transition: color 0.3s ease;
+}
 
 @media screen and (width <=458px) {
    .right {

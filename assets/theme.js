@@ -43,20 +43,34 @@ var Theme = {
       } else if (isProduct) {
          document.querySelector('main').style.paddingTop = '0px'
       }
-      // const targetColors = document.querySelectorAll('.targetColor');
       const el = document.querySelectorAll('section');
       const options = {
-         // root: document.querySelector(".content"),
          rootMargin: "0px",
          threshold: 1.0
       }
       const observer = new IntersectionObserver(entries => {
          entries.forEach(entry => {
             if (entry.isIntersecting) {
-               console.log(entry)
-               // targetColors.forEach(t => t.classList.add('whiteColor'))
-            } else {
-               // targetColors.forEach(t => {t.classList.remove('whiteColor'); t.classList.add('classicColor');})
+               let root = document.documentElement;
+               if (entry.target.classList.contains('impact-module')) {
+                  root.style.setProperty('--colorSVG', 'var(--marshmellow)');
+                  root.style.setProperty('--colorHTML', 'var(--marshmellow)');
+               } else if (entry.target.classList.contains('pill_crop-module')) {
+                  root.style.setProperty('--colorSVG', 'var(--red)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+               } else if (entry.target.classList.contains('marquee-module')) {
+                  root.style.setProperty('--colorSVG', 'var(--black)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+               } else if (entry.target.classList.contains('editorial-module')) {
+                  root.style.setProperty('--colorSVG', 'var(--black)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+               } else if (entry.target.classList.contains('ending-module')) {
+                  root.style.setProperty('--colorSVG', 'var(--red)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+               } else {
+                  root.style.setProperty('--colorSVG', 'var(--red)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+               }
             }
          })
       }, options)
@@ -523,15 +537,15 @@ var Theme = {
             form.submit();
          }
       }
+   },
+   mobile_cart: {
+      open: function () {
+         var cart = document.querySelector('#mobileCart');
       },
-      mobile_cart:{
-        open: function(){
-          var cart = document.querySelector('#mobileCart');
-        },
-        close: function(){
-          var cart = document.querySelector('#mobileCart');
-        }
-        }
+      close: function () {
+         var cart = document.querySelector('#mobileCart');
+      }
+   }
 };
 
 
