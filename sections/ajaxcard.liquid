@@ -3,10 +3,9 @@
         <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
         <div class="card-content">
           <a href="{{product.url}}" class="card--header">
+
           <p class="product-type">{{ product.type }}</p>
           <p class="product-title">{{ product.title }}</p>
-          </a>
-          <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}">
           </a>
           <div class="card--footer">
           <button class="product-buynow">
