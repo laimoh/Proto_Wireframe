@@ -1,10 +1,4 @@
-/* IMPACT */
-.impact-content {
-   display: grid;
-   height: 100vh;
-   grid-template-rows: 1fr auto auto;
-   overflow: hidden;
-}
+"/* IMPACT */
 
 .cover {
    grid-area: 1 / 1 / -1 / -1;
@@ -24,11 +18,11 @@
 
 
 .impact-content h1 {
-   z-index: 1;
+   /* font-size: 6rem; */
+   z-index: 2;
 }
 
 .centered  {
-
    align-self: center;
     justify-self: center;
     grid-area: 1 / 1 / -1 / -1;
@@ -54,48 +48,9 @@
    color: var(--marshmellow);
     line-height: 0.9;
     font-variation-settings: 'EXPO' 0;
-    font-size: 6rem;
     margin-left: calc(1.5*var(--margin));
 
 }
-
-
-
-.module-pill {
- 
-}
-
-/* .impact-content a::before {
-   position: absolute;
-   top: 50%;
-   left: 0%;
-   transform: translate(-0%, -50%) rotate(0deg);
-   width: 12px;
-   height: 24px;
-   border: var(--wireframethick);
-   border-radius: 20px;
-   transition: all 0.4s ease;
-    
-} */
-
-/* .impact-content a {
-   text-transform: uppercase;
-   grid-area: 3 / 1;
-   align-self: end;
-   z-index: 2;
-   font-family: "Pressura";
-   font-size: 14px;
-   color: var(--marshmellow);
-   margin: var(--margin);
-   border-bottom: solid 1px black;
-}
-.impact-content a::before {
-   filter: invert(94%) sepia(2%) saturate(2004%) hue-rotate(324deg) brightness(104%) contrast(87%);
-   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
-   display: inline;
-   vertical-align: middle; 
-    padding: 0.4%;
-} */
 
 .impact-content a::before:hover {
    transform: rotateX(45deg);

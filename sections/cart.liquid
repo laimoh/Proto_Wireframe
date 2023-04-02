@@ -1,10 +1,14 @@
-<div id="CartDrawer" aria-hidden="true">
+<div id="CartDrawer" data-section-type="CartDrawer" aria-hidden="true">
+
 <div class="CartProducts">
 {% for item in cart.items %}
     {% render 'cart-item', item: item %}
 {% endfor %}
 <div class="CartSubtotal">
-<div class="Subtotal--price"><span>Subtotal</span><div class="line"></div> <span class="Subtotal--Money">{{ cart.total_price | money }}</span>
+<div class="Subtotal--price"><span>Subtotal</span><div class="line"></div></div>
+<span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money }}</span>
 </div>
+
 </div>
+
 </div>

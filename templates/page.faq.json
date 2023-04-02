@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "row_content": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia do<\/p>"
+          }
+        },
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "row_content": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia do<\/p>"
+          }
+        },
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "row_content": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia do<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-0",
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-1",
+        "template--18513320116540__e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e-168008311758079efc-2"
+      ],
+      "settings": {
+        "heading": "Collapsible content",
+        "open_first_collapsible_row": false
+      }
+    },
+    "3e70e159-7610-4055-9f85-cf8624cb6955": {
+      "type": "contact-form",
+      "settings": {
+        "section-title": "Reach Out To Us",
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "email": "Email",
+        "message": "Message"
+      }
+    },
+    "main": {
+      "type": "template-page",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "e88c230d-88b6-41c6-ad8d-9c4b4f07cd6e",
+    "3e70e159-7610-4055-9f85-cf8624cb6955",
+    "main"
+  ]
+}

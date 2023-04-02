@@ -2,12 +2,56 @@
 
 
 <div class="form-wrapper">
-  <h1>{{ section.settings.section-title }}</h1>
+  <h1 class="page-title">{{ section.settings.section-title }}</h1>
   {% form 'contact', class: 'form' %}
+    <div class="first-name field">
+      {% comment %} <label for="first-name">{{ section.settings.firstname }}</label>
+      <div class="line"></div> {% endcomment %}
+      <input
+        id="first-name"
+        name="contact[first_name]"
+        type="text"
+        role="textbox"
+        placeholder="{{ section.settings.firstname }}"></input>
+    </div>
+    <div class="last-name field">
+      {% comment %} <label for="last-name">{{ section.settings.lastname }}</label>
+      <div class="line"></div> {% endcomment %}
+      <input
+        id="last-name"
+        name="contact[last_name]"
+        type="text"
+        role="textbox"
+        placeholder="{{ section.settings.lastname }}"></input>
+    </div>
+    <div class="email field">
+      {% comment %} <label for="email">{{ section.settings.email }}</label>
+      <div class="line"></div> {% endcomment %}
+      <input
+        id="email"
+        name="contact[email]"
+        type="email"
+        role="textbox"
+        placeholder="{{ section.settings.email }}"></input>
+    </div>
+    <div class="message field">
+      {% comment %} <label for="message">{{ section.settings.message }}</label>
+      <div class="line"></div> {% endcomment %}
+      <input
+        id="message"
+        name="contact[body]"
+        type="textarea"
+        role="textbox"
+        placeholder="{{ section.settings.message }}"></input>
+    </div>
+    <div class="submit">
+      <div class="pill-tiny"></div>
+      <input type="submit" value="Send" />
+    </div>
+
     {% if form.errors %}
       <div class="error">
         <p>There's been an error in submitting message.</p>
-      </div>
       <ul>
         {% for error in form.errors %}
           <li>
@@ -19,67 +63,12 @@
           </li>
         {% endfor %}
       </ul>
+      </div>
     {% elsif form.posted_successfully? %}
       <div class="success">
         <p>Message was submitted successfully</p>
       </div>
     {% endif %}
-    <div class="first-name field">
-      <label for="first-name">{{ section.settings.firstname }}</label>
-      <div class="line"></div>
-      <span
-        id="first-name"
-        name="contact[first_name]"
-        type="text"
-        role="textbox"
-        contenteditable></span>
-      {% comment %} <input
-      type="text"
-      name="contact[first_name]"
-      id="first-name" /> {% endcomment %}
-    </div>
-    <div class="last-name field">
-      <label for="last-name">{{ section.settings.lastname }}</label>
-      <div class="line"></div>
-      <span
-        id="last-name"
-        name="contact[last_name]"
-        type="text"
-        role="textbox"
-        contenteditable></span>
-      {% comment %} <input
-      type="text"
-      name="contact[last_name]"
-      id="last-name" /> {% endcomment %}
-    </div>
-    <div class="email field">
-      <label for="email">{{ section.settings.email }}</label>
-      <div class="line"></div>
-      <span
-        id="email"
-        name="contact[email]"
-        type="email"
-        role="textbox"
-        contenteditable></span>
-      {% comment %} <input
-      type="email"
-      name="contact[email]"
-      id="email" /> {% endcomment %}
-    </div>
-    <div class="message field">
-      <label for="message">{{ section.settings.message }}</label>
-      <div class="line"></div>
-      <span
-        id="message"
-        name="contact[body]"
-        type="textarea"
-        role="textbox"
-        contenteditable></span>
-      {% comment %} <textarea name="contact[body]" id="message"></textarea> {% endcomment %}
-    </div>
-    <div class="submit field">
-      <input type="submit" value="Send" />
-    </div>
   {% endform %}
 </div>
 

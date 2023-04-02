@@ -4,7 +4,7 @@
 <div class="ending-content" style="background:{{ bgColor }};">
   <div class="ending-grid">
     <div class="ending-img" style="background-image: url({{ section.settings.cover-img | img_url: 'master' }});"></div>
-    <h1>{{ section.settings.title }}</h1>
+    <h1 style="font-size: {{ section.settings.fontSize }}rem">{{ section.settings.title }}</h1>
     {% if section.settings.enable_button == true %}
       {% if section.settings.btn_url == blank %}
         {% assign buttonURL = shop.secure_url %}
@@ -23,7 +23,7 @@
   {
     "name": "Ending Module",
     "tag": "section",
-    "class": "ending-module-wrapper",
+    "class": "ending-module",
     "settings": [
       {
         "type": "checkbox",
@@ -47,6 +47,15 @@
         "id": "title",
         "label": "Title",
         "default": "Join The Community"
+      },
+      {
+         "type": "range",
+         "id": "fontSize",
+         "min": 0,
+        "max": 10,
+        "step": 0.1,
+         "label": "Font Size",
+         "default": 4
       }, {
         "type": "text",
         "id": "btn_title",

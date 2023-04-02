@@ -1,7 +1,18 @@
 {
   "sections": {
     "main": {
-      "type": "template-page"
+      "type": "template-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "b1d26ea4-fef7-4a32-9e42-14503db90b0c": {
+      "type": "rich-text",
+      "settings": {
+        "subtext": "Practice is \/<span>Perfect<\/span>\/"
+      }
     },
     "3e70e159-7610-4055-9f85-cf8624cb6955": {
       "type": "contact-form",
@@ -16,6 +27,7 @@
   },
   "order": [
     "main",
+    "b1d26ea4-fef7-4a32-9e42-14503db90b0c",
     "3e70e159-7610-4055-9f85-cf8624cb6955"
   ]
 }

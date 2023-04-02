@@ -27,11 +27,14 @@
    justify-self: stretch;
    align-self: end;
    text-align: center;
-   font-size: 9vw;
+   /* font-size: 9vw; */
    white-space: nowrap;
    grid-area: 1 / 1 ;
    z-index: 2;
    transform: translateY(1%);
+}
+.ending-content .module-link { 
+   border-top: solid 1px black;
 }
 
 /* .ending-content a {

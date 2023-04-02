@@ -1,0 +1,22 @@
+<style>
+  .featuredGoods--Wrapper {}
+</style>
+
+<div class="featuredGoods--Wrapper">
+  {% for product in product.metafields.shopify--discovery--product_recommendation.related_products_display %}
+    {{ product.title }}
+  {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Featured Goods",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Featured Goods"
+      }
+    ]
+  }
+{% endschema %}

@@ -25,7 +25,8 @@
       </svg>
     </div>
   </div>
-  <h1>{% liquid
+  <h1 style="font-size: {{ section.settings.fontSize }}rem">
+   {% liquid
      assign vertical = section.settings.vertical_alignment-word1 
     case vertical 
       when 'top' 
@@ -43,7 +44,7 @@
       assign col = "grid-column: 2" 
   else
     endcase %}
-    <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50 }}; {{row}}; {{col}}" class="pill-word1">
+    <span style="font-variation-settings: 'EXPO' {{section.settings.expo-word1 | minus: 50 }}; {{row}}; {{col}}; justify-self: {{ section.settings.textAlign1 }}" class="pill-word1">
       {{ section.settings.pill-word1 }}
     </span>
     {% liquid
@@ -64,7 +65,7 @@
       assign col2 = "grid-column: 2" 
   else
     endcase %}
-    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }}; {{ col2 }}; {{ row2 }};" class="pill-word2">{{ section.settings.pill-word2 }}</span>
+    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }}; {{ col2 }}; {{ row2 }};justify-self: {{ section.settings.textAlign2 }};" class="pill-word2">{{ section.settings.pill-word2 }}</span>
 
     {% liquid
     assign vertical3 = section.settings.vertical_alignment-word3 
@@ -84,7 +85,7 @@
      assign col3 = "grid-column: 2" 
  else
    endcase %}
-    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }}; {{ col3 }}; {{ row3 }};" class="pill-word3">{{ section.settings.pill-word3 }}</span>
+    <span style="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }}; {{ col3 }}; {{ row3 }};justify-self: {{ section.settings.textAlign3 }};" class="pill-word3">{{ section.settings.pill-word3 }}</span>
   </h1>
   {% if section.settings.enable_button == true %}
     {% if section.settings.btn_url == blank %}
@@ -104,6 +105,7 @@
   {
     "name": "Pill Crop Module",
     "tag": "section",
+    "class": "pill_crop-module",
     "settings": [
       {
         "type": "checkbox",
@@ -115,6 +117,15 @@
         "type": "image_picker",
         "id": "cover-img",
         "label": "Image"
+      },
+      {
+         "type": "range",
+         "id": "fontSize",
+         "min": 0,
+        "max": 10,
+        "step": 0.1,
+         "label": "Font Size",
+         "default": 4
       },
       {
         "type": "text",
@@ -170,6 +181,24 @@
           }
         ],
         "default": "left"
+      },{
+         "type": "select",
+         "id": "textAlign1",
+         "label": "Align Word 1",
+         "options": [
+            {
+            "value": "start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Middle"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+         ],
+         "default": "center"
       }, {
         "type": "text",
         "id": "pill-word2",
@@ -214,6 +243,25 @@
           }
         ],
         "default": "left"
+      },
+      {
+         "type": "select",
+         "id": "textAlign2",
+         "label": "Align Word 2",
+         "options": [
+            {
+            "value": "start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Middle"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+         ],
+         "default": "center"
       }, {
         "type": "text",
         "id": "pill-word3",
@@ -258,6 +306,25 @@
           }
         ],
         "default": "left"
+      },
+      {
+         "type": "select",
+         "id": "textAlign3",
+         "label": "Align Word 3",
+         "options": [
+            {
+            "value": "start",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Middle"
+          },
+          {
+            "value": "end",
+            "label": "Right"
+          }
+         ],
+         "default": "center"
       }
     ],
     "presets": [

@@ -55,7 +55,7 @@
 
 .marquee-content span {
    font-family: "Exposure";
-   font-size: 9rem;
+   /* font-size: 9rem; */
    padding: 0 1rem;
    flex-shrink: 0;
    letter-spacing: -5px;
@@ -66,6 +66,10 @@
    0% { transform: translateX(0); }
    100% { transform: translateX(-100%); }
  }
+
+ .marquee-content .module-link { 
+   border-top: solid 1px black;
+}
 /* 
 .marquee-content a {
    text-transform: uppercase;

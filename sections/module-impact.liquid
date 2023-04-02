@@ -2,7 +2,7 @@
 
 {% assign mediaType = section.settings.media_select %}
 
-<div class="impact-content">
+<div style="display:grid; height:100vh; grid-template-rows:1fr auto auto; overflow:hidden;" class="impact-content">
   {% if mediaType == 'video' %}
     <div class="cover">
       {% if section.settings.video != nil %}
@@ -15,7 +15,7 @@
     </div>
   {% endif %}
 
-  <h1
+  <h1 style="font-size: {{ section.settings.fontSize }}rem"
     {% if section.settings.title_alignment == 'centered' %}
     class="centered"
     {% elsif section.settings.title_alignment == 'leftBottom' %}
@@ -43,7 +43,7 @@
   {
     "name": "Impact Module",
     "tag": "section",
-    "class": "impact-module-wrapper",
+    "class": "impact-module",
     "settings": [
       {
         "type": "checkbox",
@@ -75,10 +75,19 @@
         "type": "video",
         "id": "video",
         "label": "Video Picker"
+      },
+      {
+         "type": "range",
+         "id": "fontSize",
+         "min": 0,
+        "max": 10,
+        "step": 0.1,
+         "label": "Font Size",
+         "default": 4
       }, {
         "type": "text",
         "id": "word1",
-        "label": "Word",
+        "label": "Word 1",
         "default": "Practice"
       }, {
         "type": "range",
@@ -86,12 +95,12 @@
         "min": 0,
         "max": 100,
         "step": 1,
-        "label": "Exposure Amount",
+        "label": "Exposure Amount Word 1",
         "default": 0
       }, {
         "type": "text",
         "id": "word2",
-        "label": "Word",
+        "label": "Word 2",
         "default": "is"
       }, {
         "type": "range",
@@ -99,12 +108,12 @@
         "min": 0,
         "max": 100,
         "step": 1,
-        "label": "Exposure Amount",
+        "label": "Exposure Amount Word 2",
         "default": 0
       }, {
         "type": "text",
         "id": "word3",
-        "label": "Word",
+        "label": "Word 3",
         "default": "Perfect"
       }, {
         "type": "range",
@@ -112,7 +121,7 @@
         "min": 0,
         "max": 100,
         "step": 1,
-        "label": "Exposure Amount",
+        "label": "Exposure Amount Word 3",
         "default": 100
       }, {
         "type": "select",

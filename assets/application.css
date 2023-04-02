@@ -6,6 +6,14 @@
 @font-face {
    font-family: "Pressura";
    src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Pressura-Mono-Regular.woff2?v=1678895659) format("woff2");
+ 
+
+}
+@font-face {
+   font-family: "Pressura Medium";
+   src: url(https://cdn.shopify.com/s/files/1/0702/6042/5020/files/GT-Pressura-Mono-Medium-Trial.woff2?v=1680276787) format("woff2");
+
+   
 }
 
 @font-face {
@@ -16,23 +24,31 @@
 :root {
    --marshmellow: #EFE5DC;
    --red: #A72828;
+   --black: #000;
    --brown: #937D6A;
    --accent-brown: #C1B1A3;
    --margin: 16px;
    --grid-gutter: var(--margin) * 2;
    --wireframe: 0.5px solid rgb(0, 0, 0);
    --wireframethick: 1px solid black;
-   --shadow: rgb(0, 0, 0) 0.5px 1px 0px, rgb(0, 0, 0) 0px 0px 0px;
-   --module-title-size: 58px;
-   --section-title-size-large: 36px;
-   --section-title-size: 24px;
-   --headerHeight: 350px;
+   --shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1;
+   --headerHeight: 25%;
    --headerMargin: 1rem;
-   --shop-notation: 10px;
-   --header-notation: 10px;
+   --shop-card-notation: 10px;
+   --filter-notation: 0.8rem;
+   --filter-exposure: 0.9rem;
    --footer-notation: 10px;
-   /* --shop-font: "Pressura"; */
+   --product-notation: 12px;
+   --colorSVG: var(--red);
+   --colorHTML: var(--black);
+ 
 }
+
+/* intersection observer */
+
+
+
+
 
 /* base */
 
@@ -69,6 +85,14 @@ a {
    text-decoration: none;
 }
 
+ details > summary {
+   list-style: none;
+ }
+ details > summary::-webkit-details-marker {
+   display: none;
+ }
+ 
+
 img {
    max-width: 100%;
 }
@@ -80,11 +104,12 @@ img {
 }
 
 .wire {
-   border: var(--wireframe);
+   border: 0.5px solid;
    position: fixed;
    top: 0;
    height: 100%;
    z-index: 5;
+   color: var(--colorHTML);
 }
 
 .right {
@@ -109,14 +134,13 @@ img {
 
 .pill-tiny {
    position: absolute;
-   /* background-color: var(--marshmellow); */
    top: 50%;
    left: 0%;
    transform: translate(-0%, -50%) rotate(0deg);
    width: 12px;
    height: 24px;
    border: 1px solid var(--marshmellow);
-   border: 1px solid black;
+   border: 1px solid var(--colorHTML);
    border-radius: 20px;
    transition: all 0.4s ease;
  }
@@ -125,7 +149,7 @@ img {
    position: relative;
    grid-area: 3 / 1;
    z-index: 2;
-   border-bottom: solid 1px black;
+   border-bottom: solid 1px var(--colorHTML);;
    display: flex;
 }
 
@@ -135,7 +159,7 @@ img {
    padding: calc(var(--margin));
    font-family: "Pressura";
    font-size: 11px;
-   color: black;
+   color: var(--colorHTML);
   
 }
 
@@ -151,6 +175,7 @@ img {
 
 .hidden {
    opacity: 0;
+   pointer-events: none;
 }
 
 .remove {
@@ -158,8 +183,8 @@ img {
 }
 
 .line {
-   /* border: var(--wireframe); */
-   box-shadow: var(--shadow);
+   border: var(--wireframe);
+   /* box-shadow: var(--shadow); */
    width: 100%;
    height: 1px;
 }
@@ -183,11 +208,13 @@ svg * {
 .template-index .content {
    overflow: scroll;
    height: 100vh;
+   position: relative;
+   top: var(--headerHeight);
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-type: y mandatory;
 }
 
-.template-index .content section {
+.template-index main section {
 
    min-width: 100vw;
 	height: 100vh;
@@ -340,8 +367,9 @@ svg * {
 } */
 
 .product-card {
-   border-right: var(--wireframethick);
-   border-bottom: var(--wireframethick);
+   /* border-right: var(--wireframethick);
+   border-bottom: var(--wireframethick); */
+   box-shadow: var(--shadow);
 }
 
 
@@ -349,8 +377,8 @@ svg * {
 
 .card-content {
    margin: calc(var(--margin)/2);
-   font-size: var(--shop-notation);
-   z-index: 2;
+   font-size: var(--shop-card-notation);
+   z-index: 1;
    position:absolute;
    top:0;
    right:0;
@@ -359,45 +387,6 @@ svg * {
    display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.product-title {
-   grid-area: title;
-   align-self: start;
-   justify-self: start;
-}
-
-.product-type {
-   grid-area: type;
-   align-self: start;
-   justify-self: end;
-}
-
-.product-price {
-   grid-area: price;
-   align-self: end;
-   justify-self: end;
-}
-
-.product-buynow {
-   all: initial;
-   /* margin: calc(var(--margin)/2); */
-   grid-area: buybtn;
-   align-self: end;
-   justify-self: start;
-   font-size: var(--shop-notation);
-   font-family: "Pressura";
-   white-space: nowrap;
-   align-items: center;
-  display: flex;
-  cursor: pointer;
-}
-.pill-icon {
-   margin-right: 10%;
-   width: 14px;
-   height: 18px;
-   /* margin: 0;
-   padding: 0; */
 }
 
 .stacked {
@@ -410,60 +399,9 @@ svg * {
     overflow: hidden;
 }
 
-.card--footer,.card--header{
-   display: flex;
-   justify-content: space-between;
-}
-
-/* Product Cards */
-
-.VariantSelectors--Ajax{
-   position: absolute;
-   transform: translateY(100%);
-   font-size: 1rem;
-   bottom: 0;
-   transition: all 0.2s ease-in-out;
-   width: 100%;
-   z-index: 3;
-   
-}
-
-.VariantSelectors--Ajax.display{
-   transform: translateY(0%);
-   background: var(--marshmellow)
-}
-
-.CardValues{
-   width: 70%;
-   margin: 0 auto;
-   display: flex;
-   flex-wrap: wrap;
-}
-
-.ColorValues{
-   flex-direction: column;
-   font-family: "Exposure";
-}
-
-.ColorValues input[type="radio"]:checked+label{
-   border-color: transparent!important;
-   font-weight: bold;
-   font-variation-settings: 'EXPO'-50
-}
-
-
-.VariantSelectors--Ajax .optionsNameContainer{
-   border: none;
-   display:flex;
-   align-items: center;
-}
-
 /**/
 
-.stacked>* {
-   grid-column: 1 / 2;
-   grid-row: 1 / 2;
-}
+
 
 .loadmorebtn {
    border-top: 1px solid black;
@@ -575,6 +513,33 @@ svg * {
 
 [data-ajax-add]{
    cursor: pointer!important;
+}
+   /* page styles */
+
+.page-title {
+   padding: 2rem;
+   margin-left: var(--margin);
+   font-size: 1.6rem;
+   font-family: "Exposure";
+ 
+}
+
+.page-content {
+   padding: 2rem;
+   margin-left: var(--margin);
+   font-family: "Walsheim";
+   max-width: 70vw;
+}
+
+.page-content h1 {
+   font-family: "Pressura";
+   font-size: 0.8rem;
+}
+
+/* intersection observer */
+.targetColor {
+   transition: color 0.3s ease;
+}
 
 @media screen and (width <=458px) {
    .right {
@@ -585,7 +550,7 @@ svg * {
       left: calc(var(--margin)/2);
    }
 
-   .desktop {
+   /* .desktop {
       display: none;
    }
 
@@ -647,8 +612,8 @@ svg * {
       width: 100%;
       border-top: var(--wireframethick);
       padding: calc(var(--margin)/2);
-   }
+   } */
 
 
 
-}
+
