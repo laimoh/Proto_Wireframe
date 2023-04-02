@@ -43,29 +43,6 @@
     </div>
   </div>
 
-  <style>
-  .imgPointerContainer{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-.pointerText{
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.Product--Image{
-position: relative;
-}
-
-.imgLine{
-  height: 10%;
-  position: absolute;
-  border-right: 1px solid black;
-}
-
-  </style>
-
   <div class="ProductMedia--Container">
     <div data-media class="ProductMedia">
       <div class="ProductMedia--Counter">
@@ -83,26 +60,7 @@ position: relative;
       {% for media in product.media %}
         {% case media.media_type %}
           {% when 'image' %}
-          <div class="Product--Image">
-        
-          {% if media.alt contains '$'%}
-            {% assign position = media.alt | split: '$' | first %}
-            {% assign position_x = position | split: '-' | first %}
-            {% assign position_split = position | split: '-' %}
-            {% assign position_y = position_split[1] %}
-            {% assign position_text = position_split | last %}
-
-            
-            {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-            {{ imgpointer | replace: "_left_", position_x | replace: "_top_", position_y | replace: '[text]', position_text }}
-      
-            {% else %}
-            {% assign imgpointer = '' %}
-            {% endif %}
-
-            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-      
-      </div>
+          <div class="Product--Image"><img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}"></div>
         {% endcase %}
       {% endfor %}
     </div>
