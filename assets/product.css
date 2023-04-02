@@ -1,7 +1,6 @@
 .ProductContainer{
     display:flex;
     font-family: "Pressura";
-    flex-wrap: wrap;
 }
 
 .ProductMeta--Container, .ProductVariant--Container{
@@ -62,7 +61,7 @@
 }
 
 .ProductMedia--Container{
-    max-width: 50%;
+    max-width: 60%;
     position: relative;
 }
 
@@ -172,7 +171,7 @@ input[type="radio"]:checked+label{
 
 .stickyATC{
     cursor: pointer;
-    position: sticky;
+    position: fixed;
     width: 100vw;
     padding: 0.8%;
     text-align: center;
@@ -180,7 +179,6 @@ input[type="radio"]:checked+label{
     align-items: center;
     justify-content: center;
     border-top: 1px solid black;
-    border-bottom: 1px solid black;
     bottom: 0;
     left: 0;
     background: var(--marshmellow);

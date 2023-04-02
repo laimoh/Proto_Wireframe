@@ -50,31 +50,30 @@
   }
 </style>
 
-<div class="featuredGoods--Wrapper SectionContainer">
-  <div class="featuredGoods--Title">
-    Featured Goods
-  </div>
+<div>
+  class="featuredGoods--Wrapper SectionContainer"<div>
+    class="featuredGoods--Title"Featured Goods</div>
   {% for product in product.metafields.shopify--discovery--product_recommendation.related_products.value limit: 2 %}
-    <div class="featuredGood-Product {% if forloop.first %} first {% endif %}">
-
-      <div class="featuredGood--Header">
-        <div class="featuredGood--Title">
-          {{ product.title | split: " " | first }}
+    <div>
+      class="featuredGood-Product
+      {% if forloop.first %}
+        first
+      {% endif %}"<div>
+        class="featuredGood--Header"<div>
+          class="featuredGood--Title"{{ product.title | split: " " | first }}
         </div>
-        <div class="featuredGood--Category">
-          {{ product.type }}
+        <div>
+          class="featuredGood--Category"{{ product.type }}
         </div>
       </div>
 
-      <div class="featuredGood--Image">
-        <img class="" src="{{ product.featured_image | img_url: '1000x' }}">
-      </div>
+      <div>
+        class="featuredGood--Image"<img>class=""src="{{ product.featured_image | img_url: '1000x' }}"</div>
 
 
     </div>
   {% endfor %}
 </div>
-
 {% schema %}
   {
     "name": "Featured Goods",
