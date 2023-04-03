@@ -549,42 +549,10 @@ svg * {
    .left {
       left: calc(var(--margin)/2);
    }
-
-   /* .desktop {
-      display: none;
-   }
-
-   .border_left {
-      border-left: unset;
-   }
-
-   #header-global {
-      grid-template-columns: unset;
-      grid-template-rows: auto;
-      height: unset;
-      margin-top: calc(var(--margin)/2);
-   }
-
-   .logo {
-      width: 100%;
-      grid-area: 1 / 1 / 1 / -1;
-      padding: 0px calc(var(--margin)/2);
-   }
-
-   .mobileNav {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      border-top: var(--wireframethick);
-   }
-
-   .topbar {
-      margin: calc(var(--margin)/2);
-      /* width: inherit; */
-      display: flex;
-      justify-content: space-between;
-   }
-
+}
+.template-index .content {
+   top: 0;
+}
    .mainmenu-icon {
       flex-grow: 2;
       align-self: center;
@@ -614,6 +582,14 @@ svg * {
       padding: calc(var(--margin)/2);
    } */
 
+* {
+   outline: 1px solid green;
+}
 
+@media screen and (width < 649px) {
 
-
+   .template-index .content {
+      top: 0;
+      padding:0;
+   }
+}

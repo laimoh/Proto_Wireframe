@@ -1,14 +1,6 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-<style>
-  /*Temporary PDP Fix*/
-  .letters {
-    display: none;
-  }
-  #shopify-section-header {}
-</style>
 
-
-<div data-section-type="Product" class="SectionContainer ProductContainer">
+  <div data-section-type="Product" class="SectionContainer ProductContainer">
   <div data-meta class="ProductMeta--Container">
     <div class="ProductMeta">
       <div class="ProductTitle">
@@ -179,17 +171,10 @@
       {% form 'product', product %}
         {% for options in product.options_with_values %}
           {% assign optionrow = forloop.index %}
-          {% assign downcased_option = options.name | downcase %}
-          {% if downcased_option == "size" %}
-            <div class="optionsNameContainer topContainer">
-              SELECT A SIZE
-            </div>
-          {% else %}
-            <div class="optionsNameContainer">
-              <span>
-                SELECT A {{ options.name | upcase }}</span>
-            </div>
-          {% endif %}
+          <div class="optionsNameContainer">
+            <span>
+              SELECT A {{ options.name | upcase }}</span>
+          </div>
           <div class="optionValuesContainer">
             {% for value in options.values %}
               <input

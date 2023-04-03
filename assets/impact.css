@@ -55,3 +55,9 @@
 .impact-content a::before:hover {
    transform: rotateX(45deg);
 }
+
+@media screen and (width < 649px) {
+   .centered {
+      width: 80vw;
+   }
+}

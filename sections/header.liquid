@@ -1,11 +1,11 @@
 <div class="MainMenu Fixed">
-<div class="MainMenu--Wrapper targetColor">
+<div class="MainMenu--Wrapper ">
 <div class="MainMenu--left">
-  <div class="targetColor MainMenu--leftItem shop">
-    <a class="targetColor" href="/collections/all">Shop</a>
+  <div class=" MainMenu--leftItem shop">
+    <a href="/collections/all">Shop</a>
   </div>
-  <div class="targetColor MainMenu--leftItem">
-    <a class="targetColor" href="/pages/about">About</a>
+  <div class=" MainMenu--leftItem">
+    <a href="/pages/about">About</a>
   </div>
 </div>
 
@@ -21,7 +21,6 @@
    </svg>
    </a>
    {% else %}
-
 
    <svg id="DesktopLogo" class="Logo" viewBox="0 0 373 76" xmlns="http://www.w3.org/2000/svg">
    <path d="M171.154 65.0949L171.153 65.0936C155.878 51.8387 154.124 28.6417 167.279 13.2517C173.637 5.81462 182.477 1.32466 192.196 0.58793C201.918 -0.0744381 211.343 3.01832 218.723 9.42328C226.103 15.8287 230.562 24.7366 231.367 34.5338C232.024 44.332 228.954 53.8294 222.596 61.2653C216.238 68.7028 207.397 73.1929 197.678 73.9292L197.677 73.9292C196.736 74.0022 195.866 74.0024 194.901 74.0024C186.205 74.0024 177.803 70.9106 171.154 65.0949ZM218.146 32.6847L218.146 32.6847L218.151 32.6792C220.607 30.1272 221.996 26.7932 221.921 23.2212C221.919 19.6583 220.534 16.3244 218.072 13.8434C215.53 11.2826 212.142 9.96377 208.753 9.96377C205.365 9.96377 201.977 11.2826 199.435 13.8434L199.434 13.8443L171.732 41.9043C171.732 41.9049 171.731 41.9055 171.73 41.9061C166.571 47.0289 166.575 55.4785 171.728 60.6722C176.815 65.8737 185.209 65.8694 190.366 60.6736L218.146 32.6847Z"/>
@@ -46,20 +45,20 @@
 
 
 <div class="MainMenu--right">
-  <div class="targetColor MainMenu--rightItem icon search">
+  <div class=" MainMenu--rightItem icon search">
     
     <form id="deskSearchForm" class="search" action="/search" style="display:none">
       <input type="hidden" name="type" value="product">
         <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
-    <button class="" type="submit" value="Search">Search</button>
+    <button type="submit" value="Search">Search</button>
     </form>
 
-    <a onclick=Theme.search.openDesk(); search-desk-button class="targetColor">SEARCH</a>
+    <a onclick=Theme.search.openDesk(); search-desk-button>SEARCH</a>
   </div>
   
-  <div class="targetColor MainMenu--rightItem icon login">
+  <div class=" MainMenu--rightItem icon login">
      {%- if shop.customer_accounts_enabled -%}
-                    <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="targetColor"">
+                    <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">
                       {%- liquid
                         if customer
                           echo 'customer.account_fallback' | t
@@ -110,7 +109,9 @@
 <div class="Button" onClick=Theme.search.submit()>Search</div>
 
 </div>
-<div class="Icon--Menu" onclick="Theme.mobile_menu.open()"><img src="{{'mobilemenu.svg' | asset_url }}"></div>
+<div class="Icon--Menu" onclick="Theme.mobile_menu.open()">
+   {% render 'mobile-menu' %}
+</div>
 <div class="Menu--middle">
 <a href="/collections/all" class="Button BackToCollection">
 Back to Products
@@ -119,8 +120,12 @@ Back to Products
 Filter
 </div>
 </div>
-<div onClick=Theme.search.open() class="Icon--Menu"><img src="{{'search.svg' | asset_url }}"></div>
-<div class="Icon--Menu" onClick=Theme.mobile_cart.open();><img src="{{'cart_mobile.svg' | asset_url }}"></div>
+<div onClick=Theme.search.open() class="Icon--Menu">
+   {% render 'search-icon' %}
+</div>
+<div class="Icon--Menu" onClick=Theme.mobile_cart.open();>
+   {% render 'cart-icon' %}
+</div>
 </div>
 
 <div class="MobileMenu--Items hide--desktop">
@@ -142,7 +147,7 @@ here<br>
   </div>
 
   <div id="cartMobile" class="MobileMenu--Filters hide--desktop">
-    <div class="" data-ajax-cart id="cartMobileItems">
+    <div data-ajax-cart id="cartMobileItems">
       {% for item in cart.items %}
         {% render 'cart-item', item: item %}
     {% endfor %}

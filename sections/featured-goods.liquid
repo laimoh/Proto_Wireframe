@@ -2,17 +2,21 @@
   .featuredGoods--Wrapper {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 var(--margin);
   }
-
+  .page-title {
+    padding: 1rem;
+    margin-right: var(--margin);
+  }
   .featuredGood-Product {
     width: 50%;
     max-width: 50%;
     position: relative;
-    max-height: 400px;
+    max-height: 40vh;
   }
 
   .featuredGood-Product.first {
-    border-right: 1px solid black;
+    border-right: var(--wireframe);
   }
 
   .featuredGood--Header {
@@ -25,8 +29,8 @@
     z-index: 1;
     width: 100%;
     font-size: 14px;
-    font-family: pressura;
-    border-bottom: 1px solid black;
+    font-family: "Pressura";
+    text-transform: uppercase;
   }
 
   .featuredGood--Image {
@@ -41,36 +45,28 @@
   }
 
   .featuredGoods--Title {
-    padding: 10px var(--margin);
-    width: 100%;
-
-    width: 100%;
-    font-family: "Exposure";
-
+    border-bottom: var(--wireframe);
   }
 </style>
-
+<div class="page-title featuredGoods--Title">
+  Featured Goods
+</div>
 <div class="featuredGoods--Wrapper SectionContainer">
-  <div class="page-title">
-    Featured Goods
-  </div>
   {% for product in product.metafields.shopify--discovery--product_recommendation.related_products.value limit: 2 %}
     <div class="featuredGood-Product {% if forloop.first %} first {% endif %}">
-
-      <div class="featuredGood--Header">
-        <div class="featuredGood--Title">
-          {{ product.title | split: " " | first }}
+      <a href="{{ product.url }}">
+        <div class="featuredGood--Header">
+          <div class="featuredGood--Title">
+            {{ product.title | split: " " | first }}
+          </div>
+          <div class="featuredGood--Category">
+            {{ product.type }}
+          </div>
         </div>
-        <div class="featuredGood--Category">
-          {{ product.type }}
+        <div class="featuredGood--Image">
+          <img class="" src="{{ product.featured_image | img_url: '1000x' }}">
         </div>
-      </div>
-
-      <div class="featuredGood--Image">
-        <img class="" src="{{ product.featured_image | img_url: '1000x' }}">
-      </div>
-
-
+      </a>
     </div>
   {% endfor %}
 </div>

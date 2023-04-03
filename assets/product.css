@@ -6,7 +6,7 @@
 }
 
 .ProductMeta--Container, .ProductVariant--Container{
-   width: 21%;
+   width: 21.6%;
     position: sticky;
     top: calc(var(--headerHeight) - 2px);
 }
@@ -14,6 +14,7 @@
 .ProductMeta--Container{
     top: var(--stickyHeight)!important;
     height: calc(100vh - var(--stickyHeight));
+    left: var(--margin);
 }
 
 .ProductMedia--Mobile{
@@ -77,6 +78,7 @@
    align-items: center;
    text-transform: uppercase;
    font-size: 0.8rem;
+   cursor: ew-resize;
 }
 
 .size-grid {
@@ -128,9 +130,10 @@
     overflow: hidden;
 }
 
-/* .ProductMedia{
-    padding: 0 3rem;
-} */
+.optionsNameContainer:first-of-type {
+   border-top: none;
+}
+
 
 .ProductMedia img{
     width: 100%;
@@ -138,18 +141,13 @@
 }
 
 .ProductVariant{
+   margin-right: var(--margin);
     display: block;
-    /* box-shadow: 1px 1px 0px, 0px -1px 0px; */
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }
 
 .optionsNameContainer{
-   /* width: 80%;
-   padding: 20px;
-   font-family: "Exposure";
-   text-transform: none; */
-    /* font-size: var(--filter-exposure); */
     padding: 10px;
     display: flex;
     align-items: center;
@@ -162,7 +160,6 @@
    border-top: none;
 }
 
-
 .optionValuesContainer{
     padding: 6% 16%;
     display: flex;
@@ -174,7 +171,7 @@
 .optionValuesContainer label{
     flex-basis: calc(100% / 7);
     text-align: center;
-    padding: 1rem 0rem;
+    padding: 0.7rem 0.5rem;
     transition: border 0.2s ease-in;
     border: 1px solid transparent;
     border-radius: 200px;
@@ -191,7 +188,6 @@ input[type="radio"]:checked+label{
     border: 1px solid black;
     border-radius: 200px;
 } 
-
 .productQty{
     border-top: 1px solid black;
     padding: 10px;
@@ -308,6 +304,7 @@ border: 1px solid black;
         display:block!important;
         min-height: 50vh;
     }
+    
 
     .ProductMeta--Container, .ProductVariant--Container{
         position: static;
@@ -316,6 +313,7 @@ border: 1px solid black;
     .ProductVariant--Container{
     order: 2;
     margin-top: 50px;
+
     }
     
     .ProductContainer{

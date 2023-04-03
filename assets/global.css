@@ -169,13 +169,6 @@ padding-bottom: 100%;
    max-width: 12%;
 }
 
-
-.SectionContainer {
-   padding: 0 calc(var(--margin));
-}
-
-.SectionContainer:first-of-type {}
-
 .hide {
    display: none !important;
 }
@@ -299,6 +292,7 @@ padding-bottom: 100%;
 }
 
 @media screen and (width < 649px) {
+  
    .hide--desktop {
       display: block !important;
    }
@@ -307,16 +301,17 @@ padding-bottom: 100%;
       display: none !important;
    }
 
-
    .MainMenu--mobile {
       display: flex !important;
-      border-top: 1px solid black;
-      border-bottom: 1px solid black;
+      border-top: 1px solid var(--colorHTML);
+      /* border-bottom: 1px solid var(--colorHTML); */
    }
 
    .Icon--Menu {
-      width: 44px;
-      height: 44px;
+      width: 10vw;
+      height: 10vw;
+      padding: 2%;
+      stroke: var(--colorHTML);
    }
 
    .Icon--Menu img {
