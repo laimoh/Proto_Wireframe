@@ -219,6 +219,7 @@ var Theme = {
          }
          var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
          CartDrawer.setAttribute('aria-hidden', false);
+         if(CartDrawer.getAttribute('aria-hidden')) {document.querySelector('.wire.right').className = "wire right front"}
       },
       open: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -227,6 +228,7 @@ var Theme = {
          }
          var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
          CartDrawer.setAttribute('aria-hidden', true);
+        if(CartDrawer.getAttribute('aria-hidden')) {document.querySelector('.wire.right').className = "wire right back"}
       },
       init: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -421,8 +423,6 @@ var Theme = {
          }
       },
       Product: function (section) {
-         //Theme.initqty(section);
-
          var headerHeight = document.querySelector('.MainMenu.Fixed').clientHeight;
          var sectionHeight = window.innerHeight - headerHeight;
 
@@ -546,29 +546,32 @@ var Theme = {
          if (desk){
             desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
             desk.style.height = desk.scrollHeight + 'px';
+            document.querySelector('.read').classList.add('hovered')
          }
       },
-      openShipping: function(){
-         Theme.helpers.collapseProducts();
-         var desk = document.querySelector('.MetaItem[data-shipping-container]');
-         if (desk){
-            desk.style.height = desk.scrollHeight + 'px';
-         }
-      },
+      // openShipping: function(){
+      //    Theme.helpers.collapseProducts();
+      //    var desk = document.querySelector('.MetaItem[data-shipping-container]');
+      //    if (desk){
+      //       desk.style.height = desk.scrollHeight + 'px';
+      //    }
+      // },
       openSizing: function(){
          Theme.helpers.collapseProducts();
          var desk = document.querySelector('.MetaItem[data-sizing-container]');
          if (desk){
             desk.style.height = desk.scrollHeight + 'px';
+            document.querySelector('.size').classList.add('hovered')
          }
       },
       collapseProducts: function(){
          var sizing = document.querySelector('.MetaItem[data-sizing-container]');
-         var shipping = document.querySelector('.MetaItem[data-shipping-container]');
+         // var shipping = document.querySelector('.MetaItem[data-shipping-container]');
          var desk = document.querySelector('.MetaItem.ProductDescription');
-
+         document.querySelector('.read').classList.remove('hovered')
+         document.querySelector('.size').classList.remove('hovered')
          desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
-         shipping.style.height = 0;
+         // shipping.style.height = 0;
          sizing.style.height = 0;
 
 

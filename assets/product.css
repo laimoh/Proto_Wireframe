@@ -2,10 +2,11 @@
     display:flex;
     font-family: "Pressura";
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .ProductMeta--Container, .ProductVariant--Container{
-    width: 25%;
+   width: 21%;
     position: sticky;
     top: calc(var(--headerHeight) - 2px);
 }
@@ -48,7 +49,7 @@
 }
 
 .Collapsible{
-   margin: 8% 0;
+   margin: 4% 0;
    display: flex;
    align-items: center;
    cursor: pointer;
@@ -59,6 +60,39 @@
 .Collapsible--label{
    text-transform: uppercase;
    font-size: var(--product-notation);
+}
+
+.Collapsible .pill-tiny.hovered{
+   transform: rotate(45deg);
+   
+}
+
+.sizing-wrapper {
+   overflow-x: scroll;
+   overflow-y: hidden;
+   width: 100%;
+   height: 12vh;
+   padding-top: 5%;
+   justify-content: center;
+   align-items: center;
+   text-transform: uppercase;
+   font-size: 0.8rem;
+}
+
+.size-grid {
+   
+   display: grid;
+   grid-template-rows: repeat(4, 30%);
+   grid-template-columns: 50% repeat(14, 15%);
+   grid-gap: 4%;
+}
+
+.size-label {
+   grid-column: 1;
+}
+
+.size-grid span {
+   border-top: var(--wireframe);
 }
 
 .ProductMedia--Container{
@@ -73,7 +107,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5%;
-    padding: 2rem;
+    margin-top: 4%;
     top: calc(var(--headerHeight)/2);
     z-index: 5;
     width: 100%;
@@ -94,9 +128,9 @@
     overflow: hidden;
 }
 
-.ProductMedia{
+/* .ProductMedia{
     padding: 0 3rem;
-}
+} */
 
 .ProductMedia img{
     width: 100%;
@@ -105,15 +139,21 @@
 
 .ProductVariant{
     display: block;
-    border: 1px solid black;
+    /* box-shadow: 1px 1px 0px, 0px -1px 0px; */
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .optionsNameContainer{
-   width: 80%;
+   /* width: 80%;
    padding: 20px;
    font-family: "Exposure";
-   text-transform: none;
-    font-size: var(--filter-exposure);
+   text-transform: none; */
+    /* font-size: var(--filter-exposure); */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: var(--product-notation);
     border-bottom:var(--wireframethick);
     border-top: var(--wireframethick);
 }
@@ -215,6 +255,7 @@ input[type="radio"]:checked+label{
 [data-shipping-container],[data-sizing-container]{
     overflow: hidden;
     height: 0;
+    width: 16vw;
 }
 
 @media screen and (width < 649px){

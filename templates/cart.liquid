@@ -1,6 +1,9 @@
 {% if cart.item_count > 0 %}
   <h1>cart</h1>
-  <form action="/cart" method="post" novalidate>
+  <form
+    action="/cart"
+    method="post"
+    novalidate>
     <table>
       <thead>
         <th colspan="2">Prod</th>
@@ -23,24 +26,34 @@
             </td>
             <td>{{ item.price | money }}</td>
             <td>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              <input
+                type="number"
+                name="updates[]"
+                id="updates_{{ item.key }}"
+                value="{{ item.quantity }}"
+                min="0">
             </td>
             <td>
-              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+              {% if item.original_line_price != item.line_price %}
+                {{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              {% for discount in item.discounts %}
+                {{ discount.title }}{% endfor %}
             </td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     <div>
-      <p>sub total : {{ cart.total_price | money }}</p>
+      <p class="">sub total : {{ cart.total_price | money | remove: '.00' }}</p>
       <button type="submit" name="update">Update</button>
       <button type="submit" name="checkout">Checkout</button>
     </div>
   </form>
 {% else %}
-  <h2>cart</h2>
-  Cart is empty
+
+  <div class="empty-cart">
+    Your Cart Is Currently Empty
+  </div>
+
 {% endif %}

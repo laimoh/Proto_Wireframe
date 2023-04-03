@@ -9,15 +9,14 @@
       <p class="product-title">{{ product.title }}</p>
       <p class="product-type">{{ product.type }}</p>
     </a>
-    <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}">
-    </a>
+    <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}"></a>
     <div class="card--footer">
       <button class="product-buynow">
         <div class="pill-tiny"></div>
 
         <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">ADD TO BAG</div>
       </button>
-      <p class="product-price">{{ product.price | money }}</p>
+      <p class="product-price">{{ product.price | money | remove: '.00' }}</p>
     </div>
   </div>
 
@@ -28,7 +27,7 @@
       <div class="optionValuesContainer">
         <div class="CartItem--remove">
           -
-          </div>
+        </div>
         <div class="CardValues {%if downcased_option == 'color' %}ColorValues{%endif%}">
           {% for value in options.values %}
             <input
@@ -50,8 +49,8 @@
     {% endfor %}
     <div class="productQty">
       <button class="product-buynow">
-         <div class="pill-tiny"></div>
-         <span class="link-text" data-ajax-add="{{product.selected_or_first_available_variant.id}}">Add to Bag</span>
+        <div class="pill-tiny"></div>
+        <span class="link-text" data-ajax-add="{{product.selected_or_first_available_variant.id}}">Add to Bag</span>
       </button>
       <div class="qty"></div>
     </div>

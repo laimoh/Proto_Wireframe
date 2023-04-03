@@ -1,15 +1,28 @@
 {% for item in cart.items %}
-    {% render 'cart-item', item: item %}
+  {% render 'cart-item', item: item %}
 {% endfor %}
 
 {% if cart.items.size == 0 %}
-Your Cart is currently empty
-<style>
-.Subtotal--price{
-display: none;
-}
-.Button--action[data-checkout]{
-display:none;
-}
-</style>
+  <div class="empty-cart">
+    Your Cart Is Currently Empty
+  </div>
+
+  <style>
+    .empty-cart {
+      max-width: 15vw;
+      height: 80vh;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Exposure";
+      font-size: 1.2rem;
+    }
+    .Subtotal--price {
+      display: none;
+    }
+    .Button--action[data-checkout] {
+      display: none;
+    }
+  </style>
 {% endif %}

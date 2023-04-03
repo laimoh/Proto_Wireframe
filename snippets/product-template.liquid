@@ -18,8 +18,11 @@
       </div>
 
       <div class="Collapsible">
-        <div class="pill-tiny"></div>
-        <div onclick="Theme.helpers.openDesc();" data-readmore-desc class="Collapsible--label">Read More</div>
+        <div class="pill-tiny read"></div>
+        <div
+          onclick="Theme.helpers.openDesc();"
+          data-readmore-desc
+          class="Collapsible--label">Read More</div>
       </div>
 
       <div class="MetaItem" data-shipping-container>
@@ -28,42 +31,105 @@
 
       <div class="Collapsible">
         <div class="pill-tiny"></div>
-        <div onclick="Theme.helpers.openShipping();" class="Collapsible--label">SHIPPING INFO</div>
+        {% comment %} <div onclick="Theme.helpers.openShipping();" class="Collapsible--label">SHIPPING INFO</div> {% endcomment %}
+        <a class="Collapsible--label" href="/pages/returns">SHIPPING INFO</a>
       </div>
 
       <div class="MetaItem" data-sizing-container>
-        sizing here
+        <div class="sizing-wrapper">
+          <div class="size-grid">
+            <span class="size-label">EU</span>
+            <span>37</span>
+            <span>38</span>
+            <span>39</span>
+            <span>40</span>
+            <span>41</span>
+            <span>42</span>
+            <span>43</span>
+            <span>44</span>
+            <span>45</span>
+            <span>46</span>
+            <span>47</span>
+            <span>48</span>
+            <span>49</span>
+            <span class="size-label">US MEN</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
+            <span>13</span>
+            <span>14</span>
+            <span>15</span>
+            <span>16</span>
+            <span class="size-label">US WOMEN</span>
+            <span>5.5</span>
+            <span>6.5</span>
+            <span>7.5</span>
+            <span>8.5</span>
+            <span>9.5</span>
+            <span>10.5</span>
+            <span>11.5</span>
+            <span>12.5</span>
+            <span>13.5</span>
+            <span>14.5</span>
+            <span>15.5</span>
+            <span>16.5</span>
+            <span>17.5</span>
+            <span class="size-label">CM</span>
+            <span>23.5</span>
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
+            <span>27</span>
+            <span>27.5</span>
+            <span>28.5</span>
+            <span>29.5</span>
+            <span>30.5</span>
+            <span>31</span>
+            <span>32</span>
+            <span>33</span>
+            <span>33.5</span>
+          </div>
+
+        </div>
       </div>
 
       <div class="Collapsible">
-        <div class="pill-tiny"></div>
-        <div data-readmore-sizing onclick="Theme.helpers.openSizing();" class="Collapsible--label">SIZING HELP</div>
+        <div class="pill-tiny size"></div>
+        <div
+          data-readmore-sizing
+          onclick="Theme.helpers.openSizing();"
+          class="Collapsible--label">SIZING HELP</div>
       </div>
 
     </div>
   </div>
 
   <style>
-  .imgPointerContainer{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-.pointerText{
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
+    .imgPointerContainer {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    .pointerText {
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
 
-.Product--Image{
-position: relative;
-}
+    .Product--Image {
+      position: relative;
+    }
 
-.imgLine{
-  height: 10%;
-  position: absolute;
-  border-right: 1px solid black;
-}
-
+    .imgLine {
+      height: 10%;
+      position: absolute;
+      border-right: 1px solid black;
+    }
   </style>
 
   <div class="ProductMedia--Container">
@@ -84,25 +150,25 @@ position: relative;
         {% case media.media_type %}
           {% when 'image' %}
           <div class="Product--Image">
-        
-          {% if media.alt contains '$'%}
-            {% assign position = media.alt | split: '$' | first %}
-            {% assign position_x = position | split: '-' | first %}
-            {% assign position_split = position | split: '-' %}
-            {% assign position_y = position_split[1] %}
-            {% assign position_text = position_split | last %}
 
-            
-            {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-            {{ imgpointer | replace: "_left_", position_x | replace: "_top_", position_y | replace: '[text]', position_text }}
-      
+            {% if media.alt contains '$' %}
+              {% assign position = media.alt | split: '$' | first %}
+              {% assign position_x = position | split: '-' | first %}
+              {% assign position_split = position | split: '-' %}
+              {% assign position_y = position_split[1] %}
+              {% assign position_text = position_split | last %}
+
+
+              {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
+              {{ imgpointer | replace: "_left_", position_x | replace: "_top_", position_y | replace: '[text]', position_text }}
+
             {% else %}
-            {% assign imgpointer = '' %}
+              {% assign imgpointer = '' %}
             {% endif %}
 
             <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-      
-      </div>
+
+          </div>
         {% endcase %}
       {% endfor %}
     </div>
