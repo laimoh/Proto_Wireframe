@@ -1,39 +1,20 @@
-{% for product in cart.items limit: 1%}
-    <div class="product-card stacked">
-        <div href="{{ product.url }}" class="card-img"><img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}"></div>
-        <div class="card-content">
-          <a href="{{product.url}}" class="card--header">
-          <p class="product-type">{{ product.type }}</p>
-          <p class="product-title">{{ product.title }}</p>
-          </a>
-          <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}">
-          </a>
-          <div class="card--footer">
-          <button class="product-buynow">
-            <span class="pill-icon">
-              <svg
-                viewBox="0 0 15 33"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"><rect
-                  x="0.5"
-                  y="0.5"
-                  width="14"
-                  height="28"
-                  rx="7"
-                  stroke="#000" />
-              </svg>
-            </span>
-            <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="product-buynow"></a>
-          </button>
-          <p class="product-price">{{ product.price | money }}</p>
-        </div>
-        </div>
-
-</div>
-</div>
+{% for product in cart.items limit: 1 %}
+  <div class="ajax-card">
+    <div class="preview-img"><img src="{{ product.image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">
+    </div>
+    <div class="card-content">
+      <div class="card--header">
+        <p class="product-title">{{ product.title }}</p>
+        <p class="product-type">{{ product.product_type }}</p>
+      </div>
+      <div class="card--footer">
+        <p class="product-type">{{ product.quantity }}X</p>
+        <p class="product-price">{{ product.price | money }}</p>
+      </div>
+    </div>
+  </div>
 {% endfor %}
+
 {% schema %}
-{
-  "name": "ajaxcard"
-}
+  {"name": "ajaxcard"}
 {% endschema %}

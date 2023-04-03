@@ -15,7 +15,8 @@
     </div>
   {% endif %}
 
-  <h1 style="font-size: {{ section.settings.fontSize }}rem"
+  <h1
+    style="font-size: {{ section.settings.fontSize }}rem"
     {% if section.settings.title_alignment == 'centered' %}
     class="centered"
     {% elsif section.settings.title_alignment == 'leftBottom' %}
@@ -35,7 +36,6 @@
       <div class="pill-tiny"></div>
       <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
     </button>
-
   {% endif %}
 </div>
 
@@ -75,15 +75,14 @@
         "type": "video",
         "id": "video",
         "label": "Video Picker"
-      },
-      {
-         "type": "range",
-         "id": "fontSize",
-         "min": 0,
+      }, {
+        "type": "range",
+        "id": "fontSize",
+        "min": 0,
         "max": 10,
         "step": 0.1,
-         "label": "Font Size",
-         "default": 4
+        "label": "Font Size",
+        "default": 4
       }, {
         "type": "text",
         "id": "word1",

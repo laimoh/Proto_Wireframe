@@ -1,22 +1,25 @@
 <div data-section-type="collection" data-section-id="{{section.id}}">
-{% paginate search.results by 10 %}
-{{ 'shop.css' | asset_url | stylesheet_tag }}
+  {% paginate search.results by 9 %}
+    {{ 'shop.css' | asset_url | stylesheet_tag }}
 
-  {% if search.performed %}
-    <div data-next-page class="product-grid">
-      {% for item in search.results %}
-        {% cycle '<div class="row">', '', '' %}
-      
-        {% render 'product-card', product: item %}
-        
-        {% cycle '', '', '</div>' %}
-      {% endfor %}
-    </div>
+    {% if search.performed %}
+      <div data-next-page class="product-grid">
+        {% for item in search.results %}
+          {% cycle '<div class="row">', '', '' %}
+
+          {% render 'product-card', product: item %}
+
+          {% cycle '', '', '</div>' %}
+        {% endfor %}
+      </div>
 
     {% else %}
-      no results
-  {% endif %}
+      <div class="noresults">NO RESULTS.
+        <a href="/collections/all">BACK TO PRODUCTS?</a>
+      </div>
+    {% endif %}
 
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
-{% endpaginate %}
+    {% if paginate.pages > 1 %}
+      {{ paginate | default_pagination }}{% endif %}
+  {% endpaginate %}
 </div>

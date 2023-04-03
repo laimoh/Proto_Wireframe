@@ -1,3 +1,14 @@
+/* SEARCH */
+
+.noresults {
+   width: 100%;
+   text-align: center;
+   text-transform: uppercase;
+   font-family: "Pressura";
+   
+}
+
+
 /* SHOP ALL */
 
 /* filter  */
@@ -48,6 +59,9 @@
    font-family: "Exposure";
    font-size: var(--filter-exposure);
    transition: all 0.2s ease-out;
+}
+.item-filter_title a:hover {
+   font-variation-settings: 'EXPO'-40;
 }
 
 .item-filter_title a[aria-current="true"] {
@@ -277,7 +291,6 @@
 .card-img {
    width: 100%;
    height: 100%;
-   /* mix-blend-mode: multiply; */
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center center;

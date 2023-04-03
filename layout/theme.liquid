@@ -15,8 +15,6 @@
     {{ 'global.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
     {{ 'helpers.css' | asset_url | stylesheet_tag }}
-
-
     {{ 'flickity.css' | asset_url | stylesheet_tag }}
     {{ 'flickity.js' | asset_url | script_tag }}
     <script
@@ -33,10 +31,9 @@
     {% section 'header' %}
     {% section 'cart' %}
     <main class="content" role="main">
-
       {{ content_for_layout }}
       {% section 'footer' %}
     </main>
-   
+
   </body>
 </html>
