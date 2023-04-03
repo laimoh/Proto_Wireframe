@@ -5,14 +5,11 @@
   {% if search.performed %}
     <div data-next-page class="product-grid">
       {% for item in search.results %}
-        {% assign newrow = forloop.index | modulo: 3 %}
-        {% if newrow  == 0 %}
-          <div class="row">
-          {% endif %}
+        {% cycle '<div class="row">', '', '' %}
+      
         {% render 'product-card', product: item %}
-        {% if newrow  == 0 %}
-          </div>
-        {% endif %}
+        
+        {% cycle '', '', '</div>' %}
       {% endfor %}
     </div>
 
