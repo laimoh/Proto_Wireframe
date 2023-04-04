@@ -11,6 +11,13 @@
 
           {% cycle '', '', '</div>' %}
         {% endfor %}
+        {% if search.results_count == 0 %}
+          <div class="row" style="grid-template-columns: 1fr"> 
+          <a class="Button" style="font-size: 15px; text-align: center; padding: 10px" href="/collections/all">
+            No results. Go to all Products
+          </a>
+          </div>
+        {% endif %}
       </div>
 
     {% else %}
