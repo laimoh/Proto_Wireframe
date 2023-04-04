@@ -63,10 +63,10 @@
                   {%- endif -%}
   </div>
   
-  <div data-opencart class="MainMenu--rightItem">
+  <div data-opencart onclick="Theme.cart.open();" class="MainMenu--rightItem">
     <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
     </div>
-    <span class="cartheader">Cart</span>
+    <span class="cartheader" onclick="Theme.cart.open();">Cart</span>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
           {% render 'cart-items' %}
