@@ -28,12 +28,14 @@
    });
 })(document);
 
-const details = document.querySelectorAll('.details')
 
 document.querySelectorAll('.details').forEach((el) => {
    el.addEventListener('click', () => {
       const filterGroup = el.lastElementChild;
-      filterGroup.classList.toggle('grow');
-      el.classList.toggle('grow');
+      if (filterGroup.classList.contains('size-transition')){
+      filterGroup.classList.toggle('growLarge');} else{
+         filterGroup.classList.toggle('grow');
+      }
+      
    });
 });

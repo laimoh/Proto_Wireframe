@@ -30,7 +30,7 @@
    grid-template-columns: repeat(3, 1fr) 0.2fr 1fr;
    margin: 0 var(--margin);
    justify-items: center;
-   align-items: center;
+   align-items: baseline;
    padding: 0.2%;
    height: auto;
    max-height: 100%;
@@ -132,22 +132,18 @@
 
 .details {
    overflow: hidden;
-   height: 50%;
+   position: relative;
+   margin: 2%;
+   min-width: 16vw;
    transform-origin: top;
    transition: all 0.1s ease-in-out;
 }
 
 
-.details {
-   position: relative;
-   margin: 2%;
-   min-width: 16vw;
-}
-
 .group-transition {
    background-color: var(--marshmellow);
    overflow-y: scroll;
-   padding-top: 8%;
+   /* padding-top: 8%; */
    height: 0;
    width: 100%;
    transform-origin: top;
@@ -157,23 +153,31 @@
 }
 
 .grow {
+   height: 15vh;
    transform: scaleY(1);
-   height: 100%;
+   opacity: 1;
+   transition: all 0.2s ease-in;
+}
+.growLarge {
+   height: 24vh;
+   transform: scaleY(1);
    opacity: 1;
    transition: all 0.2s ease-in;
 }
 
 .filter-group-display__list {
-   margin: 0;
+   /* margin: 0; */
    position: relative;
    list-style: none;
    display: grid;
+   padding-left: 4vw
 }
 
 .list-color {
-   align-items: center;
+   /* align-items: center;
    grid-template-columns: 1fr;
-   gap: 0.5rem;
+   gap: 0.5rem; */
+   /* padding-left: 4vw */
 }
 
 .list-color label {
@@ -189,7 +193,7 @@
    height: 150%; */
    justify-items: center;
    align-items: center;
-   gap: 0px 22px;
+   /* gap: 0px 22px; */
    padding: 0;
    /* margin-bottom: 2rem; */
 }
@@ -201,8 +205,8 @@
 
 .list-size label {
    font-family: "Pressura";
-   font-size: 1rem;
-   padding: 60%;
+   font-size: var(--filter-notation);
+   padding: 32%;
    cursor: pointer;
    box-sizing: content-box;
 }
@@ -379,8 +383,11 @@
 .optionValuesContainer  {
    flex-direction: column;
    margin: unset;
-   padding: 2vw;
-   margin-left: 4vw;
+   padding-top: 2%;
+   padding-bottom: 2%;
+   padding-left: max(2%, 30%);
+   padding-right: max(2%, 20%);
+   
 } 
 
 
@@ -452,16 +459,8 @@ padding: 0.2rem 0.3rem;
    font-size: 0.8rem;
    min-width: auto;
 }
-
-@keyframes rollOut {
-   0% {
-      transform: scaleY(0);
-
-   }
-
-   100% {
-      transform: scaleY(1);
-   }
+.clear:hover {
+   font-family: "Pressura Medium";
 }
 
 .checkbox-color:disabled+.label-color {

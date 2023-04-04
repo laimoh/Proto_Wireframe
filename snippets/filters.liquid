@@ -39,7 +39,7 @@
             {% endif %}
           </p>
         </div>
-        <div class="group-transition">
+        <div class="group-transition size-transition">
           <ul class="filter-group-display__list list-size">
             {%- for filter_value in filter.values -%}
               <li class="filter-group-display__list-item">
@@ -61,8 +61,7 @@
 
 
         {% when "Color" %}
-        <summary class="filter-group">
-
+        <div class="filter-group">
           <span class="filter-label">{{ filter.label }}</span>
           <span class="line"></span>
           <p>
@@ -79,7 +78,7 @@
               <span class="filter-value">all</span>
             {% endif %}
           </p>
-        </summary>
+        </div>
         <div class="group-transition">
           <ul class="filter-group-display__list list-color">
             {%- for filter_value in filter.values -%}
@@ -115,7 +114,8 @@
       {% endif %}
       ">CLEAR</a>
   </div>
-    <div class="toggleViewBtn"> <p class="toggle_label grid">GRID</p>
+  <div class="toggleViewBtn">
+    <p class="toggle_label grid">GRID</p>
     <div class="slider-ui">
       <div id="toggle" class="pill-tiny"></div>
       <div class="line"></div>

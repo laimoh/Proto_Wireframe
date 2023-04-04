@@ -7,11 +7,8 @@
    <div data-next-page class="product-grid">
     {% for product in collection.products %}
       {% cycle '<div class="row">', '', '' %}
-      
       {% render 'product-card', product: product %}
-      
       {% cycle '', '', '</div>' %}
-
     {% endfor %}
   </div>
 

@@ -12,11 +12,11 @@ body {
    display: flex;
    width: 100%;
    margin-top: var(--headerMargin);
-   transition: all 0.2s ease-in;
    background: var(--marshmellow);
    border-top: solid 1px;
    border-bottom: solid 1px;
    color: var(--colorHTML);
+   transition: all 0.3s ease;
 }
 
 .MainMenu--Wrapper a {
@@ -24,6 +24,7 @@ body {
    text-transform: uppercase;
    font-size: 0.8rem;
    color: var(--colorHTML);
+   transition: all 0.3s ease;
 }
 
 main {
@@ -62,30 +63,24 @@ main {
    width: calc(100vw - 4*var(--margin));
    position: absolute;
    right: auto;
-   top: 110%;
+   top: 105%;
    margin: 0 auto;
    max-width: unset;
    height: auto;
 }
 
-/* .MainMenu.Fixed .MainMenu--center .Logo::after{
-content: "";
-padding-bottom: 100%;
-} */
 
 .MainMenu--center {
    flex-basis: 17%;
    max-width: 17%;
    text-align: center;
-   /* border-top: 1px solid black;
-   border-bottom: 1px solid black; */
-   /* box-shadow: 1px 1px 0px, 0px -1px 0px; */
    padding: 0px 2px;
 
 }
 
 #DesktopLogo,
 #DesktopLogoPlaceholder {
+   /* position: relative; */
    transition: all 0.3s ease;
    fill: var(--colorSVG);
 }
@@ -93,7 +88,21 @@ padding-bottom: 100%;
 .Logo,
 .LogoSVG {
    fill: var(--colorSVG);
+   transition: all 0.3s ease;
 }
+svg * { 
+   transform-box: fill-box;
+ }
+
+
+.counter {
+   transform: rotate(0deg);
+   transform-origin: center;
+   transition: all 0.5s ease;
+}
+
+.LogoSVG:hover .counter { transform: rotate(180deg); }
+
 
 .LogoPlaceholder {
    width: 100%;
@@ -103,7 +112,7 @@ padding-bottom: 100%;
 }
 
 .MainMenu.Fixed .MainMenu--center .Logo.endState {
-   width: 100%;
+   width: 0%;
    top: 0%;
    opacity: 0;
    z-index: -1;
@@ -120,11 +129,13 @@ padding-bottom: 100%;
 .MainMenu--leftItem {
    box-shadow: 1px 1px 0px, 0px -1px 0px;
    color: var(--colorHTML);
+   transition: all 0.3s ease;
 }
 
 .MainMenu--rightItem {
    box-shadow: -1px 1px 0px, -1px -1px 0px;
    color: var(--colorHTML);
+   transition: all 0.3s ease;
 }
 
 .MainMenu--left,
@@ -175,6 +186,7 @@ padding-bottom: 100%;
 .search button {
    font-size: 1rem;
    color: var(--colorHTML);
+   transition: all 0.3s ease;
 }
 .search button:hover {
    opacity: 0.5;
@@ -322,7 +334,7 @@ padding-bottom: 100%;
    .MainMenu--mobile {
       display: flex !important;
       border-top: 1px solid var(--colorHTML);
-      /* border-bottom: 1px solid var(--colorHTML); */
+      transition: all 0.3s ease;
    }
 
    .Icon--Menu {
@@ -330,6 +342,7 @@ padding-bottom: 100%;
       height: 10vw;
       padding: 2%;
       stroke: var(--colorHTML);
+      transition: all 0.3s ease;
    }
 
    .Icon--Menu img {
