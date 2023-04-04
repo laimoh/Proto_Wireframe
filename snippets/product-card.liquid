@@ -1,4 +1,5 @@
 {% assign random_number = "now" | date: "%N" | modulo: product.images.size | plus: 0 %}
+
 <div data-ajax-card class="product-card stacked">
   <a href="{{ product.url }}" class="card-link">
     <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
@@ -21,13 +22,13 @@
   </div>
 
   <div data-variant-popup class="VariantSelectors--Ajax">
+    <div class="CartItem--remove">
+      {% render 'remove-icon' %}
+    </div>
     {% for options in product.options_with_values %}
       {% assign optionrow = forloop.index %}
       {% assign downcased_option = options.name | downcase %}
       <div class="optionValuesContainer">
-        <div class="CartItem--remove">
-          -
-        </div>
         <div class="CardValues {%if downcased_option == 'color' %}ColorValues{%endif%}">
           {% for value in options.values %}
             <input

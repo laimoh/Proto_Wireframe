@@ -361,6 +361,10 @@
 
 /* Product Cards */
 
+.CartItem--remove {
+   margin: 2%;
+}
+
 .VariantSelectors--Ajax{
    position: absolute;
    transform: translateY(100%);
@@ -372,10 +376,27 @@
    
 }
 
+.optionValuesContainer  {
+   flex-direction: column;
+   margin: unset;
+   padding: 2vw;
+   margin-left: 4vw;
+} 
+
+
+.optionValuesContainer .ColorValues label {
+text-transform: none;
+font-size: 1.4rem;
+text-align: left;
+padding: 0.2rem 0.3rem;
+}
+.optionsNameContainer {
+   padding-right: 5vw;
+}
 .VariantSelectors--Ajax.display{
    transform: translateY(0%);
    background: var(--marshmellow);
-   border: 1px solid black;
+   border: var(--wireframe);
 }
 
 .CardValues{
@@ -388,6 +409,8 @@
 .ColorValues{
    flex-direction: column;
    font-family: "Exposure";
+   max-height: 10vh;
+   flex-wrap: nowrap;
 }
 
 .ColorValues input[type="radio"]:checked+label{
