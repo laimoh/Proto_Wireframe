@@ -28,7 +28,6 @@
 {% endif %}
 </div>
 
-
 <div class="MainMenu--right">
   <div class=" MainMenu--rightItem icon search">
     
@@ -77,9 +76,6 @@
           <div class="Button--action" data-closecart onclick=Theme.cart.close()>Close</div>
         </div>
    </div>
-
-
-
   </div>
 </div>
 </div>
@@ -125,7 +121,7 @@ Filter
                   {%- endif -%}
       <a class="faqlink" href="/pages/faq">Help</a>
 </div>
-<div class="closeButton" onclick="Theme.mobile_menu.close()">CLOSE</div>
+<div class="closeButton mobilemenuclose" onclick="Theme.mobile_menu.close()">CLOSE</div>
 </div>
 
 <div id="FilterMobile" class="MobileMenu--Filters hide--desktop">
@@ -137,13 +133,14 @@ Filter
   <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
   </div>
 
-  <div id="cartMobile" class="MobileMenu--Filters hide--desktop">
+  <div opened="false" id="cartMobile" class="MobileMenu--Filters hide--desktop">
     <div data-ajax-cart id="cartMobileItems">
       {% for item in cart.items %}
         {% render 'cart-item', item: item %}
     {% endfor %}
     </div>
     <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
+    <div class="closeButton">CLOSE</div>
     </div>
   
 {% schema %}

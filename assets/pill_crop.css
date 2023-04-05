@@ -1,21 +1,22 @@
 .pill-content {
    display: grid;
-height: 100vh;
-grid-template-rows: 1fr auto;
-overflow: hidden;
+   height: 100vh;
+   grid-template-rows: 1fr auto;
+   overflow: hidden;
 }
 
 .cover-crop {
    grid-area: 1 / 1 / -1 / -1;
-    justify-self: center; 
-    position: relative;
+   justify-self: center;
+   position: relative;
 }
 
 .pill-wrapper {
    position: relative;
-    width: 100vw;
-    height: 125vh;;
-    z-index: -1;
+   width: 100vw;
+   height: 125vh;
+   ;
+   z-index: -1;
 }
 
 .pill-wrapper img {
@@ -23,8 +24,9 @@ overflow: hidden;
    width: 100%;
    height: 100%;
    object-fit: cover;
-  /* clip-path: url(#slant-pill); */
+   /* clip-path: url(#slant-pill); */
 }
+
 /*  width="695" height="690" */
 
 .large-pill {
@@ -33,6 +35,7 @@ overflow: hidden;
    height: 135vh;
    transform: translateY(-10%);
 }
+
 .mask-pill {
    margin-left: 50vw;
 }
@@ -56,32 +59,52 @@ overflow: hidden;
 }
 
 .pill-word1 {
-  justify-self: end;
+   justify-self: end;
 }
+
 .pill-word2 {
    grid-row: 2;
    justify-self: end;
 }
+
 .pill-word3 {
    grid-area: 3 / 2;
    justify-self: start;
 }
-/* 
-.pill-content a {
-   text-transform: uppercase;
-      align-self: end;
-      z-index: 2;
-      font-family: "Pressura";
-      font-size: 14px;
-      color: black;
-      padding: calc(var(--margin)/2);
-      border-bottom: solid 1px black;
+
+
+@media screen and (width < 649px) {
+
+   :root {
+      font-size: 8px;
+   }
+
+   .pill-wrapper {
+      height: 100vh;
+   }
+
+   .cover-crop {
+      justify-self: unset;
+   }
+
+   .large-pill {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      left: -20%;
+      top: 10%;
+   }
+
+   .pill-content h1 {
+      display: block;
+      text-align: center;
+      margin: 0 calc(var(--margin) / 2);
+      line-height: 0.9;
+      width: auto;
+      margin-bottom: 50%;
+   }
+
+   .pill-content h1 span {
+      letter-spacing: -7px;
+   }
 }
-.pill-content a::before {
-   filter: invert(0%) sepia(8%) saturate(7468%) hue-rotate(114deg) brightness(89%) contrast(107%);
-   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
-   display: inline;
-   vertical-align: middle; 
-   padding-left: 2%;
-   padding-right: 1%;
-} */

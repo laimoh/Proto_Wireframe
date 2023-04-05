@@ -56,3 +56,13 @@
     
 } */
 
+@media screen and (width < 649px) { 
+   .editorial-grid {
+      height: calc(100vh - var(--headerHeight));
+   }
+
+   .editorial-grid h1 {
+      font-size: 1rem;
+      padding: 5%;
+   }
+}

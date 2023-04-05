@@ -13,15 +13,6 @@
 }
 
 .clipped {
-   /* position: absolute;
-   top: 40%;
-   left: 50%;
-   transform: translate(-50%,-50%);
-   width: 100vw;
-   height: 100vh;
-   background-size: cover;
-   clip-path: url(#pill-marquee);
-   justify-self: center; */
    position: absolute;
    top: 45%;
    left: 50%;
@@ -70,28 +61,17 @@
  .marquee-content .module-link { 
    border-top: solid 1px black;
 }
-/* 
-.marquee-content a {
-   text-transform: uppercase;
-   grid-area: 3 / 1;
-   align-self: end;
-   z-index: 2;
-   font-family: "Pressura";
-   font-size: 14px;
-   color: black;
-   padding: calc(var(--margin)/2);
-   border-top: solid 1px black;
-   border-bottom: solid 1px black;
-}
-.marquee-content a::before {
 
-   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
-   display: inline;
-   vertical-align: middle; 
-   padding-left: 2%;
-   padding-right: 1%;
+@media screen and (width < 649px) {
+.clipped {
+   top: 50%;
+    
+    width: 60vw;
+    height: 60vh;
+    background-position: bottom;
 }
 
-.marquee-content a::before:hover {
-   transform: rotateX(45deg);
-} */
+.marquee {
+   margin: 0 calc(var(--margin) / 2);
+}
+}

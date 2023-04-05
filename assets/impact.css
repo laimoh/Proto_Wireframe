@@ -18,7 +18,7 @@
 
 
 .impact-content h1 {
-   /* font-size: 6rem; */
+   /* font-size: var(--fontSize); */
    z-index: 2;
 }
 
@@ -59,5 +59,8 @@
 @media screen and (width < 649px) {
    .centered {
       width: 80vw;
+   }
+   html {
+      font-size: 9px;
    }
 }

@@ -38,22 +38,25 @@
    border-bottom: none;
 }
 
-/* .ending-content a {
-   text-transform: uppercase;
-   z-index: 2;
-   font-family: "Pressura";
-   font-size: 14px;
-   color: black;
-   padding: calc(var(--margin)/2);
-   border-top: solid 1px black;
-   border-bottom: solid 1px black;
-}
-.ending-content a::before {
+@media screen and (width < 649px) { 
+   
+   :root {
+      font-size: 7.5px;
+   }
 
-   content: url('https://cdn.shopify.com/s/files/1/0702/6042/5020/files/pill-tiny.svg?v=1678975923');
-   display: inline;
-   vertical-align: middle; 
-   padding-left: 2%;
-   padding-right: 1%;
-    
-} */
+   .ending-img {
+      margin: 0 calc(var(--margin) / 2);
+   }
+   .ending-grid {
+      height: calc(100vh - var(--headerHeight));
+   }
+
+   .ending-grid h1 {
+      width: auto;
+      white-space: break-spaces;
+      line-height: 1;
+      padding-left: 4%;
+      transform: translateY(0);
+      text-align: left;
+   }
+}

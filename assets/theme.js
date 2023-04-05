@@ -62,8 +62,7 @@ var Theme = {
          if (document.body.classList.contains('template-index')) {
             content.addEventListener('scroll', () => {
                let scrolled = content.scrollTop;
-
-               if (scrolled > 360) {
+               if (scrolled > 25) {
                   logo.classList.add('endState');
                   placeHolderLogo.classList.remove('hidden');
                } else {
@@ -104,21 +103,28 @@ var Theme = {
                if (entry.target.classList.contains('impact-module')) {
                   root.style.setProperty('--colorSVG', 'var(--marshmellow)');
                   root.style.setProperty('--colorHTML', 'var(--marshmellow)');
+                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('pill_crop-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
                } else if (entry.target.classList.contains('marquee-module')) {
                   root.style.setProperty('--colorSVG', 'var(--black)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('editorial-module')) {
                   root.style.setProperty('--colorSVG', 'var(--black)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'none');
+                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('ending-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
                } else {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
             }
          })

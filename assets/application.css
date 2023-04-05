@@ -25,10 +25,9 @@
    --brown: #937D6A;
    --accent-brown: #C1B1A3;
    --margin: 16px;
-   --grid-gutter: var(--margin) * 2;
    --wireframe: 0.5px solid rgb(0, 0, 0);
    --wireframethick: 1px solid black;
-   --shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1;
+   /* --shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1; */
    --headerHeight: 25%;
    --headerMargin: 1rem;
    --shop-card-notation: 10px;
@@ -38,7 +37,7 @@
    --product-notation: 12px;
    --colorSVG: var(--red);
    --colorHTML: var(--black);
-
+   --colorBG: none;
 }
 
 * {
@@ -81,7 +80,6 @@ details>summary {
 details>summary::-webkit-details-marker {
    display: none;
 }
-
 
 img {
    max-width: 100%;
@@ -129,7 +127,6 @@ img {
    transform: translate(-0%, -50%) rotate(0deg);
    width: 12px;
    height: 24px;
-   border: 1px solid var(--marshmellow);
    border: 1px solid var(--colorHTML);
    border-radius: 20px;
    transition: all 0.4s ease;
@@ -140,7 +137,6 @@ img {
    grid-area: 3 / 1;
    z-index: 2;
    border-bottom: solid 1px var(--colorHTML);
-   ;
    display: flex;
 }
 
@@ -589,4 +585,42 @@ text-transform: uppercase;white-space: nowrap;
       top: 0;
       padding: 0;
    }
+   .template-index main .footer-wrapper {
+      height: calc(100vh - var(--headerHeight) + 4px);
+   }
+
+   .footer-topbar {
+      margin: 0 calc(var(--margin)/2);
+      grid-template-columns: unset;
+
+      grid-template-rows: 1fr 0.5fr;
+   }
+   .signup-section {
+      grid-template-columns: unset;
+      gap: 55%;
+      padding: 5%;
+   }
+
+   .signup-section p {
+      font-size: 11vw;
+   }
+
+   .left-section {
+      padding: 5% 0;
+      border-right: 0;
+  }
+
+  .right-section {
+ 
+   width: 100%;
 }
+
+  .sitemap {
+   width: 100%;
+   border-top: var(--wireframethick);
+  }
+  .sitemap p {
+   font-size: 2rem;
+  }
+}
+

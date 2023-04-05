@@ -2,7 +2,10 @@
 
 {% assign mediaType = section.settings.media_select %}
 
-<div style="display:grid; height:100vh; grid-template-rows:1fr auto auto; overflow:hidden;" class="impact-content">
+<div
+  fontSize="{{ section.settings.fontSize }}rem"
+  style="display:grid; height:100vh; grid-template-rows:1fr auto auto; overflow:hidden;"
+  class="impact-content">
   {% if mediaType == 'video' %}
     <div class="cover">
       {% if section.settings.video != nil %}

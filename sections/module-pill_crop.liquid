@@ -14,19 +14,11 @@
           stroke="black"
           stroke-width="1"
           fill="none" />
-        <defs>
-          <clipPath id="slant-pill">
-            <path
-              d="M108.054 1108.88L108.048 1108.87C-34.4552 965.629 -34.4476 732.598 108.043 591.507L108.048 591.502L907.799 -212.393C977.982 -282.941 1071.56 -319.285 1165.14 -319.285C1258.72 -319.285 1352.3 -282.941 1422.49 -212.393L1422.49 -212.388C1564.98 -71.2968 1564.99 161.734 1422.49 304.976L622.736 1108.87C480.235 1252.11 248.415 1252.1 108.054 1108.88Z"
-              fill="white"
-              stroke-width="1" />
-          </clipPath>
-        </defs>
       </svg>
     </div>
   </div>
   <h1 style="font-size: {{ section.settings.fontSize }}rem">
-   {% liquid
+    {% liquid
      assign vertical = section.settings.vertical_alignment-word1 
     case vertical 
       when 'top' 
@@ -119,21 +111,20 @@
         "label": "Image"
       },
       {
-         "type": "range",
-         "id": "fontSize",
-         "min": 0,
+        "type": "range",
+        "id": "fontSize",
+        "min": 0,
         "max": 10,
         "step": 0.1,
-         "label": "Font Size",
-         "default": 4
+        "label": "Font Size",
+        "default": 4
       },
       {
         "type": "text",
         "id": "btn_title",
         "label": "Button Text",
         "default": "SHOP NOW"
-      },
-      {
+      }, {
         "type": "url",
         "id": "btn_url",
         "label": "Button Link"
@@ -181,24 +172,23 @@
           }
         ],
         "default": "left"
-      },{
-         "type": "select",
-         "id": "textAlign1",
-         "label": "Align Word 1",
-         "options": [
-            {
+      }, {
+        "type": "select",
+        "id": "textAlign1",
+        "label": "Align Word 1",
+        "options": [
+          {
             "value": "start",
             "label": "Left"
           }, {
             "value": "center",
             "label": "Middle"
-          },
-          {
+          }, {
             "value": "end",
             "label": "Right"
           }
-         ],
-         "default": "center"
+        ],
+        "default": "center"
       }, {
         "type": "text",
         "id": "pill-word2",
@@ -243,25 +233,23 @@
           }
         ],
         "default": "left"
-      },
-      {
-         "type": "select",
-         "id": "textAlign2",
-         "label": "Align Word 2",
-         "options": [
-            {
+      }, {
+        "type": "select",
+        "id": "textAlign2",
+        "label": "Align Word 2",
+        "options": [
+          {
             "value": "start",
             "label": "Left"
           }, {
             "value": "center",
             "label": "Middle"
-          },
-          {
+          }, {
             "value": "end",
             "label": "Right"
           }
-         ],
-         "default": "center"
+        ],
+        "default": "center"
       }, {
         "type": "text",
         "id": "pill-word3",
@@ -306,25 +294,23 @@
           }
         ],
         "default": "left"
-      },
-      {
-         "type": "select",
-         "id": "textAlign3",
-         "label": "Align Word 3",
-         "options": [
-            {
+      }, {
+        "type": "select",
+        "id": "textAlign3",
+        "label": "Align Word 3",
+        "options": [
+          {
             "value": "start",
             "label": "Left"
           }, {
             "value": "center",
             "label": "Middle"
-          },
-          {
+          }, {
             "value": "end",
             "label": "Right"
           }
-         ],
-         "default": "center"
+        ],
+        "default": "center"
       }
     ],
     "presets": [

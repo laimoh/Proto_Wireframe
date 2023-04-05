@@ -32,11 +32,12 @@ main {
 
 .MainMenu {
    position: fixed;
-   /* background: var(--marshmellow); */
+   background: var(--colorBG);
    left: 0;
    right: 0;
    top: 0;
    z-index: 3;
+   transition: all 0.3s ease;
 }
 
 
@@ -268,6 +269,7 @@ svg * {
    align-items: center;
    justify-content: space-between;
    padding: 2.5% 5%;
+   font-family: "Pressura";
    text-transform: uppercase;
    color: black;
 }
@@ -342,8 +344,10 @@ svg * {
 }
 
 @media screen and (width < 649px) {
+
    :root {
       --headerMargin: 0.6rem;
+      font-size: 16px;
    }
 
 
@@ -418,22 +422,29 @@ svg * {
       font-family: "Pressura";
       text-transform: uppercase;
       background: var(--marshmellow);
-      font-size: 0.7rem;
+      font-size: 1.6rem;
    }
 
    .MobileMenu--Items .closeButton,
    .MobileMenu--Filters .closeButton {
-      padding: 4% 0;
+      width: 100%;
+      padding: 2.5% 0;
       border-top: 1px solid black;
-  
-      margin: 0 calc(var(--margin) / 2);
+      font-family: "Pressura";
+    text-transform: uppercase;
+    font-size: 1.6rem;
       text-align: center;
+      color: black;
    }
 
    .MainMenu--Wrapper a {
       color: black;
    }
-
+   .closeButton.mobilemenuclose {
+      margin: 0 calc(var(--margin) / 2);
+      width: auto;
+   
+}
 
    .MobileMenu--Content {
       margin: 0 calc(var(--margin) / 2);
@@ -448,7 +459,7 @@ svg * {
       font-family: "Exposure";
       color: black;
       text-transform: none;
-      font-size: 2rem;
+      font-size: 4rem;
    }
 
    .template-collection .MobileMenu--Content .shoplink,
@@ -481,6 +492,7 @@ svg * {
    #DesktopLogo {
       width: 100% !important;
       position: static !important;
+      padding: 1%;
    }
 
    main {
@@ -581,8 +593,6 @@ svg * {
 
 .ajax-card {
    pointer-events: all;
-   /* width: 20vw;
-   height: 20vw; */
    z-index: 10;
    background-color: var(--marshmellow);
 }
@@ -689,16 +699,12 @@ form.search {
    position: absolute;
    right: 5%;
    top: 25%;
-   /* font-size: 2rem; */
    color: var(--colorHTML);
-
    text-align: center;
-
    font-family: Pressura;
 }
 
 #mobileSearch input {
-   /* background: var(--marshmellow); */
    width: 100%;
    max-width: calc(100% - var(--margin));
    margin: 0 auto;
@@ -707,18 +713,34 @@ form.search {
 }
 
 #cartMobile {
+   border-top: var(--wireframe);
    height: 0;
    overflow: hidden;
    transition: all 0.2s ease-in;
    background: var(--marshmellow);
+   margin: 0 calc(var(--margin) / 2);
+}
+
+#cartMobile[opened=false] {
+   border: 0;
 }
 
 #cartMobileItems {
-   height: calc(100vh - var(--headerMobile) - 1rem - 22px);
+   height: calc(100vh - var(--headerMobile) - var(--headerMargin) - 22px);
    overflow: scroll;
 }
 
+.CartItem:first-of-type {
+   border-top: 0;
+}
+
+.CartItem {
+   width: 100%;
+   height: 70%;
+}
+
 #cartMobileItems .checkOutButton {
+   
    padding: 10px;
    text-align: center;
    color: black;
