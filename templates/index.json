@@ -7,7 +7,6 @@
         "media_select": "video",
         "cover-img": "shopify:\/\/shop_images\/image_3.png",
         "video": "shopify:\/\/files\/videos\/vinyl-57307.mp4",
-        "fontSize": 6.5,
         "word1": "Practice  is",
         "expo-word1": 100,
         "word2": "",
@@ -16,7 +15,7 @@
         "expo-word3": 100,
         "title_alignment": "centered",
         "btn_title": "READ ABOUT PROTO",
-        "btn_url": "shopify:\/\/pages\/sizing-chart"
+        "btn_url": "shopify:\/\/pages\/faq"
       }
     },
     "pill_crop": {
@@ -47,7 +46,6 @@
         "enable_button": true,
         "media_select": "image",
         "cover-img": "shopify:\/\/shop_images\/Frame301.png",
-        "fontSize": 4,
         "word1": "Drop",
         "expo-word1": 0,
         "word2": "#1",
@@ -65,7 +63,6 @@
         "enable_button": true,
         "bg_color": "#7d7c99",
         "cover-img": "shopify:\/\/shop_images\/image_10.png",
-        "fontSize": 8,
         "marquee-word1": "Outdoors",
         "expo-word1": 100,
         "marquee-word2": "Everywhere",
@@ -82,7 +79,6 @@
         "enable_button": true,
         "background": "#937d6a",
         "blog_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "fontSize": 0.8,
         "cover-img": "shopify:\/\/shop_images\/MATRIX_SKETCH_DESIGN_101122_4.png",
         "btn_title": "READ ABOUT THE PROCESS",
         "btn_url": "https:\/\/www.w3.org\/Provider\/Style\/dummy.html"
@@ -95,7 +91,6 @@
         "background": "#efe5dc",
         "cover-img": "shopify:\/\/shop_images\/Group_78.png",
         "title": "Join The Community",
-        "fontSize": 8,
         "btn_title": "Shop now",
         "btn_url": ""
       }
