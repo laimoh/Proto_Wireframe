@@ -24,8 +24,6 @@
    </svg>
    <a href="/" id="DesktopLogoPlaceholder" class="LogoPlaceholder hidden">
    {% render 'logo-masked' %}
-   {% comment %} {% render 'logo-letters' %}
-   {% render 'logo-pill' %} {% endcomment %}
    </a>
 {% endif %}
 </div>
@@ -92,8 +90,9 @@
 <form class="search" action="/search">
   <input type="hidden" name="type" value="product">
     <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+    <div class="Button" onClick=Theme.search.submit()> → </div>
 </form>
-<div class="Button" onClick=Theme.search.submit()> → </div>
+
 
 </div>
 <div class="Icon--Menu" onclick="Theme.mobile_menu.open()">
@@ -117,9 +116,14 @@ Filter
 
 <div class="MobileMenu--Items hide--desktop">
 <div class="MobileMenu--Content">
-Mobile<br>
-menu<br>
-here<br>
+      <a class="shoplink" href="/collections/all">Shop</a>
+      <a class="aboutlink" href="/pages/about">About</a>
+      <a class="homelink" href="/">Home</a>
+      <div class="line"></div>
+      {%- if shop.customer_accounts_enabled -%}
+                    <a class="accountlink" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">Orders</a>
+                  {%- endif -%}
+      <a class="faqlink" href="/pages/faq">Help</a>
 </div>
 <div class="closeButton" onclick="Theme.mobile_menu.close()">CLOSE</div>
 </div>

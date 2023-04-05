@@ -8,7 +8,6 @@ body {
 }
 
 .MainMenu--Wrapper {
-   /* padding: 0 calc(var(--margin)); */
    display: flex;
    width: 100%;
    margin-top: var(--headerMargin);
@@ -90,9 +89,10 @@ main {
    fill: var(--colorSVG);
    transition: all 0.3s ease;
 }
-svg * { 
+
+svg * {
    transform-box: fill-box;
- }
+}
 
 
 .counter {
@@ -101,7 +101,9 @@ svg * {
    transition: all 0.5s ease;
 }
 
-.LogoSVG:hover .counter { transform: rotate(180deg); }
+.LogoSVG:hover .counter {
+   transform: rotate(180deg);
+}
 
 
 .LogoPlaceholder {
@@ -169,7 +171,7 @@ svg * {
    display: flex;
    justify-content: center;
    position: relative;
-   
+
 }
 
 .MainMenu--rightItem.icon.search {
@@ -179,15 +181,17 @@ svg * {
 .search input {
 
    background: none;
-    border: none;
-    text-transform: uppercase;
-    font-family: "Pressura";
+   border: none;
+   text-transform: uppercase;
+   font-family: "Pressura";
 }
+
 .search button {
    font-size: 1rem;
    color: var(--colorHTML);
    transition: all 0.3s ease;
 }
+
 .search button:hover {
    opacity: 0.5;
    cursor: pointer;
@@ -207,9 +211,7 @@ svg * {
    opacity: 0.5;
 }
 
-.MainMenu--center a:hover {
-
-}
+.MainMenu--center a:hover {}
 
 /* [data-opencart] span:hover {
    color: var(--red);
@@ -219,6 +221,7 @@ svg * {
    font-size: 0.8rem;
    text-transform: uppercase;
 }
+
 #CartDrawer {
    position: fixed;
    width: 350px;
@@ -239,7 +242,7 @@ svg * {
    /* padding-top: 20px; */
    overflow: scroll;
    max-height: calc(100% - 10rem);
-   
+
 }
 
 .CartItem {
@@ -248,7 +251,7 @@ svg * {
    display: grid;
    grid-template-rows: auto 1fr auto;
    width: 22vw;
-    height: 22vw;
+   height: 22vw;
 }
 
 .CartItem:last-child {
@@ -269,7 +272,8 @@ svg * {
    color: black;
 }
 
-.CartItem--Header span, .CartItem--footer div {
+.CartItem--Header span,
+.CartItem--footer div {
    font-size: 0.7rem;
 }
 
@@ -282,9 +286,11 @@ svg * {
    background-position: center;
 
 }
+
 .qty--wrapper {}
 
-.qty--button:hover, .CartItem--remove:hover {
+.qty--button:hover,
+.CartItem--remove:hover {
    opacity: 0.5;
    cursor: pointer;
 }
@@ -302,9 +308,23 @@ svg * {
 .front {
    z-index: 4;
 }
+
 .back {
    z-index: -1;
 }
+
+.template-collection .MainMenu--leftItem:first-child a {
+   font-family: "Pressura Medium";
+}
+
+.template-page-about .MainMenu--leftItem:last-child a {
+   font-family: "Pressura Medium";
+}
+
+.template-customers-login .MainMenu--rightItem.login a {
+   font-family: "Pressura Medium";
+}
+
 
 
 /*Global CSS Mobile*/
@@ -322,7 +342,11 @@ svg * {
 }
 
 @media screen and (width < 649px) {
-  
+   :root {
+      --headerMargin: 0.6rem;
+   }
+
+
    .hide--desktop {
       display: block !important;
    }
@@ -335,6 +359,7 @@ svg * {
       display: flex !important;
       border-top: 1px solid var(--colorHTML);
       transition: all 0.3s ease;
+      padding: 0 calc(var(--margin) / 2)
    }
 
    .Icon--Menu {
@@ -358,6 +383,7 @@ svg * {
       overflow: hidden;
       transition: all 0.2s ease-in-out;
    }
+
 
    #FilterMobile {
       height: 0px;
@@ -387,18 +413,60 @@ svg * {
       display: flex !important;
    }
 
+   .MobileMenu--Items .closeButton {
+      color: black;
+      font-family: "Pressura";
+      text-transform: uppercase;
+      background: var(--marshmellow);
+      font-size: 0.7rem;
+   }
+
    .MobileMenu--Items .closeButton,
    .MobileMenu--Filters .closeButton {
-      padding: 10px;
+      padding: 4% 0;
       border-top: 1px solid black;
-      border-bottom: 1px solid black;
-      width: 100%;
+  
+      margin: 0 calc(var(--margin) / 2);
       text-align: center;
    }
 
+   .MainMenu--Wrapper a {
+      color: black;
+   }
 
-   .MainMenu--Wrapper {
-      padding: 0 calc(var(--margin) / 2);
+
+   .MobileMenu--Content {
+      margin: 0 calc(var(--margin) / 2);
+      background: var(--marshmellow);
+      display: flex;
+      flex-direction: column;
+      padding: 10%;
+   }
+
+   .MobileMenu--Content a {
+      padding-left: 5%;
+      font-family: "Exposure";
+      color: black;
+      text-transform: none;
+      font-size: 2rem;
+   }
+
+   .template-collection .MobileMenu--Content .shoplink,
+   .template-page-about .MobileMenu--Content .aboutlink,
+   .template-index .MobileMenu--Content .homelink,
+   .template-page-about .MobileMenu--Content .aboutlink,
+   .template-customers-login .MobileMenu--Content .accountlink,
+   .template-customers-login .MobileMenu--Content .faqlink {
+      font-variation-settings: 'EXPO'-50 !important;
+      font-family: "Exposure";
+   }
+
+   .line {
+      margin-bottom: 10%;
+   }
+
+   .homelink {
+      padding-bottom: 10%;
    }
 
    .MainMenu--mobile .Menu--middle {
@@ -450,6 +518,7 @@ svg * {
       flex-basis: 100%;
       max-width: unset;
       border: none;
+      padding: 0 calc(var(--margin) / 2)
    }
 
 
@@ -500,7 +569,9 @@ svg * {
    width: 20.5vw;
    height: 20.5vw;
 }
-.card--header, .card--footer {
+
+.card--header,
+.card--footer {
    text-transform: uppercase;
    width: 100%;
    display: flex;
@@ -517,7 +588,7 @@ svg * {
 }
 
 .preview-img img {
- 
+
    width: 100%;
    height: 100%;
    object-fit: cover;
@@ -552,9 +623,9 @@ svg * {
    width: 100%;
    bottom: calc(var(--margin) * 1);
    text-transform: uppercase;
-    font-size: 0.8rem;
-    background: var(--marshmellow);
-    color: black;
+   font-size: 0.8rem;
+   background: var(--marshmellow);
+   color: black;
 
 }
 
@@ -564,7 +635,7 @@ svg * {
    padding: var(--margin);
    border-top: 1px solid black;
    cursor: pointer;
-   
+
 }
 
 .Subtotal--price {
@@ -576,21 +647,16 @@ svg * {
    padding: var(--margin);
    border-top: 1px solid black;
 }
+
 .subtotal-info {
    font-size: 0.6rem;
    margin-bottom: 1rem;
 }
 
-.template-collection .MainMenu--leftItem:first-child a {
-   font-family: "Pressura Medium";
-}
-
-.template-page-about .MainMenu--leftItem:last-child a {
-   font-family: "Pressura Medium";
-}
-
 #mobileSearch {
    position: absolute;
+   border-bottom: 1px solid var(--colorHTML);
+   top: 100%;
    left: 0;
    right: 0;
    padding: 0;
@@ -600,33 +666,51 @@ svg * {
    opacity: 0;
    visibility: hidden;
    transition: all 0.2s ease-in;
-   background: var(--marshmellow);
+
 }
+
+input::placeholder {
+
+   color: var(--colorHTML);
+}
+
 
 #mobileSearch.visible {
    opacity: 1;
    visibility: visible;
 }
 
+form.search {
+   position: relative;
+}
+
 #mobileSearch .Button {
-   width: 100%;
-   border-top: 1px solid black;
+
+   position: absolute;
+   right: 5%;
+   top: 25%;
+   /* font-size: 2rem; */
+   color: var(--colorHTML);
+
    text-align: center;
-   padding: 10px;
+
    font-family: Pressura;
 }
 
 #mobileSearch input {
+   /* background: var(--marshmellow); */
    width: 100%;
    max-width: calc(100% - var(--margin));
    margin: 0 auto;
    display: block;
+   padding: 3%;
 }
 
 #cartMobile {
    height: 0;
    overflow: hidden;
    transition: all 0.2s ease-in;
+   background: var(--marshmellow);
 }
 
 #cartMobileItems {
@@ -637,13 +721,5 @@ svg * {
 #cartMobileItems .checkOutButton {
    padding: 10px;
    text-align: center;
+   color: black;
 }
-
-.MainMenu--Wrapper {
-   /* background: var(--marshmellow) !important; */
-}
-
-/* #DesktopLogo, #DesktopLogoPlaceholder .targetColor {
-   fill: var(--marshmellow);
-   color: var(--marshmellow);
-} */

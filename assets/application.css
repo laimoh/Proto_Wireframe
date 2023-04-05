@@ -331,7 +331,7 @@ svg * {
 /* ERROR */
 
 .error-wrapper {
-   height: 100vh;
+   height: 50%;
    display: flex;
    align-items: flex-end;
 }
@@ -347,25 +347,20 @@ svg * {
    margin: var(--margin);
 }
 
-.error-content p,
-.error-content a {
+.error-content p, .error-content h1 {
+   font-family: "Exposure";
    white-space: nowrap;
 }
-
-/* .product-grid {
- display: flex;
- padding:0px var(--margin);
- flex-wrap: wrap;
-} */
-
-.product-card {
-   /* border-right: var(--wireframethick);
-   border-bottom: var(--wireframethick); */
-   box-shadow: var(--shadow);
+.error-content a {
+font-family: "Pressura";
+text-transform: uppercase;white-space: nowrap;
 }
 
 
-
+.product-card {
+  
+   box-shadow: var(--shadow);
+}
 
 .card-content {
    margin: calc(var(--margin)/2);
@@ -390,8 +385,6 @@ svg * {
    position: relative;
    overflow: hidden;
 }
-
-/**/
 
 
 
