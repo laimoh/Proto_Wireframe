@@ -329,28 +329,16 @@ svg * {
 
 
 
-/*Global CSS Mobile*/
-
-@media screen and (width <=458px) {
-   .SectionContainer {
-      padding: 0 calc(var(--margin)/2);
-   }
-
-
-   .MainMenu--center a {
-      display: none;
-   }
-
-}
-
 @media screen and (width < 649px) {
 
    :root {
-      --headerMargin: 0.6rem;
-      font-size: 16px;
+      --headerMargin: 0.6rem; 
+      /* this is  */
    }
 
-
+   main {
+      padding-top: var(--headerHeight);
+   }
    .hide--desktop {
       display: block !important;
    }
@@ -397,7 +385,7 @@ svg * {
    }
 
    .Menu--middle .Button {
-      font-size: 1.2rem;
+      font-size: 0.6rem;
       text-transform: uppercase;
       text-align: center;
       line-height: 100%;
@@ -422,7 +410,7 @@ svg * {
       font-family: "Pressura";
       text-transform: uppercase;
       background: var(--marshmellow);
-      font-size: 1.6rem;
+      font-size: 0.8rem;
    }
 
    .MobileMenu--Items .closeButton,
@@ -432,7 +420,7 @@ svg * {
       border-top: 1px solid black;
       font-family: "Pressura";
     text-transform: uppercase;
-    font-size: 1.6rem;
+    font-size: 0.8rem;
       text-align: center;
       color: black;
    }
@@ -459,7 +447,7 @@ svg * {
       font-family: "Exposure";
       color: black;
       text-transform: none;
-      font-size: 4rem;
+      font-size: 2rem;
    }
 
    .template-collection .MobileMenu--Content .shoplink,
@@ -488,15 +476,10 @@ svg * {
       flex-direction: column;
    }
 
-
    #DesktopLogo {
       width: 100% !important;
       position: static !important;
       padding: 1%;
-   }
-
-   main {
-      padding-top: calc(var(--headerHeight) + var(--margin));
    }
 
    .stacked {
@@ -538,9 +521,9 @@ svg * {
       margin: 0;
    }
 
-   .SectionContainer {
+   /* .SectionContainer {
       padding: 0 calc(var(--margin)/2);
-   }
+   } */
 
    .left {
       left: calc(var(--margin)/2);
@@ -633,7 +616,7 @@ svg * {
    width: 100%;
    bottom: calc(var(--margin) * 1);
    text-transform: uppercase;
-   font-size: 0.8rem;
+   font-size: 0.4rem;
    background: var(--marshmellow);
    color: black;
 

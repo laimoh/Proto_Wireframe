@@ -509,3 +509,29 @@ padding: 0.2rem 0.3rem;
       box-shadow: rgb(0, 0, 0) -0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
    }
 }
+
+@media screen and (width < 649px) { 
+   .row {
+      display: flex;
+      flex-direction: column;
+      margin: 0 calc(var(--margin) / 2);
+   }
+   .row .product-card {
+      box-shadow: unset;
+   }
+   .row .product-card:first-child {
+      box-shadow: unset;
+    }
+
+    .optionValuesContainer {
+    
+      padding-left: max(2%, 20%);
+    }
+    .filters-wrapper {
+      display: none;
+    }
+    .Menu--middle {
+      opacity: 0;
+      pointer-events: none;
+    }
+}

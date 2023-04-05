@@ -27,7 +27,7 @@
    justify-self: stretch;
    align-self: end;
    text-align: center;
-   /* font-size: 9vw; */
+   font-size: var(--fontSize);
    white-space: nowrap;
    grid-area: 1 / 1 ;
    z-index: 2;
@@ -40,9 +40,9 @@
 
 @media screen and (width < 649px) { 
    
-   :root {
+   /* :root {
       font-size: 7.5px;
-   }
+   } */
 
    .ending-img {
       margin: 0 calc(var(--margin) / 2);
@@ -52,6 +52,7 @@
    }
 
    .ending-grid h1 {
+      font-size: calc(var(--fontSize) - 4.5rem);
       width: auto;
       white-space: break-spaces;
       line-height: 1;

@@ -63,6 +63,7 @@
 }
 
 @media screen and (width < 649px) {
+
 .clipped {
    top: 50%;
     
@@ -73,5 +74,9 @@
 
 .marquee {
    margin: 0 calc(var(--margin) / 2);
+}
+
+.marquee h1 {
+   font-size: calc(var(--fontSize)/2);
 }
 }
