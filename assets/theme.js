@@ -51,14 +51,17 @@ Shopify.formatMoney = function (cents, format) {
 var Theme = {
    init: function () {
       var sections = document.querySelectorAll('[data-section-type]');
-      var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
-      var logo = document.querySelector('#DesktopLogo');
-      const counters = document.querySelectorAll('.counter')
-      placeHolderLogo.addEventListener('mouseenter', counterRotate)
-      logo.addEventListener('mouseenter', counterRotate)
-      function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {
+         var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
+         var logo = document.querySelector('#DesktopLogo');
+         const counters = document.querySelectorAll('.counter');
+         document.querySelectorAll('.LogoSVG').forEach(e=>{
+            e.addEventListener('mouseenter', counterRotate);
+            e.addEventListener('mouseleave', counterRotate);
+         })
+         function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
+   
          var navHeight = document.querySelector('.MainMenu--Wrapper').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
          let content = document.querySelector('.content');
@@ -713,8 +716,6 @@ var Theme = {
          var cart = document.querySelector('#cartMobile');
          document.querySelector('#cartMobile').style.height = '0';
          cart.setAttribute('opened', false);
-
-
       },
       init: function () {
          var cart = document.querySelector('#cartMobile');

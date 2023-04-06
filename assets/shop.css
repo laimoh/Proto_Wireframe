@@ -13,6 +13,7 @@
 
 /* filter  */
 .filters-wrapper {
+   display:none;
    border-bottom: var(--wireframe);
    border-top: var(--wireframe);
    position: sticky;
@@ -494,6 +495,10 @@ padding: 0.2rem 0.3rem;
    /* transition:all 0.2s ease; */
 }
 
+.row {
+   border-top: var(--wireframe);
+}
+
 @media (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
 
@@ -505,7 +510,14 @@ padding: 0.2rem 0.3rem;
       box-shadow: rgb(0, 0, 0) 0.5px 0.5px 0px, rgb(0, 0, 0) 0px -0.5px 0px;
    }
 
-   .row .product-card:last-child:not(:only-child) {
+   /* .row .product-card:last-child:not(:only-child) {
+      box-shadow: rgb(0, 0, 0) -0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
+   } */
+
+   .row .product-card:nth-of-type(2n) {
+      /* opacity: 0; */
+   }
+   .row .product-card:nth-of-type(3n) {
       box-shadow: rgb(0, 0, 0) -0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
    }
 }
