@@ -11,7 +11,7 @@ body {
    display: flex;
    width: 100%;
    margin-top: var(--headerMargin);
-   background: var(--marshmellow);
+   background: var(--colorBG);
    border-top: solid 1px;
    border-bottom: solid 1px;
    color: var(--colorHTML);
@@ -26,13 +26,12 @@ body {
    transition: all 0.3s ease;
 }
 
-main {
+main:not(.template-index main) {
    padding-top: var(--headerHeight);
 }
 
 .MainMenu {
    position: fixed;
-   background: var(--colorBG);
    left: 0;
    right: 0;
    top: 0;
@@ -63,7 +62,7 @@ main {
    width: calc(100vw - 4*var(--margin));
    position: absolute;
    right: auto;
-   top: 105%;
+   top: 80%;
    margin: 0 auto;
    max-width: unset;
    height: auto;
@@ -102,10 +101,17 @@ svg * {
    transition: all 0.5s ease;
 }
 
-.LogoSVG:hover .counter {
+.rotatelogo {
    transform: rotate(180deg);
 }
 
+/* .LogoSVG:hover .counter {
+   transform: rotate(180deg);
+} 
+
+.LogoSVGLarge:hover .counter {
+   transform: rotate(180deg);
+} */
 
 .LogoPlaceholder {
    width: 100%;
@@ -242,7 +248,7 @@ svg * {
 .CartProducts {
    /* padding-top: 20px; */
    overflow: scroll;
-   max-height: calc(100% - 10rem);
+   max-height: calc(100% - 12rem);
 
 }
 
@@ -257,6 +263,10 @@ svg * {
 
 .CartItem:last-child {
    border-bottom: none;
+}
+
+.CartItem:first-of-type {
+   border-top: 0;
 }
 
 .CartItem:only-child {
@@ -277,6 +287,10 @@ svg * {
 .CartItem--Header span,
 .CartItem--footer div {
    font-size: 0.7rem;
+}
+
+..CartItem--footer div.CartItem--qty {
+     font-size: 0.7rem;
 }
 
 .CartItem--Image {
@@ -327,221 +341,13 @@ svg * {
    font-family: "Pressura Medium";
 }
 
-
-
-@media screen and (width < 649px) {
-
-   :root {
-      --headerMargin: 0.6rem; 
-      /* this is  */
-   }
-
-   main {
-      padding-top: var(--headerHeight);
-   }
-   .hide--desktop {
-      display: block !important;
-   }
-
-   .hide--phone {
-      display: none !important;
-   }
-
-   .MainMenu--mobile {
-      display: flex !important;
-      border-top: 1px solid var(--colorHTML);
-      transition: all 0.3s ease;
-      padding: 0 calc(var(--margin) / 2)
-   }
-
-   .Icon--Menu {
-      width: 10vw;
-      height: 10vw;
-      padding: 2%;
-      stroke: var(--colorHTML);
-      transition: all 0.3s ease;
-   }
-
-   .Icon--Menu img {
-      width: 100%;
-      padding: 10px;
-   }
-
-   .MobileMenu--Items {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 0;
-      overflow: hidden;
-      transition: all 0.2s ease-in-out;
-   }
-
-
-   #FilterMobile {
-      height: 0px;
-      overflow: hidden;
-      transition: all 0.2s ease-in-out;
-
-   }
-
-   .Menu--middle .Button {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 100%;
-      vertical-align: text-bottom;
-      display: none !important;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-      height: 100%;
-   }
-
-   .template-product .Menu--middle .Button.BackToCollection {
-      display: flex !important;
-   }
-
-   .template-collection .Menu--middle .Button.FilterButton {
-      display: flex !important;
-   }
-
-   .MobileMenu--Items .closeButton {
-      color: black;
-      font-family: "Pressura";
-      text-transform: uppercase;
-      background: var(--marshmellow);
-      font-size: 0.8rem;
-   }
-
-   .MobileMenu--Items .closeButton,
-   .MobileMenu--Filters .closeButton {
-      width: 100%;
-      padding: 2.5% 0;
-      border-top: 1px solid black;
-      font-family: "Pressura";
-    text-transform: uppercase;
-    font-size: 0.8rem;
-      text-align: center;
-      color: black;
-   }
-
-   .MainMenu--Wrapper a {
-      color: black;
-   }
-   .closeButton.mobilemenuclose {
-      margin: 0 calc(var(--margin) / 2);
-      width: auto;
-   
-}
-
-   .MobileMenu--Content {
-      margin: 0 calc(var(--margin) / 2);
-      background: var(--marshmellow);
-      display: flex;
-      flex-direction: column;
-      padding: 10%;
-   }
-
-   .MobileMenu--Content a {
-      padding-left: 5%;
-      font-family: "Exposure";
-      color: black;
-      text-transform: none;
-      font-size: 2rem;
-   }
-
-   .template-collection .MobileMenu--Content .shoplink,
-   .template-page-about .MobileMenu--Content .aboutlink,
-   .template-index .MobileMenu--Content .homelink,
-   .template-page-about .MobileMenu--Content .aboutlink,
-   .template-customers-login .MobileMenu--Content .accountlink,
-   .template-customers-login .MobileMenu--Content .faqlink {
-      font-variation-settings: 'EXPO'-50 !important;
-      font-family: "Exposure";
-   }
-
-   .line {
-      margin-bottom: 10%;
-   }
-
-   .homelink {
-      padding-bottom: 10%;
-   }
-
-   .MainMenu--mobile .Menu--middle {
-      flex-grow: 1;
-   }
-
-   .MainMenu--Wrapper {
-      flex-direction: column;
-   }
-
-   #DesktopLogo {
-      width: 100% !important;
-      position: static !important;
-      padding: 1%;
-   }
-
-   .stacked {
-      flex-basis: 100%;
-      border: none;
-      border-bottom: 1px solid black;
-   }
-
-   .product-grid {
-      padding: 0 !important;
-      width: 100% !important;
-      margin: 0 !important;
-   }
-
-   .product-card {
-      height: auto !important;
-      aspect-ratio: 1 / 1;
-   }
-
-   .MainMenu--Wrapper {
-      width: 100vw;
-      overflow: hidden;
-   }
-
-   .MainMenu--right,
-   .MainMenu--left {
-      display: none;
-   }
-
-   .MainMenu--center {
-      flex-basis: 100%;
-      max-width: unset;
-      border: none;
-      padding: 0 calc(var(--margin) / 2)
-   }
-
-
-   .product-grid {
-      margin: 0;
-   }
-
-   /* .SectionContainer {
-      padding: 0 calc(var(--margin)/2);
-   } */
-
-   .left {
-      left: calc(var(--margin)/2);
-   }
-
-   .right {
-      right: calc(var(--margin)/2);
-   }
-
-}
-
 .template-product #DesktopLogoPlaceholder {
    opacity: 1 !important;
    visibility: visible !important;
 }
 
-.template-product #DesktopLogo {
-   display: none;
+.template-product #DesktopLogoPlaceholder {
+   display: block;
 }
 
 [data-ajax-popup] {
@@ -596,12 +402,11 @@ svg * {
    border-top: none;
    overflow: hidden;
    transition: all 0.2s ease-in;
-   border-left: 1px solid black;
+   border-left: var(--wireframe);
+   border-top: var(--wireframe);
    margin-left: -1px;
    font-size: 10px;
 }
-
-#cartButtonDrawer .CartProducts {}
 
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
@@ -628,7 +433,11 @@ svg * {
    padding: var(--margin);
    border-top: 1px solid black;
    cursor: pointer;
-
+   font-size: 0.8rem;
+   color: black;
+}
+.Button--action:hover{
+   opacity: 0.5;
 }
 
 .Subtotal--price {
@@ -713,13 +522,8 @@ form.search {
    overflow: scroll;
 }
 
-.CartItem:first-of-type {
-   border-top: 0;
-}
-
 .CartItem {
    width: 100%;
-   height: 70%;
 }
 
 #cartMobileItems .checkOutButton {
@@ -727,4 +531,217 @@ form.search {
    padding: 10px;
    text-align: center;
    color: black;
+}
+
+@media screen and (width < 649px) {
+
+   :root {
+      --headerMargin: 0.6rem; 
+      /* this is  */
+   }
+
+   main {
+      padding-top: var(--headerHeight);
+   }
+   .hide--desktop {
+      display: block !important;
+   }
+
+   .hide--phone {
+      display: none !important;
+   }
+
+   .MainMenu--mobile {
+      display: flex !important;
+      border-top: 1px solid var(--colorHTML);
+      transition: all 0.3s ease;
+      padding: 0 calc(var(--margin) / 2)
+   }
+
+   .Icon--Menu {
+      width: 10vw;
+      height: 10vw;
+      padding: 2%;
+      stroke: var(--colorHTML);
+      transition: all 0.3s ease;
+   }
+
+   .Icon--Menu img {
+      width: 100%;
+      padding: 10px;
+   }
+
+   .MobileMenu--Items {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.2s ease-in-out;
+   }
+
+
+   #FilterMobile {
+      height: 0px;
+      overflow: hidden;
+      transition: all 0.2s ease-in-out;
+   }
+
+   .Menu--middle .Button {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 100%;
+      vertical-align: text-bottom;
+      display: none !important;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      height: 100%;
+   }
+
+   .template-product .Menu--middle .Button.BackToCollection {
+      display: flex !important;
+   }
+
+   .template-collection .Menu--middle .Button.FilterButton {
+      display: flex !important;
+   }
+
+   .MobileMenu--Items .closeButton {
+      color: black;
+      font-family: "Pressura";
+      text-transform: uppercase;
+      background: var(--marshmellow);
+      font-size: 0.8rem;
+   }
+
+   .MobileMenu--Items .closeButton,
+   .MobileMenu--Filters .closeButton {
+      width: 100%;
+      padding: 2.5% 0;
+      border-top: 1px solid black;
+      font-family: "Pressura";
+    text-transform: uppercase;
+    font-size: 0.8rem;
+      text-align: center;
+      color: black;
+   }
+
+   .MainMenu--Wrapper a {
+      color: black;
+   }
+   .closeButton.mobilemenuclose {
+      margin: 0 calc(var(--margin) / 2);
+      width: auto;
+   }
+
+   .MobileMenu--Content {
+      margin: 0 calc(var(--margin) / 2);
+      background: var(--marshmellow);
+      display: flex;
+      flex-direction: column;
+      padding: 10%;
+   }
+
+   .MobileMenu--Content a {
+      padding-left: 5%;
+      font-family: "Exposure";
+      color: black;
+      text-transform: none;
+      font-size: 2rem;
+   }
+
+   .template-collection .MobileMenu--Content .shoplink,
+   .template-page-about .MobileMenu--Content .aboutlink,
+   .template-index .MobileMenu--Content .homelink,
+   .template-page-about .MobileMenu--Content .aboutlink,
+   .template-customers-login .MobileMenu--Content .accountlink,
+   .template-customers-login .MobileMenu--Content .faqlink {
+      font-variation-settings: 'EXPO'-50 !important;
+      font-family: "Exposure";
+   }
+
+   .line {
+      margin-bottom: 10%;
+   }
+
+   .homelink {
+      padding-bottom: 10%;
+   }
+
+   .MainMenu--mobile .Menu--middle {
+      flex-grow: 1;
+   }
+
+   .MainMenu--Wrapper {
+      flex-direction: column;
+   }
+
+   #DesktopLogo {
+      width: 100% !important;
+      position: static !important;
+      padding: 1%;
+   }
+
+   .stacked {
+      flex-basis: 100%;
+      border: none;
+      border-bottom: 1px solid black;
+   }
+
+   .product-grid {
+      padding: 0 !important;
+      width: 100% !important;
+      margin: 0 !important;
+   }
+
+   .product-card {
+      height: auto !important;
+      aspect-ratio: 1 / 1;
+   }
+
+   .MainMenu--Wrapper {
+      width: 100vw;
+      overflow: hidden;
+   }
+
+   .MainMenu--right,
+   .MainMenu--left {
+      display: none;
+   }
+
+   .MainMenu--center {
+      flex-basis: 100%;
+      max-width: unset;
+      border: none;
+      padding: 0 calc(var(--margin) / 2)
+   }
+
+   .product-grid {
+      margin: 0;
+   }
+
+   .left {
+      left: calc(var(--margin)/2);
+   }
+
+   .right {
+      right: calc(var(--margin)/2);
+   }
+   #DesktopLogoPlaceholder {
+      display: none;
+   }
+
+   .CartItem {
+      height: 50%;
+   }
+   .subtotal-info {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-family: "Pressura";
+      margin-bottom: 1rem;
+      text-align: center;
+   }
+
 }

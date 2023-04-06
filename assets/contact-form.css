@@ -104,3 +104,14 @@ ul, li {
    padding-right: 1rem;
    white-space: nowrap;
 }
+@media screen and (width < 649px) {
+   .form-wrapper {
+      border-bottom: var(--wireframe);
+   }
+.form {
+   margin: auto;
+   width: 86vw;
+   padding: 5%;
+   
+}
+}

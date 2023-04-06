@@ -47,6 +47,17 @@
    border-top: var(--wireframe);
 }
 
-.divider-button:hover { 
+@media screen and (width < 649px) {
+   .about-text p {
+      font-size: 1.6rem;
+   }
+   .subtext p {
+      display: none;
+   }
 
+   .about-text {
+      max-width: 70vw;
+      margin: 16% 8%;
+      padding: unset;
+  }
 }

@@ -73,6 +73,15 @@ a {
    text-decoration: none;
 }
 
+button a:hover {
+opacity: 0.5;
+}
+
+input:hover {
+   opacity: 0.5;
+   cursor: pointer;
+}
+
 details>summary {
    list-style: none;
 }
@@ -155,9 +164,9 @@ img {
    left: 10px;
 }
 
-.module-link:hover .pill-tiny {
-   transform: translate(-0%, -50%) rotate(45deg);
+.pill-tiny:has(+ a:hover) {
    cursor: pointer;
+   transform: translate(-0%, -50%) rotate(45deg);
 }
 
 .hidden {
@@ -187,10 +196,6 @@ svg * {
 
 .template-index {
    overflow: hidden;
-}
-
-.template-index .MainMenu--Wrapper {
-   background: none;
 }
 
 .template-index .content {
@@ -284,6 +289,10 @@ svg * {
    white-space: nowrap;
    font-size: 14px;
 }
+.proto-links a:hover,
+.help-links a:hover {
+  opacity: 0.5;
+}
 
 .sitemap p {
    font-family: "Pressura";
@@ -314,6 +323,10 @@ svg * {
    text-align: center;
 }
 
+.contact-buttons a:hover {
+   opacity: 0.5;
+}
+
 .copyright {
    font-family: "Pressura";
    text-transform: uppercase;
@@ -322,6 +335,10 @@ svg * {
    justify-content: center;
    align-items: center;
    font-size: 10px;
+}
+
+.copyright a:hover {
+   opacity: 0.5;
 }
 
 /* ERROR */
@@ -456,6 +473,10 @@ svg * {
    cursor: pointer;
 }
 
+#cartTrigger:hover {
+   opacity: 0.5;
+}
+
 .plink,
 .expand {
    width: 50%;
@@ -581,6 +602,10 @@ svg * {
 
 @media screen and (width < 649px) {
 
+   .page-title {
+      padding: 2rem 1rem;
+      font-size: 1.4rem;
+   }
    .template-index .content {
       top: 0;
       padding: 0;
@@ -597,17 +622,18 @@ svg * {
    .footer-topbar {
       margin: 0 calc(var(--margin)/2);
       grid-template-columns: unset;
-      grid-template-rows: 1fr 0.5fr;
+      grid-template-rows: 0.5fr 0.5fr;
+      justify-content: center;
    }
 
    .signup-section {
       grid-template-columns: unset;
-      gap: 10%;
+      gap: 6vh;
       padding: 5%;
    }
 
    .signup-section p {
-      font-size: 2.8rem;
+      font-size: 3rem;
       line-height: 1.1;
       text-align: left;
    }
@@ -631,6 +657,10 @@ svg * {
       font-size: 0.8rem;
    }
 
+   .proto-links a, .help-links a {
+      font-size: 18px;
+   }
+
    .contact-buttons a {
       padding: 6%;
    }
@@ -638,3 +668,13 @@ svg * {
       padding: 3%;
    }
 }
+@media screen and (width < 376) {
+   .signup-section p {
+      font-size: 2.6rem;
+   }
+   .signup-section {
+      gap: 2%;
+   
+   }
+}
+

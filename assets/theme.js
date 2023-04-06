@@ -1,68 +1,71 @@
 var Shopify = Shopify || {};
-// ---------------------------------------------------------------------------
-// Money format handler
-// ---------------------------------------------------------------------------
 Shopify.money_format = "${{amount}}";
-Shopify.formatMoney = function(cents, format) {
-  if (typeof cents == 'string') { cents = cents.replace('.',''); }
-  var value = '';
-  var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
-  var formatString = (format || this.money_format);
- 
-  function defaultOption(opt, def) {
-     return (typeof opt == 'undefined' ? def : opt);
-  }
- 
-  function formatWithDelimiters(number, precision, thousands, decimal) {
-    precision = defaultOption(precision, 2);
-    thousands = defaultOption(thousands, ',');
-    decimal   = defaultOption(decimal, '.');
- 
-    if (isNaN(number) || number == null) { return 0; }
- 
-    number = (number/100.0).toFixed(precision);
- 
-    var parts   = number.split('.'),
-        dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
-        cents   = parts[1] ? (decimal + parts[1]) : '';
- 
-    return dollars + cents;
-  }
- 
-  switch(formatString.match(placeholderRegex)[1]) {
-    case 'amount':
-      value = formatWithDelimiters(cents, 2);
-      break;
-    case 'amount_no_decimals':
-      value = formatWithDelimiters(cents, 0);
-      break;
-    case 'amount_with_comma_separator':
-      value = formatWithDelimiters(cents, 2, '.', ',');
-      break;
-    case 'amount_no_decimals_with_comma_separator':
-      value = formatWithDelimiters(cents, 0, '.', ',');
-      break;
-  }
- 
-  return formatString.replace(placeholderRegex, value);
+Shopify.formatMoney = function (cents, format) {
+   if (typeof cents == 'string') {
+      cents = cents.replace('.', '');
+   }
+   var value = '';
+   var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+   var formatString = (format || this.money_format);
+
+   function defaultOption(opt, def) {
+      return (typeof opt == 'undefined' ? def : opt);
+   }
+
+   function formatWithDelimiters(number, precision, thousands, decimal) {
+      precision = defaultOption(precision, 2);
+      thousands = defaultOption(thousands, ',');
+      decimal = defaultOption(decimal, '.');
+
+      if (isNaN(number) || number == null) {
+         return 0;
+      }
+
+      number = (number / 100.0).toFixed(precision);
+
+      var parts = number.split('.'),
+         dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
+         cents = parts[1] ? (decimal + parts[1]) : '';
+
+      return dollars + cents;
+   }
+
+   switch (formatString.match(placeholderRegex)[1]) {
+      case 'amount':
+         value = formatWithDelimiters(cents, 2);
+         break;
+      case 'amount_no_decimals':
+         value = formatWithDelimiters(cents, 0);
+         break;
+      case 'amount_with_comma_separator':
+         value = formatWithDelimiters(cents, 2, '.', ',');
+         break;
+      case 'amount_no_decimals_with_comma_separator':
+         value = formatWithDelimiters(cents, 0, '.', ',');
+         break;
+   }
+
+   return formatString.replace(placeholderRegex, value);
 };
 
 var Theme = {
    init: function () {
       var sections = document.querySelectorAll('[data-section-type]');
+      var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
+      var logo = document.querySelector('#DesktopLogo');
+      const counters = document.querySelectorAll('.counter')
+      placeHolderLogo.addEventListener('mouseenter', counterRotate)
+      logo.addEventListener('mouseenter', counterRotate)
+      function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {
-
-         var logo = document.querySelector('#DesktopLogo');
-         var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
          var navHeight = document.querySelector('.MainMenu--Wrapper').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
          let content = document.querySelector('.content');
 
          if (document.body.classList.contains('template-index')) {
             content.addEventListener('scroll', () => {
-               let scrolled = content.scrollTop;
-               if (scrolled > 25) {
+               if (content.scrollTop > 30) {
                   logo.classList.add('endState');
                   placeHolderLogo.classList.remove('hidden');
                } else {
@@ -75,7 +78,6 @@ var Theme = {
          } else {
             window.addEventListener('scroll', () => {
                let scrolled = window.scrollY;
-               // console.log(scrolled)
                if (scrolled > 30) {
                   logo.classList.add('endState');
                   placeHolderLogo.classList.remove('hidden');
@@ -225,7 +227,9 @@ var Theme = {
          }
          var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
          CartDrawer.setAttribute('aria-hidden', false);
-         if(CartDrawer.getAttribute('aria-hidden')) {document.querySelector('.wire.right').className = "wire right front"}
+         if (CartDrawer.getAttribute('aria-hidden')) {
+            document.querySelector('.wire.right').className = "wire right front"
+         }
       },
       open: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -234,7 +238,9 @@ var Theme = {
          }
          var hidden = JSON.parse(CartDrawer.getAttribute('aria-hidden'));
          CartDrawer.setAttribute('aria-hidden', true);
-        if(CartDrawer.getAttribute('aria-hidden')) {document.querySelector('.wire.right').className = "wire right back"}
+         if (CartDrawer.getAttribute('aria-hidden')) {
+            document.querySelector('.wire.right').className = "wire right back"
+         }
       },
       init: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -262,7 +268,7 @@ var Theme = {
       }
 
    },
-   addToCart: function (variantID,amount) {
+   addToCart: function (variantID, amount) {
       let formData = {
          'items': [{
             'id': variantID,
@@ -283,7 +289,7 @@ var Theme = {
             var price = Shopify.formatMoney(data.items_subtotal_price);
             console.log(price)
 
-            
+
             Theme.addedProduct(data);
          })
          .catch((error) => {
@@ -332,7 +338,7 @@ var Theme = {
             if (window.innerWidth > 679) {
                var CartDrawer = document.querySelector('#cartButtonDrawer');
                CartDrawer.querySelector('.CartProducts').innerHTML = html;
-            }else{
+            } else {
                var CartDrawer = document.querySelector('#cartMobileItems');
                CartDrawer.innerHTML = html;
             }
@@ -396,9 +402,9 @@ var Theme = {
                });
 
                var close = popupContainer.querySelector('.CartItem--remove');
-               close.addEventListener('click', function(){
+               close.addEventListener('click', function () {
                   popupContainer.querySelector('[data-variant-popup]').classList.remove('display');
-                  
+
                })
 
                var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
@@ -464,6 +470,7 @@ var Theme = {
                Theme.helpers.qty(event, quantity, false);
             })
          });
+
          function getVariant(section) {
             var selectedOptions = [];
             var variants = JSON.parse(section.querySelector('[data-variant-json]').innerHTML);
@@ -483,7 +490,7 @@ var Theme = {
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
             stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
-         
+
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
@@ -546,38 +553,38 @@ var Theme = {
       }
    },
    helpers: {
-      openDesc: function(){
+      openDesc: function () {
          Theme.helpers.collapseProducts();
          var desk = document.querySelector('.MetaItem.ProductDescription');
-         if (desk){
+         if (desk) {
             desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
             desk.style.height = desk.scrollHeight + 'px';
             document.querySelector('.read').classList.add('hovered')
          }
       },
-      // openShipping: function(){
-      //    Theme.helpers.collapseProducts();
-      //    var desk = document.querySelector('.MetaItem[data-shipping-container]');
-      //    if (desk){
-      //       desk.style.height = desk.scrollHeight + 'px';
-      //    }
-      // },
-      openSizing: function(){
+      openShipping: function () {
+         Theme.helpers.collapseProducts();
+         var desk = document.querySelector('.MetaItem[data-shipping-container]');
+         if (desk) {
+            desk.style.height = desk.scrollHeight + 'px';
+         }
+      },
+      openSizing: function () {
          Theme.helpers.collapseProducts();
          var desk = document.querySelector('.MetaItem[data-sizing-container]');
-         if (desk){
+         if (desk) {
             desk.style.height = desk.scrollHeight + 'px';
             document.querySelector('.size').classList.add('hovered')
          }
       },
-      collapseProducts: function(){
+      collapseProducts: function () {
          var sizing = document.querySelector('.MetaItem[data-sizing-container]');
-         // var shipping = document.querySelector('.MetaItem[data-shipping-container]');
+         var shipping = document.querySelector('.MetaItem[data-shipping-container]');
          var desk = document.querySelector('.MetaItem.ProductDescription');
          document.querySelector('.read').classList.remove('hovered')
          document.querySelector('.size').classList.remove('hovered')
          desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
-         // shipping.style.height = 0;
+         shipping.style.height = 0;
          sizing.style.height = 0;
 
 
@@ -629,7 +636,7 @@ var Theme = {
          }
       }
    },
-   closeAll: function(){
+   closeAll: function () {
       var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
       mobileMenu.style.height = 0 + 'px';
       var filter = document.querySelector('#FilterMobile');
@@ -690,7 +697,7 @@ var Theme = {
       open: function () {
          Theme.closeAll();
          var cart = document.querySelector('#cartMobile');
-         if (JSON.parse(cart.getAttribute('opened'))){
+         if (JSON.parse(cart.getAttribute('opened'))) {
             Theme.mobile_cart.close();
             return
          }
@@ -709,7 +716,7 @@ var Theme = {
 
 
       },
-      init: function(){
+      init: function () {
          var cart = document.querySelector('#cartMobile');
          var qtys = cart.querySelectorAll('.qty--wrapper');
          var removeButtons = cart.querySelectorAll('.CartItem--remove');
@@ -719,7 +726,7 @@ var Theme = {
             })
          });
          removeButtons.forEach((button) => {
-            button.addEventListener('click', function(event){
+            button.addEventListener('click', function (event) {
                Theme.helpers.remove(event, 0, true);
             })
          })

@@ -31,6 +31,7 @@
    width: 100vw;
    height: 135vh;
    transform: translateY(-10%);
+   stroke-width: 1;
 }
 
 .mask-pill {
@@ -86,10 +87,12 @@
 
    .large-pill {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      left: -20%;
-      top: 10%;
+      width: 170vw;
+      height: 160vw;
+      left: 60%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      stroke-width: 2;
    }
 
    .pill-content h1 {

@@ -35,6 +35,7 @@
 }
 
 .marquee h1 {
+   font-size: var(--fontSize);
    margin-left: var(--margin);
    margin-right: var(--margin);
    display: flex;

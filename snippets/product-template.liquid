@@ -18,13 +18,12 @@
       </div>
 
       <div class="MetaItem" data-shipping-container>
-        shipping here
+        <p class="shipping-wrapper">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>
       </div>
 
       <div class="Collapsible">
         <div class="pill-tiny"></div>
-        {% comment %} <div onclick="Theme.helpers.openShipping();" class="Collapsible--label">SHIPPING INFO</div> {% endcomment %}
-        <a class="Collapsible--label" href="/pages/returns">SHIPPING INFO</a>
+        <div onclick="Theme.helpers.openShipping();" class="Collapsible--label">SHIPPING INFO</div>
       </div>
 
       <div class="MetaItem" data-sizing-container>
@@ -216,11 +215,11 @@
     </div>
   </div>
   <div data-sticky class="stickyATC">
-    <span data-variant-price class="ProductPrice hide--phone">{{ product.selected_or_first_available_variant.price | money | remove: '.00' }}
+    <span data-variant-price class="ProductPrice">{{ product.selected_or_first_available_variant.price | money | remove: '.00' }}
     </span>
-    <div class="stickySpacer hide--phone"></div>
+    <div class="pill-tiny vert"></div>
     <span>ADD TO BAG</span>
-    <div class="stickySpacer hide--desktop"></div>
+    {% comment %} <div class="stickySpacer hide--desktop"></div> {% endcomment %}
   </div>
 
 

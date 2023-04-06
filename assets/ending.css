@@ -34,15 +34,11 @@
    transform: translateY(1%);
 }
 .ending-content .module-link { 
-   border-top: solid 1px black;
-   border-bottom: none;
+   border-top: var(--wireframe);
+   border-bottom:  var(--wireframe);
 }
 
 @media screen and (width < 649px) { 
-   
-   /* :root {
-      font-size: 7.5px;
-   } */
 
    .ending-img {
       margin: 0 calc(var(--margin) / 2);
