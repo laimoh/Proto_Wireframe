@@ -4,7 +4,7 @@
 
 <div
   fontSize="{{ section.settings.fontSize }}rem"
-  style="display:grid; height:100vh; grid-template-rows:1fr auto auto; overflow:hidden;"
+  style="display:grid; height: calc(var(--vh, 1vh) * 100); grid-template-rows:1fr auto auto; overflow:hidden;"
   class="impact-content">
   {% if mediaType == 'video' %}
     <div class="cover">

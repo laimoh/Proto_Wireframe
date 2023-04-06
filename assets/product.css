@@ -13,7 +13,7 @@
 
 .ProductMeta--Container{
     top: var(--stickyHeight)!important;
-    height: calc(100vh - var(--stickyHeight));
+    height: calc(calc(var(--vh, 1vh) * 100) - var(--stickyHeight));
     left: var(--margin);
 }
 
@@ -73,6 +73,7 @@
    overflow-y: hidden;
    width: 100%;
    height: 12vh;
+   height: calc(var(--vh, 1vh) * 12);
    padding-top: 5%;
    justify-content: center;
    align-items: center;
@@ -333,7 +334,7 @@ opacity: 1;
     .ProductMedia--Mobile{
         display:block!important;
         min-height: 50vh;
-     
+        min-height: calc(var(--vh, 1vh) * 50);
     }
 
     [data-shipping-container], [data-sizing-container] {
@@ -341,6 +342,7 @@ opacity: 1;
     }
     .sizing-wrapper {
       height: 15vh;
+      height: calc(var(--vh, 1vh) * 15);
       font-size: 1rem;
     }
 

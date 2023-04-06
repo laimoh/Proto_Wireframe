@@ -201,9 +201,11 @@ svg * {
 .template-index .content {
    overflow: scroll;
    height: 100vh;
+   height: calc(var(--vh, 1vh) * 100);
    position: relative;
    top: var(--headerHeight);
    scroll-snap-points-y: repeat(100vh);
+   scroll-snap-points-y: calc(var(--vh, 1vh) * 100);
    scroll-snap-type: y mandatory;
 }
 
@@ -211,6 +213,7 @@ svg * {
 
    min-width: 100vw;
    height: 100vh;
+   height: calc(var(--vh, 1vh) * 100);
    scroll-snap-align: start;
 }
 
@@ -423,6 +426,7 @@ svg * {
 
    width: 100%;
    height: 6vh;
+   height: calc(var(--vh, 1vh) * 6);
    border-top: var(--wireframe);
    border-bottom: var(--wireframe);
    background-color: var(--marshmellow);
@@ -435,12 +439,13 @@ svg * {
 #product-info {
    display: flex;
    flex-direction: column;
-   // max-height: 45vh;
+   /* // max-height: 45vh; */
    border-top: var(--wireframe);
    border-right: var(--wireframe);
    align-self: end;
    position: sticky;
    bottom: 6vh;
+   bottom: calc(var(--vh, 1vh) * 6);
 }
 
 #product-info h1 {
@@ -508,6 +513,7 @@ svg * {
    align-self: start;
    position: sticky;
    top: 8vh;
+   top: calc(var(--vh, 1vh) * 8);
 }
 
 #productSelect {
@@ -612,7 +618,7 @@ svg * {
    }
 
    .template-index main .footer-wrapper {
-      height: calc(100vh - var(--headerHeight) + 4px);
+      height: calc(100% - var(--headerHeight) + 4px);
    }
 
    .footer-wrapper {
@@ -629,6 +635,7 @@ svg * {
    .signup-section {
       grid-template-columns: unset;
       gap: 6vh;
+      gap: calc(var(--vh, 1vh) * 6);
       padding: 5%;
    }
 

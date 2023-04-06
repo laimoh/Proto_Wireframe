@@ -155,12 +155,14 @@
 
 .grow {
    height: 15vh;
+   height: calc(var(--vh, 1vh) * 15);
    transform: scaleY(1);
    opacity: 1;
    transition: all 0.2s ease-in;
 }
 .growLarge {
    height: 24vh;
+   height: calc(var(--vh, 1vh) * 24);
    transform: scaleY(1);
    opacity: 1;
    transition: all 0.2s ease-in;
@@ -418,6 +420,7 @@ padding: 0.2rem 0.3rem;
    flex-direction: column;
    font-family: "Exposure";
    max-height: 10vh;
+   max-height: calc(var(--vh, 1vh) * 10);
    flex-wrap: nowrap;
 }
 
