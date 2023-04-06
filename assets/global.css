@@ -105,14 +105,6 @@ svg * {
    transform: rotate(180deg);
 }
 
-/* .LogoSVG:hover .counter {
-   transform: rotate(180deg);
-} 
-
-.LogoSVGLarge:hover .counter {
-   transform: rotate(180deg);
-} */
-
 .LogoPlaceholder {
    width: 100%;
    height: 100%;
