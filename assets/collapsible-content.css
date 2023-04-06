@@ -13,9 +13,16 @@
 
 .collapsible-container {
    margin: var(--margin);
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   flex-direction: column;
-   justify-content: center;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
 }
 
 .accordion {
@@ -24,20 +31,30 @@ margin-left:var(--margin) ;
 
 .accordion summary {
    padding: 1rem;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   align-items: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   width: -webkit-fit-content;
+   width: -moz-fit-content;
    width: fit-content
 }
 
 details[open] .pill-tiny {
-   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+       -ms-transform: rotate(45deg);
+           transform: rotate(45deg);
  }
 
  .pill-tiny {
    position: relative;
    top: 0;
    left: 0;
-   transform: unset;
+   -webkit-transform: unset;
+       -ms-transform: unset;
+           transform: unset;
    margin-right: calc(var(--margin)/2);
    /* display: inline-grid; */
  }

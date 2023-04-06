@@ -1,11 +1,21 @@
- .form-wrapper * {
-   /* outline: 1px solid gray; */
- }
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
 
 .form-wrapper {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   -webkit-box-pack: justify;
+       -ms-flex-pack: justify;
+           justify-content: space-between;
    border-top: var(--wireframe);
 }
 
@@ -14,13 +24,20 @@
    margin: auto;
 
    width: 30vw;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   flex-direction: column;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: column;
+           flex-direction: column;
 }
 
 .line {
    margin: 2%;
-   flex-grow: 2;
+   -webkit-box-flex: 2;
+       -ms-flex-positive: 2;
+           flex-grow: 2;
 }
 
 .field {
@@ -43,8 +60,12 @@
 }
 
 .submit {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   justify-content: end;
+   -webkit-box-pack: end;
+       -ms-flex-pack: end;
+           justify-content: end;
    margin: 8%;
 }
 
@@ -58,18 +79,50 @@
    position: relative;
    top: 0;
    left: 0;
-   transform: unset;
+   -webkit-transform: unset;
+       -ms-transform: unset;
+           transform: unset;
    margin-right: 0;
   
  }
 
  .submit:hover .pill-tiny {
-   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+       -ms-transform: rotate(45deg);
+           transform: rotate(45deg);
  }
 input, textarea {
    background: none;
    outline: none;
    border: none;
+}
+
+
+input::-webkit-input-placeholder {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: black;
+}
+
+
+input::-moz-placeholder {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: black;
+}
+
+
+input:-ms-input-placeholder {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: black;
+}
+
+
+input::-ms-input-placeholder {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   color: black;
 }
 
 
@@ -86,6 +139,8 @@ input::placeholder {
  font-size: 0.7rem;
  padding: 2rem 1rem;
  text-align: center;
+ display: -webkit-box;
+ display: -ms-flexbox;
  display: flex;
 }
 

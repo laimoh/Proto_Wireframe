@@ -1,5 +1,6 @@
 <style>
 
+
   .page-title {
     padding: 1rem;
     margin-right: var(--margin);
@@ -17,8 +18,14 @@
   }
 
   .featuredGood--Header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
     padding: 10px var(--margin);
@@ -38,6 +45,7 @@
   .featuredGood--Image img {
     height: 100%;
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
   }
   .featuredGoods--Title {
