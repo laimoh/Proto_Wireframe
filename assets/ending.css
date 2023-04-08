@@ -4,10 +4,7 @@
    display: flex;
    width: 100vw;
    height: 100vh;
-   height: calc(var(--vh, 1vh) * 100);
-   -webkit-box-align: end;
-       -ms-flex-align: end;
-           align-items: end;
+   align-items: end;
 }
 
 .ending-grid {
@@ -59,8 +56,6 @@
    }
    .ending-grid {
       height: calc(100vh - var(--headerHeight));
-      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight));
-      
    }
 
    .ending-grid h1 {

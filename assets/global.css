@@ -284,9 +284,6 @@ svg * {
    width: 350px;
    right: -350px;
    height: 100vh;
-   height: calc(var(--vh, 1vh) * 100);
-   -webkit-transition: all 0.2s ease-in;
-   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
    top: 0;
    z-index: 20;
@@ -484,7 +481,6 @@ svg * {
 
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
-   height: calc(calc(var(--vh, 1vh) * 100) - 100%);
 }
 
 #cartButtonDrawer[aria-hidden=false] .Button--action {
@@ -622,7 +618,6 @@ form.search {
 
 #cartMobileItems {
    height: calc(100vh - var(--headerMobile) - var(--headerMargin) - 22px);
-   height: calc(calc(var(--vh, 1vh) * 100) - var(--headerMobile) - var(--headerMargin) - 22px);
    overflow: scroll;
 }
 

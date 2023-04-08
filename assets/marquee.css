@@ -4,8 +4,6 @@
    display: grid;
    width: 100vw;
    height: 100vh;
-   height: calc(var(--vh, 1vh) * 100);
-   -ms-grid-rows: 1fr auto auto;
    grid-template-rows: 1fr auto auto;
    overflow: hidden;
 }
@@ -24,7 +22,6 @@
            transform: translate(-50%,-50%);
    width: 80vw;
    height: 60vh;
-   height: calc(var(--vh, 1vh) * 60);
    background-size: cover;
    border-radius: 300px;
    border: solid black 1px;
@@ -86,7 +83,9 @@
 
 .clipped {
    top: 50%;
+    
     width: 60vw;
+    height: 60vh;
     background-position: bottom;
 }
 

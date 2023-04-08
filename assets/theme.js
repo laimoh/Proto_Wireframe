@@ -50,12 +50,6 @@ Shopify.formatMoney = function (cents, format) {
 
 var Theme = {
    init: function () {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-      window.addEventListener('resize', () => {
-         let vh = window.innerHeight * 0.01;
-         document.documentElement.style.setProperty('--vh', `${vh}px`);
-       });
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {

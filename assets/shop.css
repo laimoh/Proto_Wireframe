@@ -205,9 +205,7 @@
 .grow {
    height: 15vh;
    height: calc(var(--vh, 1vh) * 15);
-   -webkit-transform: scaleY(1);
-       -ms-transform: scaleY(1);
-           transform: scaleY(1);
+   transform: scaleY(1);
    opacity: 1;
    -webkit-transition: all 0.2s ease-in;
    -o-transition: all 0.2s ease-in;
@@ -216,9 +214,7 @@
 .growLarge {
    height: 24vh;
    height: calc(var(--vh, 1vh) * 24);
-   -webkit-transform: scaleY(1);
-       -ms-transform: scaleY(1);
-           transform: scaleY(1);
+   transform: scaleY(1);
    opacity: 1;
    -webkit-transition: all 0.2s ease-in;
    -o-transition: all 0.2s ease-in;
@@ -553,8 +549,7 @@ padding: 0.2rem 0.3rem;
    font-family: "Exposure";
    max-height: 10vh;
    max-height: calc(var(--vh, 1vh) * 10);
-   -ms-flex-wrap: nowrap;
-       flex-wrap: nowrap;
+   flex-wrap: nowrap;
 }
 
 .ColorValues input[type="radio"]:checked+label{

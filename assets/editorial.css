@@ -4,10 +4,7 @@
    display: flex;
    width: 100vw;
    height: 100vh;
-   height: calc(var(--vh, 1vh) * 100);
-   -webkit-box-align: end;
-       -ms-flex-align: end;
-           align-items: end;
+   align-items: end;
 }
 
 .editorial-grid {
@@ -45,7 +42,7 @@
 
 @media screen and (width < 649px) { 
    .editorial-grid {
-      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight));
+      height: calc(100vh - var(--headerHeight));
    }
 
    .editorial-grid h1 {
