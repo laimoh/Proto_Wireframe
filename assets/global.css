@@ -490,7 +490,7 @@ svg * {
 
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
-   height: calc(calc(var(--vh, 1vh) * 100) - 100%);
+   height: calc(calc(var(--vh, 1vh) * 95) - 100%);
 }
 
 #cartButtonDrawer[aria-hidden=false] .Button--action {
@@ -628,7 +628,8 @@ form.search {
 
 #cartMobileItems {
    height: calc(100vh - var(--headerMobile) - var(--headerMargin) - 22px);
-   height: calc(calc(var(--vh, 1vh) * 100) - var(--headerMobile) - var(--headerMargin));
+   height: auto;
+   height: calc(100% - calc(5rem));
    overflow: scroll;
 }
 

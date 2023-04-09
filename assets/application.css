@@ -615,7 +615,7 @@ svg * {
 
    .template-index main .footer-wrapper {
       height: calc(100vh - var(--headerHeight) + 4px);
-      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight) + 4px);
+      height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight) + 4px);
    }
 
    .footer-wrapper {

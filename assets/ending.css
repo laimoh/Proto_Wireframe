@@ -46,7 +46,7 @@
    }
    .ending-grid {
       height: calc(100vh - var(--headerHeight));
-      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight));
+      height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight));
    }
 
    .ending-grid h1 {

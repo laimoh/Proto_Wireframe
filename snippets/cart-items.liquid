@@ -3,21 +3,18 @@
 {% endfor %}
 
 {% if cart.items.size == 0 %}
-  <div class="empty-cart">
-    Your Cart Is Currently Empty
-  </div>
+  <div class="empty-cart">Your Cart Is Currently Empty</div>
 
   <style>
     .empty-cart {
       min-width: 15vw;
       max-width: 28vw;
-      height: 80vh;
-      height: calc(var(--vh, 1vh) * 80);
+      height: 100%;
       margin: auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: "Exposure";
+      font-family: 'Exposure';
       font-size: 1.2rem;
       color: black;
       text-align: center;

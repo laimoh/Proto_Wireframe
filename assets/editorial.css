@@ -60,7 +60,7 @@
 @media screen and (width < 649px) { 
    .editorial-grid {
       height: calc(100vh - var(--headerHeight));
-      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight));
+      height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight));
    }
 
    .editorial-grid h1 {

@@ -649,6 +649,8 @@ var Theme = {
       var cart = document.querySelector('#cartMobile');
       document.querySelector('#cartMobile').style.height = '0';
       cart.setAttribute('opened', false);
+      var search = document.querySelector('#mobileSearch');
+      search.classList.remove('visible');
    },
    mobile_menu: {
       open: function () {
@@ -696,6 +698,10 @@ var Theme = {
             console.log(value, form);
             form.submit();
          }
+      },
+      toggle(){
+         var search = document.querySelector('#mobileSearch');
+         search.classList.toggle('visible');
       }
    },
    mobile_cart: {
@@ -706,7 +712,9 @@ var Theme = {
             Theme.mobile_cart.close();
             return
          }
-         document.querySelector('#cartMobile').style.height = 'auto';
+
+         var contentHeights = document.querySelector('.MainMenu.Fixed').scrollHeight;
+         document.querySelector('#cartMobile').style.height =  'calc(100vh - '+contentHeights+'px)';
          var cartHeight = cart.scrollHeight;
          var headerHeight = document.querySelector('.MainMenu.Fixed').scrollHeight;
          let root = document.documentElement;
