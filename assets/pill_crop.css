@@ -1,6 +1,7 @@
 .pill-content {
    display: grid;
    height: 100vh;
+   height: calc(var(--vh, 1vh) * 100);
    grid-template-rows: 1fr auto;
    overflow: hidden;
 }
@@ -15,6 +16,7 @@
    position: relative;
    width: 100vw;
    height: 125vh;
+   height: calc(var(--vh, 1vh) * 125);
    z-index: -1;
 }
 
@@ -30,6 +32,7 @@
    position: absolute;
    width: 100vw;
    height: 135vh;
+   height: calc(var(--vh, 1vh) * 135);
    transform: translateY(-10%);
    stroke-width: 1;
 }
@@ -79,6 +82,7 @@
 
    .pill-wrapper {
       height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
    }
 
    .cover-crop {

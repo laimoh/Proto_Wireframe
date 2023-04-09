@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*Templfixes Laiqa*/
 body {
    overflow-x: hidden;
@@ -8,6 +15,8 @@ body {
 }
 
 .MainMenu--Wrapper {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
    width: 100%;
    margin-top: var(--headerMargin);
@@ -15,6 +24,8 @@ body {
    border-top: solid 1px;
    border-bottom: solid 1px;
    color: var(--colorHTML);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
@@ -23,6 +34,8 @@ body {
    text-transform: uppercase;
    font-size: 0.8rem;
    color: var(--colorHTML);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
@@ -36,6 +49,8 @@ main:not(.template-index main) {
    right: 0;
    top: 0;
    z-index: 3;
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
@@ -52,9 +67,15 @@ main:not(.template-index main) {
 .MainMenu.Fixed .MainMenu--center {
    position: relative;
    text-align: center;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   align-items: center;
-   justify-content: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
 
 }
 
@@ -70,7 +91,8 @@ main:not(.template-index main) {
 
 
 .MainMenu--center {
-   flex-basis: 17%;
+   -ms-flex-preferred-size: 17%;
+       flex-basis: 17%;
    max-width: 17%;
    text-align: center;
    padding: 0px 2px;
@@ -80,6 +102,8 @@ main:not(.template-index main) {
 #DesktopLogo,
 #DesktopLogoPlaceholder {
    /* position: relative; */
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
    fill: var(--colorSVG);
 }
@@ -87,6 +111,8 @@ main:not(.template-index main) {
 .Logo,
 .LogoSVG {
    fill: var(--colorSVG);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
@@ -94,15 +120,22 @@ svg * {
    transform-box: fill-box;
 }
 
-
 .counter {
-   transform: rotate(0deg);
-   transform-origin: center;
+   -webkit-transform: rotate(0deg);
+       -ms-transform: rotate(0deg);
+           transform: rotate(0deg);
+   -webkit-transform-origin: center;
+       -ms-transform-origin: center;
+           transform-origin: center;
+   -webkit-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
    transition: all 0.5s ease;
 }
 
 .rotatelogo {
-   transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
+       -ms-transform: rotate(180deg);
+           transform: rotate(180deg);
 }
 .LogoPlaceholder {
    width: 100%;
@@ -127,23 +160,36 @@ svg * {
 }
 
 .MainMenu--leftItem {
-   box-shadow: 1px 1px 0px, 0px -1px 0px;
+   -webkit-box-shadow: 1px 1px 0px, 0px -1px 0px var(--colorHTML);
+           box-shadow: 1px 1px 0px, 0px -1px 0px var(--colorHTML);
    color: var(--colorHTML);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
 .MainMenu--rightItem {
-   box-shadow: -1px 1px 0px, -1px -1px 0px;
+   -webkit-box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML);
+           box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML);
    color: var(--colorHTML);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
 .MainMenu--left,
 .MainMenu--right {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   flex-basis: 41.5%;
-   flex-grow: 1;
-   align-items: center;
+   -ms-flex-preferred-size: 41.5%;
+       flex-basis: 41.5%;
+   -webkit-box-flex: 1;
+       -ms-flex-positive: 1;
+           flex-grow: 1;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
 
    border-left: none;
    border-right: none;
@@ -152,22 +198,38 @@ svg * {
 }
 
 .MainMenu--leftItem {
-   flex-grow: 1;
+   -webkit-box-flex: 1;
+       -ms-flex-positive: 1;
+           flex-grow: 1;
    text-align: center;
    height: 100%;
    vertical-align: center;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   align-items: center;
-   justify-content: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
 }
 
 .MainMenu--rightItem {
-   flex-grow: 1;
+   -webkit-box-flex: 1;
+       -ms-flex-positive: 1;
+           flex-grow: 1;
    text-align: center;
    height: 100%;
-   align-items: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   justify-content: center;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
    position: relative;
 
 }
@@ -188,6 +250,8 @@ svg * {
 .search button {
    font-size: 1rem;
    color: var(--colorHTML);
+   -webkit-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
 
@@ -226,6 +290,9 @@ svg * {
    width: 350px;
    right: -350px;
    height: 100vh;
+   height: calc(var(--vh, 1vh) * 100);
+   -webkit-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
    top: 0;
    z-index: 20;
@@ -247,7 +314,9 @@ svg * {
 .CartItem {
    border-top: 1px solid black;
    /* border-bottom: 1px solid black; */
+   display: -ms-grid;
    display: grid;
+   -ms-grid-rows: auto 1fr auto;
    grid-template-rows: auto 1fr auto;
    width: 22vw;
    height: 22vw;
@@ -267,9 +336,15 @@ svg * {
 
 .CartItem--Header,
 .CartItem--footer {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   align-items: center;
-   justify-content: space-between;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   -webkit-box-pack: justify;
+       -ms-flex-pack: justify;
+           justify-content: space-between;
    padding: 2.5% 5%;
    font-family: "Pressura";
    text-transform: uppercase;
@@ -345,17 +420,23 @@ svg * {
 [data-ajax-popup] {
    position: absolute;
    bottom: 0;
-   transform: translateY(calc(-100% + 0px));
+   -webkit-transform: translateY(calc(-100% + 0px));
+       -ms-transform: translateY(calc(-100% + 0px));
+           transform: translateY(calc(-100% + 0px));
    background: var(--marshmellow);
    width: 100%;
    border-top: none;
    overflow: hidden;
+   -webkit-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
    pointer-events: none;
 }
 
 [data-ajax-popup].visible {
-   transform: translateY(calc(100% + 1px));
+   -webkit-transform: translateY(calc(100% + 1px));
+       -ms-transform: translateY(calc(100% + 1px));
+           transform: translateY(calc(100% + 1px));
    border: 1px solid black;
    border-top: none;
    margin-right: var(--margin);
@@ -367,8 +448,12 @@ svg * {
 .card--footer {
    text-transform: uppercase;
    width: 100%;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   justify-content: space-between;
+   -webkit-box-pack: justify;
+       -ms-flex-pack: justify;
+           justify-content: space-between;
 }
 
 
@@ -382,7 +467,8 @@ svg * {
 
    width: 100%;
    height: 100%;
-   object-fit: cover;
+   -o-object-fit: cover;
+      object-fit: cover;
 }
 
 #cartButtonDrawer {
@@ -393,6 +479,8 @@ svg * {
    background: var(--marshmellow);
    border-top: none;
    overflow: hidden;
+   -webkit-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
    border-left: var(--wireframe);
    border-top: var(--wireframe);
@@ -402,6 +490,7 @@ svg * {
 
 #cartButtonDrawer[aria-hidden=true] {
    height: calc(100vh - 100%);
+   height: calc(calc(var(--vh, 1vh) * 100) - 100%);
 }
 
 #cartButtonDrawer[aria-hidden=false] .Button--action {
@@ -434,8 +523,12 @@ svg * {
 
 .Subtotal--price {
    font-size: 1.1rem;
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;
-   align-items: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
    font-family: "Exposure";
    text-transform: none;
    padding: var(--margin);
@@ -459,8 +552,30 @@ svg * {
    line-height: 1;
    opacity: 0;
    visibility: hidden;
+   -webkit-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
 
+}
+
+input::-webkit-input-placeholder {
+
+   color: var(--colorHTML);
+}
+
+input::-moz-placeholder {
+
+   color: var(--colorHTML);
+}
+
+input:-ms-input-placeholder {
+
+   color: var(--colorHTML);
+}
+
+input::-ms-input-placeholder {
+
+   color: var(--colorHTML);
 }
 
 input::placeholder {
@@ -500,6 +615,8 @@ form.search {
    border-top: var(--wireframe);
    height: 0;
    overflow: hidden;
+   -webkit-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
    transition: all 0.2s ease-in;
    background: var(--marshmellow);
    margin: 0 calc(var(--margin) / 2);
@@ -511,6 +628,7 @@ form.search {
 
 #cartMobileItems {
    height: calc(100vh - var(--headerMobile) - var(--headerMargin) - 22px);
+   height: calc(calc(var(--vh, 1vh) * 100) - var(--headerMobile) - var(--headerMargin));
    overflow: scroll;
 }
 
@@ -519,7 +637,6 @@ form.search {
 }
 
 #cartMobileItems .checkOutButton {
-   
    padding: 10px;
    text-align: center;
    color: black;
@@ -544,8 +661,12 @@ form.search {
    }
 
    .MainMenu--mobile {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
       display: flex !important;
       border-top: 1px solid var(--colorHTML);
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
       padding: 0 calc(var(--margin) / 2)
    }
@@ -555,6 +676,8 @@ form.search {
       height: 10vw;
       padding: 2%;
       stroke: var(--colorHTML);
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
    }
 
@@ -565,10 +688,17 @@ form.search {
 
    .MobileMenu--Items {
       position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
       height: 0;
       overflow: hidden;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
    }
 
@@ -576,6 +706,8 @@ form.search {
    #FilterMobile {
       height: 0px;
       overflow: hidden;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
    }
 
@@ -586,17 +718,27 @@ form.search {
       line-height: 100%;
       vertical-align: text-bottom;
       display: none !important;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
       height: 100%;
    }
 
    .template-product .Menu--middle .Button.BackToCollection {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
       display: flex !important;
    }
 
    .template-collection .Menu--middle .Button.FilterButton {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
       display: flex !important;
    }
 
@@ -631,8 +773,13 @@ form.search {
    .MobileMenu--Content {
       margin: 0 calc(var(--margin) / 2);
       background: var(--marshmellow);
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
       padding: 10%;
    }
 
@@ -663,11 +810,16 @@ form.search {
    }
 
    .MainMenu--mobile .Menu--middle {
-      flex-grow: 1;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
    }
 
    .MainMenu--Wrapper {
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
    }
 
    #DesktopLogo {
@@ -677,7 +829,8 @@ form.search {
    }
 
    .stacked {
-      flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
       border: none;
       border-bottom: 1px solid black;
    }
@@ -704,7 +857,8 @@ form.search {
    }
 
    .MainMenu--center {
-      flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
       max-width: unset;
       border: none;
       padding: 0 calc(var(--margin) / 2)

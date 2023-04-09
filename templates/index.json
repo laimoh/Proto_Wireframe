@@ -7,7 +7,7 @@
         "media_select": "video",
         "cover-img": "shopify:\/\/shop_images\/image_3.png",
         "video": "shopify:\/\/files\/videos\/vinyl-57307.mp4",
-        "fontSize": 6.5,
+        "fontSize": 4.1,
         "word1": "Practice  is",
         "expo-word1": 100,
         "word2": "",
@@ -31,14 +31,17 @@
         "expo-word1": 19,
         "vertical_alignment-word1": "top",
         "horizontal_alignment-word1": "left",
+        "textAlign1": "center",
         "pill-word2": "",
         "expo-word2": 0,
         "vertical_alignment-word2": "middle",
         "horizontal_alignment-word2": "left",
+        "textAlign2": "center",
         "pill-word3": "is Perfect",
         "expo-word3": 100,
         "vertical_alignment-word3": "bottom",
-        "horizontal_alignment-word3": "right"
+        "horizontal_alignment-word3": "right",
+        "textAlign3": "center"
       }
     },
     "8229b6a6-447d-47f7-a591-dee57561e504": {
