@@ -14,7 +14,7 @@
 
 .pill-wrapper {
    position: relative;
-   width: 100vw;
+   width: 100vw; max-width: 100vw;
    height: 125vh;
    height: calc(var(--vh, 1vh) * 125);
    z-index: -1;
@@ -30,7 +30,7 @@
 
 .large-pill {
    position: absolute;
-   width: 100vw;
+   width: 100vw; max-width: 100vw;
    height: 135vh;
    height: calc(var(--vh, 1vh) * 135);
    transform: translateY(-10%);

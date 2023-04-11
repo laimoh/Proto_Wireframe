@@ -1,9 +1,10 @@
 
 .editorial-content {
    display: flex;
-   width: 100vw;
+   width: 100vw; max-width: 100vw;
    height: 100vh;
    height: calc(var(--vh, 1vh) * 100);
+   min-height: -webkit-fill-available;
    align-items: end;
 }
 
@@ -62,6 +63,7 @@
    .editorial-grid {
       height: calc(100vh - var(--headerHeight));
       height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight));
+      min-height: -webkit-fill-available;
    }
 
    .editorial-grid h1 {

@@ -852,7 +852,7 @@ form.search {
    }
 
    .MainMenu--Wrapper {
-      width: 100vw;
+      width: 100vw; max-width: 100vw;
       overflow: hidden;
    }
 
