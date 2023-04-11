@@ -682,6 +682,10 @@ form.search {
       transition: all 0.3s ease;
    }
 
+   .Icon--Menu.searchmobile {
+      display: none;
+   }
+
    .Icon--Menu img {
       width: 100%;
       padding: 10px;

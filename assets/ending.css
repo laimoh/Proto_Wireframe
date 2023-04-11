@@ -23,6 +23,7 @@
 }
 
 .ending-grid h1 {
+   font-weight: normal;
    width: 100%;
    font-family: "Exposure";
    justify-self: stretch;

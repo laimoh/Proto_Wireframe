@@ -24,12 +24,13 @@
 .editorial-grid h1 {
    width: 100%;
    font-family: "Pressura";
+   font-weight: normal;
    text-transform: uppercase;
    padding: 1%;
    justify-self: stretch;
    text-align: center;
    font-size: var(--fontSize);
-
+   font-weight: normal;
    border-bottom: solid 1px black;
 }
 

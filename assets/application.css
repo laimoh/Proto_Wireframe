@@ -362,6 +362,7 @@ svg * {
 
 .error-content p,
 .error-content h1 {
+   font-weight: normal;
    font-family: "Exposure";
    white-space: nowrap;
 }
@@ -446,6 +447,7 @@ svg * {
 }
 
 #product-info h1 {
+   font-weight: normal;
    font-size: var(--section-title-size);
 }
 
@@ -536,12 +538,14 @@ svg * {
 
 .page-title {
    padding: 2rem;
+   font-weight: normal;
    margin-left: var(--margin);
    font-size: 1.6rem;
    font-family: "Exposure";
 }
 
 .page-content {
+   font-weight: normal;
    padding: 2rem;
    margin-left: var(--margin);
    font-family: "Walsheim";
@@ -549,6 +553,7 @@ svg * {
 }
 
 .page-content h1 {
+   font-weight: normal;
    font-family: "Pressura";
    font-size: 0.8rem;
 }
@@ -637,7 +642,7 @@ svg * {
    }
 
    .signup-section p {
-      font-size: 3rem;
+      font-size: 2.5rem;
       line-height: 1.1;
       text-align: left;
    }
@@ -662,7 +667,7 @@ svg * {
    }
 
    .proto-links a, .help-links a {
-      font-size: 18px;
+      font-size: 0.8rem;
    }
 
    .contact-buttons a {
@@ -674,7 +679,7 @@ svg * {
 }
 @media screen and (width < 376) {
    .signup-section p {
-      font-size: 2.6rem;
+      font-size: 2rem;
    }
    .signup-section {
       gap: 2%;

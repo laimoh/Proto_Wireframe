@@ -52,6 +52,8 @@
    font-family: "Pressura";
    text-transform: uppercase;
    cursor: pointer;
+   color: black;
+font-weight: normal;
 }
 
 .form-wrapper .pill-tiny {

@@ -43,6 +43,7 @@
 
 .pill-content h1 {
    font-family: "Exposure";
+   font-weight: normal;
    font-size: var(--fontSize);
    justify-self: center;
    display: grid;

@@ -6,6 +6,7 @@
 }
 
 .collapsible-wrapper h1 {
+   font-weight: normal;
    padding: 2rem;
    margin-left: var(--margin);
    font-size: 1.6rem;
