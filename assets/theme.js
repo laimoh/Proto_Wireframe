@@ -648,10 +648,9 @@ var Theme = {
          mobileMenu.style.height = mobileMenu.scrollHeight + 'px';
       },
       close: function () {
-         var mobileMenu = document.querySelector('#cartMobile');
+         var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
          console.log(mobileMenu);
          mobileMenu.style.height = 0 + 'px';
-         console.log('hi');
       }
    },
    filter: {
