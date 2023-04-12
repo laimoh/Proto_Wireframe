@@ -18,7 +18,7 @@
    border-top: var(--wireframe);
    position: sticky;
    width: 100vw; max-width: 100vw;
-   top: calc(var(--navHeight) + var(--headerMargin));
+   top: var(--navHeight);
    z-index: 2;
    background-color: var(--marshmellow);
    height: auto;

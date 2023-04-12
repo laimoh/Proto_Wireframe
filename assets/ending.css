@@ -1,17 +1,16 @@
 
 .ending-content {
-   display: flex;
-   width: 100vw; max-width: 100vw;
-   height: 100vh;
-   height: calc(var(--vh, 1vh) * 100);
-   align-items: end;
+   position: relative;
+  height: 100%;
 }
 
 .ending-grid {
-   height: 90%;
+   position: absolute;
+   top: var(--navHeight);
+   width: 100vw;
+   height: calc(calc(var(--vh, 1vh) * 100) - var(--navHeight));
    display: grid;
    grid-template-rows: 1fr auto;
-   width: 100%;
 }
 
 .ending-img {
@@ -46,12 +45,12 @@
       margin: 0 calc(var(--margin) / 2);
    }
    .ending-grid {
-      height: calc(100vh - var(--headerHeight));
-      height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight));
+      top: var(--headerHeight);  
+      height: calc(calc(var(--vh, 1vh) * 100) - var(--headerHeight));
    }
 
    .ending-grid h1 {
-      font-size: calc(var(--fontSize) - 4.5rem);
+      font-size: 3.7rem;
       width: auto;
       white-space: break-spaces;
       line-height: 1;

@@ -58,13 +58,10 @@ var Theme = {
          var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
          var logo = document.querySelector('#DesktopLogo');
          const counters = document.querySelectorAll('.counter');
-         document.querySelectorAll('.LogoSVG').forEach(e=>{
-            e.addEventListener('mouseenter', counterRotate);
-            e.addEventListener('mouseleave', counterRotate);
-         })
+         placeHolderLogo.addEventListener('mouseenter', counterRotate);
+         placeHolderLogo.addEventListener('mouseleave', counterRotate);
          function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
-   
-         var navHeight = document.querySelector('.MainMenu--Wrapper').offsetHeight
+         var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
          let content = document.querySelector('.content');
 
@@ -93,7 +90,6 @@ var Theme = {
             }, {
                passive: true
             })
-
          }
       } else if (isProduct) {
          document.querySelector('main').style.paddingTop = navHeight + 'px'
@@ -114,7 +110,7 @@ var Theme = {
                } else if (entry.target.classList.contains('pill_crop-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
+                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('marquee-module')) {
                   root.style.setProperty('--colorSVG', 'var(--black)');
                   root.style.setProperty('--colorHTML', 'var(--black)');

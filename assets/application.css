@@ -207,7 +207,7 @@ svg * {
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-points-y: repeat(calc(var(--vh, 1vh) * 100));
    scroll-snap-type: y mandatory;
-   min-height: -webkit-fill-available;
+   /* min-height: -webkit-fill-available; */
 }
 
 .template-index main section {
@@ -216,7 +216,7 @@ svg * {
    height: 100vh;
    height: calc(var(--vh, 1vh) * 100);
    scroll-snap-align: start;
-   min-height: -webkit-fill-available;
+   /* min-height: -webkit-fill-available; */
 }
 
 .template-index main .footer-wrapper {
@@ -621,8 +621,10 @@ svg * {
    }
 
    .template-index main .footer-wrapper {
-      height: calc(100vh - var(--headerHeight) + 4px);
-      height: calc(calc(var(--vh, 1vh) * 95) - var(--headerHeight) + 4px);
+      height: calc(var(--vh, 1vh) * 100);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
    }
 
    .footer-wrapper {
@@ -632,15 +634,15 @@ svg * {
    .footer-topbar {
       margin: 0 calc(var(--margin)/2);
       grid-template-columns: unset;
-      grid-template-rows: 0.5fr 0.5fr;
-      justify-content: center;
+      grid-template-rows: 190px;
+      align-items: end;
    }
 
    .signup-section {
       grid-template-columns: unset;
-      gap: 6vh;
-      gap: calc(var(--vh, 1vh) * 6);
-      padding: 5%;
+      gap: 3vh;
+      gap: calc(var(--vh, 1vh) * 3);
+      padding: 0%;
    }
 
    .signup-section p {
@@ -650,7 +652,7 @@ svg * {
    }
 
    .left-section {
-      padding: 5% 0;
+      padding: 5%;
       border-right: 0;
    }
 
@@ -660,7 +662,7 @@ svg * {
 
    .sitemap {
       width: 100%;
-      padding: 5% 10% 5% 11%;
+      padding: 2% 10% 0% 11%;
       border-top: var(--wireframethick);
    }
 
