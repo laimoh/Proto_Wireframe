@@ -587,8 +587,6 @@ var Theme = {
          desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
          shipping.style.height = 0;
          sizing.style.height = 0;
-
-
       },
       convertRemToPixels: function (rem) {
          return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -619,16 +617,11 @@ var Theme = {
                return;
             }
          }
-
          if (ajaxCart) {
             var key = e.target.closest('[data-item]').getAttribute('data-item');
             var newAmount = newValue;
             Theme.changeCart(key, newAmount);
          }
-
-
-
-
       },
       remove: function (e, wrapper, ajaxCart) {
          if (ajaxCart) {

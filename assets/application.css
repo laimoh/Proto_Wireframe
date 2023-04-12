@@ -196,7 +196,7 @@ svg * {
 }
 
 .template-index {
-   overflow: hidden;
+   scroll-snap-type: y mandatory;
 }
 
 .template-index .content {
@@ -207,16 +207,13 @@ svg * {
    scroll-snap-points-y: repeat(100vh);
    scroll-snap-points-y: repeat(calc(var(--vh, 1vh) * 100));
    scroll-snap-type: y mandatory;
-   /* min-height: -webkit-fill-available; */
 }
 
 .template-index main section {
-
    min-width: 100vw; max-width: 100vw;
    height: 100vh;
    height: calc(var(--vh, 1vh) * 100);
    scroll-snap-align: start;
-   /* min-height: -webkit-fill-available; */
 }
 
 .template-index main .footer-wrapper {
