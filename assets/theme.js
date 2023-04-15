@@ -53,9 +53,12 @@ var Theme = {
    let vh = window.innerHeight * 0.01;
    document.documentElement.style.setProperty('--vh', `${vh}px`);
    document.documentElement.style.setProperty('--navHeight', `${document.querySelector('.MainMenu.Fixed').offsetHeight - 1}px`);
-   
-   let logoheight = document.querySelector('#DesktopLogo').offsetHeight;
-   document.documentElement.style.setProperty('--logoheight', `${logoheight}px`);
+
+   let logoheight = document.querySelector('#LogoContainerParent').offsetHeight;
+   console.log(document.querySelector('#LogoContainerParent'));
+      let logoContainerWidth = document.querySelector('#LogoContainerParent').offsetWidth;
+   console.log(logoContainerWidth/4.46829268293);
+   document.documentElement.style.setProperty('--logoheight', `${logoContainerWidth/4.46829268293}px`);
    // var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
    // document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
       var sections = document.querySelectorAll('[data-section-type]');
