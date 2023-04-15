@@ -59,14 +59,10 @@ var Theme = {
       let logoContainerWidth = document.querySelector('#LogoContainerParent').offsetWidth;
    console.log(logoContainerWidth/4.46829268293);
    document.documentElement.style.setProperty('--logoheight', `${logoContainerWidth/4.46829268293}px`);
-   // var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
-   // document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {
          var logo = document.querySelector('#DesktopLogo');
-         // const counters = document.querySelectorAll('.counter');
-         // // function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
          var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
          let content = document.querySelector('.content');
