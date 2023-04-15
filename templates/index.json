@@ -4,9 +4,10 @@
       "type": "module-impact",
       "settings": {
         "enable_button": true,
+        "use_slogan": true,
         "media_select": "video",
         "cover-img": "shopify:\/\/shop_images\/image_3.png",
-        "video": "shopify:\/\/files\/videos\/vinyl-57307.mp4",
+        "video": "shopify:\/\/files\/videos\/Proto-V2.mp4",
         "fontSize": 4.1,
         "word1": "Practice  is",
         "expo-word1": 100,
@@ -15,68 +16,27 @@
         "word3": "Perfect",
         "expo-word3": 100,
         "title_alignment": "centered",
-        "btn_title": "READ ABOUT PROTO",
-        "btn_url": "shopify:\/\/pages\/sizing-chart"
-      }
-    },
-    "pill_crop": {
-      "type": "module-pill_crop",
-      "settings": {
-        "enable_button": true,
-        "cover-img": "shopify:\/\/shop_images\/image_6.png",
-        "fontSize": 8.4,
-        "btn_title": "SEE APPAREL",
-        "btn_url": "shopify:\/\/collections",
-        "pill-word1": "Practice",
-        "expo-word1": 19,
-        "vertical_alignment-word1": "top",
-        "horizontal_alignment-word1": "left",
-        "textAlign1": "center",
-        "pill-word2": "",
-        "expo-word2": 0,
-        "vertical_alignment-word2": "middle",
-        "horizontal_alignment-word2": "left",
-        "textAlign2": "center",
-        "pill-word3": "is Perfect",
-        "expo-word3": 100,
-        "vertical_alignment-word3": "bottom",
-        "horizontal_alignment-word3": "right",
-        "textAlign3": "center"
+        "btn_title": "READ OUR FULL STORY",
+        "btn_url": "shopify:\/\/pages\/about"
       }
     },
     "8229b6a6-447d-47f7-a591-dee57561e504": {
       "type": "module-impact",
       "settings": {
         "enable_button": true,
+        "use_slogan": false,
         "media_select": "image",
-        "cover-img": "shopify:\/\/shop_images\/Frame301.png",
+        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Hero-min_1.jpg",
         "fontSize": 4,
-        "word1": "Drop",
+        "word1": "Type",
         "expo-word1": 0,
         "word2": "#1",
         "expo-word2": 0,
         "word3": "",
         "expo-word3": 100,
         "title_alignment": "leftBottom",
-        "btn_title": "SEE PROCESS",
-        "btn_url": "shopify:\/\/collections"
-      }
-    },
-    "marquee": {
-      "type": "module-marquee",
-      "settings": {
-        "enable_button": true,
-        "bg_color": "#7d7c99",
-        "cover-img": "shopify:\/\/shop_images\/image_10.png",
-        "fontSize": 8,
-        "marquee-word1": "Outdoors",
-        "expo-word1": 100,
-        "marquee-word2": "Everywhere",
-        "expo-word2": 0,
-        "marquee-word3": "Proto",
-        "expo-word3": 100,
-        "btn_title": "Shop now",
-        "btn_url": "shopify:\/\/products\/231-ipsum"
+        "btn_title": "SHOP NOW",
+        "btn_url": "shopify:\/\/collections\/shoes"
       }
     },
     "editorial": {
@@ -84,11 +44,11 @@
       "settings": {
         "enable_button": true,
         "background": "#937d6a",
-        "blog_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "blog_info": "The path is clear for an innovative future to unfold.",
         "fontSize": 0.8,
-        "cover-img": "shopify:\/\/shop_images\/MATRIX_SKETCH_DESIGN_101122_4.png",
-        "btn_title": "READ ABOUT THE PROCESS",
-        "btn_url": "https:\/\/www.w3.org\/Provider\/Style\/dummy.html"
+        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Alt2-min_1.jpg",
+        "btn_title": "Learn More",
+        "btn_url": "shopify:\/\/pages\/faq"
       }
     },
     "ending": {
@@ -96,19 +56,17 @@
       "settings": {
         "enable_button": true,
         "background": "#efe5dc",
-        "cover-img": "shopify:\/\/shop_images\/Group_78.png",
+        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Alt1-min_1.jpg",
         "title": "Join The Community",
-        "fontSize": 8,
-        "btn_title": "Shop now",
-        "btn_url": ""
+        "fontSize": 10,
+        "btn_title": "Follow Us",
+        "btn_url": "https:\/\/www.instagram.com\/protocollective\/?igshid=YmMyMTA2M2Y%3D"
       }
     }
   },
   "order": [
     "impact",
-    "pill_crop",
     "8229b6a6-447d-47f7-a591-dee57561e504",
-    "marquee",
     "editorial",
     "ending"
   ]

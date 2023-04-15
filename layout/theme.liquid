@@ -8,7 +8,6 @@
     <meta name="description" content="{{ page_description | escape }}">
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0">
-    <meta name="viewport" content="width=device-width, minimal-ui">
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
@@ -22,8 +21,7 @@
     <script
       async
       type="text/javascript"
-      src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SBNcmD"
-    ></script>
+      src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SBNcmD"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{ 'application.js' | asset_url }}" defer></script>
   </head>

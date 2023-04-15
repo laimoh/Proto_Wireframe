@@ -119,18 +119,6 @@ img {
    left: var(--margin);
 }
 
-.border_left {
-   border-left: var(--wireframethick);
-}
-
-.border_right {
-   border-right: var(--wireframethick);
-}
-
-.border_bottom {
-   border-bottom: var(--wireframethick);
-}
-
 .pill-tiny {
    position: absolute;
    top: 50%;
@@ -152,7 +140,7 @@ img {
 }
 
 .module-link a {
-   margin-left: calc(2*var(--margin));
+   margin-left: calc(2.5*var(--margin));
    text-transform: uppercase;
    padding: calc(var(--margin));
    font-family: "Pressura";
@@ -162,10 +150,8 @@ img {
 }
 
 .module-link .pill-tiny {
-   margin-left: calc(var(--margin));
-   left: 10px;
+   margin-left: calc(2*var(--margin));
 }
-
 .pill-tiny:has(+ a:hover) {
    cursor: pointer;
    transform: translate(-0%, -50%) rotate(45deg);
@@ -196,7 +182,8 @@ svg * {
 }
 
 .template-index {
-   scroll-snap-type: y mandatory;
+   /* scroll-snap-type: y mandatory; */
+   overflow: hidden;
 }
 
 .template-index .content {
@@ -555,6 +542,11 @@ svg * {
    font-weight: normal;
    font-family: "Pressura";
    font-size: 0.8rem;
+}
+.page-title h2 {
+   font-family: "Walsheim";
+   font-size: 1.2rem;
+   font-weight: normal;
 }
 
 /* intersection observer */

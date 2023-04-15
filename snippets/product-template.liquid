@@ -1,6 +1,6 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 
-<div data-section-type="Product" class="SectionContainer ProductContainer">
+  <div data-section-type="Product" class="SectionContainer ProductContainer">
   <div data-meta class="ProductMeta--Container">
     <div class="ProductMeta">
       <div class="ProductTitle">
@@ -15,17 +15,20 @@
         <div
           onclick="Theme.helpers.openDesc();"
           data-readmore-desc
-          class="Collapsible--label"
-        >
+          class="Collapsible--label">
           Read More
         </div>
       </div>
 
       <div class="MetaItem" data-shipping-container>
         <p class="shipping-wrapper">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate
+          Live in the States? We’ll send your shoes for free through standard ground shipping. 
+          Want it faster? We don’t blame you. Choose to expedite your order at checkout. 
+                                                                                         
+                                                                                         International? We’ll send your order through local couriers and cover all duties and customs. 
+                                                                                         
+                                                                                         More questions? Visit our Deliveries + Returns page.
+
         </p>
       </div>
 
@@ -35,66 +38,7 @@
       </div>
 
       <div class="MetaItem" data-sizing-container>
-        <div class="sizing-wrapper">
-          <div class="size-grid">
-            <span class="size-label">EU</span>
-            <span>37</span>
-            <span>38</span>
-            <span>39</span>
-            <span>40</span>
-            <span>41</span>
-            <span>42</span>
-            <span>43</span>
-            <span>44</span>
-            <span>45</span>
-            <span>46</span>
-            <span>47</span>
-            <span>48</span>
-            <span>49</span>
-            <span class="size-label">US MEN</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-            <span>13</span>
-            <span>14</span>
-            <span>15</span>
-            <span>16</span>
-            <span class="size-label">US WOMEN</span>
-            <span>5.5</span>
-            <span>6.5</span>
-            <span>7.5</span>
-            <span>8.5</span>
-            <span>9.5</span>
-            <span>10.5</span>
-            <span>11.5</span>
-            <span>12.5</span>
-            <span>13.5</span>
-            <span>14.5</span>
-            <span>15.5</span>
-            <span>16.5</span>
-            <span>17.5</span>
-            <span class="size-label">CM</span>
-            <span>23.5</span>
-            <span>24</span>
-            <span>25</span>
-            <span>26</span>
-            <span>27</span>
-            <span>27.5</span>
-            <span>28.5</span>
-            <span>29.5</span>
-            <span>30.5</span>
-            <span>31</span>
-            <span>32</span>
-            <span>33</span>
-            <span>33.5</span>
-          </div>
-        </div>
+        {% render 'sizing-chart' %}
       </div>
 
       <div class="Collapsible">
@@ -102,8 +46,7 @@
         <div
           data-readmore-sizing
           onclick="Theme.helpers.openSizing();"
-          class="Collapsible--label"
-        >
+          class="Collapsible--label">
           SIZING HELP
         </div>
       </div>
@@ -139,7 +82,7 @@
         {% for media in product.media %}
           {% case media.media_type %}
             {% when 'image' %}
-              <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
+            <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
           {% endcase %}
         {% endfor %}
       </div>
@@ -149,28 +92,27 @@
       {% for media in product.media %}
         {% case media.media_type %}
           {% when 'image' %}
-            <div class="Product--Image">
-              {% if media.alt contains '$' %}
-                {% assign position = media.alt | split: '$' | first %}
-                {% assign position_x = position | split: '-' | first %}
-                {% assign position_split = position | split: '-' %}
-                {% assign position_y = position_split[1] %}
-                {% assign position_text = position_split | last %}
+          <div class="Product--Image">
+            {% if media.alt contains '$' %}
+              {% assign position = media.alt | split: '$' | first %}
+              {% assign position_x = position | split: '-' | first %}
+              {% assign position_split = position | split: '-' %}
+              {% assign position_y = position_split[1] %}
+              {% assign position_text = position_split | last %}
 
-                {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-                {{
-                  imgpointer
-                  | replace: '_left_', position_x
-                  | replace: '_top_', position_y
-                  | replace: '[text]', position_text
-                }}
+              {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
+              {{
+                 imgpointer
+               | replace: '_left_', position_x
+               | replace: '_top_', position_y
+               | replace: '[text]', position_text }}
 
-              {% else %}
-                {% assign imgpointer = '' %}
-              {% endif %}
+            {% else %}
+              {% assign imgpointer = '' %}
+            {% endif %}
 
-              <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-            </div>
+            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+          </div>
         {% endcase %}
       {% endfor %}
     </div>
@@ -182,7 +124,8 @@
         {% for options in product.options_with_values %}
           {% assign optionrow = forloop.index %}
           <div class="optionsNameContainer">
-            <span> SELECT A {{ options.name | upcase }}</span>
+            <span>
+              PICK A {{ options.name | upcase }}</span>
           </div>
           <div class="optionValuesContainer">
             {% for value in options.values %}
@@ -191,23 +134,19 @@
                 id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
                 style="display:none"
                 {% if forloop.first %}
-                  checked="checked"
+                checked="checked"
                 {% endif %}
                 type="radio"
                 value="{{value}}"
-                data-option="{{ optionrow}}"
-              >
-              <label
-                for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
-                class="optionValue"
-              >
+                data-option="{{ optionrow}}">
+              <label for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">
                 {{- value -}}
               </label>
             {% endfor %}
           </div>
         {% endfor %}
         <div class="productQty">
-          <span style="text-transform:uppercase">Add Quantity</span>
+          <span style="text-transform:uppercase">Quantity</span>
           <div class="qty">
             {% render 'qty', product: product %}
           </div>
@@ -217,8 +156,7 @@
         data-variant-json
         class="hide"
         aria-hidden="true"
-        aria-label="Product JSON"
-      >
+        aria-label="Product JSON">
         {{ product.variants | json }}
       </textarea>
       {%- if product.options.size > 1 -%}
@@ -226,8 +164,7 @@
           data-current-variant-json
           class="hide"
           aria-hidden="true"
-          aria-label="Variant JSON"
-        >
+          aria-label="Variant JSON">
           {{ current_variant | json }}
         </textarea>
       {%- endif -%}
@@ -238,8 +175,7 @@
       {{- product.selected_or_first_available_variant.price | money | remove: '.00' }}
     </span>
     <div class="pill-tiny vert"></div>
-    <span>ADD TO BAG</span>
-    {% comment %} <div class="stickySpacer hide--desktop"></div> {% endcomment %}
+    <span>ADD TO CART</span>
   </div>
 
   <!-- /* Mobile Components */ -->
@@ -248,9 +184,9 @@
     {% for media in product.media %}
       {% case media.media_type %}
         {% when 'image' %}
-          <div class="Mobile--ProductImage">
-            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-          </div>
+        <div class="Mobile--ProductImage">
+          <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+        </div>
       {% endcase %}
     {% endfor %}
   </div>

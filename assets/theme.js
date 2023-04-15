@@ -52,27 +52,28 @@ var Theme = {
    init: function () {
    let vh = window.innerHeight * 0.01;
    document.documentElement.style.setProperty('--vh', `${vh}px`);
+   document.documentElement.style.setProperty('--navHeight', `${document.querySelector('.MainMenu.Fixed').offsetHeight - 1}px`);
+   let logoheight = document.querySelector('#DesktopLogo').offsetHeight;
+   document.documentElement.style.setProperty('--logoheight', `${logoheight}px`);
+   // var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
+   // document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {
-         var placeHolderLogo = document.querySelector('#DesktopLogoPlaceholder');
          var logo = document.querySelector('#DesktopLogo');
-         const counters = document.querySelectorAll('.counter');
-         placeHolderLogo.addEventListener('mouseenter', counterRotate);
-         placeHolderLogo.addEventListener('mouseleave', counterRotate);
-         function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
+         // const counters = document.querySelectorAll('.counter');
+         // // function counterRotate() {counters.forEach(el => el.classList.toggle('rotatelogo'))};
          var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
          document.documentElement.style.setProperty('--navHeight', (navHeight - 1) + 'px');
          let content = document.querySelector('.content');
-
          if (document.body.classList.contains('template-index')) {
             content.addEventListener('scroll', () => {
-               if (content.scrollTop > 30) {
-                  logo.classList.add('endState');
-                  placeHolderLogo.classList.remove('hidden');
-               } else {
-                  logo.classList.remove('endState');
-                  placeHolderLogo.classList.add('hidden');
+               if (content.scrollTop > 50) {      
+                  logo.classList.remove('enlargeState');      
+                  logo.classList.add('shrinkState');   
+               } else {          
+                  logo.classList.remove('shrinkState');
+                  logo.classList.add('enlargeState');
                }
             }, {
                passive: true
@@ -80,12 +81,12 @@ var Theme = {
          } else {
             window.addEventListener('scroll', () => {
                let scrolled = window.scrollY;
-               if (scrolled > 30) {
-                  logo.classList.add('endState');
-                  placeHolderLogo.classList.remove('hidden');
+               if (scrolled > 50) {
+                  logo.classList.remove('enlargeState');      
+                  logo.classList.add('shrinkState');
                } else {
-                  logo.classList.remove('endState');
-                  placeHolderLogo.classList.add('hidden');
+                  logo.classList.remove('shrinkState');
+                  logo.classList.add('enlargeState');
                }
             }, {
                passive: true
@@ -463,8 +464,6 @@ var Theme = {
          root.style.setProperty('--stickyHeight', (stickyATC.clientHeight) + "px");
 
          var form = section.querySelector('form[action="/cart/add"]');
-         //HH88
-
          var qtys = section.querySelectorAll('.qty--wrapper')
          qtys.forEach((quantity) => {
             quantity.addEventListener('click', function (event) {
@@ -485,7 +484,6 @@ var Theme = {
 
          var selected = getVariant(section);
          stickyATC.setAttribute('data-selected', selected.id);
-         //var selectedVariant = 
          form.addEventListener('change', function () {
             var selected = getVariant(section);
             stickyATC.setAttribute('data-selected', selected.id);

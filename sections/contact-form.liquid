@@ -51,7 +51,7 @@
 
     {% if form.errors %}
       <div class="error">
-        <p>There's been an error in submitting message.</p>
+        <p>There's been an issue.</p>
       <ul>
         {% for error in form.errors %}
           <li>
@@ -66,7 +66,7 @@
       </div>
     {% elsif form.posted_successfully? %}
       <div class="success">
-        <p>Message was submitted successfully</p>
+        <p>We’ll be in touch soon.</p>
       </div>
     {% endif %}
   {% endform %}

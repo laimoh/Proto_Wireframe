@@ -2,23 +2,20 @@
 <div class="MainMenu--Wrapper ">
 <div class="MainMenu--left">
   <div class=" MainMenu--leftItem shop">
-    <a href="/collections/all">Shop</a>
+    <a href="/products/iris-d">Shop</a>
   </div>
   <div class=" MainMenu--leftItem">
-    <a href="/pages/about">About</a>
+    <a href="/pages/about">Our Story</a>
   </div>
 </div>
 
 <div class="MainMenu--center">
    {% if template.name == 'product' %}
    <a href="/" id="DesktopLogoPlaceholder" class="LogoPlaceholder">
-   {% render 'logo' %}
-   </a>
-   {% else %}
-   <a href="/" id="DesktopLogo" class="Logo">
    {% render 'logo-masked' %}
    </a>
-   <a href="/" id="DesktopLogoPlaceholder" class="LogoPlaceholder hidden">
+   {% else %}
+   <a href="/" id="DesktopLogo" class="Logo enlargeState">
    {% render 'logo-masked' %}
    </a>
 {% endif %}
@@ -39,13 +36,7 @@
   <div class=" MainMenu--rightItem icon login">
      {%- if shop.customer_accounts_enabled -%}
                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">
-                      {%- liquid
-                        if customer
-                          echo 'customer.account_fallback' | t
-                        else
-                          echo 'customer.log_in' | t
-                        endif
-                      -%}
+                      Account
                     </a>
                   {%- endif -%}
   </div>
@@ -53,7 +44,7 @@
   <div data-opencart class="MainMenu--rightItem">
     <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
     </div>
-    <span class="cartheader" id="cartTrigger" onclick="Theme.cart.open();">Cart</span>
+    <span class="cartheader" id="cartTrigger" onclick="Theme.cart.open();">CART</span>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
           {% render 'cart-items' %}
@@ -106,12 +97,12 @@ Filter
 
 <div class="MobileMenu--Items hide--desktop">
 <div class="MobileMenu--Content">
+   <a class="homelink" href="/">Home</a>
       <a class="shoplink" href="/collections/all">Shop</a>
-      <a class="aboutlink" href="/pages/about">About</a>
-      <a class="homelink" href="/">Home</a>
+      <a class="aboutlink" href="/pages/about">Our Story</a>
       <div class="line"></div>
       {%- if shop.customer_accounts_enabled -%}
-                    <a class="accountlink" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">Orders</a>
+                    <a class="accountlink" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">Account</a>
                   {%- endif -%}
       <a class="faqlink" href="/pages/faq">Help</a>
 </div>

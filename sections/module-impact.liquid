@@ -4,8 +4,9 @@
 
 <div
   fontSize="{{ section.settings.fontSize }}rem"
-  style="display:grid; height: calc(var(--vh, 1vh) * 100); grid-template-rows:1fr auto auto; overflow:hidden;"
-  class="impact-content">
+  style="position: relative;
+                                                                          width: 100vw;
+                                                                          height: calc(var(--vh, 1vh) * 100); display:flex;flex-direction:column;"class="impact-wrapper">
   {% if mediaType == 'video' %}
     <div class="cover">
       {% if section.settings.video != nil %}
@@ -17,17 +18,29 @@
       <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
     </div>
   {% endif %}
-  <h1
-    style="--fontSize: {{ section.settings.fontSize }}rem"
-    {% if section.settings.title_alignment == 'centered' %}
-    class="centered"
-    {% elsif section.settings.title_alignment == 'leftBottom' %}
-    class="leftBottom"
-    {% endif %}>
-    <span class="word1" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word1 | minus: 50 }};">{{ section.settings.word1 }}</span>
-    <span class="word2" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }};">{{ section.settings.word2 }}</span>
-    <span class="word3" tyle="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }};">{{ section.settings.word3 }}</span>
-  </h1>
+  {% if section.settings.use_slogan == true %}
+    <div
+      {% if section.settings.title_alignment == 'centered' %}
+      class="centered"
+      {% elsif section.settings.title_alignment == 'leftBottom' %}
+      class="leftBottom"
+      {% endif %}>
+      {% render 'slogan' %}
+    </div>
+  {% else %}
+    <div
+      {% if section.settings.title_alignment == 'centered' %}
+      class="h1-wrap centered"
+      {% elsif section.settings.title_alignment == 'leftBottom' %}
+      class="h1-wrap leftBottom"
+      {% endif %}>
+      <h1 style="--fontSize: {{ section.settings.fontSize }}rem">
+        <span class="word1" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word1 | minus: 50 }};">{{ section.settings.word1 }}</span>
+        <span class="word2" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }};">{{ section.settings.word2 }}</span>
+        <span class="word3" tyle="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }};">{{ section.settings.word3 }}</span>
+      </h1>
+    </div>
+  {% endif %}
   {% if section.settings.enable_button == true %}
     {% if section.settings.btn_url == blank %}
       {% assign buttonURL = shop.secure_url %}
@@ -54,6 +67,12 @@
         "default": false
       },
       {
+        "type": "checkbox",
+        "id": "use_slogan",
+        "label": "Change to Slogan",
+        "default": false
+      },
+      {
         "type": "radio",
         "id": "media_select",
         "label": "Select a Media Type",
@@ -72,8 +91,7 @@
         "type": "image_picker",
         "id": "cover-img",
         "label": "Image Picker"
-      },
-      {
+      }, {
         "type": "video",
         "id": "video",
         "label": "Video Picker"

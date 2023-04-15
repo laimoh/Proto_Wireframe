@@ -15,7 +15,7 @@
       <button class="product-buynow">
         <div class="pill-tiny"></div>
 
-        <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">ADD TO BAG</div>
+        <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">SHOP NOW</div>
       </button>
       <p class="product-price">{{ product.price | money | remove: '.00' }}</p>
     </div>
@@ -51,7 +51,7 @@
     <div class="productQty">
       <button class="product-buynow">
         <div class="pill-tiny"></div>
-        <span class="link-text" data-ajax-add="{{product.selected_or_first_available_variant.id}}">Add to Bag</span>
+        <span class="link-text" data-ajax-add="{{product.selected_or_first_available_variant.id}}">Add to CART</span>
       </button>
       <div class="qty"></div>
     </div>

@@ -8,12 +8,12 @@
 .ProductMeta--Container, .ProductVariant--Container{
    width: 21.6%;
     position: sticky;
-    top: calc(var(--headerHeight) - 2px);
+    top: var(--navHeight);
 }
 
 .ProductMeta--Container{
     top: var(--stickyHeight)!important;
-    height: calc(100vh - var(--stickyHeight));
+    height: calc(100vh - var(--navHeight));
     left: var(--margin);
 }
 

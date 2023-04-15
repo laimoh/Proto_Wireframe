@@ -19,6 +19,7 @@ body {
    display: -ms-flexbox;
    display: flex;
    width: 100%;
+   height: var(--logoheight);
    margin-top: var(--headerMargin);
    background: var(--colorBG);
    border-top: solid 1px;
@@ -32,15 +33,26 @@ body {
 .MainMenu--Wrapper a {
    font-family: "Pressura";
    text-transform: uppercase;
-   font-size: 0.8rem;
+   font-size: 0.7rem;
    color: var(--colorHTML);
-   -webkit-transition: all 0.3s ease;
-   -o-transition: all 0.3s ease;
-   transition: all 0.3s ease;
+   -webkit-transition: color 0.3s ease, opacity 0.6s;
+   -o-transition: color 0.3s ease, opacity 0.6s;
+   transition: color 0.3s ease, opacity 0.6s;
 }
 
-main:not(.template-index main) {
+/* main:not(.template-index main) {
    padding-top: var(--headerHeight);
+} */
+main {
+   padding-top: var(--headerHeight);
+}
+
+.template-index main {
+   padding: 0;
+}
+
+.template-product main {
+   padding-top: var(--navHeight);
 }
 
 .MainMenu {
@@ -49,9 +61,6 @@ main:not(.template-index main) {
    right: 0;
    top: 0;
    z-index: 3;
-   -webkit-transition: all 0.3s ease;
-   -o-transition: all 0.3s ease;
-   transition: all 0.3s ease;
 }
 
 
@@ -79,11 +88,9 @@ main:not(.template-index main) {
 
 }
 
-.MainMenu.Fixed .MainMenu--center .Logo {
-   width: calc(100vw - 4*var(--margin));
+.MainMenu.Fixed .MainMenu--center .Logo { 
    position: absolute;
    right: auto;
-   top: 80%;
    margin: 0 auto;
    max-width: unset;
    height: auto;
@@ -99,13 +106,46 @@ main:not(.template-index main) {
 
 }
 
-#DesktopLogo,
-#DesktopLogoPlaceholder {
-   /* position: relative; */
-   -webkit-transition: all 0.3s ease;
-   -o-transition: all 0.3s ease;
-   transition: all 0.3s ease;
+#DesktopLogo{
    fill: var(--colorSVG);
+}
+
+.shrinkState {
+   animation: shrink 0.6s ease-in-out forwards;
+}
+
+.enlargeState {
+   animation: enlarge 0.6s ease-in-out forwards;
+}
+
+@keyframes enlarge {
+   from {
+      width: 100%;
+      top: 0%;
+   }
+   to {
+      width: calc(100vw - 4*var(--margin));
+      top: 80%;
+   }
+}
+@keyframes shrink {
+   from {
+      width: calc(100vw - 4*var(--margin));
+      top: 80%;
+      /* opacity: 1; */
+   }
+   to {
+      width: 100%;
+      top: 0%;
+      /* opacity: 0; */
+   }
+}
+
+.LogoPlaceholder {
+   width: 100%;
+   height: 100%;
+   padding: 0.5%;
+   padding-top: 1%;
 }
 
 .Logo,
@@ -115,6 +155,8 @@ main:not(.template-index main) {
    -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
 }
+
+
 
 svg * {
    transform-box: fill-box;
@@ -143,19 +185,7 @@ svg * {
        -ms-transform: rotate(180deg);
            transform: rotate(180deg);
 }
-.LogoPlaceholder {
-   width: 100%;
-   height: 100%;
-   padding: 0.5%;
-   padding-top: 1%;
-}
 
-.MainMenu.Fixed .MainMenu--center .Logo.endState {
-   width: 0%;
-   top: 0%;
-   opacity: 0;
-   z-index: -1;
-}
 
 .paddingtop {
    padding-top: calc(2*var(--margin) + var(--headerHeight));
@@ -166,8 +196,7 @@ svg * {
 }
 
 .MainMenu--leftItem {
-   -webkit-box-shadow: 1px 1px 0px, 0px -1px 0px var(--colorHTML);
-           box-shadow: 1px 1px 0px, 0px -1px 0px var(--colorHTML);
+   border-right: 1px solid;
    color: var(--colorHTML);
    -webkit-transition: all 0.3s ease;
    -o-transition: all 0.3s ease;
@@ -280,14 +309,9 @@ svg * {
    opacity: 0.5;
 }
 
-.MainMenu--center a:hover {}
 
-/* [data-opencart] span:hover {
-   color: var(--red);
-   cursor: pointer;
-} */
 .cartheader {
-   font-size: 0.8rem;
+   font-size: 0.7rem;
    text-transform: uppercase;
 }
 
@@ -812,13 +836,10 @@ form.search {
       font-family: "Exposure";
    }
 
-   .line {
-      margin-bottom: 10%;
+   .MainMenu--mobile .line {
+      margin: 10% 0;
    }
 
-   .homelink {
-      padding-bottom: 10%;
-   }
 
    .MainMenu--mobile .Menu--middle {
       -webkit-box-flex: 1;
