@@ -53,6 +53,7 @@ var Theme = {
    let vh = window.innerHeight * 0.01;
    document.documentElement.style.setProperty('--vh', `${vh}px`);
    document.documentElement.style.setProperty('--navHeight', `${document.querySelector('.MainMenu.Fixed').offsetHeight - 1}px`);
+   
    let logoheight = document.querySelector('#DesktopLogo').offsetHeight;
    document.documentElement.style.setProperty('--logoheight', `${logoheight}px`);
    // var navHeight = document.querySelector('.MainMenu.Fixed').offsetHeight
