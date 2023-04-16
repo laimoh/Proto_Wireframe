@@ -8,12 +8,12 @@
 .ProductMeta--Container, .ProductVariant--Container{
    width: 21.6%;
     position: sticky;
-    top: var(--navHeight);
+    top: var(--headerHeight);
 }
 
 .ProductMeta--Container{
-    top: var(--stickyHeight)!important;
-    height: calc(100vh - var(--navHeight));
+    top: var(--headerHeight)!important;
+    height: calc(100vh - var(--headerHeight));
     left: var(--margin);
 }
 
@@ -23,7 +23,7 @@
 
 .ProductMeta{
    position: absolute;
-   bottom: var(--stickyHeight);
+   top: -1px;
    padding: 10% 16% 4% 8%;
    border: 1px solid black;
 }
@@ -41,6 +41,15 @@
    height: 4rem;
    overflow: hidden;
    text-overflow: ellipsis;
+}
+
+.ProductAtcSmall{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-top: 1px solid black;
+    padding: 10px 0;
 }
 
 .Collapsible .pill-tiny {

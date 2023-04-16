@@ -44,7 +44,7 @@
   <div data-opencart class="MainMenu--rightItem">
     <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
     </div>
-    <span class="cartheader" id="cartTrigger" onclick="Theme.cart.open();">CART</span>
+    <span class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">CART</span>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
           {% render 'cart-items' %}

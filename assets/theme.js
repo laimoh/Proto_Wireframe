@@ -145,6 +145,8 @@ var Theme = {
       this.initAjax();
       this.cart.init();
       this.mobile_cart.init();
+      this.helpers.modals();
+
 
    },
    isInViewPort: function (element) {
@@ -232,6 +234,9 @@ var Theme = {
          if (CartDrawer.getAttribute('aria-hidden')) {
             document.querySelector('.wire.right').className = "wire right front"
          }
+
+         var cartItem = document.querySelector('#cartTrigger');
+         cartItem.textContent = cartItem.getAttribute('data-open');
       },
       open: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -243,6 +248,9 @@ var Theme = {
          if (CartDrawer.getAttribute('aria-hidden')) {
             document.querySelector('.wire.right').className = "wire right back"
          }
+
+         var cartItem = document.querySelector('#cartTrigger');
+         cartItem.textContent = cartItem.getAttribute('data-close');
       },
       init: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -552,6 +560,25 @@ var Theme = {
       }
    },
    helpers: {
+      modals: function(){
+         var modalTriggers = document.querySelectorAll('[data-modal-target]');
+         modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(){
+               var targetModal = '#'.concat(trigger.getAttribute('data-modal-target'));
+               if (document.querySelector(targetModal)){
+                  var targetModal = document.querySelector(targetModal);
+                  targetModal.classList.add('flex');
+                  targetModal.classList.add('visible');
+
+                  targetModal.querySelector('[data-closemodal]').addEventListener('click', function(){
+                     targetModal.classList.remove('flex');
+                     targetModal.classList.remove('visible');
+                  })
+               }
+            })
+
+         })
+      },
       openDesc: function () {
          Theme.helpers.collapseProducts();
          var desk = document.querySelector('.MetaItem.ProductDescription');

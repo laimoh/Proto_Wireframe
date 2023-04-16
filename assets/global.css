@@ -55,6 +55,12 @@ main {
    padding-top: var(--navHeight);
 }
 
+/*Hasaan Latif: Somehow the other Variable works better*/
+
+.template-product main {
+   padding-top: var(--headerHeight);
+}
+
 .MainMenu {
    position: fixed;
    left: 0;
@@ -491,6 +497,41 @@ svg * {
    pointer-events: all;
    z-index: 10;
    background-color: var(--marshmellow);
+}
+
+.Modal--Wrapper{
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   backdrop-filter: blur(0px);
+   opacity: 0;
+   z-index: 99;
+   align-items: center;
+   transition: all 0.2s ease-in-out;
+   justify-content: center;
+   visibility: hidden;
+   display:flex;
+
+
+}
+
+.Modal--Wrapper.visible{
+   visibility: visible;
+   opacity: 1;
+   backdrop-filter: blur(20px);
+}
+
+.Modal--Close{
+   position: absolute;
+   top: 1vh;
+   right: 1vh;
+   font-size: 3rem;
+}
+
+.Modal--Content{
+   font-size: 30px;
 }
 
 .preview-img img {
