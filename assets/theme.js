@@ -237,6 +237,8 @@ var Theme = {
 
          var cartItem = document.querySelector('#cartTrigger');
          cartItem.textContent = cartItem.getAttribute('data-open');
+         cartItem.setAttribute('onclick', "Theme.cart.open(true);");
+
       },
       open: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -251,6 +253,7 @@ var Theme = {
 
          var cartItem = document.querySelector('#cartTrigger');
          cartItem.textContent = cartItem.getAttribute('data-close');
+         cartItem.setAttribute('onclick', "Theme.cart.close(true);");
       },
       init: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
