@@ -189,6 +189,9 @@ var Theme = {
       if (data.sections) {
          if (data.sections.ajaxcard) {
             var cardcontainer = document.querySelector('#ajaxCardContainer');
+            if (window.innerWidth < 649){
+            var cardcontainer = document.querySelector('#ajaxCardContainerMobile');
+            }
             cardcontainer.innerHTML = data.sections.ajaxcard;
             cardcontainer.classList.add('visible');
             var hide = setTimeout(function () {
@@ -475,6 +478,9 @@ var Theme = {
          }
 
          var stickyATC = section.querySelector('[data-sticky]');
+         if (window.innerWidth < 649){
+         var stickyATC = section.querySelector('[data-sticky].stickyATC');
+         }
 
 
          let root = document.documentElement;
@@ -502,12 +508,13 @@ var Theme = {
 
          var selected = getVariant(section);
          stickyATC.setAttribute('data-selected', selected.id);
+         console.log(stickyATC);
          form.addEventListener('change', function () {
             var selected = getVariant(section);
+            console.log(selected);
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
             stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
-
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
@@ -623,7 +630,6 @@ var Theme = {
             desk.setAttribute('hoveredDiv',true);
          document.querySelector('.ship').classList.add('hovered')
          }
-
 
       },
       openSizing: function () {
