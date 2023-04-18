@@ -52,12 +52,12 @@ var Theme = {
    init: function () {
    let vh = window.innerHeight * 0.01;
    document.documentElement.style.setProperty('--vh', `${vh}px`);
-   document.documentElement.style.setProperty('--navHeight', `${document.querySelector('.MainMenu.Fixed').offsetHeight - 1}px`);
+  
 
    let logoheight = document.querySelector('#LogoContainerParent').offsetHeight;
-   console.log(document.querySelector('#LogoContainerParent'));
+   // console.log(document.querySelector('#LogoContainerParent'));
       let logoContainerWidth = document.querySelector('#LogoContainerParent').offsetWidth;
-   console.log(logoContainerWidth/4.46829268293);
+   // console.log(logoContainerWidth/4.46829268293);
    document.documentElement.style.setProperty('--logoheight', `${logoContainerWidth/4.4}px`);
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
@@ -141,13 +141,10 @@ var Theme = {
          }
          this.sections[section.getAttribute('data-section-type')](section);
       });
-
       this.initAjax();
       this.cart.init();
       this.mobile_cart.init();
       this.helpers.modals();
-
-
    },
    isInViewPort: function (element) {
       const rect = element.getBoundingClientRect();
@@ -237,9 +234,11 @@ var Theme = {
          if (CartDrawer.getAttribute('aria-hidden')) {
             document.querySelector('.wire.right').className = "wire right front"
          }
-
+         
          var cartItem = document.querySelector('#cartTrigger');
-         cartItem.querySelector('p').textContent = cartItem.getAttribute('data-open');
+         var cartP = document.querySelector('#cartTrigger p');
+         cartP.innerHTML = cartItem.getAttribute('data-open');
+
          cartItem.setAttribute('onclick', "Theme.cart.open(true);");
 
       },
@@ -255,9 +254,9 @@ var Theme = {
          }
 
          var cartItem = document.querySelector('#cartTrigger');
-         cartItem.querySelector('p').textContent = cartItem.getAttribute('data-close');
-
          cartItem.setAttribute('onclick', "Theme.cart.close(true);");
+         var cartP = document.querySelector('#cartTrigger p');
+         cartP.innerHTML = cartItem.getAttribute('data-close');
       },
       init: function () {
          var CartDrawer = document.querySelector('#CartDrawer');
@@ -460,11 +459,11 @@ var Theme = {
       Product: function (section) {
          var headerHeight = document.querySelector('.MainMenu.Fixed').clientHeight;
          var sectionHeight = window.innerHeight - headerHeight;
-
+         var cartWidth = document.querySelector('.MainMenu--rightItem.cart').getBoundingClientRect().width
+         var shopWidth = document.querySelector('.MainMenu--leftItem').getBoundingClientRect().width
          if (window.innerWidth > 649) {
             var productMeta = section.querySelector('[data-meta]');
             var variantContainer = section.querySelector('[data-variant-container]');
-            //productMeta.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
             variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
          } else {
             var productMedia = section.querySelector('[data-mobile-slider]');
@@ -474,9 +473,7 @@ var Theme = {
                   adaptiveHeight: true
                });
             }, 200);
-
          }
-
          var stickyATC = section.querySelector('[data-sticky]');
          if (window.innerWidth < 649){
          var stickyATC = section.querySelector('[data-sticky].stickyATC');
@@ -486,7 +483,9 @@ var Theme = {
          let root = document.documentElement;
          root.style.setProperty('--headerHeight', (headerHeight) + "px");
          root.style.setProperty('--stickyHeight', (stickyATC.clientHeight) + "px");
-
+         root.style.setProperty('--cartWidth', (cartWidth - 16)+ "px");
+         root.style.setProperty('--shopWidth', (shopWidth - 16)+ "px");
+   
          var form = section.querySelector('form[action="/cart/add"]');
          var qtys = section.querySelectorAll('.qty--wrapper')
          qtys.forEach((quantity) => {

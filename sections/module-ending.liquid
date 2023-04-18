@@ -7,7 +7,9 @@
       {{ section.settings.cover-img | image_url: width: 1920 | image_tag }}
     </div>
     <div class="ending-title-wrap">
-      <h1 style="--fontSize: {{ section.settings.fontSize }}rem; color: {{ section.settings.text_color }};">{{ section.settings.title }}</h1>
+      <a href="{{ section.settings.btn_url }}">
+        <h1 style="--fontSize: {{ section.settings.fontSize }}rem; color: {{ section.settings.text_color }};">{{ section.settings.title }}</h1>
+      </a>
     </div>
     {% if section.settings.enable_button == true %}
       {% if section.settings.btn_url == blank %}

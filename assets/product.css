@@ -24,10 +24,12 @@
     height: calc(100vh - var(--headerHeight));
     /* width: 18.5%; */
     width: 15.3%;
+    width: var(--shopWidth);
 }
 
 .ProductVariant--Container {
    width: 19.2%;
+   width: var(--cartWidth);
 }
 
 .ProductMedia--Mobile{
@@ -37,7 +39,7 @@
 .ProductMeta{
    position: absolute;
    top: -2px;
-   padding: 10% 10% 4% 8%;
+   padding: 10% 10% 4% 8%; 
    border: 1px solid black;
 }
 .ProductTitle {
@@ -86,6 +88,10 @@
    position: relative;
     transform: rotate(0deg);
     margin-right: 5%;
+}
+
+.restock-alerts-notify-button {
+   font-family: "Pressura";
 }
 
 .Collapsible{
