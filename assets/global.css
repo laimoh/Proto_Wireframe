@@ -205,15 +205,18 @@ svg * {
    -webkit-transition: all 0.3s ease;
    -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
+   flex-basis: 0;
 }
 
 .MainMenu--rightItem {
-   -webkit-box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML);
-           box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML);
+   border-left: 1px solid;
+   /* -webkit-box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML);
+           box-shadow: -1px 1px 0px, -1px -1px 0px var(--colorHTML); */
    color: var(--colorHTML);
    -webkit-transition: all 0.3s ease;
    -o-transition: all 0.3s ease;
    transition: all 0.3s ease;
+   flex-basis: 0;
 }
 
 /* .MainMenu--right {
@@ -260,6 +263,7 @@ svg * {
    -webkit-box-pack: center;
        -ms-flex-pack: center;
            justify-content: center;
+           flex: 1 1 0px;
 }
 
 .MainMenu--rightItem {
@@ -278,6 +282,7 @@ svg * {
        -ms-flex-pack: center;
            justify-content: center;
    position: relative;
+   flex: 1 1 0px;
 
 }
 
@@ -514,11 +519,11 @@ svg * {
    backdrop-filter: blur(0px);
    opacity: 0;
    z-index: 99;
-   /* align-items: center; */
+   align-items: center;
    transition: all 0.2s ease-in-out;
-   /* justify-content: center; */
+   justify-content: center;
    visibility: hidden;
-   /* display:flex; */
+   display:flex;
 
 
 }
@@ -788,6 +793,9 @@ form.search {
       margin: 2rem 0;
    }
 
+   .Modal--Wrapper{
+      display: block;
+   }
 
    #FilterMobile {
       height: 0px;
