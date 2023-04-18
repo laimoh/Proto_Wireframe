@@ -1,59 +1,63 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 
-<div data-section-type="Product" class="SectionContainer ProductContainer">
+  <div data-section-type="Product" class="SectionContainer ProductContainer">
   <div data-meta class="ProductMeta--Container">
     <div class="ProductMeta">
       <div class="ProductTitle">
-        {{ product.title }}
+        <p>
+          {{ product.title }}</p>
+        <p>
+          {{ product.type }}</p>
       </div>
       <div class="MetaItem ProductDescription">
         {{ product.description }}
       </div>
-
       <div class="Collapsible">
         <div class="pill-tiny read"></div>
         <div
           onclick="Theme.helpers.openDesc();"
           data-readmore-desc
-          class="Collapsible--label"
-        >
+          class="Collapsible--label">
           Read More
         </div>
       </div>
-
       <div class="MetaItem" data-shipping-container>
         <p class="shipping-wrapper">
           Live in the States? We’ll send your shoes for free through standard ground shipping. Want it faster? We don’t
-          blame you. Choose to expedite your order at checkout. International? We’ll send your order through local
-          couriers and cover all duties and customs. More questions? Visit our Deliveries + Returns page.
+          blame you. <br><br> Choose to expedite your order at checkout. International? We’ll send your order through local
+          couriers and cover all duties and customs. More questions? <br><br>
+          Visit our
+          <a href="/pages/returns">Deliveries + Returns
+          </a>
+          page.
         </p>
       </div>
-
       <div class="Collapsible">
-        <div class="pill-tiny"></div>
+        <div class="pill-tiny ship"></div>
         <div onclick="Theme.helpers.openShipping();" class="Collapsible--label">SHIPPING INFO</div>
       </div>
 
-      <div class="MetaItem" data-sizing-container>
-        {% render 'sizing-chart' %}
-      </div>
+      <div class="MetaItem" data-sizing-container></div>
 
       <div class="Collapsible">
-        <div class="pill-tiny size"></div>
+        <div class="pill-tiny"></div>
         <div
           data-readmore-sizing
           data-modal-target="sizeChart"
-          class="Collapsible--label"
-        >
+          class="Collapsible--label">
           SIZING HELP
         </div>
       </div>
     </div>
   </div>
 
-  <div data-modal class="Modal--Wrapper" id="sizeChart">
-    <div data-closemodal class="Modal--Close">X</div>
-    <div class="Modal--Content">Content Here</div>
+  <div
+    data-modal
+    class="Modal--Wrapper"
+    id="sizeChart">
+    <div class="Modal--Content">
+      {% render 'sizing-chart' %}
+    </div>
   </div>
 
   <style>
@@ -70,11 +74,11 @@
 
     .Product--Image {
       position: relative;
-      min-height: 80vh;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      max-height: 100vh;
+
     }
 
     .Product--Image img {
@@ -94,7 +98,7 @@
         {% for media in product.media %}
           {% case media.media_type %}
             {% when 'image' %}
-              <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
+            <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
           {% endcase %}
         {% endfor %}
       </div>
@@ -104,28 +108,27 @@
       {% for media in product.media %}
         {% case media.media_type %}
           {% when 'image' %}
-            <div class="Product--Image">
-              {% if media.alt contains '$' %}
-                {% assign position = media.alt | split: '$' | first %}
-                {% assign position_x = position | split: '-' | first %}
-                {% assign position_split = position | split: '-' %}
-                {% assign position_y = position_split[1] %}
-                {% assign position_text = position_split | last %}
+          <div class="Product--Image">
+            {% if media.alt contains '$' %}
+              {% assign position = media.alt | split: '$' | first %}
+              {% assign position_x = position | split: '-' | first %}
+              {% assign position_split = position | split: '-' %}
+              {% assign position_y = position_split[1] %}
+              {% assign position_text = position_split | last %}
 
-                {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-                {{
-                  imgpointer
-                  | replace: '_left_', position_x
-                  | replace: '_top_', position_y
-                  | replace: '[text]', position_text
-                }}
+              {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
+              {{
+                 imgpointer
+               | replace: '_left_', position_x
+               | replace: '_top_', position_y
+               | replace: '[text]', position_text }}
 
-              {% else %}
-                {% assign imgpointer = '' %}
-              {% endif %}
+            {% else %}
+              {% assign imgpointer = '' %}
+            {% endif %}
 
-              <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-            </div>
+            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+          </div>
         {% endcase %}
       {% endfor %}
     </div>
@@ -137,7 +140,8 @@
         {% for options in product.options_with_values %}
           {% assign optionrow = forloop.index %}
           <div class="optionsNameContainer">
-            <span> PICK A {{ options.name | upcase }}</span>
+            <span>
+              PICK A {{ options.name | upcase }}</span>
           </div>
           <div class="optionValuesContainer">
             {% for value in options.values %}
@@ -146,16 +150,12 @@
                 id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
                 style="display:none"
                 {% if forloop.first %}
-                  checked="checked"
+                checked="checked"
                 {% endif %}
                 type="radio"
                 value="{{value}}"
-                data-option="{{ optionrow}}"
-              >
-              <label
-                for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
-                class="optionValue"
-              >
+                data-option="{{ optionrow}}">
+              <label for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">
                 {{- value -}}
               </label>
             {% endfor %}
@@ -179,8 +179,7 @@
         data-variant-json
         class="hide"
         aria-hidden="true"
-        aria-label="Product JSON"
-      >
+        aria-label="Product JSON">
         {{ product.variants | json }}
       </textarea>
       {%- if product.options.size > 1 -%}
@@ -188,8 +187,7 @@
           data-current-variant-json
           class="hide"
           aria-hidden="true"
-          aria-label="Variant JSON"
-        >
+          aria-label="Variant JSON">
           {{ current_variant | json }}
         </textarea>
       {%- endif -%}
@@ -209,9 +207,9 @@
     {% for media in product.media %}
       {% case media.media_type %}
         {% when 'image' %}
-          <div class="Mobile--ProductImage">
-            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-          </div>
+        <div class="Mobile--ProductImage">
+          <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+        </div>
       {% endcase %}
     {% endfor %}
   </div>

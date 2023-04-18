@@ -58,7 +58,7 @@ var Theme = {
    console.log(document.querySelector('#LogoContainerParent'));
       let logoContainerWidth = document.querySelector('#LogoContainerParent').offsetWidth;
    console.log(logoContainerWidth/4.46829268293);
-   document.documentElement.style.setProperty('--logoheight', `${logoContainerWidth/4.46829268293}px`);
+   document.documentElement.style.setProperty('--logoheight', `${logoContainerWidth/4.4}px`);
       var sections = document.querySelectorAll('[data-section-type]');
       const isProduct = window.location.pathname.includes('products')
       if (window.innerWidth > 679 && !isProduct) {
@@ -597,21 +597,17 @@ var Theme = {
          if (desk) {
             desk.style.height = desk.scrollHeight + 'px';
          }
+         document.querySelector('.ship').classList.add('hovered')
       },
       openSizing: function () {
          Theme.helpers.collapseProducts();
-         var desk = document.querySelector('.MetaItem[data-sizing-container]');
-         if (desk) {
-            desk.style.height = desk.scrollHeight + 'px';
-            document.querySelector('.size').classList.add('hovered')
-         }
       },
       collapseProducts: function () {
          var sizing = document.querySelector('.MetaItem[data-sizing-container]');
          var shipping = document.querySelector('.MetaItem[data-shipping-container]');
          var desk = document.querySelector('.MetaItem.ProductDescription');
          document.querySelector('.read').classList.remove('hovered')
-         document.querySelector('.size').classList.remove('hovered')
+         document.querySelector('.ship').classList.remove('hovered')
          desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
          shipping.style.height = 0;
          sizing.style.height = 0;

@@ -40,6 +40,7 @@
    font-size: var(--fontSize);
    font-weight: normal;
    border-bottom: solid 1px black;
+   
 }
 
 .editorial-content .module-link { 
@@ -58,6 +59,6 @@
 
    .editorial-grid h1 {
       font-size: var(--fontSize);
-      padding: 5%;
+      padding: 3%;
    }
 }

@@ -27,16 +27,16 @@
         "use_slogan": false,
         "media_select": "image",
         "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Hero-min_1.jpg",
-        "fontSize": 4,
-        "word1": "Type",
+        "fontSize": 3,
+        "word1": "Iris-D",
         "expo-word1": 0,
-        "word2": "#1",
+        "word2": "",
         "expo-word2": 0,
         "word3": "",
         "expo-word3": 100,
         "title_alignment": "leftBottom",
         "btn_title": "SHOP NOW",
-        "btn_url": "shopify:\/\/collections\/shoes"
+        "btn_url": "shopify:\/\/products\/iris-d"
       }
     },
     "editorial": {
@@ -58,7 +58,8 @@
         "background": "#efe5dc",
         "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Alt1-min_1.jpg",
         "title": "Join The Community",
-        "fontSize": 10,
+        "text_color": "#efe5dc",
+        "fontSize": 5.1,
         "btn_title": "Follow Us",
         "btn_url": "https:\/\/www.instagram.com\/protocollective\/?igshid=YmMyMTA2M2Y%3D"
       }

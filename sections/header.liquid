@@ -44,7 +44,11 @@
   <div data-opencart class="MainMenu--rightItem">
     <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
     </div>
-    <span class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">CART</span>
+    <div class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">
+      <p>CART</p>
+      <div class="line"></div>
+      <span id="cartCount"> {{ cart.item_count }}</span>
+    </div>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
           {% render 'cart-items' %}
@@ -58,7 +62,6 @@
         <p class="subtotal-info" >*shipping will be calculated at checkout</p>
         <div>
           <a class="Button--action" data-checkout href="/checkout">Checkout</a>
-          <div class="Button--action" data-closecart onclick=Theme.cart.close()>Close</div>
         </div>
    </div>
   </div>
@@ -98,7 +101,7 @@ Filter
 <div class="MobileMenu--Items hide--desktop">
 <div class="MobileMenu--Content">
    <a class="homelink" href="/">Home</a>
-      <a class="shoplink" href="/collections/all">Shop</a>
+      <a class="shoplink" href="/products/iris-d">Shop</a>
       <a class="aboutlink" href="/pages/about">Our Story</a>
       <div class="line"></div>
       {%- if shop.customer_accounts_enabled -%}
