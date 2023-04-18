@@ -236,7 +236,7 @@ var Theme = {
          }
 
          var cartItem = document.querySelector('#cartTrigger');
-         cartItem.textContent = cartItem.getAttribute('data-open');
+         cartItem.querySelector('p').textContent = cartItem.getAttribute('data-open');
          cartItem.setAttribute('onclick', "Theme.cart.open(true);");
 
       },
@@ -252,7 +252,8 @@ var Theme = {
          }
 
          var cartItem = document.querySelector('#cartTrigger');
-         cartItem.textContent = cartItem.getAttribute('data-close');
+         cartItem.querySelector('p').textContent = cartItem.getAttribute('data-close');
+
          cartItem.setAttribute('onclick', "Theme.cart.close(true);");
       },
       init: function () {
@@ -266,6 +267,8 @@ var Theme = {
 
          var qtys = CartDrawer.querySelectorAll('.qty--wrapper');
          qtys.forEach((quantity) => {
+            console.log(quantity);
+            console.log(quantity);
             quantity.addEventListener('click', function (event) {
                Theme.helpers.qty(event, quantity, true);
             })
@@ -300,8 +303,8 @@ var Theme = {
          .then(data => {
             console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
-            console.log(price)
-
+            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
+            document.querySelector('#cartCount').innerHTML = currentCount+data.items.length;
 
             Theme.addedProduct(data);
          })
@@ -323,6 +326,9 @@ var Theme = {
          })
          .then(response => response.json())
          .then(data => {
+            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
+            document.querySelector('#cartCount').innerHTML = data.item_count;
+
             console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
             //console.log(price)
@@ -340,6 +346,7 @@ var Theme = {
    },
    rerenderCart: function () {
       console.log('rerender cart');
+      
 
       fetch(window.Shopify.routes.root + "?sections=mini-cart")
          .then(response => response.json())
@@ -558,7 +565,7 @@ var Theme = {
                }
                Theme.cart.open();
             });
-            Theme.cart.init();
+            //Theme.cart.init();
          });
       }
    },
@@ -591,13 +598,33 @@ var Theme = {
             document.querySelector('.read').classList.add('hovered')
          }
       },
-      openShipping: function () {
+      toggleDesc: function () {
          Theme.helpers.collapseProducts();
-         var desk = document.querySelector('.MetaItem[data-shipping-container]');
-         if (desk) {
+         var desk = document.querySelector('.MetaItem.ProductDescription');
+         if (desk.getAttribute('initheihgt')){
+            desk.style.height = desk.getAttribute('initheihgt');
+            desk.removeAttribute('initheihgt');
+            document.querySelector('.read').classList.remove('hovered');
+         }else{
+            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
             desk.style.height = desk.scrollHeight + 'px';
+            document.querySelector('.read').classList.add('hovered');
          }
+      },
+      toggleShipping: function () {
+         Theme.helpers.collapseProducts();
+
+         var desk = document.querySelector('.MetaItem[data-shipping-container]');
+         if(JSON.parse(desk.getAttribute('hoveredDiv'))){
+            desk.removeAttribute('hoveredDiv');
+         document.querySelector('.ship').classList.remove('hovered')
+         }else{
+            desk.style.height = desk.scrollHeight + 'px';
+            desk.setAttribute('hoveredDiv',true);
          document.querySelector('.ship').classList.add('hovered')
+         }
+
+
       },
       openSizing: function () {
          Theme.helpers.collapseProducts();
