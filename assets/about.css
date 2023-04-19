@@ -14,7 +14,7 @@
 }
 
 .about-text p {
-   text-transform: lowercase;
+   text-transform: none;
    color: var(--red);
    font-family: "Walsheim";
    font-size: 3rem;

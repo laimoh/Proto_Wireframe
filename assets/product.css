@@ -45,8 +45,14 @@
 .ProductTitle {
    display: flex;
    justify-content: space-between;
-   align-items: center;
+   /* align-items: center; */
 }
+.product_colorway {
+   font-family: "Walsheim";
+   text-transform: inherit;
+   font-size: 0.8rem;
+}
+
 .ProductTitle p { 
    font-family: "Exposure";
    font-variation-settings: 'EXPO'-30;

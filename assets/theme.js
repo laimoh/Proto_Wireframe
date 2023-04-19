@@ -501,7 +501,7 @@ var Theme = {
             console.log(selected);
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
-            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
+            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price.replace('.00', ''));
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
