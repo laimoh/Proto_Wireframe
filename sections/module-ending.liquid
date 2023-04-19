@@ -8,7 +8,10 @@
     </div>
     <div class="ending-title-wrap">
       <a href="{{ section.settings.btn_url }}">
-        <h1 style="--fontSize: {{ section.settings.fontSize }}rem; color: {{ section.settings.text_color }};">{{ section.settings.title }}</h1>
+        <h1 style="--fontSize: {{ section.settings.fontSize }}rem; color: {{ section.settings.text_color }};">
+          <span class="word1" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word1 | minus: 50 }};">{{ section.settings.title }}</span>
+          <span class="word2" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }};">{{ section.settings.word2 }}</span>
+        </h1>
       </a>
     </div>
     {% if section.settings.enable_button == true %}
@@ -52,7 +55,28 @@
         "type": "text",
         "id": "title",
         "label": "Title",
-        "default": "Join The Community"
+        "default": "Join The"
+      }, {
+        "type": "range",
+        "id": "expo-word1",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount Word 1",
+        "default": 0
+      }, {
+        "type": "text",
+        "id": "word2",
+        "label": "Word 2",
+        "default": "Community"
+      }, {
+        "type": "range",
+        "id": "expo-word2",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount Word 2",
+        "default": 0
       }, {
         "type": "color",
         "id": "text_color",

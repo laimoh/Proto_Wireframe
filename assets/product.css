@@ -90,10 +90,6 @@
     margin-right: 5%;
 }
 
-.restock-alerts-notify-button {
-   font-family: "Pressura";
-}
-
 .Collapsible{
    margin: 4% 0;
    display: flex;
@@ -453,7 +449,7 @@ height: 70vh;
       max-width: 72vw;
    }
     .stickyATC {
-      z-index: 4;
+      z-index: 2;
       font-size: 1rem;
       border-top: 1px solid black;
       border-bottom: 1px solid black;

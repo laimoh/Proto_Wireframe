@@ -5,8 +5,8 @@
 <div
   fontSize="{{ section.settings.fontSize }}rem"
   style="position: relative;
-                                                                          width: 100vw;
-                                                                          height: calc(var(--vh, 1vh) * 100); display:flex;flex-direction:column;"class="impact-wrapper">
+                                                                              width: 100vw;
+                                                                              height: calc(var(--vh, 1vh) * 100); display:flex;flex-direction:column;overflow: hidden;"class="impact-wrapper">
   {% if mediaType == 'video' %}
     <div class="cover">
       {% if section.settings.video != nil %}

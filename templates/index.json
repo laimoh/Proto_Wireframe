@@ -26,7 +26,7 @@
         "enable_button": true,
         "use_slogan": false,
         "media_select": "image",
-        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Hero-min_1.jpg",
+        "cover-img": "shopify:\/\/shop_images\/Screenshot_2023-04-18_at_23.46.28.png",
         "fontSize": 3,
         "word1": "Iris-D",
         "expo-word1": 0,
@@ -43,10 +43,10 @@
       "type": "module-editorial",
       "settings": {
         "enable_button": true,
-        "background": "#937d6a",
+        "background": "#7d7c99",
         "blog_info": "The path is clear for an innovative future to unfold.",
         "fontSize": 0.8,
-        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Alt2-min_1.jpg",
+        "cover-img": "shopify:\/\/shop_images\/Screenshot_2023-04-18_at_23.37.05.png",
         "btn_title": "Learn More",
         "btn_url": "shopify:\/\/pages\/faq"
       }
@@ -56,8 +56,11 @@
       "settings": {
         "enable_button": true,
         "background": "#efe5dc",
-        "cover-img": "shopify:\/\/shop_images\/TheProtoCollective_Iris_Alt1-min_1.jpg",
-        "title": "Join The Community",
+        "cover-img": "shopify:\/\/shop_images\/3.jpg",
+        "title": "Join the",
+        "expo-word1": 87,
+        "word2": "Community",
+        "expo-word2": 0,
         "text_color": "#efe5dc",
         "fontSize": 5.1,
         "btn_title": "Follow Us",

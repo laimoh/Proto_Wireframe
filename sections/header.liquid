@@ -61,7 +61,7 @@
         </div>
         <p class="subtotal-info" >*shipping will be calculated at checkout</p>
         <div>
-          <a class="Button--action" data-checkout href="/checkout">Checkout</a>
+            <a class="Button--action" href="/checkout" data-checkout>Checkout</a>
         </div>
    </div>
   </div>
@@ -93,8 +93,10 @@ Filter
 <div onClick=Theme.search.toggle() class="Icon--Menu searchmobile">
    {% render 'search-icon' %}
 </div>
-<div class="Icon--Menu" onClick=Theme.mobile_cart.open();>
+<div class="Icon--Menu mobileCartIcon" onClick=Theme.mobile_cart.open();>
    {% render 'cart-icon' %}
+   {% comment %} <div class="line"></div> {% endcomment %}
+      <span id="cartCount"> {{ cart.item_count }}</span>
 </div>
 </div>
 
@@ -122,17 +124,19 @@ Filter
   </div>
 
   <div opened="false" id="cartMobile" class="MobileMenu--Filters hide--desktop">
-    <div data-ajax-cart id="cartMobileItems">
-        {% render 'cart-items' %}
-        <div class="Subtotal--price">
-          <span>Subtotal</span>
-          <div class="line"></div> 
-          <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
-        </div>
-        <p class="subtotal-info" >*shipping will be calculated at checkout</p>
-    </div>
-    <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
-    <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
+   <div class="cartcontents">
+      <div data-ajax-cart id="cartMobileItems">
+         {% render 'cart-items' %}
+     </div>
+     <div class="Subtotal--price">
+       <span>Subtotal</span>
+       <div class="line"></div> 
+       <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
+     </div>
+     <p class="subtotal-info" >*shipping will be calculated at checkout</p>
+     <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
+     <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
+   </div>
     </div>
   
 {% schema %}

@@ -137,6 +137,7 @@ img {
    z-index: 2;
    border-bottom: solid 1px var(--colorHTML);
    display: flex;
+   padding: 0.4rem 0
 }
 
 .module-link a {
@@ -563,6 +564,33 @@ svg * {
    transition: color 0.3s ease;
 }
 
+/* notify me */
+.notifyButtonStyle, .submitButtonStyle {
+   font-family: "Pressura";
+   text-transform: uppercase;
+   font-size: 0.7rem;
+   margin: 0;
+   border-top: 1px solid black;
+   padding: 0.8rem;
+}
+
+.restock-alerts-modal-wrapper {
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   background-color: none;
+}
+.modalBoxStyle {
+   background-color: var(--marshmellow);
+   border-radius: 0;
+}
+/* .fieldLabelTextStyle {
+   display: none;
+   font-family: "Exposure";
+} */
+.restock-alerts-email-label-span.fieldLabelTextStyle {
+   font-family: "Exposure";
+}
+
 @media screen and (width <=458px) {
    .right {
       right: calc(var(--margin)/2);
@@ -688,5 +716,23 @@ padding-top: 3rem;
       gap: 2%;
    
    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (width < 649px) {
+   .footer-topbar { grid-template-rows: 190px;} 
+ }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (width < 649px)
+  and (min-resolution:.001dpcm) {
+   .footer-topbar {
+      grid-template-rows: 160px;
+   }
+}
+
+/* Chrome 22-28 */
+@media screen and(-webkit-min-device-pixel-ratio:0) and (width < 649px) {
+  .footer-topbar {-chrome-:only(; 
+   grid-template-rows: 160px;
+  );} 
 }
 

@@ -303,11 +303,10 @@ var Theme = {
          })
          .then(response => response.json())
          .then(data => {
-            console.log(data);
+            // console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
             var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
             document.querySelector('#cartCount').innerHTML = currentCount+data.items.length;
-
             Theme.addedProduct(data);
          })
          .catch((error) => {
@@ -331,10 +330,7 @@ var Theme = {
             var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
             document.querySelector('#cartCount').innerHTML = data.item_count;
 
-            console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
-            //console.log(price)
-
             var pricesDivs = document.querySelectorAll('[data-ajax-price]');
             pricesDivs.forEach((div) => {
                div.innerHTML = price;
@@ -347,9 +343,6 @@ var Theme = {
          });
    },
    rerenderCart: function () {
-      console.log('rerender cart');
-      
-
       fetch(window.Shopify.routes.root + "?sections=mini-cart")
          .then(response => response.json())
          .then(data => {
@@ -403,13 +396,10 @@ var Theme = {
                      var newProducts = html.querySelector('[data-next-page]').innerHTML;
                      section.querySelector('[data-next-page]').innerHTML = newProducts;
                      Theme.sections.collectionHelpers.init(section);
-
                   })
                   .catch((error) => {
                      console.error('Error:', error);
                   });
-
-
             });
          }
          this.collectionHelpers.init(section);
@@ -426,9 +416,7 @@ var Theme = {
                var close = popupContainer.querySelector('.CartItem--remove');
                close.addEventListener('click', function () {
                   popupContainer.querySelector('[data-variant-popup]').classList.remove('display');
-
                })
-
                var variants = JSON.parse(popupContainer.querySelector('[data-variant-json]').innerHTML);
                var atc = popupContainer.querySelector('[data-ajax-add]');
                console.log(variants);
@@ -760,7 +748,7 @@ var Theme = {
          }
 
          var contentHeights = document.querySelector('.MainMenu.Fixed').scrollHeight;
-         document.querySelector('#cartMobile').style.height =  'calc(100vh - '+contentHeights+'px)';
+         document.querySelector('#cartMobile').style.height =  'calc(95vh - '+contentHeights+'px)';
          var cartHeight = cart.scrollHeight;
          var headerHeight = document.querySelector('.MainMenu.Fixed').scrollHeight;
          let root = document.documentElement;
