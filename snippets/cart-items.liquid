@@ -1,6 +1,7 @@
 {% for item in cart.items %}
   {% render 'cart-item', item: item %}
 {% endfor %}
+<div class="" style="display:none" data-cartamount="{{ cart.item_count }}"></div>
 
 {% if cart.items.size == 0 %}
   <div class="empty-cart">Your cart is empty.</div>

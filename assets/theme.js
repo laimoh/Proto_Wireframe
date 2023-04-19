@@ -303,10 +303,18 @@ var Theme = {
          })
          .then(response => response.json())
          .then(data => {
-            // console.log(data);
+            console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
-            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
-            document.querySelector('#cartCount').innerHTML = currentCount+data.items.length;
+
+            
+            var cartCounters = document.querySelectorAll('.cartcount');
+            cartCounters.forEach((element) => {
+               element.innerHTML = ""
+            });
+            //var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
+
+            //document.querySelector('#cartCount').innerHTML = currentCount+data.items.length;
+
             Theme.addedProduct(data);
          })
          .catch((error) => {
@@ -357,6 +365,14 @@ var Theme = {
                var CartDrawer = document.querySelector('#cartMobileItems');
                CartDrawer.innerHTML = html;
             }
+
+            var currentCart = node.querySelector('[data-cartamount]').getAttribute('data-cartamount');
+            //console.log(currentCart);
+
+            var cartCounts = document.querySelectorAll('.cartcount');
+            cartCounts.forEach((element) => {
+               element.innerHTML = currentCart;
+            });
 
             Theme.cart.init();
             Theme.mobile_cart.init();
@@ -499,9 +515,17 @@ var Theme = {
          form.addEventListener('change', function () {
             var selected = getVariant(section);
             console.log(selected);
+            
+
+
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
-            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price.replace('.00', ''));
+            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
+            if (!selected.available){
+               stickyATC.setAttribute('data-selected', selected.id);
+               stickyATC.querySelector('[data-variant-price]').innerHTML = "Sold out";
+            }
+
          });
 
          var mediaCounter = section.querySelectorAll('.ProductMedia--Counter .Product--Image--Anchor');
