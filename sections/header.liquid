@@ -47,7 +47,7 @@
     <div class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">
       <p>CART</p>
       <div class="line"></div>
-      <span id="cartCount"> {{ cart.item_count }}</span>
+      <span class="cartCount"> {{ cart.item_count }}</span>
     </div>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
@@ -57,7 +57,7 @@
         <div class="Subtotal--price">
           <span>Subtotal</span>
           <div class="line"></div> 
-          <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
+          <span class="Subtotal--Money cartsubtotal" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
         </div>
         <p class="subtotal-info" >*shipping will be calculated at checkout</p>
         <div>
@@ -95,8 +95,7 @@ Filter
 </div>
 <div class="Icon--Menu mobileCartIcon" onClick=Theme.mobile_cart.open();>
    {% render 'cart-icon' %}
-   {% comment %} <div class="line"></div> {% endcomment %}
-      <span id="cartCount"> {{ cart.item_count }}</span>
+      <span class="cartCount"> {{ cart.item_count }}</span>
 </div>
 </div>
 
@@ -131,7 +130,7 @@ Filter
      <div class="Subtotal--price">
        <span>Subtotal</span>
        <div class="line"></div> 
-       <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
+       <span class="Subtotal--Money cartsubtotal" data-ajax-price> {{ cart.total_price | money | remove: '.00' }}</span>
      </div>
      <p class="subtotal-info" >*shipping will be calculated at checkout</p>
      <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
