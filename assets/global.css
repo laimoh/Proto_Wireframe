@@ -797,9 +797,6 @@ form.search {
       margin: 2rem 0;
    }
 
-   .Modal--Wrapper{
-      display: block;
-   }
    [data-ajax-popup] {
       display: none;
    }

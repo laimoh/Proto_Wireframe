@@ -12,6 +12,8 @@
    font-size: 1.6rem;
 }
 
+.collapsible-wrapper
+
 .collapsible-container {
    margin: var(--margin);
    display: flex;

@@ -305,7 +305,7 @@ var Theme = {
          .then(data => {
             // console.log(data);
             var price = Shopify.formatMoney(data.items_subtotal_price);
-            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML);
+            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
             document.querySelector('#cartCount').innerHTML = currentCount+data.items.length;
             Theme.addedProduct(data);
          })
@@ -330,10 +330,7 @@ var Theme = {
             var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
             document.querySelector('#cartCount').innerHTML = data.item_count;
 
-         
             var price = Shopify.formatMoney(data.items_subtotal_price);
-            //console.log(price)
-
             var pricesDivs = document.querySelectorAll('[data-ajax-price]');
             pricesDivs.forEach((div) => {
                div.innerHTML = price;

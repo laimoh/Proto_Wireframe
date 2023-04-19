@@ -382,9 +382,7 @@ height: 70vh;
       width: 100%;
     }
     .sizing-wrapper {
-      /* height: calc(var(--vh, 1vh) * 86); */
-      height: calc(var(--vh, 1vh) * 113);
-      font-size: 1rem;
+      height: calc(var(--vh, 1vh) * 100);
     }
 
     .sizing-wrapper p {
