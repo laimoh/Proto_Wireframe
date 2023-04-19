@@ -106,7 +106,7 @@ ul, li {
    padding-right: 1rem;
    white-space: nowrap;
 }
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
    .form-wrapper {
       border-bottom: var(--wireframe);
    }

@@ -61,7 +61,7 @@
    border-bottom: 0;
 }
 
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
    .ending-img {
       margin: 0 calc(var(--margin) / 2);
    }

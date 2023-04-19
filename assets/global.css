@@ -718,7 +718,7 @@ form.search {
    color: black;
 }
 
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
 
    :root {
       --headerMargin: 0.6rem; 

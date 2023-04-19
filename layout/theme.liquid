@@ -7,14 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="{{ page_description | escape }}">
     <link rel="canonical" href="{{ canonical_url }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale = 1.0">
-    {{ content_for_header }}
-    <!-- Header hook for plugins -->
-    <!--Proto Theme Developed by Laiqa Mohid and Hasaan Latif  -->
-
-    {{ 'application.css' | asset_url | stylesheet_tag }}
-
-    <script defer src="{{ 'theme.js' | asset_url }}"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    {{ content_for_header }}<!-- Header hook for plugins -->
+    <!--Proto Theme Developed by Laiqa Mohid and Hasaan Latif  -->{{ 'application.css' | asset_url | stylesheet_tag }}<script defer src="{{ 'theme.js' | asset_url }}"> </script>
     {{ 'global.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
     {{ 'helpers.css' | asset_url | stylesheet_tag }}
@@ -29,8 +24,10 @@
   </head>
 
   <body class="template-{{ template | replace: '.', '-' | replace: '/', '-' }}">
-    <div id="ajaxCardContainerMobile" data-ajax-popup class="addedProduct">
-    </div>
+    <div
+      id="ajaxCardContainerMobile"
+      data-ajax-popup
+      class="addedProduct"></div>
     <div class="wire left"></div>
     <div class="wire right"></div>
     {% section 'header' %}

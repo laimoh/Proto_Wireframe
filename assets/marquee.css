@@ -65,7 +65,7 @@
    border-top: solid 1px black;
 }
 
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
 
 .clipped {
    top: 50%;   

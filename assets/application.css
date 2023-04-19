@@ -634,8 +634,7 @@ svg * {
    padding: calc(var(--margin)/2);
 }
 
-
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
 
    .page-title {
       padding: 2rem 1rem;

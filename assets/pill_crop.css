@@ -75,7 +75,7 @@
 }
 
 
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px){
 
    /* :root {
       font-size: 8px;

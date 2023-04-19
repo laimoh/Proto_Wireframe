@@ -522,7 +522,7 @@ padding: 0.2rem 0.3rem;
    }
 }
 
-@media screen and (width < 649px) { 
+@media screen and (max-width: 649px) { 
    .row {
       display: flex;
       flex-direction: column;

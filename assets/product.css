@@ -321,7 +321,7 @@ height: 70vh;
    margin: 0 var(--margin);
  }
 
-@media screen and (width < 649px){
+ @media screen and (max-width: 649px) {
 
    :root {
      --product-notation: 14px;
