@@ -47,7 +47,7 @@
     <div class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">
       <p>CART</p>
       <div class="line"></div>
-      <span class="cartcount" id="cartCount"> {{ cart.item_count }}</span>
+      <span class="cartcount"> {{ cart.item_count }}</span>
     </div>
     <div id="cartButtonDrawer">
         <div class="CartProducts">
@@ -96,7 +96,7 @@ Filter
 <div class="Icon--Menu mobileCartIcon" onClick=Theme.mobile_cart.open();>
    {% render 'cart-icon' %}
    {% comment %} <div class="line"></div> {% endcomment %}
-      <span class="cartcount" id="cartCount"> {{ cart.item_count }}</span>
+      <span class="cartcount"> {{ cart.item_count }}</span>
 </div>
 </div>
 

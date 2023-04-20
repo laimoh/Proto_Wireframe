@@ -335,8 +335,8 @@ var Theme = {
          })
          .then(response => response.json())
          .then(data => {
-            var currentCount = parseInt(document.querySelector('#cartCount').innerHTML)
-            document.querySelector('#cartCount').innerHTML = data.item_count;
+            // var currentCount = parseInt(document.querySelector('.cartCount').innerHTML)
+            // document.querySelector('#cartCount').innerHTML = data.item_count;
 
             var price = Shopify.formatMoney(data.items_subtotal_price);
             var pricesDivs = document.querySelectorAll('[data-ajax-price]');
@@ -508,22 +508,29 @@ var Theme = {
             });
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
          }
-
+         console.log(stickyATC.querySelector('[data-ajax-add]'))
          var selected = getVariant(section);
          stickyATC.setAttribute('data-selected', selected.id);
-         console.log(stickyATC);
+         if (!selected.available){ 
+            stickyATC.querySelector('[data-ajax-add]').innerHTML = "SOLD OUT";
+            stickyATC.classList.add('inactive');
+         } else {
+            stickyATC.classList.remove('inactive');
+         }
          form.addEventListener('change', function () {
             var selected = getVariant(section);
             console.log(selected);
-            
-
-
+            stickyATC.querySelector('[data-ajax-add]').innerHTML = "ADD TO CART";
             stickyATC.setAttribute('data-selected', selected.id);
             console.log(stickyATC.querySelector('[data-variant-price]'));
-            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price);
+            stickyATC.querySelector('[data-variant-price]').innerHTML = Shopify.formatMoney(selected.price).replace('.00', '');
+
             if (!selected.available){
                stickyATC.setAttribute('data-selected', selected.id);
-               stickyATC.querySelector('[data-variant-price]').innerHTML = "Sold out";
+               stickyATC.querySelector('[data-ajax-add]').innerHTML = "SOLD OUT";
+               stickyATC.classList.add('inactive');
+            } else {
+               stickyATC.classList.remove('inactive');
             }
 
          });

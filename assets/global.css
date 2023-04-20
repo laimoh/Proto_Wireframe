@@ -589,6 +589,15 @@ svg * {
    opacity: 0.3;
 }
 
+.inactive {
+   pointer-events: none;
+   color: grey;
+}
+
+.inactive .pill-tiny.vert {
+   border: 1px solid grey;
+}
+
 .Subtotal--price {
    font-size: 1.1rem;
    display: -webkit-box;

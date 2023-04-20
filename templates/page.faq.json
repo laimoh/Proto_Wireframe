@@ -78,11 +78,11 @@
     "3e70e159-7610-4055-9f85-cf8624cb6955": {
       "type": "contact-form",
       "settings": {
-        "section-title": "Reach Out To Us",
+        "section-title": "Talk To Us",
         "firstname": "First Name",
         "lastname": "Last Name",
         "email": "Email",
-        "message": "Message"
+        "message": "Thoughts"
       }
     },
     "main": {
