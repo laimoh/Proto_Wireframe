@@ -304,7 +304,6 @@ var Theme = {
          .then(response => response.json())
          .then(data => {
             console.log(data);
-            var price = Shopify.formatMoney(data.items_subtotal_price);
 
             
             var cartCounters = document.querySelectorAll('.cartcount');
@@ -355,6 +354,8 @@ var Theme = {
          .then(response => response.json())
          .then(data => {
             console.log(data);
+            
+
             var node = document.createElement('div');
             node.innerHTML = data['mini-cart'];
             var html = node.querySelector('.shopify-section').innerHTML;
@@ -367,12 +368,20 @@ var Theme = {
             }
 
             var currentCart = node.querySelector('[data-cartamount]').getAttribute('data-cartamount');
+            var currentCartPrice = node.querySelector('[data-cartamount-price]').getAttribute('data-cartamount-price');
+
             //console.log(currentCart);
 
             var cartCounts = document.querySelectorAll('.cartcount');
             cartCounts.forEach((element) => {
                element.innerHTML = currentCart;
             });
+
+            var price = Shopify.formatMoney(currentCartPrice);
+            var pricesDivs = document.querySelectorAll('[data-ajax-price]');
+            pricesDivs.forEach((div) => {
+               div.innerHTML = price;
+            })
 
             Theme.cart.init();
             Theme.mobile_cart.init();
