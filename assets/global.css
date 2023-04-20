@@ -33,7 +33,7 @@ body {
 .MainMenu--Wrapper a {
    font-family: "Pressura";
    text-transform: uppercase;
-   font-size: 0.7rem;
+   font-size: 0.8rem;
    color: var(--colorHTML);
    -webkit-transition: color 0.3s ease, opacity 0.6s;
    -o-transition: color 0.3s ease, opacity 0.6s;
@@ -312,7 +312,7 @@ svg * {
 
 
 .cartheader {
-   font-size: 0.7rem;
+   font-size: 0.8rem;
    text-transform: uppercase;
 }
 

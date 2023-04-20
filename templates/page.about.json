@@ -9,8 +9,8 @@
     "b1d26ea4-fef7-4a32-9e42-14503db90b0c": {
       "type": "rich-text",
       "settings": {
-        "subtext": "Practice is \/<span>Perfect<\/span>\/",
-        "enable_button": true,
+        "subtext": "Practice is \/Perfect\/",
+        "enable_button": false,
         "btn_title": "View Our Blog",
         "btn_url": ""
       }

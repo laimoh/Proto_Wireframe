@@ -47,9 +47,10 @@
    border-top: var(--wireframe);
 }
 
-@media screen and (width < 649px) {
+@media screen and (max-width: 649px) {
    .about-text p {
       font-size: 1.6rem;
+      line-height: 1.1;
    }
    .subtext p {
       display: none;

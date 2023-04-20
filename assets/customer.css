@@ -114,6 +114,45 @@ input {
  }
 
  .submit input {
+   color: black;
    font-family: "Pressura";
    text-transform: uppercase;
+ }
+
+ @media screen and (max-width: 649px) {
+
+   .login-content {
+          margin-right: calc(var(--margin)/2);
+          border-bottom: 1px solid black;
+   }
+   .input-area {
+      transform: translateX(0);
+      width: 80vw;
+   }
+   .field {
+      padding: 6%;
+   }
+   .title-group {
+     
+      flex-direction: column;
+   }
+   .page-title {
+
+      padding-bottom: 0;
+      justify-self: start;
+      width: 100%;
+      font-size: 2rem;
+   }
+   .forgotPW {
+      text-transform: uppercase;
+      padding: 2rem;
+
+      width: 100%;
+  }
+   .forgotPW p, .forgotPW a {
+      font-family: "Pressura";
+      font-size: 0.9rem;
+      border-top: var(--wireframe);
+      margin: 2em 0px;
+  }
  }

@@ -591,7 +591,7 @@ svg * {
    font-family: "Exposure";
 }
 
-@media screen and (width <=458px) {
+@media screen and (max-width: 458px) {
    .right {
       right: calc(var(--margin)/2);
    }
@@ -679,7 +679,7 @@ padding-top: 3rem;
 
    .left-section {
       padding: 3%;
-      margin-bottom: 1rem;
+      /* margin-bottom: 1rem; */
    }
 
    .right-section {
@@ -707,7 +707,7 @@ padding-top: 3rem;
       padding: 3%;
    }
 }
-@media screen and (width < 376) {
+@media screen and (max-width: 376px) {
    .signup-section p {
       font-size: 2rem;
    }
@@ -717,11 +717,11 @@ padding-top: 3rem;
    }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) and (width < 649px) {
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 649px) {
    .footer-topbar { grid-template-rows: 190px;} 
  }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) and (width < 649px)
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 649px)
   and (min-resolution:.001dpcm) {
    .footer-topbar {
       grid-template-rows: 160px;
