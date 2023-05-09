@@ -736,6 +736,7 @@ var Theme = {
    mobile_menu: {
       open: function () {
          Theme.closeAll();
+         document.querySelector('.FilterButton').style.opacity = '1'
          var mobileMenu = document.querySelector('#shopify-section-header .MobileMenu--Items');
          mobileMenu.style.height = mobileMenu.scrollHeight + 'px';
       },
@@ -749,11 +750,23 @@ var Theme = {
       open: function () {
          Theme.closeAll();
          var filter = document.querySelector('#FilterMobile');
-         filter.style.height = filter.scrollHeight + 'px';
+      
+         filter.style.height = Theme.helpers.convertRemToPixels(17) + 'px';
+         document.querySelector('.FilterButton').style.opacity = '0'
+      
       },
       close: function () {
          var filter = document.querySelector('#FilterMobile');
          filter.style.height = 0 + 'px';
+         document.querySelector('.FilterButton').style.opacity = '1'
+         
+      },
+      resize: function () {
+         var filter = document.querySelector('#FilterMobile');
+
+         filter.style.height = Theme.helpers.convertRemToPixels(18.3) + 'px';
+         console.log(filter.style.height);
+         console.log('resize');
       }
    },
    search: {
@@ -789,6 +802,7 @@ var Theme = {
    mobile_cart: {
       open: function () {
          Theme.closeAll();
+         document.querySelector('.FilterButton').style.opacity = '1'
          var cart = document.querySelector('#cartMobile');
          if (JSON.parse(cart.getAttribute('opened'))) {
             Theme.mobile_cart.close();

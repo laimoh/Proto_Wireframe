@@ -109,7 +109,7 @@ Filter
 </div>
 
 <div class="MobileMenu--Items hide--desktop">
-<div class="MobileMenu--Content">
+<div class="MobileMenu--Content mobmenu">
    <a class="homelink" href="/">Home</a>
    <a class="shoplink" href="/collections/all">Shop</a>
       <a class="aboutlink" href="/pages/about">Our Story</a>
@@ -122,13 +122,11 @@ Filter
 <div class="closeButton mobilemenuclose" onclick="Theme.mobile_menu.close()">CLOSE</div>
 </div>
 
-<div id="FilterMobile" class="MobileMenu--Filters hide--desktop">
+<div id="FilterMobile" class="MobileMenu--Filters hide--desktop" x-data="{ show: true }">
   <div class="MobileMenu--Content">
-  Mobile<br>
-  Filters<br>
-  here<br>
+   {% render 'filters' %}
   </div>
-  <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
+  <div  class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
   </div>
 
   <div opened="false" id="cartMobile" class="MobileMenu--Filters hide--desktop">
@@ -141,7 +139,7 @@ Filter
        <div class="line"></div> 
        <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
      </div>
-     <p class="subtotal-info" >*All Inverse Iris-D's will ship early May</p>
+     <p class="subtotal-info" >*Shipping calculated at checkout</p>
      <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
      <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
    </div>
