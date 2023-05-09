@@ -819,7 +819,7 @@ form.search {
    }
 
    .Menu--middle .Button {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       text-align: center;
       line-height: 100%;
@@ -838,9 +838,9 @@ form.search {
    }
 
    .template-product .Menu--middle .Button.BackToCollection {
-      /* display: -webkit-box !important;
+      display: -webkit-box !important;
       display: -ms-flexbox !important;
-      display: flex !important; */
+      display: flex !important;
       
    }
 

@@ -543,7 +543,9 @@ padding: 0.2rem 0.3rem;
       display: none;
     }
     .Menu--middle {
-      opacity: 0;
-      pointer-events: none;
+      /* opacity: 0;
+      pointer-events: none; */
+      font-family: "Pressura";
+      font-size: 0.8rem;
     }
 }
