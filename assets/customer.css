@@ -119,6 +119,83 @@ input {
    text-transform: uppercase;
  }
 
+ /* account */
+.orders-wrapper {
+   display: flex;
+   flex-direction: column;
+   border-top: 1px solid black;
+}
+
+.order-items-list {
+   margin: 0 calc(4*var(--margin));
+    margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.no-orders p {
+   font-family: "Walsheim";
+   text-transform: none;
+   font-weight: normal;
+   margin: calc(2*var(--margin)) calc(4*var(--margin));
+}
+
+.user-wrapper {
+   padding-bottom: 2rem;
+   border-top: 1px solid black;
+}
+.user-wrapper p {
+   font-family: "Walsheim";
+   font-weight: normal;
+   margin: calc(2*var(--margin)) calc(4*var(--margin));
+}
+.user-wrapper a {
+   margin-left: calc(2.5*var(--margin));
+   text-transform: uppercase;
+   font-family: "Pressura";
+   font-size: 11px;
+   color: var(--colorHTML);
+   margin: calc(2*var(--margin)) calc(4*var(--margin));
+}
+
+/* orders */
+.order-info-section {
+   display: flex;
+   justify-content: space-between;
+}
+
+.order-info {
+   display: flex;
+   flex-wrap: wrap;
+   width: 65%;
+}
+
+.item-detail {
+   display: flex;
+   flex-direction: column;
+}
+.order-info p {
+   padding-left: 4rem;
+}
+
+.order-info h1.page-title:first-child {
+   padding-top: 0rem;
+}
+
+.order-info-wrapper {
+   padding-bottom: 2rem;
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+}
+.order-info-wrapper p, .order-info-wrapper span, .order-info-wrapper a, .order-info p {
+   text-transform: uppercase;
+   font-family: "Pressura";
+   font-size: 14px;
+   color: var(--colorHTML);
+   white-space: nowrap;
+}
+
  @media screen and (max-width: 649px) {
 
    .login-content {
@@ -137,16 +214,22 @@ input {
       flex-direction: column;
    }
    .page-title {
-
+      white-space: nowrap;
       padding-bottom: 0;
       justify-self: start;
-      width: 100%;
-      font-size: 2rem;
+      width: 90%;
+      font-size: 1.4rem;
    }
+   .order-info h1.page-title:first-child {
+      padding: 1rem 0;
+  }
+  .order-items-list {
+   margin: 0 calc(2*var(--margin));
+   margin-bottom: 3rem;
+}
    .forgotPW {
       text-transform: uppercase;
       padding: 2rem;
-
       width: 100%;
   }
    .forgotPW p, .forgotPW a {
@@ -155,4 +238,23 @@ input {
       border-top: var(--wireframe);
       margin: 2em 0px;
   }
+
+  .order-info-wrapper {
+   flex-direction: column;
+   border-bottom: 1px solid black;
+  }
+  .user-wrapper {
+   width: 100%;
+   border-bottom: 1px solid black;
+  }
+  .user-wrapper a { 
+   font-size: 1rem;
+   text-decoration: underline;
+  }
+  .order-info p {
+   padding-left: 1rem;
+}
+.line {
+   display: none;
+}
  }

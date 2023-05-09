@@ -1,0 +1,66 @@
+{{ 'shop.css' | asset_url | stylesheet_tag }}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="orders-wrapper">
+  {% assign number_of_orders = customer.orders | size %}
+  {% if number_of_orders > 0 %}
+    <div class="orders-history">
+      <h2 class="page-title">Order history</h2>
+      {% paginate customer.orders by 6 %}
+        <div class="order-items-list">
+          {% for order in customer.orders %}
+            <div class="product-card stacked">
+
+              {% if order.line_items.first.image %}
+                <a class="card-link" href="{{ order.customer_url }}">
+                  <div style="background-image: url({{ order.line_items.first.image | img_url: 'medium' }});" class="card-img"></div>
+                </a>
+              {% else %}
+                {{ 'product' }}
+              {% endif %}
+
+              <div class="card-content">
+                <a href="{{ order.customer_url }}"class="card--header">
+                  <h3 class="product-title">{{ order.name | link_to: order.customer_url }}</h3>
+                  <p class="">{{ order.financial_status_label }}</p>
+                </a>
+                <a style="flex-grow:1;width:100%; opacity:0;" href="{{ order.customer_url }}"></a>
+                <a href="{{ order.customer_url }}" class="card--footer">
+                  <p class="product-title">{{ order.fulfillment_status_label }}</p>
+                  <p class="product-title">{{ order.total_price | money }}</p>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+
+        <nav>
+          {%- if paginate.previous -%}
+            <a class="loadmorebtn" href="{{ paginate.previous.url }}">
+              PREVIOUS
+            </a>
+          {%- endif -%}
+          {%- if paginate.next -%}
+            <a class="loadmorebtn" href="{{ paginate.next.url }}">
+              NEXT
+            </a>
+          {%- endif -%}
+        </nav>
+
+      {% endpaginate %}
+    </div>
+  {% else %}
+    <div class="no-orders">
+      <h2 class="page-title">Order history</h2>
+      <p>You have not placed any orders yet.</p>
+    </div>
+  {% endif %}
+
+
+  <div class="user-wrapper">
+    <h2 class="page-title">User Details</h2>
+    {{ customer.default_address | format_address }}
+    {% comment %} <a href="{{ routes.account_addresses_url }}" class="">View addresses</a> {% endcomment %}
+  </div>
+</div>

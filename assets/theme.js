@@ -98,13 +98,18 @@ var Theme = {
       const el = document.querySelectorAll('section');
       const options = {
          rootMargin: "0px",
-         threshold: 0.5
+         threshold: 0.4
       }
       const observer = new IntersectionObserver(entries => {
          entries.forEach(entry => {
             if (entry.isIntersecting) {
                let root = document.documentElement;
-               if (entry.target.classList.contains('impact-module')) {
+               if (entry.target.classList.contains('impact-module-dark')) {
+                  root.style.setProperty('--colorSVG', 'var(--black)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'none');
+               }
+               else if (entry.target.classList.contains('impact-module')) {
                   root.style.setProperty('--colorSVG', 'var(--marshmellow)');
                   root.style.setProperty('--colorHTML', 'var(--marshmellow)');
                   root.style.setProperty('--colorBG', 'none');
@@ -120,16 +125,19 @@ var Theme = {
                   root.style.setProperty('--colorSVG', 'var(--black)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
                   root.style.setProperty('--colorBG', 'none');
-                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('ending-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
+                  root.style.setProperty('--colorBG', 'none');
                } else {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
                   root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
+            } else {
+               root.style.setProperty('--colorSVG', 'var(--red)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
             }
          })
       }, options)
@@ -477,7 +485,7 @@ var Theme = {
          if (window.innerWidth > 649) {
             var productMeta = section.querySelector('[data-meta]');
             var variantContainer = section.querySelector('[data-variant-container]');
-            variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(4) + 'px';
+            variantContainer.style.height = sectionHeight - Theme.helpers.convertRemToPixels(7.3) + 'px';
          } else {
             var productMedia = section.querySelector('[data-mobile-slider]');
             setTimeout(() => {
@@ -627,7 +635,7 @@ var Theme = {
          Theme.helpers.collapseProducts();
          var desk = document.querySelector('.MetaItem.ProductDescription');
          if (desk) {
-            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
+            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(7.3) + 'px');
             desk.style.height = desk.scrollHeight + 'px';
             document.querySelector('.read').classList.add('hovered')
          }
@@ -640,7 +648,7 @@ var Theme = {
             desk.removeAttribute('initheihgt');
             document.querySelector('.read').classList.remove('hovered');
          }else{
-            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(4) + 'px');
+            desk.setAttribute('initheihgt', Theme.helpers.convertRemToPixels(7.3) + 'px');
             desk.style.height = desk.scrollHeight + 'px';
             document.querySelector('.read').classList.add('hovered');
          }
@@ -668,7 +676,7 @@ var Theme = {
          var desk = document.querySelector('.MetaItem.ProductDescription');
          document.querySelector('.read').classList.remove('hovered')
          document.querySelector('.ship').classList.remove('hovered')
-         desk.style.height = Theme.helpers.convertRemToPixels(4) + 'px';
+         desk.style.height = Theme.helpers.convertRemToPixels(7.3) + 'px';
          shipping.style.height = 0;
          sizing.style.height = 0;
       },

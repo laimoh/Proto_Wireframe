@@ -541,22 +541,26 @@ svg * {
 }
 
 .page-content {
-   font-weight: normal;
-   padding: 2rem;
-   margin-left: var(--margin);
-   font-family: "Walsheim";
+   margin-left: 4rem;
+   margin-bottom: 2rem;
    max-width: 70vw;
+   font-family: "Walsheim";
+}
+.page-content a { 
+   text-decoration: underline;
 }
 
-.page-content h1 {
+.page-content p {
    font-weight: normal;
-   font-family: "Pressura";
+   font-family: "Walsheim";
    font-size: 0.8rem;
 }
-.page-title h2 {
-   font-family: "Walsheim";
+
+.page-content h2 {
+   font-family: "Exposure";
    font-size: 1.2rem;
    font-weight: normal;
+   margin: 1rem 0;
 }
 
 /* intersection observer */
@@ -650,7 +654,7 @@ svg * {
       display: flex;
       flex-direction: column;
       justify-content: start;
-padding-top: 3rem;
+      padding-top: 3rem;
    }
 
    .footer-wrapper {
@@ -668,7 +672,7 @@ padding-top: 3rem;
       grid-template-columns: unset;
       gap: 3vh;
       gap: calc(var(--vh, 1vh) * 3);
-      padding: 0%;
+      padding: 5.5% 0;
    }
 
    .signup-section p {

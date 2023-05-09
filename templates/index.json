@@ -20,58 +20,68 @@
         "btn_url": "shopify:\/\/pages\/about"
       }
     },
-    "8229b6a6-447d-47f7-a591-dee57561e504": {
+    "f5b11cc9-3e48-4596-b3ba-d187c0c13413": {
       "type": "module-impact",
       "settings": {
         "enable_button": true,
         "use_slogan": false,
         "media_select": "image",
-        "cover-img": "shopify:\/\/shop_images\/Screenshot_2023-04-18_at_23.46.28.png",
-        "fontSize": 3,
-        "word1": "Iris-D",
-        "expo-word1": 0,
+        "cover-img": "shopify:\/\/shop_images\/custom_resized_efb67da0-48fe-448d-9604-64d59162c76d.png",
+        "fontSize": 4,
+        "word1": "",
+        "expo-word1": 60,
         "word2": "",
-        "expo-word2": 0,
-        "word3": "",
-        "expo-word3": 100,
+        "expo-word2": 60,
+        "word3": "Iris-D",
+        "expo-word3": 0,
         "title_alignment": "leftBottom",
-        "btn_title": "SHOP NOW",
+        "btn_title": "Shop now",
         "btn_url": "shopify:\/\/products\/iris-d"
       }
     },
-    "editorial": {
-      "type": "module-editorial",
+    "f8e15076-a850-469f-a194-02409994934d": {
+      "type": "module-impact",
       "settings": {
         "enable_button": true,
-        "background": "#7d7c99",
-        "blog_info": "The path is clear for an innovative future to unfold.",
-        "fontSize": 0.8,
+        "use_slogan": false,
+        "media_select": "image",
         "cover-img": "shopify:\/\/shop_images\/Screenshot_2023-04-18_at_23.37.05.png",
-        "btn_title": "Learn More",
+        "fontSize": 3.3,
+        "word1": "The path is clear for an",
+        "expo-word1": 100,
+        "word2": "innovative",
+        "expo-word2": 0,
+        "word3": "future to unfold.",
+        "expo-word3": 100,
+        "title_alignment": "leftBottom",
+        "btn_title": "Learn more",
         "btn_url": "shopify:\/\/pages\/faq"
       }
     },
-    "ending": {
-      "type": "module-ending",
+    "6aaa1ccd-4be0-48c6-845a-cd5841b99309": {
+      "type": "module-impact",
       "settings": {
         "enable_button": true,
-        "background": "#efe5dc",
-        "cover-img": "shopify:\/\/shop_images\/3.jpg",
-        "title": "Join the",
-        "expo-word1": 87,
-        "word2": "Community",
-        "expo-word2": 0,
-        "text_color": "#efe5dc",
-        "fontSize": 5.1,
-        "btn_title": "Follow Us",
-        "btn_url": "https:\/\/www.instagram.com\/protocollective\/?igshid=YmMyMTA2M2Y%3D"
+        "use_slogan": false,
+        "media_select": "image",
+        "cover-img": "shopify:\/\/shop_images\/Proto_Iris_Scans__11_V2_1_-min_1_1_1.png",
+        "fontSize": 3.3,
+        "word1": "Join",
+        "expo-word1": 100,
+        "word2": "the",
+        "expo-word2": 100,
+        "word3": "Community",
+        "expo-word3": 0,
+        "title_alignment": "leftBottom",
+        "btn_title": "Follow us",
+        "btn_url": "https:\/\/www.instagram.com\/protocollective\/"
       }
     }
   },
   "order": [
     "impact",
-    "8229b6a6-447d-47f7-a591-dee57561e504",
-    "editorial",
-    "ending"
+    "f5b11cc9-3e48-4596-b3ba-d187c0c13413",
+    "f8e15076-a850-469f-a194-02409994934d",
+    "6aaa1ccd-4be0-48c6-845a-cd5841b99309"
   ]
 }
