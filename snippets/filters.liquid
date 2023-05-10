@@ -1,6 +1,6 @@
-<form class="filter-form hide--phone" id="storeFrontFilters">
+<form class="filter-form" id="storeFrontFilters">
 
-  <div class="filter-group-collection">
+  <div class="filter-group-collection" x-show="show">
     <ul>
       {% for link in linklists.collection-links.links %}
         <li class="item-filter_title">
@@ -21,7 +21,10 @@
       {% assign label = filter.label %}
       {% case label %}
         {% when "Size" %}
-        <div class="filter-group">
+        <div
+          onclick="Theme.filter.resize()"
+          class="filter-group"
+          x-on:click="show = false">
           <span class="filter-label">{{ filter.label }}</span>
           <span class="line"></span>
           <p>
@@ -57,11 +60,15 @@
               </li>
             {%- endfor -%}
           </ul>
+          <div
+            x-on:click="show = true"
+            onclick="Theme.filter.open()"
+            class="backbtn">←</div>
         </div>
 
 
         {% when "Color" %}
-        <div class="filter-group">
+        <div onclick="Theme.filter.resize()" class="filter-group">
           <span class="filter-label">{{ filter.label }}</span>
           <span class="line"></span>
           <p>
@@ -98,13 +105,17 @@
 
             {%- endfor -%}
           </ul>
+          <div
+            x-on:click="show = true"
+            onclick="Theme.filter.open()"
+            class="backbtn">←</div>
         </div>
       {% endcase %}
 
     </div>
 
   {% endfor %}
-  <div class="clear">
+  <div class="clear" x-show="show">
     <a
       href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
       {% if filter.active_values.size > 0 %}
