@@ -394,9 +394,10 @@ var Theme = {
    sections: {
       collection: function (section) {
          console.log(section);
-         var filterForm = section.querySelector('#storeFrontFilters');
+         var allFilterForms = section.querySelectorAll('.storeFrontFilters');
          console.log(section);
-         if (filterForm) {
+         if (allFilterForms) {
+            allFilterForms.forEach((filterForm) => {
 
             var viewChanger = filterForm.querySelector('.toggleViewBtn');
 
@@ -405,6 +406,7 @@ var Theme = {
                viewChanger.classList.toggle('on');
             });
             console.log(filterForm);
+            
             filterForm.addEventListener('change', function () {
                console.log(new URLSearchParams(new FormData(filterForm)).toString());
                var searchParams = new URLSearchParams(new FormData(filterForm)).toString();
@@ -426,6 +428,7 @@ var Theme = {
                      console.error('Error:', error);
                   });
             });
+         })
          }
          this.collectionHelpers.init(section);
       },

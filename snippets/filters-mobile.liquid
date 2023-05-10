@@ -1,0 +1,26 @@
+<form class="filter-form">
+  <div class="filter-group-collection">
+    <ul>
+      {% for link in linklists.collection-links.links %}
+        <li class="item-filter_title">
+          <a
+            href="{{ link.url }}"
+            {% if link.active %}
+            aria-current="true"
+            {% endif %}>
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {%- for filter in collection.filters -%}
+    <div>
+      <span>{{ filter.label }}</span>
+      {%- if filter.active_values.size > 0 -%}
+        <span>({{ filter.active_values.size }})</span>
+      {%- endif -%}
+    </div>
+  {% endfor %}
+
+</form>
