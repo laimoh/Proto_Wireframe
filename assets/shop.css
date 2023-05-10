@@ -144,30 +144,29 @@
 .group-transition {
    background-color: var(--marshmellow);
    overflow-y: scroll;
-   /* padding-top: 8%; */
+   overflow-x: hidden;
    height: 0;
    width: 100%;
    transform-origin: top;
    transform: scaleY(0);
    opacity: 0;
-   transition: all 0.2s ease-in;
+   transition: all 0.4s ease-in;
 }
 
 .grow {
    height: 15vh;
    transform: scaleY(1);
    opacity: 1;
-   transition: all 0.2s ease-in;
+   transition: all 0.4s ease-in;
 }
 .growLarge {
    height: 24vh;
    transform: scaleY(1);
    opacity: 1;
-   transition: all 0.2s ease-in;
+   transition: all 0.4s ease-in;
 }
 
 .filter-group-display__list {
-   /* margin: 0; */
    position: relative;
    list-style: none;
    display: grid;
@@ -203,11 +202,16 @@
    display: contents;
 }
 
+.list-size label:hover {
+   border: 1px solid black;
+   border-radius: 50px;
+}
 
 .list-size label {
    font-family: "Pressura";
    font-size: var(--filter-notation);
-   padding: 32%;
+   padding: 24%;
+   white-space: nowrap;
    cursor: pointer;
    box-sizing: content-box;
 }
@@ -523,6 +527,10 @@ padding: 0.2rem 0.3rem;
 }
 
 @media screen and (max-width: 649px) { 
+   :root {
+      --filter-notation: 1rem;
+      --filter-exposure: 1rem;
+   }
    .row {
       display: flex;
       flex-direction: column;
@@ -539,11 +547,60 @@ padding: 0.2rem 0.3rem;
     
       padding-left: max(2%, 20%);
     }
+
     .filters-wrapper {
       display: none;
     }
+    
+    .filter-form {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       margin: 0;
+    }
+
+   .toggleViewBtn {
+      display: none;
+   }
     .Menu--middle {
       font-family: "Pressura";
       font-size: 0.8rem;
+    }
+    .MobileMenu--Content li a {
+      font-family: "Exposure";
+      font-size: 1.4rem;
+      text-transform: none;
+    }
+
+    .filter-group-collection { 
+      width: 100%;
+      border-top: 1px solid black;
+      /* border-bottom: 1px solid black; */
+    }
+
+    .filter-group-collection ul {
+      justify-content: space-evenly;
+      padding: 1.8rem 0;
+    }
+    .details {
+      width: 100%;
+      padding: 2vw 10vw;
+      border-top: 1px solid black;
+      margin: 0;
+    }
+    .details:last-child {
+      border-bottom: 1px solid black;
+    }
+
+    .list-size, .list-color {
+      margin: 0;
+    }
+    .clear {
+      min-width: 100vw;
+      padding: 4vw 18vw;
+      /* border-top: 1px solid black; */
+      margin: 0 calc(var(--margin) / 2);
+      text-align: center;
     }
 }

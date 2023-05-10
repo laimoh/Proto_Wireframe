@@ -114,9 +114,9 @@ Filter
 <div class="closeButton mobilemenuclose" onclick="Theme.mobile_menu.close()">CLOSE</div>
 </div>
 
-<div id="FilterMobile" class="MobileMenu--Filters hide--desktop">
+<div id="FilterMobile" class="MobileMenu--Filters hide--desktop" x-data="{ show: true }">
   <div class="MobileMenu--Content">
-   {% render 'filters' %}
+   {% render 'filters', mobile: true %}
   </div>
   <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
   </div>

@@ -393,8 +393,7 @@ var Theme = {
    },
    sections: {
       collection: function (section) {
-         console.log(section);
-         var allFilterForms = section.querySelectorAll('.storeFrontFilters');
+         var allFilterForms = document.querySelectorAll('.storeFrontFilters');
          console.log(section);
          if (allFilterForms) {
             allFilterForms.forEach((filterForm) => {
@@ -405,7 +404,6 @@ var Theme = {
                section.querySelector('[data-next-page]').classList.toggle('random');
                viewChanger.classList.toggle('on');
             });
-            console.log(filterForm);
             
             filterForm.addEventListener('change', function () {
                console.log(new URLSearchParams(new FormData(filterForm)).toString());
@@ -744,11 +742,17 @@ var Theme = {
       open: function () {
          Theme.closeAll();
          var filter = document.querySelector('#FilterMobile');
-         filter.style.height = filter.scrollHeight + 'px';
+         filter.style.height = Theme.helpers.convertRemToPixels(14) + 'px';
+         document.querySelector('.FilterButton').style.opacity = '0'
       },
       close: function () {
          var filter = document.querySelector('#FilterMobile');
          filter.style.height = 0 + 'px';
+         document.querySelector('.FilterButton').style.opacity = '1'
+      },
+      resize: function () {
+         var filter = document.querySelector('#FilterMobile');
+         filter.style.height = Theme.helpers.convertRemToPixels(18.3) + 'px';
       }
    },
    search: {
