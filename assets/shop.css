@@ -166,7 +166,6 @@
 }
 
 .filter-group-display__list {
-   /* margin: 0; */
    position: relative;
    list-style: none;
    display: grid;
@@ -202,6 +201,9 @@
    display: contents;
 }
 
+.list-size label:hover {
+   border: 1px solid black;
+}
 
 .list-size label {
    font-family: "Pressura";

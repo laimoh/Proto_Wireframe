@@ -134,10 +134,6 @@ var Theme = {
                   root.style.setProperty('--colorHTML', 'var(--black)');
                   root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
-            } else {
-               root.style.setProperty('--colorSVG', 'var(--red)');
-                  root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
             }
          })
       }, options)
@@ -411,10 +407,12 @@ var Theme = {
             viewChanger.addEventListener('click', function () {
                section.querySelector('[data-next-page]').classList.toggle('random');
                viewChanger.classList.toggle('on');
+               
             });
-            console.log(filterForm);
+            
             filterForm.addEventListener('change', function () {
                console.log(new URLSearchParams(new FormData(filterForm)).toString());
+               console.log('filters selected');
                var searchParams = new URLSearchParams(new FormData(filterForm)).toString();
                var baseURL = window.location.pathname;
                var sectionID = section.getAttribute('data-section-id');
