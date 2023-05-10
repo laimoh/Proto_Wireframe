@@ -1,7 +1,8 @@
 * {
    /* outline: 1px solid grey; */
 }
-.pill-tiny:has(+ div:hover) {
+
+.template-product .pill-tiny:has(+ div:hover) {
    cursor: pointer;
    transform: translate(0%, 0%) rotate(45deg);
 }
@@ -22,7 +23,6 @@
 .ProductMeta--Container{
     top: var(--headerHeight)!important;
     height: calc(100vh - var(--headerHeight));
-    /* width: 18.5%; */
     width: 15.3%;
     width: var(--shopWidth);
 }

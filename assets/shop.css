@@ -13,7 +13,7 @@
 
 /* filter  */
 .filters-wrapper {
-   display:none;
+   /* display:none; */
    border-bottom: var(--wireframe);
    border-top: var(--wireframe);
    position: sticky;

@@ -6,7 +6,7 @@
       <div class="ProductTitle">
         <p style="display:flex; flex-direction:column">
           {{ product.title }}
-          <span class="product_colorway">Inverse on White</span>
+          <span class="product_colorway">{{ product.metafields.descriptors.subtitle.value }}</span>
         </p>
         <p>
           {{ product.type }}</p>

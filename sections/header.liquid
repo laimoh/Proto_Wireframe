@@ -2,7 +2,7 @@
 <div class="MainMenu--Wrapper ">
 <div class="MainMenu--left">
   <div class=" MainMenu--leftItem shop">
-    <a href="/products/iris-d">Shop</a>
+    <a href="/collections/all">Shop</a>
   </div>
   <div class=" MainMenu--leftItem">
     <a href="/pages/about">Our Story</a>
@@ -59,7 +59,7 @@
           <div class="line"></div> 
           <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
         </div>
-        <p class="subtotal-info" >*All Inverse Iris-D's will ship early May</p>
+        <p class="subtotal-info" >*Shipping calculated at checkout</p>
         <div>
             <a class="Button--action" href="/checkout" data-checkout>Checkout</a>
         </div>
@@ -103,7 +103,7 @@ Filter
 <div class="MobileMenu--Items hide--desktop">
 <div class="MobileMenu--Content">
    <a class="homelink" href="/">Home</a>
-      <a class="shoplink" href="/products/iris-d">Shop</a>
+      <a class="shoplink" href="/collections/all">Shop</a>
       <a class="aboutlink" href="/pages/about">Our Story</a>
       <div class="line"></div>
       {%- if shop.customer_accounts_enabled -%}
@@ -133,7 +133,7 @@ Filter
        <div class="line"></div> 
        <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
      </div>
-     <p class="subtotal-info" >*All Inverse Iris-D's will ship early May</p>
+     <p class="subtotal-info" >*Shipping calculated at checkout</p>
      <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
      <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
    </div>
