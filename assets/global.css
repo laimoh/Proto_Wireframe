@@ -738,12 +738,13 @@ form.search {
       /* this is  */
    }
 
-   /* main {
-      padding-top: var(--headerHeight);
-   } */
-   .template-product main {
-      padding-top: 150px;
+   #toggle {
+      display: none;
    }
+   .toggleViewBtn {
+      display: none;
+   }
+   
 
    .hide--desktop {
       display: block !important;

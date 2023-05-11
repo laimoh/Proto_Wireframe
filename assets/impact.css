@@ -84,21 +84,11 @@
 @media screen and (max-width: 649px) {
 
    .impact-wrapper h1 {
-      font-size: calc(var(--fontSize) - 1rem);
+      font-size: calc(var(--fontSize) - 0.3rem);
    }
    .leftBottom {
       margin: calc(var(--margin)/2) var(--margin);
   } 
-   /* .cover img {
-      object-fit: cover;
-      transform: unset;
-      scale: unset;
-   } */
-
-   .impact-module .cover {
-       /* transform: rotateZ(-90deg); */
-      /* scale: 2; */
-   }
 
    .centered h1, .leftBottom h1 {
       max-width: 90%;
