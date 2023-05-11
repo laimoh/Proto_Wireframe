@@ -397,15 +397,19 @@ var Theme = {
    sections: {
       collection: function (section) {
          var allFilterForms = document.querySelectorAll('.storeFrontFilters');
-         console.log(section);
+         let cardImgs = document.querySelectorAll('.card-img')
+         // let slider = document.querySelector('#toggle');
          if (allFilterForms) {
             allFilterForms.forEach((filterForm) => {
 
-            var viewChanger = filterForm.querySelector('.toggleViewBtn');
-
+            var viewChanger = filterForm.querySelector('#toggle');
+           
             viewChanger.addEventListener('click', function () {
                section.querySelector('[data-next-page]').classList.toggle('random');
-               viewChanger.classList.toggle('on');
+               viewChanger.classList.toggle('active');
+               cardImgs.forEach(card => {
+                  card.classList.toggle('remove')
+               })
             });
             
             filterForm.addEventListener('change', function () {

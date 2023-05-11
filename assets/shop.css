@@ -122,7 +122,7 @@
 
 .pill-tiny.active {
    top: 50%;
-   left: 100%;
+   left: 90%;
    transform: translate(-50%, -50%);
 }
 
@@ -494,9 +494,20 @@ padding: 0.2rem 0.3rem;
    cursor: pointer;
 }
 
-.product-grid.random .row:first-child {
-   /* opacity: 50%;  */
-   /* transition:all 0.2s ease; */
+.product-grid.random .row:nth-child(odd) {
+   grid-auto-flow: row;
+   grid-template-columns: 2fr 1fr 0fr;
+   transition: all 0.6s ease;
+   grid-auto-rows: 2fr;
+}
+
+.product-grid.random .row:nth-child(odd) .product-card:last-child {
+  
+      width: 100%;
+      margin-inline: auto;
+      grid-column: span 3;
+      transition: width 0.6s ease;
+   
 }
 
 .row {
@@ -526,9 +537,9 @@ padding: 0.2rem 0.3rem;
    }
 }
 
-.toggleViewBtn {
+/* .toggleViewBtn {
    display: none;
-}
+} */
 
 @media screen and (max-width: 649px) { 
    :root {

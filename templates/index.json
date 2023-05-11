@@ -46,16 +46,16 @@
         "use_slogan": false,
         "media_select": "video",
         "video": "shopify:\/\/files\/videos\/PROTO_FANTASY_15_4x3-opt.mp4",
-        "fontSize": 2,
+        "fontSize": 1.5,
         "word1": "The path is clear for an",
         "expo-word1": 100,
         "word2": "innovative",
         "expo-word2": 0,
         "word3": "future to unfold.",
         "expo-word3": 52,
-        "title_alignment": "leftBottom",
+        "title_alignment": "centered",
         "btn_title": "Learn more",
-        "btn_url": ""
+        "btn_url": "shopify:\/\/pages\/faq"
       }
     },
     "428fffb6-b3f0-4f0b-bc41-34cf09a0cc92": {
