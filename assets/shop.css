@@ -526,6 +526,10 @@ padding: 0.2rem 0.3rem;
    }
 }
 
+.toggleViewBtn {
+   display: none;
+}
+
 @media screen and (max-width: 649px) { 
    :root {
       --filter-notation: 1rem;

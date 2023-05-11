@@ -104,7 +104,7 @@ var Theme = {
          entries.forEach(entry => {
             if (entry.isIntersecting) {
                let root = document.documentElement;
-               if (entry.target.classList.contains('impact-module')) {
+             if (entry.target.classList.contains('impact-module')) {
                   root.style.setProperty('--colorSVG', 'var(--marshmellow)');
                   root.style.setProperty('--colorHTML', 'var(--marshmellow)');
                   root.style.setProperty('--colorBG', 'none');
@@ -120,16 +120,19 @@ var Theme = {
                   root.style.setProperty('--colorSVG', 'var(--black)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
                   root.style.setProperty('--colorBG', 'none');
-                  root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('ending-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
+                  root.style.setProperty('--colorBG', 'none');
                } else {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');
                   root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
+            } else {
+               root.style.setProperty('--colorSVG', 'var(--red)');
+                  root.style.setProperty('--colorHTML', 'var(--black)');
+                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
             }
          })
       }, options)

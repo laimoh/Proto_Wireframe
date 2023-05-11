@@ -36,11 +36,12 @@
     display:none!important;
 }
 
-.ProductMeta{
-   position: absolute;
-   top: -2px;
-   padding: 10% 10% 4% 8%; 
-   border: 1px solid black;
+
+   .ProductMeta {
+      position: absolute;
+      top: -2px;
+      padding: 10% 8% 4% 6%;
+      border: 1px solid black;
 }
 .ProductTitle {
    display: flex;
@@ -51,17 +52,20 @@
    font-family: "Walsheim";
    text-transform: inherit;
    font-size: 0.8rem;
+   margin-top: 0.4rem;
 }
 
 .ProductTitle p { 
    font-family: "Exposure";
    font-variation-settings: 'EXPO'-30;
    font-size: 1.3rem;
+   line-height: 1.1;
    margin-bottom: 2rem;
 }
 .ProductTitle p:last-child {
    font-family: "Pressura";
    font-size: 0.8rem;
+   white-space: nowrap;
 }
 
 .ProductDescription {
