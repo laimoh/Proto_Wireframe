@@ -130,9 +130,9 @@ var Theme = {
                   root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
             } else {
-               root.style.setProperty('--colorSVG', 'var(--red)');
-                  root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
+               // root.style.setProperty('--colorSVG', 'var(--red)');
+               //    root.style.setProperty('--colorHTML', 'var(--black)');
+               //    root.style.setProperty('--colorBG', 'var(--marshmellow)');
             }
          })
       }, options)
@@ -616,12 +616,14 @@ var Theme = {
          var modalTriggers = document.querySelectorAll('[data-modal-target]');
          modalTriggers.forEach(trigger => {
             trigger.addEventListener('click', function(){
+               
                var targetModal = '#'.concat(trigger.getAttribute('data-modal-target'));
+               console.log(targetModal)
                if (document.querySelector(targetModal)){
                   var targetModal = document.querySelector(targetModal);
                   targetModal.classList.add('flex');
                   targetModal.classList.add('visible');
-
+                  console.log(targetModal)
                   targetModal.querySelector('[data-closemodal]').addEventListener('click', function(){
                      targetModal.classList.remove('flex');
                      targetModal.classList.remove('visible');

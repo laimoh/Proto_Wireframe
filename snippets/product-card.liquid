@@ -1,26 +1,29 @@
 {% assign random_number = "now" | date: "%N" | modulo: product.images.size | plus: 0 %}
 
 <div data-ajax-card class="product-card stacked">
-  <a href="{{ product.url }}" class="card-link">
-    <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
-    <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img remove"></div>
-  </a>
-  <div class="card-content">
+
+  <div
+    class="card-content
+    {% if product.metafields.custom.product_card_color_inverse.value == true %}
+      inverse
+    {% endif %}">
     <a href="{{product.url}}" class="card--header">
       <p class="product-title">{{ product.title }}</p>
       <p class="product-type">{{ product.type }}</p>
     </a>
     <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}"></a>
-    <div class="card--footer">
+    <div class="card--footer ">
       <button class="product-buynow">
         <div class="pill-tiny"></div>
-
         <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">SHOP NOW</div>
       </button>
       <p class="product-price">{{ product.price | money | remove: '.00' }}</p>
     </div>
   </div>
-
+  <a href="{{ product.url }}" class="card-link">
+    <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
+    <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img remove"></div>
+  </a>
   <div data-variant-popup class="VariantSelectors--Ajax">
     <div class="CartItem--remove">
       {% render 'remove-icon' %}

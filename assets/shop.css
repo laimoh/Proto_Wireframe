@@ -247,7 +247,6 @@
 
 
 .product-grid {
-   /* mix-blend-mode: multiply; */
    margin-left: var(--margin);
    margin-right: var(--margin);
    animation: noblur 0.8s ease-in;
@@ -321,9 +320,6 @@
    align-items: center;
 }
 
-
-
-
 .product-buynow {
    all: initial;
    position: relative;
@@ -340,6 +336,17 @@
    margin-left: 36%;
    transform: translateX(0px);
    transition: all 0.2s ease;
+}
+
+.inverse .product-price {
+   color: var(--marshmellow);
+}
+.inverse .link-text {
+   color: var(--marshmellow);
+}
+
+.inverse .pill-tiny{
+   border: 1px solid var(--marshmellow);
 }
 
 .slider-ui:hover .pill-tiny {
