@@ -417,6 +417,7 @@ var Theme = {
                var searchParams = new URLSearchParams(new FormData(filterForm)).toString();
                var baseURL = window.location.pathname;
                var sectionID = section.getAttribute('data-section-id');
+              console.log(searchParams);
                const url = baseURL + '?section_id=' + sectionID + '&' + searchParams;
 
                fetch(url)
