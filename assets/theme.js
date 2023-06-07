@@ -527,6 +527,7 @@ var Theme = {
             var currentVariant = variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              urlParams = new URLSearchParams(window.location.search);
              urlParams.set('variant', currentVariant.id);
+             console.log(urlParams);
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              
          }
