@@ -524,7 +524,9 @@ var Theme = {
                var checked = container.querySelector('input:checked').value;
                selectedOptions.push(checked);
             });
-             console.log(variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions)));
+            var currentVariant = variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             urlParams = new URLSearchParams(window.location.search);
+             urlParams.set('variant', currentVariant.id);
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              
          }
