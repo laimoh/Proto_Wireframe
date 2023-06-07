@@ -526,10 +526,11 @@ var Theme = {
             });
             var currentVariant = variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              //Setting the URL Params by Variant ID
-             urlParams = new URLSearchParams(window.location.search);
-             urlParams.set('variant', currentVariant.id);
-             history.pushState({}, "", urlParams);
-            return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             const url = new URL(location);
+              url.searchParams.set("variant", currentVariant.id);
+              history.pushState({}, "", url);
+            
+           return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              
          }
          console.log(stickyATC.querySelector('[data-ajax-add]'))
