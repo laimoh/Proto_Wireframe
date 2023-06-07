@@ -2,7 +2,7 @@ var Shopify = Shopify || {};
 
 var currencySymbol = Shopify.currency.active;
 
-Shopify.money_format = Shopify.currency.active + " {{amount}}";
+Shopify.money_format = currencySymbol + " {{amount}}";
 Shopify.formatMoney = function (cents, format) {
    if (typeof cents == 'string') {
       cents = cents.replace('.', '');
