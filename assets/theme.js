@@ -1,4 +1,7 @@
 var Shopify = Shopify || {};
+
+var currencySymbol = Shopify.currency;
+console.log(currencySymbol);
 Shopify.money_format = "${{amount}}";
 Shopify.formatMoney = function (cents, format) {
    if (typeof cents == 'string') {
@@ -358,7 +361,6 @@ var Theme = {
          .then(data => {
             console.log(data);
             
-
             var node = document.createElement('div');
             node.innerHTML = data['mini-cart'];
             var html = node.querySelector('.shopify-section').innerHTML;
