@@ -525,9 +525,10 @@ var Theme = {
                selectedOptions.push(checked);
             });
             var currentVariant = variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             //Setting the URL Params by Variant ID
              urlParams = new URLSearchParams(window.location.search);
              urlParams.set('variant', currentVariant.id);
-             console.log(urlParams);
+             window.location.search = urlParams;
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
              
          }
