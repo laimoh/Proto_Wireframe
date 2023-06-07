@@ -524,7 +524,9 @@ var Theme = {
                var checked = container.querySelector('input:checked').value;
                selectedOptions.push(checked);
             });
+             console.log(variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
             return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             
          }
          console.log(stickyATC.querySelector('[data-ajax-add]'))
          var selected = getVariant(section);
