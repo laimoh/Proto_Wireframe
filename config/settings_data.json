@@ -15,6 +15,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "9094328589753815681": {
+        "type": "shopify:\/\/apps\/hextom-free-shipping-bar\/blocks\/fsb-embeded-block\/7ef5d9af-75a2-45c7-9b1b-f9240ee488e9",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
