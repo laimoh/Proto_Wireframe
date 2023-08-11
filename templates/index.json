@@ -1,23 +1,22 @@
 {
   "sections": {
-    "impact": {
+    "d284f6d0-6b6c-4ec1-8623-6ef39dc80a35": {
       "type": "module-impact",
       "settings": {
         "enable_button": true,
-        "use_slogan": true,
+        "use_slogan": false,
         "media_select": "video",
-        "cover-img": "shopify:\/\/shop_images\/image_3.png",
-        "video": "shopify:\/\/files\/videos\/NO GLUE EDIT V2.mp4",
-        "fontSize": 4.1,
-        "word1": "Practice  is",
+        "video": "shopify:\/\/files\/videos\/PROTO_FANTASY_15_4x3-opt.mp4",
+        "fontSize": 1.5,
+        "word1": "The path is clear for an",
         "expo-word1": 100,
-        "word2": "",
-        "expo-word2": 100,
-        "word3": "Perfect",
-        "expo-word3": 100,
+        "word2": "innovative",
+        "expo-word2": 0,
+        "word3": "future to unfold.",
+        "expo-word3": 52,
         "title_alignment": "centered",
-        "btn_title": "READ OUR FULL STORY",
-        "btn_url": "shopify:\/\/pages\/about"
+        "btn_title": "Learn more",
+        "btn_url": "shopify:\/\/pages\/faq"
       }
     },
     "8229b6a6-447d-47f7-a591-dee57561e504": {
@@ -39,23 +38,24 @@
         "btn_url": "shopify:\/\/products\/iris-d"
       }
     },
-    "d284f6d0-6b6c-4ec1-8623-6ef39dc80a35": {
+    "impact": {
       "type": "module-impact",
       "settings": {
         "enable_button": true,
-        "use_slogan": false,
+        "use_slogan": true,
         "media_select": "video",
-        "video": "shopify:\/\/files\/videos\/PROTO_FANTASY_15_4x3-opt.mp4",
-        "fontSize": 1.5,
-        "word1": "The path is clear for an",
+        "cover-img": "shopify:\/\/shop_images\/image_3.png",
+        "video": "shopify:\/\/files\/videos\/NO GLUE EDIT V2.mp4",
+        "fontSize": 4.1,
+        "word1": "Practice  is",
         "expo-word1": 100,
-        "word2": "innovative",
-        "expo-word2": 0,
-        "word3": "future to unfold.",
-        "expo-word3": 52,
+        "word2": "",
+        "expo-word2": 100,
+        "word3": "Perfect",
+        "expo-word3": 100,
         "title_alignment": "centered",
-        "btn_title": "Learn more",
-        "btn_url": "shopify:\/\/pages\/faq"
+        "btn_title": "READ OUR FULL STORY",
+        "btn_url": "shopify:\/\/pages\/about"
       }
     },
     "428fffb6-b3f0-4f0b-bc41-34cf09a0cc92": {
@@ -79,9 +79,9 @@
     }
   },
   "order": [
-    "impact",
-    "8229b6a6-447d-47f7-a591-dee57561e504",
     "d284f6d0-6b6c-4ec1-8623-6ef39dc80a35",
+    "8229b6a6-447d-47f7-a591-dee57561e504",
+    "impact",
     "428fffb6-b3f0-4f0b-bc41-34cf09a0cc92"
   ]
 }
