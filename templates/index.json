@@ -1,44 +1,5 @@
 {
   "sections": {
-    "impact": {
-      "type": "module-impact",
-      "settings": {
-        "enable_button": true,
-        "use_slogan": true,
-        "media_select": "video",
-        "cover-img": "shopify:\/\/shop_images\/image_3.png",
-        "video": "shopify:\/\/files\/videos\/PROTO 60 NO ENDCARD-opt.mp4",
-        "fontSize": 4.1,
-        "word1": "Practice  is",
-        "expo-word1": 100,
-        "word2": "",
-        "expo-word2": 100,
-        "word3": "Perfect",
-        "expo-word3": 100,
-        "title_alignment": "centered",
-        "btn_title": "READ OUR FULL STORY",
-        "btn_url": "shopify:\/\/pages\/about"
-      }
-    },
-    "8229b6a6-447d-47f7-a591-dee57561e504": {
-      "type": "module-impact",
-      "settings": {
-        "enable_button": true,
-        "use_slogan": false,
-        "media_select": "image",
-        "cover-img": "shopify:\/\/shop_images\/custom_resized_efb67da0-48fe-448d-9604-64d59162c76d.png",
-        "fontSize": 3,
-        "word1": "Iris-D",
-        "expo-word1": 0,
-        "word2": "",
-        "expo-word2": 0,
-        "word3": "",
-        "expo-word3": 100,
-        "title_alignment": "leftBottom",
-        "btn_title": "SHOP NOW",
-        "btn_url": "shopify:\/\/products\/iris-d"
-      }
-    },
     "d284f6d0-6b6c-4ec1-8623-6ef39dc80a35": {
       "type": "module-impact",
       "settings": {
@@ -58,13 +19,52 @@
         "btn_url": "shopify:\/\/pages\/faq"
       }
     },
+    "8229b6a6-447d-47f7-a591-dee57561e504": {
+      "type": "module-impact",
+      "settings": {
+        "enable_button": true,
+        "use_slogan": false,
+        "media_select": "image",
+        "cover-img": "shopify:\/\/shop_images\/PROTO__Site-Banner_Monochrome-IrisD_Opal_1.jpg",
+        "fontSize": 1.9,
+        "word1": "",
+        "expo-word1": 0,
+        "word2": "",
+        "expo-word2": 0,
+        "word3": "",
+        "expo-word3": 100,
+        "title_alignment": "leftBottom",
+        "btn_title": "AVAILABLE NOW",
+        "btn_url": "shopify:\/\/collections\/all"
+      }
+    },
+    "impact": {
+      "type": "module-impact",
+      "settings": {
+        "enable_button": true,
+        "use_slogan": true,
+        "media_select": "video",
+        "cover-img": "shopify:\/\/shop_images\/image_3.png",
+        "video": "shopify:\/\/files\/videos\/NO GLUE EDIT V2.mp4",
+        "fontSize": 4.1,
+        "word1": "Practice  is",
+        "expo-word1": 100,
+        "word2": "",
+        "expo-word2": 100,
+        "word3": "Perfect",
+        "expo-word3": 100,
+        "title_alignment": "centered",
+        "btn_title": "READ OUR FULL STORY",
+        "btn_url": "shopify:\/\/pages\/about"
+      }
+    },
     "428fffb6-b3f0-4f0b-bc41-34cf09a0cc92": {
       "type": "module-impact",
       "settings": {
         "enable_button": true,
         "use_slogan": false,
         "media_select": "image",
-        "cover-img": "shopify:\/\/shop_images\/Proto_Iris_Scans__11_V2_1_-min_1_1_1.png",
+        "cover-img": "shopify:\/\/shop_images\/PROTO__Site-Banner_Maurizio_resized.jpg",
         "fontSize": 4,
         "word1": "Join the",
         "expo-word1": 100,
@@ -79,9 +79,9 @@
     }
   },
   "order": [
-    "impact",
-    "8229b6a6-447d-47f7-a591-dee57561e504",
     "d284f6d0-6b6c-4ec1-8623-6ef39dc80a35",
+    "8229b6a6-447d-47f7-a591-dee57561e504",
+    "impact",
     "428fffb6-b3f0-4f0b-bc41-34cf09a0cc92"
   ]
 }

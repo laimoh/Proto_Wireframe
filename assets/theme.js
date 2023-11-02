@@ -1,5 +1,8 @@
 var Shopify = Shopify || {};
-Shopify.money_format = "${{amount}}";
+
+var currencySymbol = Shopify.currency.active;
+
+Shopify.money_format = currencySymbol + " {{amount}}";
 Shopify.formatMoney = function (cents, format) {
    if (typeof cents == 'string') {
       cents = cents.replace('.', '');
@@ -130,9 +133,9 @@ var Theme = {
                   root.style.setProperty('--colorBG', 'var(--marshmellow)');
                }
             } else {
-               root.style.setProperty('--colorSVG', 'var(--red)');
-                  root.style.setProperty('--colorHTML', 'var(--black)');
-                  root.style.setProperty('--colorBG', 'var(--marshmellow)');
+               // root.style.setProperty('--colorSVG', 'var(--red)');
+               //    root.style.setProperty('--colorHTML', 'var(--black)');
+               //    root.style.setProperty('--colorBG', 'var(--marshmellow)');
             }
          })
       }, options)
@@ -358,7 +361,6 @@ var Theme = {
          .then(data => {
             console.log(data);
             
-
             var node = document.createElement('div');
             node.innerHTML = data['mini-cart'];
             var html = node.querySelector('.shopify-section').innerHTML;
@@ -417,6 +419,7 @@ var Theme = {
                var searchParams = new URLSearchParams(new FormData(filterForm)).toString();
                var baseURL = window.location.pathname;
                var sectionID = section.getAttribute('data-section-id');
+              console.log(searchParams);
                const url = baseURL + '?section_id=' + sectionID + '&' + searchParams;
 
                fetch(url)
@@ -523,7 +526,14 @@ var Theme = {
                var checked = container.querySelector('input:checked').value;
                selectedOptions.push(checked);
             });
-            return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+            var currentVariant = variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             //Setting the URL Params by Variant ID
+             const url = new URL(location);
+              url.searchParams.set("variant", currentVariant.id);
+              history.pushState({}, "", url);
+            
+           return variants.find(element => JSON.stringify(element.options) === JSON.stringify(selectedOptions));
+             
          }
          console.log(stickyATC.querySelector('[data-ajax-add]'))
          var selected = getVariant(section);
@@ -616,12 +626,14 @@ var Theme = {
          var modalTriggers = document.querySelectorAll('[data-modal-target]');
          modalTriggers.forEach(trigger => {
             trigger.addEventListener('click', function(){
+               
                var targetModal = '#'.concat(trigger.getAttribute('data-modal-target'));
+               console.log(targetModal)
                if (document.querySelector(targetModal)){
                   var targetModal = document.querySelector(targetModal);
                   targetModal.classList.add('flex');
                   targetModal.classList.add('visible');
-
+                  console.log(targetModal)
                   targetModal.querySelector('[data-closemodal]').addEventListener('click', function(){
                      targetModal.classList.remove('flex');
                      targetModal.classList.remove('visible');
