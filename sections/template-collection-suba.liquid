@@ -1,48 +1,34 @@
-{% assign display = false %}
 
-{% for tag in customer.tags %}
-    {% if tag == "admin" %}
-        {% assign display = true %}
-    {% endif %}
-{% endfor %}
-TEST
-{{ display }}
-
-
-{% if display %}
-<div data-section-type="collection" data-section-id="{{section.id}}">
+  <div data-section-type="collection" data-section-id="{{ section.id }}">
     {{ 'shop.css' | asset_url | stylesheet_tag }}
     <div class="filters-wrapper">
       {% render 'filters' %}
     </div>
     {% paginate collection.products by 9 %}
-       <div data-next-page class="product-grid">
+      <div data-next-page class="product-grid subq-grid">
         {% for product in collection.products %}
-          {% cycle '<div class="row">', '', '' %}
           {% render 'product-card', product: product %}
-          {% cycle '', '', '</div>' %}
         {% endfor %}
       </div>
-    
+
       <nav>
-       {%- if paginate.previous -%}
-            <a
-              class="loadmorebtn" 
-              href="{{ paginate.previous.url }}"
-              >
-              PREVIOUS
-            </a>
+        {%- if paginate.previous -%}
+          <a
+            class="loadmorebtn"
+            href="{{ paginate.previous.url }}"
+          >
+            PREVIOUS
+          </a>
         {%- endif -%}
         {%- if paginate.next -%}
           <a
             class="loadmorebtn"
             href="{{ paginate.next.url }}"
-            >
+          >
             NEXT
           </a>
-      {%- endif -%}
+        {%- endif -%}
       </nav>
     {% endpaginate %}
-    
-    <script src="{{ 'shop.js' | asset_url }}" async></script>
-    {% endif %}
+  </div>
+  <script src="{{ 'shop.js' | asset_url }}" async></script>

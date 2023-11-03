@@ -1,35 +1,35 @@
 <div data-section-type="collection" data-section-id="{{section.id}}">
-{{ 'shop.css' | asset_url | stylesheet_tag }}
-<div class="filters-wrapper">
-  {% render 'filters' %}
-</div>
-{% paginate collection.products by 9 %}
-   <div data-next-page class="product-grid">
-    {% for product in collection.products %}
-      {% cycle '<div class="row">', '', '' %}
-      {% render 'product-card', product: product %}
-      {% cycle '', '', '</div>' %}
-    {% endfor %}
+  {{ 'shop.css' | asset_url | stylesheet_tag }}
+  <div class="filters-wrapper">
+    {% render 'filters' %}
   </div>
+  {% paginate collection.products by 9 %}
+    <div data-next-page class="product-grid">
+      {% for product in collection.products %}
+        {% cycle '<div class="row">', '', '' %}
+        {% render 'product-card', product: product %}
+        {% cycle '', '', '</div>' %}
+      {% endfor %}
+    </div>
 
-  <nav>
-   {%- if paginate.previous -%}
+    <nav>
+      {%- if paginate.previous -%}
         <a
-          class="loadmorebtn" 
+          class="loadmorebtn"
           href="{{ paginate.previous.url }}"
-          >
+        >
           PREVIOUS
         </a>
-    {%- endif -%}
-    {%- if paginate.next -%}
-      <a
-        class="loadmorebtn"
-        href="{{ paginate.next.url }}"
+      {%- endif -%}
+      {%- if paginate.next -%}
+        <a
+          class="loadmorebtn"
+          href="{{ paginate.next.url }}"
         >
-        NEXT
-      </a>
-  {%- endif -%}
-  </nav>
-{% endpaginate %}
-
+          NEXT
+        </a>
+      {%- endif -%}
+    </nav>
+  {% endpaginate %}
+</div>
 <script src="{{ 'shop.js' | asset_url }}" async></script>

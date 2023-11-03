@@ -626,3 +626,18 @@ padding: 0.2rem 0.3rem;
       text-align: center;
     }
 }
+
+/* SUB Q Collection Page | Hasso @PurplePanda*/
+
+.subq-grid{
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+}
+
+.subq-grid .product-card{
+   height: auto;
+}
+
+.subq-grid .product-card .card-img{
+   background-size: contain;
+}
