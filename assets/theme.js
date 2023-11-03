@@ -111,6 +111,10 @@ var Theme = {
                   root.style.setProperty('--colorSVG', 'var(--marshmellow)');
                   root.style.setProperty('--colorHTML', 'var(--marshmellow)');
                   root.style.setProperty('--colorBG', 'none');
+                }   else if (entry.target.classList.contains('impact-dark-module')) {
+                     root.style.setProperty('--colorSVG', 'var(--black)');
+                     root.style.setProperty('--colorHTML', 'var(--black)');
+                     root.style.setProperty('--colorBG', 'none');
                } else if (entry.target.classList.contains('pill_crop-module')) {
                   root.style.setProperty('--colorSVG', 'var(--red)');
                   root.style.setProperty('--colorHTML', 'var(--black)');

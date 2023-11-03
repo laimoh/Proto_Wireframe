@@ -1,0 +1,180 @@
+{% comment %} impact-dark-module {% endcomment %}
+
+{{ 'impact.css' | asset_url | stylesheet_tag }}
+
+{% assign mediaType = section.settings.media_select %}
+
+<div
+  fontSize="{{ section.settings.fontSize }}rem"
+  style="position: relative;
+                                                                              width: 100vw;
+                                                                              height: calc(var(--vh, 1vh) * 100); display:flex;flex-direction:column;overflow: hidden;"class="impact-wrapper">
+  {% if mediaType == 'video' %}
+    <div class="cover">
+      {% if section.settings.video != nil %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="cover">
+      <img src="{{ section.settings.cover-img | img_url: 'master' }}" alt="{{ section.settings.title }}">
+    </div>
+  {% endif %}
+  {% if section.settings.use_slogan == true %}
+    <div
+      {% if section.settings.title_alignment == 'centered' %}
+      class="centered"
+      {% elsif section.settings.title_alignment == 'leftBottom' %}
+      class="leftBottom"
+      {% endif %}>
+      {% render 'slogan' %}
+    </div>
+  {% else %}
+    <div
+      {% if section.settings.title_alignment == 'centered' %}
+      class="h1-wrap centered"
+      {% elsif section.settings.title_alignment == 'leftBottom' %}
+      class="h1-wrap leftBottom"
+      {% endif %}>
+      <h1 style="--fontSize: {{ section.settings.fontSize }}rem">
+        <span class="word1" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word1 | minus: 50 }};">{{ section.settings.word1 }}</span>
+        <span class="word2" style="font-variation-settings: 'EXPO' {{ section.settings.expo-word2 | minus: 50 }};">{{ section.settings.word2 }}</span>
+        <span class="word3" tyle="font-variation-settings: 'EXPO' {{ section.settings.expo-word3 | minus: 50 }};">{{ section.settings.word3 }}</span>
+      </h1>
+    </div>
+  {% endif %}
+  {% if section.settings.enable_button == true %}
+    {% if section.settings.btn_url == blank %}
+      {% assign buttonURL = shop.secure_url %}
+    {% else %}
+      {% assign buttonURL = section.settings.btn_url %}
+    {% endif %}
+    <button class="module-link">
+      <div class="pill-tiny"></div>
+      <a href={{ buttonURL }}>{{ section.settings.btn_title }}</a>
+    </button>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Impact Dark Module",
+    "tag": "section",
+    "class": "impact-dark-module",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_button",
+        "label": "Show Button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slogan",
+        "label": "Change to Slogan",
+        "default": false
+      },
+      {
+        "type": "radio",
+        "id": "media_select",
+        "label": "Select a Media Type",
+        "options": [
+          {
+            "value": "video",
+            "label": "Video"
+          }, {
+            "value": "image",
+            "label": "Image"
+          }
+        ],
+        "default": "image"
+      },
+      {
+        "type": "image_picker",
+        "id": "cover-img",
+        "label": "Image Picker"
+      }, {
+        "type": "video",
+        "id": "video",
+        "label": "Video Picker"
+      }, {
+        "type": "range",
+        "id": "fontSize",
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "label": "Font Size",
+        "default": 4
+      }, {
+        "type": "text",
+        "id": "word1",
+        "label": "Word 1",
+        "default": "Practice"
+      }, {
+        "type": "range",
+        "id": "expo-word1",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount Word 1",
+        "default": 0
+      }, {
+        "type": "text",
+        "id": "word2",
+        "label": "Word 2",
+        "default": "is"
+      }, {
+        "type": "range",
+        "id": "expo-word2",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount Word 2",
+        "default": 0
+      }, {
+        "type": "text",
+        "id": "word3",
+        "label": "Word 3",
+        "default": "Perfect"
+      }, {
+        "type": "range",
+        "id": "expo-word3",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Exposure Amount Word 3",
+        "default": 100
+      }, {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title Alignment",
+        "options": [
+          {
+            "value": "leftBottom",
+            "label": "Left Bottom"
+          }, {
+            "value": "centered",
+            "label": "Centered"
+          }
+        ],
+        "default": "centered"
+      }, {
+        "type": "text",
+        "id": "btn_title",
+        "label": "Button Text",
+        "default": "Shop now"
+      }, {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Impact Dark Module",
+        "category": "Custom"
+      }
+    ],
+    "templates": ["index"]
+  }
+{% endschema %}
