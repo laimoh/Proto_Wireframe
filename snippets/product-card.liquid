@@ -13,11 +13,23 @@
     </a>
     <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}"></a>
     <div class="card--footer ">
-      <button class="product-buynow">
-        <div class="pill-tiny"></div>
-        <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">SHOP NOW</div>
-      </button>
-      <p class="product-price">{{ product.price | money | remove: '.00' }}</p>
+      {% if product.available %}
+         <button class="product-buynow">
+            <div class="pill-tiny"></div>
+            <div data-ajax-open="{{ product.selected_or_first_available_variant.id }}" class="link-text">SHOP NOW</div>
+         </button>
+      {% else %}
+         <p>Sold Out</p>  
+      {% endif %}
+      <p class="product-price">
+         {% if product.compare_at_price %}
+            <span class="saleprice">  {{ product.price | money | remove: '.00' }} </span>
+            <span class="offer">{{ product.compare_at_price | money | remove: '.00' }} </span>
+            {% else %}
+            {{ product.price | money | remove: '.00' }}    
+         {% endif %}
+
+      </p>
     </div>
   </div>
   <a href="{{ product.url }}" class="card-link">
@@ -32,18 +44,19 @@
       {% assign optionrow = forloop.index %}
       {% assign downcased_option = options.name | downcase %}
       <div class="optionValuesContainer">
-        <div class="CardValues {%if downcased_option == 'color' %}ColorValues{%endif%}">
+        <div class="CardValues {% if downcased_option == 'color' %}ColorValues{% endif %}">
           {% for value in options.values %}
             <input
-              name="{{option | append: "--" | append: optionrow}}"
-              id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
+              name="{{ option | append: "--" | append: optionrow }}"
+              id="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
               style="display:none"
               {% if forloop.first %}checked="checked"{% endif %}
               type="radio"
               value="{{value}}"
-              data-option="{{optionrow}}">
-            <label for="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{ value }}</label>
+              data-option="{{ optionrow }}">
+            <label for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">{{ value }}</label>
           {% endfor %}
+          
         </div>
         <div class="optionsNameContainer">
           {{ options.name }}
@@ -54,7 +67,9 @@
     <div class="productQty">
       <button class="product-buynow">
         <div class="pill-tiny"></div>
-        <span class="link-text" data-ajax-add="{{product.selected_or_first_available_variant.id}}">Add to CART</span>
+        <span class="link-text" data-ajax-add="{{ product.selected_or_first_available_variant.id }}">
+         Add to CART
+         </span>
       </button>
       <div class="qty"></div>
     </div>

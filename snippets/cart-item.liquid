@@ -14,7 +14,7 @@
     </span>
   </div>
 
-  <div class="CartItem--Image" style="background-image: url({{ item.product.featured_image | img_url: "200x"}}); background-size: contain;"></div>
+  <div class="CartItem--Image" style="background-image: url({{ item.product.featured_image | img_url: "200x" }}); background-size: contain;"></div>
 
   <div class="CartItem--footer">
     <div class="CartItem--remove">
@@ -27,12 +27,19 @@
         <div
           style="font-size: 1rem;"
           class="qty--text"
-          data-value="{{item.quantity}}">{{ item.quantity }}</div>
+          data-value="{{ item.quantity }}">{{ item.quantity }}</div>
         <div style="font-size: 1rem;" class="qty--button plus">+</div>
       </div>
     </div>
 
-    <div class="CartItem--price">{{ item.price | money | remove: '.00' }}</div>
+    <div class="CartItem--price">
+      {% if item.compare_at_price %}
+         <span class="saleprice">  {{ item.compare_at_price | money | remove: '.00' }}</span>
+         <span class="offer">  {{ item.price | money | remove: '.00' }} </span>
+         {% else %}
+         {{ item.price | money | remove: '.00' }}    
+      {% endif %}
+   </div>
 
   </div>
 

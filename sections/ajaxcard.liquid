@@ -1,6 +1,7 @@
 {% for product in cart.items limit: 1 %}
   <div class="ajax-card">
-    <div class="preview-img"><img src="{{ product.image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}">
+    <div class="preview-img">
+      <img loading="lazy" src="{{ product.image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" wid>
     </div>
     <div class="card-content">
       <div class="card--header">

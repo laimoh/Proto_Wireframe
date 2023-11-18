@@ -1,146 +1,153 @@
 <div class="MainMenu Fixed">
-<div class="MainMenu--Wrapper ">
-<div class="MainMenu--left">
-  <div class=" MainMenu--leftItem shop">
-    <a href="/collections/all">Shop</a>
-  </div>
-  <div class=" MainMenu--leftItem">
-    <a href="/pages/about">Our Story</a>
-  </div>
-</div>
+   <div class="announcement-bar">
+      <p class="announcement-text">Free US Domestic Shipping For Orders Over 
+         <span>$150</span>
+      </p>
+   </div>
+   <div class="MainMenu--Wrapper ">
+            <div class="MainMenu--left">
+               <div class=" MainMenu--leftItem shop">
+                  <a href="/collections/all">Shop</a>
+               </div>
+               <div class=" MainMenu--leftItem">
+                  <a href="/pages/about">Our Story</a>
+               </div>
+            </div>
 
-<div id="LogoContainerParent" class="MainMenu--center">
-   {% if template.name == 'product' %}
-   <a href="/" id="DesktopLogoPlaceholder" class="LogoPlaceholder">
-   {% render 'logo-masked' %}
-   </a>
-   {% else %}
-   <a href="/" id="DesktopLogo" class="Logo enlargeState">
-   {% render 'logo-masked' %}
-   </a>
-{% endif %}
-</div>
+            <div id="LogoContainerParent" class="MainMenu--center">
+                     {% if template.name == 'product' or template.name == 'collection' 
+                      %}
+                     <a href="/" id="DesktopLogoPlaceholder" class="LogoPlaceholder">
+                     {% render 'logo-masked' %}
+                     </a>
+                     {% else %}
+                     <a href="/" id="DesktopLogo" class="Logo enlargeState">
+                     {% render 'logo-masked' %}
+                     </a>
+                  {% endif %}
+            </div>
 
-<div class="MainMenu--right">
-  <div class=" MainMenu--rightItem icon search">
-    
-    <form id="deskSearchForm" class="search" action="/search" style="display:none">
+            <div class="MainMenu--right">
+            <div class=" MainMenu--rightItem icon search">
+               
+               <form id="deskSearchForm" class="search" action="/search" style="display:none">
+                  <input type="hidden" name="type" value="product">
+                  <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+               <button type="submit" value="Search">→</button>
+               </form>
+
+               <a onclick=Theme.search.openDesk(); search-desk-button>SEARCH</a>
+            </div>
+            
+            <div class=" MainMenu--rightItem icon login">
+               {%- if shop.customer_accounts_enabled -%}
+                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">
+                                 Account
+                     </a>
+                  {%- endif -%}
+            </div>
+            
+            <div data-opencart class="MainMenu--rightItem cart">
+               <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
+               </div>
+               <div class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">
+                  <p>CART</p>
+                  <div class="line"></div>
+                  <span class="cartcount"> {{ cart.item_count }}</span>
+               </div>
+               <div id="cartButtonDrawer">
+                  <div class="CartProducts">
+                     {% render 'cart-items' %}
+                  </div>
+               <div class="Cart--Buttons">
+                     <div class="Subtotal--price">
+                        <span>Subtotal</span>
+                        <div class="line"></div> 
+                        <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
+                     </div>
+                     <p class="subtotal-info" >*Shipping calculated at checkout</p>
+                     <div>
+                           <a class="Button--action" href="/checkout" data-checkout>Checkout</a>
+                     </div>
+               </div>
+            </div>
+            
+      </div>
+      </div>
+
+
+   <div class="MainMenu--mobile hide--desktop">
+      <div id="mobileSearch" class="Mobile--Search">
+      <form class="search" action="/search">
       <input type="hidden" name="type" value="product">
-        <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
-    <button type="submit" value="Search">→</button>
-    </form>
+         <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
+         <div class="Button" onClick=Theme.search.submit()> → </div>
+      </form>
+      </div>
 
-    <a onclick=Theme.search.openDesk(); search-desk-button>SEARCH</a>
-  </div>
-  
-  <div class=" MainMenu--rightItem icon login">
-     {%- if shop.customer_accounts_enabled -%}
-                    <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">
-                      Account
-                    </a>
-                  {%- endif -%}
-  </div>
-  
-  <div data-opencart class="MainMenu--rightItem cart">
-    <div id="ajaxCardContainer" data-ajax-popup class="addedProduct">
-    </div>
-    <div class="cartheader" id="cartTrigger" data-close="Close" data-open="Cart" onclick="Theme.cart.open(true);">
-      <p>CART</p>
-      <div class="line"></div>
-      <span class="cartcount"> {{ cart.item_count }}</span>
-    </div>
-    <div id="cartButtonDrawer">
-        <div class="CartProducts">
-          {% render 'cart-items' %}
-        </div>
-<div class="Cart--Buttons">
-        <div class="Subtotal--price">
-          <span>Subtotal</span>
-          <div class="line"></div> 
-          <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
-        </div>
-        <p class="subtotal-info" >*Shipping calculated at checkout</p>
-        <div>
-            <a class="Button--action" href="/checkout" data-checkout>Checkout</a>
-        </div>
+      <div class="Icon--Menu" onclick="Theme.mobile_menu.open()">
+      {% render 'mobile-menu' %}
    </div>
-  </div>
-</div>
-</div>
-
-
-<div class="MainMenu--mobile hide--desktop">
-<div id="mobileSearch" class="Mobile--Search">
-<form class="search" action="/search">
-  <input type="hidden" name="type" value="product">
-    <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}"  />
-    <div class="Button" onClick=Theme.search.submit()> → </div>
-</form>
-
-
-</div>
-<div class="Icon--Menu" onclick="Theme.mobile_menu.open()">
-   {% render 'mobile-menu' %}
-</div>
-<div class="Menu--middle">
-<a href="/collections/all" class="Button BackToCollection">
-Back to Products
-</a>
-<div class="Button BackToCollection FilterButton" onclick="Theme.filter.open()">
-Filter
-</div>
-</div>
-<div onClick=Theme.search.toggle() class="Icon--Menu searchmobile">
-   {% render 'search-icon' %}
-</div>
-<div class="Icon--Menu mobileCartIcon" onClick=Theme.mobile_cart.open();>
-   {% render 'cart-icon' %}
-   {% comment %} <div class="line"></div> {% endcomment %}
-      <span class="cartcount"> {{ cart.item_count }}</span>
-</div>
-</div>
-
-<div class="MobileMenu--Items hide--desktop">
-<div class="MobileMenu--Content mobmenu">
-   <a class="homelink" href="/">Home</a>
-      <a class="shoplink" href="/collections/all">Shop</a>
-      <a class="aboutlink" href="/pages/about">Our Story</a>
-      <div class="line"></div>
-      {%- if shop.customer_accounts_enabled -%}
-                    <a class="accountlink" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">Account</a>
-                  {%- endif -%}
-      <a class="faqlink" href="/pages/faq">Help</a>
-</div>
-<div class="closeButton mobilemenuclose" onclick="Theme.mobile_menu.close()">CLOSE</div>
-</div>
-
-<div id="FilterMobile" class="MobileMenu--Filters hide--desktop" x-data="{ show: true }">
-  <div class="MobileMenu--Content">
-   {% render 'filters', mobile: true %}
-  </div>
-  <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
-  </div>
-
-  <div opened="false" id="cartMobile" class="MobileMenu--Filters hide--desktop">
-   <div class="cartcontents">
-      <div data-ajax-cart id="cartMobileItems">
-         {% render 'cart-items' %}
-     </div>
-     <div class="Subtotal--price">
-       <span>Subtotal</span>
-       <div class="line"></div> 
-       <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
-     </div>
-     <p class="subtotal-info" >*Shipping calculated at checkout</p>
-     <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
-     <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
+   <div class="Menu--middle">
+      <a href="/collections/all" class="Button BackToCollection">
+      Back to Products
+      </a>
+      <div class="Button BackToCollection FilterButton" onclick="Theme.filter.open()">
+      Filter
+      </div>
    </div>
-    </div>
-  
+   <div onClick=Theme.search.toggle() class="Icon--Menu searchmobile">
+      {% render 'search-icon' %}
+   </div>
+   <div class="Icon--Menu mobileCartIcon" onClick=Theme.mobile_cart.open();>
+      {% render 'cart-icon' %}
+      {% comment %} <div class="line"></div> {% endcomment %}
+         <span class="cartcount"> {{ cart.item_count }}</span>
+   </div>
+   </div>
+
+   <div class="MobileMenu--Items hide--desktop">
+   <div class="MobileMenu--Content mobmenu">
+      <a class="homelink" href="/">Home</a>
+         <a class="shoplink" href="/collections/all">Shop</a>
+         <a class="aboutlink" href="/pages/about">Our Story</a>
+         <div class="line"></div>
+         {%- if shop.customer_accounts_enabled -%}
+                     <a class="accountlink" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"">Account</a>
+                     {%- endif -%}
+         <a class="faqlink" href="/pages/faq">Help</a>
+   </div>
+   <div class="closeButton mobilemenuclose" onclick="Theme.mobile_menu.close()">CLOSE</div>
+   </div>
+
+   <div id="FilterMobile" class="MobileMenu--Filters hide--desktop" x-data="{ show: true }">
+   <div class="MobileMenu--Content">
+      {% render 'filters', mobile: true %}
+   </div>
+   <div class="closeButton" onclick="Theme.filter.close()">CLOSE</div>
+   </div>
+
+      <div opened="false" id="cartMobile" class="MobileMenu--Filters hide--desktop">
+            <div class="cartcontents">
+               <div data-ajax-cart id="cartMobileItems">
+                  {% render 'cart-items' %}
+               </div>
+               <div class="Subtotal--price">
+                  <span>Subtotal</span>
+                  <div class="line"></div> 
+                  <span class="Subtotal--Money" data-ajax-price>{{ cart.total_price | money | remove: '.00' }}</span>
+               </div>
+               <p class="subtotal-info" >*Shipping calculated at checkout</p>
+               <a style="display:block;" class="closeButton checkOutButton" href="/checkout">CHECKOUT</a>
+               <div class="closeButton" onclick="Theme.mobile_cart.close()">CLOSE</div>
+            </div>
+      </div>
+     
 {% schema %}
    {
       "name": "Header",
       "tag": "section",
-      "class": "header"
+      "class": "header",
+      "settings": []
    }
 {% endschema %}

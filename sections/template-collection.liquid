@@ -1,9 +1,9 @@
-<div data-section-type="collection" data-section-id="{{section.id}}">
+<div data-section-type="collection" data-section-id="{{ section.id }}">
   {{ 'shop.css' | asset_url | stylesheet_tag }}
   <div class="filters-wrapper">
     {% render 'filters' %}
   </div>
-  {% paginate collection.products by 9 %}
+  {% paginate collection.products by 15 %}
     <div data-next-page class="product-grid">
       {% for product in collection.products %}
         {% cycle '<div class="row">', '', '' %}
@@ -18,7 +18,7 @@
           class="loadmorebtn"
           href="{{ paginate.previous.url }}"
         >
-          PREVIOUS
+          PREVIOUS PAGE
         </a>
       {%- endif -%}
       {%- if paginate.next -%}
@@ -26,7 +26,7 @@
           class="loadmorebtn"
           href="{{ paginate.next.url }}"
         >
-          NEXT
+          NEXT PAGE
         </a>
       {%- endif -%}
     </nav>
