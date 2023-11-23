@@ -1,13 +1,14 @@
 <form class="filter-form storeFrontFilters">
   <div class="filter-group-collection" x-show="show">
     <ul>
-      {% for link in linklists.collection-links.links %}
+      {% for link in linklists['collection-links'].links %}
         <li class="item-filter_title">
           <a
             href="{{ link.url }}"
             {% if link.active %}
-            aria-current="true"
-            {% endif %}>
+              aria-current="true"
+            {% endif %}
+          >
             {{ link.title }}
           </a>
         </li>
@@ -19,112 +20,131 @@
     <div class="details">
       {% assign label = filter.label %}
       {% case label %}
-        {% when "Size" %}
-        <div
-          onclick="Theme.filter.resize()"
-          class="filter-group"
-          x-on:click="show = false">
-          <span class="filter-label">{{ filter.label }}</span>
-          <span class="line"></span>
-          <p>
-            {%- if filter.active_values.size > 0 -%}
-              {%- for filter_value in filter.active_values limit: 3 -%}
-                {% if forloop.index == 3 and filter.active_values.size > 3 %}
-                  <span class="filter-value">{{ filter_value.label }}...</span>
-                {% else %}
-                  <span class="filter-value">{{ filter_value.label }}</span>
-                  /
-                {% endif %}
-              {%- endfor -%}
-            {% else %}
-              <span class="filter-value">all</span>
-            {% endif %}
-          </p>
-        </div>
-        <div class="group-transition size-transition">
-          <ul class="filter-group-display__list list-size">
-            {%- for filter_value in filter.values -%}
-              <li class="filter-group-display__list-item">
-                <input
-                  class="checkbox-size remove"
-                  class="inputbox"
-                  type="checkbox"
-                  name="{{ filter_value.param_name }}"
-                  value="{{ filter_value.value }}"
-                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}-{{ filter_value.value }}{%- if mobile -%}--Mobile{% endif %}"
-                  {% if filter_value.active -%}checked{%- endif %}
-                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
-                <label class="label-size" for="Filter-{{ filter.param_name }}-{{ forloop.index }}-{{ filter_value.value }}{%- if mobile -%}--Mobile{% endif %}">
-                  {{ filter_value.label }}</label>
-              </li>
-            {%- endfor -%}
-          </ul>
+        {% when 'Size' %}
           <div
-            x-on:click="show = true"
-            onclick="Theme.filter.open()"
-            class="backbtn">←</div>
-        </div>
-
-
-        {% when "Color" %}
-        <div onclick="Theme.filter.resize()" class="filter-group">
-          <span class="filter-label">{{ filter.label }}</span>
-          <span class="line"></span>
-          <p>
-            {%- if filter.active_values.size > 0 -%}
-              {%- for filter_value in filter.active_values limit: 2 -%}
-                {% if forloop.index == 2 and filter.active_values.size > 2 %}
-                  <span class="filter-value">{{ filter_value.label }}...</span>
-                {% else %}
-                  <span class="filter-value">{{ filter_value.label }}</span>
-                  /
-                {% endif %}
+            onclick="Theme.filter.resize()"
+            class="filter-group"
+            x-on:click="show = false"
+          >
+            <span class="filter-label">{{ filter.label }}</span>
+            <span class="line"></span>
+            <p>
+              {%- if filter.active_values.size > 0 -%}
+                {%- for filter_value in filter.active_values limit: 3 -%}
+                  {% if forloop.index == 3 and filter.active_values.size > 3 %}
+                    <span class="filter-value">{{ filter_value.label }}...</span>
+                  {% else %}
+                    <span class="filter-value">{{ filter_value.label }}</span>
+                    /
+                  {% endif %}
+                {%- endfor -%}
+              {% else %}
+                <span class="filter-value">all</span>
+              {% endif %}
+            </p>
+          </div>
+          <div class="group-transition size-transition">
+            <ul class="filter-group-display__list list-size">
+              {%- for filter_value in filter.values -%}
+                <li class="filter-group-display__list-item">
+                  <input
+                    class="checkbox-size remove"
+                    class="inputbox"
+                    type="checkbox"
+                    name="{{ filter_value.param_name }}"
+                    value="{{ filter_value.value }}"
+                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}-{{ filter_value.value }}{%- if mobile -%}--Mobile{% endif %}"
+                    {% if filter_value.active -%}
+                      checked
+                    {%- endif %}
+                    {% if filter_value.count == 0 and filter_value.active == false -%}
+                      disabled
+                    {%- endif %}
+                  >
+                  <label
+                    class="label-size"
+                    for="Filter-{{ filter.param_name }}-{{ forloop.index }}-{{ filter_value.value }}{%- if mobile -%}--Mobile{% endif %}"
+                  >
+                    {{ filter_value.label -}}
+                  </label>
+                </li>
               {%- endfor -%}
-            {% else %}
-              <span class="filter-value">all</span>
-            {% endif %}
-          </p>
-        </div>
-        <div class="group-transition">
-          <ul class="filter-group-display__list list-color">
-            {%- for filter_value in filter.values -%}
-              <li class="filter-group-display__list-item">
-                <input
-                  class="checkbox-color remove"
-                  type="checkbox"
-                  name="{{ filter_value.param_name }}"
-                  value="{{ filter_value.value }}"
-                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                  {% if filter_value.active -%}checked{%- endif %}
-                  {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}>
+            </ul>
+            <div
+              x-on:click="show = true"
+              onclick="Theme.filter.open()"
+              class="backbtn"
+            >
+              ←
+            </div>
+          </div>
+        {% when 'Color' %}
+          <div onclick="Theme.filter.resize()" class="filter-group">
+            <span class="filter-label">{{ filter.label }}</span>
+            <span class="line"></span>
+            <p>
+              {%- if filter.active_values.size > 0 -%}
+                {%- for filter_value in filter.active_values limit: 2 -%}
+                  {% if forloop.index == 2 and filter.active_values.size > 2 %}
+                    <span class="filter-value">{{ filter_value.label }}...</span>
+                  {% else %}
+                    <span class="filter-value">{{ filter_value.label }}</span>
+                    /
+                  {% endif %}
+                {%- endfor -%}
+              {% else %}
+                <span class="filter-value">all</span>
+              {% endif %}
+            </p>
+          </div>
+          <div class="group-transition">
+            <ul class="filter-group-display__list list-color">
+              {%- for filter_value in filter.values -%}
+                <li class="filter-group-display__list-item">
+                  <input
+                    class="checkbox-color remove"
+                    type="checkbox"
+                    name="{{ filter_value.param_name }}"
+                    value="{{ filter_value.value }}"
+                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                    {% if filter_value.active -%}
+                      checked
+                    {%- endif %}
+                    {% if filter_value.count == 0 and filter_value.active == false -%}
+                      disabled
+                    {%- endif %}
+                  >
 
-                <label class="label-color" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
-                  {{ filter_value.label }}</label>
-              </li>
-
-            {%- endfor -%}
-          </ul>
-          <div
-          x-on:click="show = true"
-          onclick="Theme.filter.open()"
-          class="backbtn">←</div>
-      </div>
-        </div>
+                  <label class="label-color" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                    {{ filter_value.label -}}
+                  </label>
+                </li>
+              {%- endfor -%}
+            </ul>
+            <div
+              x-on:click="show = true"
+              onclick="Theme.filter.open()"
+              class="backbtn"
+            >
+              ←
+            </div>
+          </div>
       {% endcase %}
-
     </div>
-
   {% endfor %}
+
   <div class="clear" x-show="show">
     <a
       href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
       {% if filter.active_values.size > 0 %}
-      class="filter-group-reset"
+        class="filter-group-reset"
       {% else %}
-      class="filter-group-inactive"
+        class="filter-group-inactive"
       {% endif %}
-      ">CLEAR</a>
+      >CLEAR</a
+    >
   </div>
+
   <div class="toggleViewBtn">
     <p class="toggle_label grid">GRID</p>
     <div class="slider-ui">

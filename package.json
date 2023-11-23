@@ -1,13 +1,12 @@
 {
-  "name": "proto_wireframe",
+  "name": "protocollective-theme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "shopify theme dev --store https://protocollective.myshopify.com/ --theme-editor-sync --live-reload full-page"
+    "dev": "shopify theme dev --theme-editor-sync --live-reload hot-reload --store https://protocollective.myshopify.com"
   },
   "keywords": [],
-  "author": "",
+  "author": "PurplePanda Ecom",
   "license": "ISC"
 }

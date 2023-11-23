@@ -1,34 +1,106 @@
-
-  <div data-section-type="collection" data-section-id="{{ section.id }}">
-    {{ 'shop.css' | asset_url | stylesheet_tag }}
-    <div class="filters-wrapper">
-      {% render 'filters' %}
-    </div>
-    {% paginate collection.products by 9 %}
-      <div data-next-page class="product-grid subq-grid">
-        {% for product in collection.products %}
-          {% render 'product-card', product: product %}
-        {% endfor %}
-      </div>
-
-      <nav>
-        {%- if paginate.previous -%}
-          <a
-            class="loadmorebtn"
-            href="{{ paginate.previous.url }}"
-          >
-            PREVIOUS
-          </a>
-        {%- endif -%}
-        {%- if paginate.next -%}
-          <a
-            class="loadmorebtn"
-            href="{{ paginate.next.url }}"
-          >
-            NEXT
-          </a>
-        {%- endif -%}
-      </nav>
-    {% endpaginate %}
+<div data-section-type="collection" data-section-id="{{ section.id }}">
+  {{ 'shop.css' | asset_url | stylesheet_tag }}
+  <div class="filters-wrapper">
+    {% render 'filter-suba' %}
   </div>
-  <script src="{{ 'shop.js' | asset_url }}" async></script>
+
+  <style>
+    /*Using Inline Overwrites for faster Rendering | Hasaan @purplepandade */
+
+.swatch--color{
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--color);
+  aspect-ratio: 1 / 1;
+  border-radius: 200px;
+  overflow: hidden
+}
+
+.list-swatch{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.list-swatch .filter-group-display__list-item{
+  padding: 5px;
+}
+
+.list-swatch .checkbox-color:checked+.label-color{
+  padding: 2px;
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 1000px) {
+  .grid-5-5 .row{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .card-content{
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-card{
+    height: auto;
+  }
+}
+
+/*DEBUG*/
+
+.remove{
+}
+
+
+  </style>
+
+  {% paginate collection.products by 15 %}
+    <div data-next-page class="product-grid grid-5-5">
+      {% for product in collection.products %}
+        {% cycle '<div class="row">', '', '' %}
+        {% render 'product-card', product: product %}
+        {% cycle '', '', '</div>' %}
+      {% endfor %}
+    </div>
+
+    <nav>
+      {%- if paginate.previous -%}
+        <a
+          class="loadmorebtn"
+          href="{{ paginate.previous.url }}"
+        >
+          PREVIOUS PAGE
+        </a>
+      {%- endif -%}
+      {%- if paginate.next -%}
+        <a
+          class="loadmorebtn"
+          href="{{ paginate.next.url }}"
+        >
+          NEXT PAGE
+        </a>
+      {%- endif -%}
+    </nav>
+  {% endpaginate %}
+</div>
+<script src="{{ 'shop.js' | asset_url }}" async></script>
+
+{% schema %}
+  {
+    "name": "Collection Main",
+    "settings": [
+      {
+        "type": "text",
+        "id": "first_filter",
+        "label": "First Filter",
+        "default": "Size,size"
+      },
+    {
+      "type": "text",
+      "id": "second_filter",
+      "label": "Second Filter",
+      "default": "Color,color"
+
+    }
+    ]
+  }
+{% endschema %}
+
