@@ -75,7 +75,7 @@ ul, li {
    font-family: "Pressura";
     text-transform: none;
     padding: 4%;
-    border: 1px solid;
+    border: var(--lineThickness) solid;
     border-radius: 50px;
     font-size: 0.9rem;
     margin-bottom: 4%;
@@ -123,7 +123,7 @@ input {
 
    .login-content {
           margin-right: calc(var(--margin)/2);
-          border-bottom: 1px solid black;
+          border-bottom: var(--lineThickness) solid black;
    }
    .input-area {
       transform: translateX(0);

@@ -168,11 +168,17 @@
           </div>
         </div>
         <div data-sticky class="ProductAtcSmall">
-          <span data-variant-price class="ProductPrice">
-            {{- product.selected_or_first_available_variant.price | money | remove: '.00' }}
-          </span>
+         <p data-variant-price class="ProductPrice">
+            <span class="{% if product.compare_at_price > 0 %} saleprice {% else %}  price {% endif %}">
+               {{ product.price | money | remove: '.00' }} 
+            </span>
+            <span class="{% if product.compare_at_price > 0 %} price compareprice    {% else %} hide {% endif %}">  
+               {{ product.compare_at_price | money | remove: '.00' }}
+            </span>
+          </p>
           <div class="pill-tiny vert"></div>
           <span data-ajax-add>ADD TO CART</span>
+          <div data-carterror class="CartErrors" hidden></div>
         </div>
       {% endform %}
       <textarea
@@ -194,9 +200,15 @@
     </div>
   </div>
   <div data-sticky class="stickyATC">
-    <span data-variant-price class="ProductPrice">
-      {{- product.selected_or_first_available_variant.price | money | remove: '.00' }}
-    </span>
+    <p data-variant-price class="ProductPrice">
+      {% comment %} MOBILE PDP {% endcomment %}
+         <span class="{% if product.compare_at_price > 0 %} saleprice {% else %}  price {% endif %}">
+            {{ product.price | money | remove: '.00' }} 
+         </span>
+         <span class="{% if product.compare_at_price > 0 %} price compareprice    {% else %} hide {% endif %}">  
+            {{ product.compare_at_price | money | remove: '.00' }}
+         </span>
+    </p>
     <div class="pill-tiny vert"></div>
     <span data-ajax-add>ADD TO CART</span>
   </div>

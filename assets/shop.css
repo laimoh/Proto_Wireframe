@@ -70,8 +70,6 @@
 }
 
 .filter-group {
-   /* outline: 1px solid green; */
-   /* height: 100%; */
    padding: 0.5rem;
    display: flex;
    justify-content: space-between;
@@ -203,7 +201,7 @@
 }
 
 .list-size label:hover {
-   border: 1px solid black;
+   border: var(--lineThickness) solid black;
    border-radius: 50px;
 }
 
@@ -280,20 +278,22 @@
 }
 
 .product-card {
-   /* box-shadow: rgb(0, 0, 0) -1px 1px 0px, rgb(0, 0, 0) 1px -1px 0px; */
-   box-shadow: rgb(0, 0, 0) 1px 1px 0px, rgb(0, 0, 0) -1px -1px 0px;
+   box-shadow: rgb(0, 0, 0) var(--lineThickness) var(--lineThickness) 0px, rgb(0, 0, 0) 0px 0px 0px;
    width: 100%;
    height: 30vw;
-
 }
 
-.row>.product-card:first-child {
-   box-shadow: rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) 1px -1px 0px;
-}
 
 .row>.product-card:last-child {
-   /* box-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) -1px 1px 0px; */
-   /* opacity: 0; */
+   box-shadow: #000 0 0, #000 0 var(--lineThickness);
+}
+
+.row > .product-card:last-child:nth-child(1) {
+   box-shadow: #000 0.5px 0, #000 0 0;
+}
+
+.row > .product-card:last-child:nth-child(2) {
+   box-shadow: #000 0.5px 0, #000 0 0;
 }
 
 .card-img {
@@ -333,9 +333,17 @@
 }
 
 .link-text {
-   margin-left: 36%;
+   margin-left: 1.2rem;
    transform: translateX(0px);
    transition: all 0.2s ease;
+}
+
+.offer {
+   text-decoration: line-through;
+}
+
+.saleprice {
+   color: var(--red);
 }
 
 .inverse .product-price {
@@ -452,7 +460,7 @@ padding: 0.2rem 0.3rem;
    font-size: 0.8rem;
    display: block;
    width: 100%;
-   padding: 0.5rem;
+   padding: 1rem;
    text-align: center;
 }
 
@@ -517,37 +525,6 @@ padding: 0.2rem 0.3rem;
    
 }
 
-.row {
-   border-top: var(--wireframe);
-}
-
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-
-   .product-card {
-      box-shadow: rgb(0, 0, 0) 0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
-   }
-
-   .row .product-card:first-child {
-      box-shadow: rgb(0, 0, 0) 0.5px 0.5px 0px, rgb(0, 0, 0) 0px -0.5px 0px;
-   }
-
-   /* .row .product-card:last-child:not(:only-child) {
-      box-shadow: rgb(0, 0, 0) -0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
-   } */
-
-   .row .product-card:nth-of-type(2n) {
-      /* opacity: 0; */
-   }
-   .row .product-card:nth-of-type(3n) {
-      box-shadow: rgb(0, 0, 0) -0.5px 0.5px 0px, rgb(0, 0, 0) -0.5px -0.5px 0px;
-   }
-}
-
-/* .toggleViewBtn {
-   display: none;
-} */
-
 @media screen and (max-width: 649px) { 
    :root {
       --filter-notation: 1rem;
@@ -561,10 +538,16 @@ padding: 0.2rem 0.3rem;
    .row .product-card {
       box-shadow: unset;
    }
-   .row .product-card:first-child {
-      box-shadow: unset;
-    }
 
+    .row>.product-card:last-child {
+      box-shadow:unset;
+   }
+   .row > .product-card:last-child:nth-child(2) {
+      box-shadow:unset;
+   }
+   .row > .product-card:last-child:nth-child(1) {
+      box-shadow:unset;
+   }
     .optionValuesContainer {
     
       padding-left: max(2%, 20%);
@@ -594,10 +577,13 @@ padding: 0.2rem 0.3rem;
       font-size: 1.4rem;
       text-transform: none;
     }
+    .MobileMenu--Content .clear a {
+      padding: 0;
+   }
 
     .filter-group-collection { 
       width: 100%;
-      border-top: 1px solid black;
+      border-top: var(--lineThickness) solid black;
       /* border-bottom: 1px solid black; */
     }
 
@@ -608,11 +594,11 @@ padding: 0.2rem 0.3rem;
     .details {
       width: 100%;
       padding: 2vw 10vw;
-      border-top: 1px solid black;
+      border-top: var(--lineThickness) solid black;
       margin: 0;
     }
     .details:last-child {
-      border-bottom: 1px solid black;
+      border-bottom: var(--lineThickness) solid black;
     }
 
     .list-size, .list-color {
@@ -621,23 +607,17 @@ padding: 0.2rem 0.3rem;
     .clear {
       min-width: 100vw;
       padding: 4vw 18vw;
-      /* border-top: 1px solid black; */
+      border-top: var(--lineThickness) solid black;
       margin: 0 calc(var(--margin) / 2);
       text-align: center;
     }
+    .loadmorebtn {
+      border-top: none;
+      border-bottom: var(--lineThickness) solid black;
+    }
+    
 }
 
-/* SUB Q Collection Page | Hasso @PurplePanda*/
-
-.subq-grid{
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
-}
-
-.subq-grid .product-card{
-   height: auto;
-}
-
-.subq-grid .product-card .card-img{
-   background-size: contain;
-}
+/* [hidden]{
+  display:none;
+} */
