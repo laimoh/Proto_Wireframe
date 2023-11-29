@@ -33,7 +33,7 @@
     </div>
 
     <div class="CartItem--price">
-      {% if item.compare_at_price > 0 %}
+      {% if item.compare_at_price %}
          <span class="saleprice">  {{ item.compare_at_price | money | remove: '.00' }}</span>
          <span class="offer">  {{ item.price | money | remove: '.00' }} </span>
          {% else %}

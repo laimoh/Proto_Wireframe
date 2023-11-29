@@ -40,7 +40,7 @@ main {
    padding: 0;
 }
 
-.template-collection main {
+.template-collection main, .template-collection-suba main {
    padding-top: var(--navHeight);
 }
 

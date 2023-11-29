@@ -38,6 +38,10 @@
    transition: all 0.2s ease-in;
 }
 
+.template-collection-suba .filter-form {
+   grid-template-columns: repeat(4, 1fr);
+}
+
 .filter-group-collection {
    /* padding: 2% 24%; */
    min-width: 12vw;
@@ -256,6 +260,12 @@
    grid-auto-flow: column;
    grid-template-columns: 1fr 1fr 1fr;
    transition: all 0.6s ease;
+}
+
+
+.template-collection-suba .grid-5-5 {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .row.oddResizer {

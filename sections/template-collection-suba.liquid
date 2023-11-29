@@ -52,12 +52,13 @@
 
   </style>
 
+
   {% paginate collection.products by 15 %}
     <div data-next-page class="product-grid grid-5-5">
       {% for product in collection.products %}
-        {% cycle '<div class="row">', '', '' %}
+        {% comment %} {% cycle '<div class="row">', '', '' %} {% endcomment %}
         {% render 'product-card', product: product %}
-        {% cycle '', '', '</div>' %}
+        {% comment %} {% cycle '', '', '</div>' %} {% endcomment %}
       {% endfor %}
     </div>
 
@@ -103,3 +104,4 @@
     ]
   }
 {% endschema %}
+

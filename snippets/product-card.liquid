@@ -22,7 +22,7 @@
          <p>Sold Out</p>  
       {% endif %}
       <p class="product-price">
-         {% if product.compare_at_price > 0 %}
+         {% if product.compare_at_price %}
             <span class="saleprice">  {{ product.price | money | remove: '.00' }} </span>
             <span class="offer">{{ product.compare_at_price | money | remove: '.00' }} </span>
             {% else %}

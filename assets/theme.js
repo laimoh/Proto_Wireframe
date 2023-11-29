@@ -126,6 +126,10 @@ var Theme = {
             root.style.setProperty("--colorSVG", "var(--marshmellow)");
             root.style.setProperty("--colorHTML", "var(--marshmellow)");
             root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("impact-dark-module")) {
+            root.style.setProperty("--colorSVG", "var(--black)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
           } else if (entry.target.classList.contains("pill_crop-module")) {
             root.style.setProperty("--colorSVG", "var(--red)");
             root.style.setProperty("--colorHTML", "var(--black)");
@@ -209,7 +213,7 @@ var Theme = {
     });
   },
   addedProduct: function (data) {
-    console.log(data);
+    
     if (data.sections) {
       if (data.sections.ajaxcard) {
         var cardcontainer = document.querySelector("#ajaxCardContainer");
@@ -300,8 +304,6 @@ var Theme = {
 
       var qtys = CartDrawer.querySelectorAll(".qty--wrapper");
       qtys.forEach((quantity) => {
-        console.log(quantity);
-        console.log(quantity);
         quantity.addEventListener("click", function (event) {
           Theme.helpers.qty(event, quantity, true);
         });
@@ -388,7 +390,7 @@ var Theme = {
     fetch(window.Shopify.routes.root + "?sections=mini-cart")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        
 
         var node = document.createElement("div");
         node.innerHTML = data["mini-cart"];
@@ -448,22 +450,20 @@ var Theme = {
           });
 
           filterForm.addEventListener("change", function () {
-            console.log(
-              new URLSearchParams(new FormData(filterForm)).toString()
-            );
+      
             var searchParams = new URLSearchParams(
               new FormData(filterForm)
             ).toString();
             var baseURL = window.location.pathname;
             var sectionID = section.getAttribute("data-section-id");
-            console.log(searchParams);
+      
             const url =
               baseURL + "?section_id=" + sectionID + "&" + searchParams;
 
             fetch(url)
               .then((response) => response.text())
               .then((data) => {
-                console.log(data);
+      
                 var html = document.createElement("div");
                 html.innerHTML = data;
                 var newProducts =
@@ -501,7 +501,7 @@ var Theme = {
             popupContainer.querySelector("[data-variant-json]").innerHTML
           );
           var atc = popupContainer.querySelector("[data-ajax-add]");
-          console.log(variants);
+         
           popupContainer
             .querySelector("[data-variant-popup]")
             .addEventListener("change", function () {
@@ -518,7 +518,7 @@ var Theme = {
                   variantContainers.forEach((container) => {
                     var checked =
                       container.querySelector("input:checked").value;
-                    console.log(checked);
+                 
                     selectedOptions.push(checked);
                   });
                   return variants.find(
@@ -645,15 +645,6 @@ var Theme = {
           }
        
        
-
-      //   if (selected.compare_at_price) {
-      //    stickyATC.querySelector("[data-variant-price] .saleprice").classList.remove('hide')
-      //    stickyATC.querySelector("[data-variant-price] .price").classList.add('offer')
-      //   } else {
-      //    stickyATC.querySelector("[data-variant-price] .saleprice").classList.add('hide')
-      //    stickyATC.querySelector("[data-variant-price] .price").classList.remove('offer')
-      //   }
-
    
       });
 
@@ -677,7 +668,7 @@ var Theme = {
 
       mediaCounter.forEach((dot, index) => {
         dot.addEventListener("click", function () {
-          console.log(DeskMedia[index].offsetTop);
+     
           removeDots();
           dot.classList.add("active");
           window.scrollTo({
@@ -725,12 +716,12 @@ var Theme = {
           var targetModal = "#".concat(
             trigger.getAttribute("data-modal-target")
           );
-          console.log(targetModal);
+  
           if (document.querySelector(targetModal)) {
             var targetModal = document.querySelector(targetModal);
             targetModal.classList.add("flex");
             targetModal.classList.add("visible");
-            console.log(targetModal);
+         
             targetModal
               .querySelector("[data-closemodal]")
               .addEventListener("click", function () {
@@ -809,7 +800,7 @@ var Theme = {
       var current = parseFloat(text.getAttribute("data-value"));
       if (e.target.closest(".plus")) {
         var newValue = current + 1;
-        console.log(current, newValue);
+
         text.setAttribute("data-value", newValue);
         text.textContent = newValue;
         if (!ajaxCart) {
@@ -866,7 +857,7 @@ var Theme = {
       var mobileMenu = document.querySelector(
         "#shopify-section-header .MobileMenu--Items"
       );
-      console.log(mobileMenu);
+    
       mobileMenu.style.height = 0 + "px";
     },
   },
@@ -907,7 +898,7 @@ var Theme = {
       var form = document.querySelector("#mobileSearch form");
 
       if (value) {
-        console.log(value, form);
+        
         form.submit();
       }
     },
