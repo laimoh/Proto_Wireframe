@@ -1,3 +1,5 @@
+{% assign colorValues = shop.metaobjects['filter_color_holder']['filter-color-holder-storefront'] %}
+{% assign colorArray = colorValues.storefront_filters.value %}
 <form class="filter-form storeFrontFilters">
   <div class="filter-group-collection" x-show="show">
     <ul>
@@ -15,6 +17,19 @@
       {% endfor %}
     </ul>
   </div>
+
+  <style>
+.list-color.suba{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.template-collection-suba .grid-5-5{
+  grid-template-columns: 1fr!important;
+
+}
+
+  </style>
 
   {%- for filter in collection.filters -%}
     <div class="details">
@@ -98,7 +113,37 @@
             </p>
           </div>
           <div class="group-transition">
-            <ul class="filter-group-display__list list-color">
+            <ul class="filter-group-display__list list-color {% if collection.title contains 'suba' or collection.title contains 'Suba' %}suba{% endif %}">
+              {% if collection.title contains 'suba' or collection.title contains 'Suba' %}
+                {%- for filter_value in filter.values -%}
+                  <li class="filter-group-display__list-item">
+                      {%- for swatch in colorArray -%}
+                          {% if swatch.text == filter_value.label %}
+                              {% assign colorSwatch = swatch.filter_color %}
+                              {% break %}
+                          {%else %}
+                          {% assign colorSwatch = "#fefefe" %}
+                          {% endif %}
+                      {%- endfor %} 
+
+                    <input
+                      class="checkbox-color remove"
+                      type="checkbox"
+                      name="{{ filter_value.param_name }}"
+                      value="{{ filter_value.value }}"
+                      id="Filter-{{ filter.param_name }}-{{ forloop.index }}-2"
+                      {% if filter_value.active -%}
+                        checked
+                      {%- endif %}
+                      {% if filter_value.count == 0 and filter_value.active == false -%}
+                        disabled
+                      {%- endif %}
+                    >
+                    <label style="--color:{{ colorSwatch }}" class="label-color swatch--color" for="Filter-{{ filter.param_name }}-{{ forloop.index }}-2">
+                    </label>
+                  </li>
+                {%- endfor -%}
+              {% else  %}     
               {%- for filter_value in filter.values -%}
                 <li class="filter-group-display__list-item">
                   <input
@@ -120,6 +165,8 @@
                   </label>
                 </li>
               {%- endfor -%}
+            {% endif %}
+
             </ul>
             <div
               x-on:click="show = true"

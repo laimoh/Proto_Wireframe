@@ -898,6 +898,11 @@ form.search {
       display: flex !important;
    }
 
+   /*Dunno how the AN Bar was added, but please check*/
+   .MainMenu.Fixed .announcement-bar{
+      transform: translate(0,calc(-100% + 6px));
+   }
+
    .MobileMenu--Items .closeButton {
       color: black;
       font-family: "Pressura";
