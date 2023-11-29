@@ -544,6 +544,12 @@ padding: 0.2rem 0.3rem;
       --filter-notation: 1rem;
       --filter-exposure: 1rem;
    }
+
+   .template-collection-suba .grid-5-5 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+   }
+
    .row {
       display: flex;
       flex-direction: column;
