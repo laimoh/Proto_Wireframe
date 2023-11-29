@@ -61,9 +61,11 @@
 .item-filter_title {
    text-decoration: none;
    list-style: none;
+   
    font-family: "Exposure";
    font-size: var(--filter-exposure);
    transition: all 0.2s ease-out;
+   text-wrap: nowrap;
 }
 .item-filter_title a:hover {
    font-variation-settings: 'EXPO'-40;
@@ -156,10 +158,12 @@
 }
 
 .grow {
-   height: 15vh;
+   height: 12vh;
    transform: scaleY(1);
    opacity: 1;
    transition: all 0.4s ease-in;
+   overflow-y: hidden;
+   overflow-x: hidden;
 }
 .growLarge {
    height: 24vh;

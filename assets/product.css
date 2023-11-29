@@ -120,7 +120,7 @@
 }
 
 .Collapsible{
-   margin: 4% 0;
+   margin-bottom: 4%;
    display: flex;
    align-items: center;
    cursor: pointer;
@@ -254,6 +254,10 @@ thead th:not(:first-child) {
     justify-content: space-between;
 }
 
+.template-product-suba .optionValuesContainer { 
+   justify-content: center;
+}
+
 .optionValuesContainer label{
     flex-basis: calc(100% / 7);
     text-align: center;
@@ -320,6 +324,8 @@ height: 70vh;
    height: 12px;
    width: 24px;
    margin: 0% 1%;
+   position: relative;
+   transform: unset;
 }
 
 .Mobile--ProductImage{
@@ -337,13 +343,13 @@ height: 70vh;
     transition: all 0.2s ease-in;
 }
 
-[data-shipping-container],[data-sizing-container]{
+[data-shipping-container],[data-disclaimer-container],[data-sizing-container]{
     overflow: hidden;
     height: 0;
     width: 16vw;
 }
 
-.shipping-wrapper {
+.shipping-wrapper, .disclaimer-wrapper {
     margin: 2rem 0;
     text-transform: unset;
     font-family: "Walsheim";

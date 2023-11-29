@@ -612,6 +612,11 @@ svg * {
    color: grey;
 }
 
+.inactive .price {
+   pointer-events: none;
+   color: grey;
+}
+
 .inactive .pill-tiny.vert {
    border: var(--lineThickness) solid grey;
 }

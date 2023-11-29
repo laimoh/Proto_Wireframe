@@ -760,6 +760,19 @@ var Theme = {
         document.querySelector(".read").classList.add("hovered");
       }
     },
+    toggleDisclaimer: function () {
+      Theme.helpers.collapseProducts();
+
+      var desk = document.querySelector(".MetaItem[data-disclaimer-container]");
+      if (JSON.parse(desk.getAttribute("hoveredDiv"))) {
+        desk.removeAttribute("hoveredDiv");
+        document.querySelector(".disc").classList.remove("hovered");
+      } else {
+        desk.style.height = desk.scrollHeight + "px";
+        desk.setAttribute("hoveredDiv", true);
+        document.querySelector(".disc").classList.add("hovered");
+      }
+    },
     toggleShipping: function () {
       Theme.helpers.collapseProducts();
 
@@ -781,11 +794,16 @@ var Theme = {
       var shipping = document.querySelector(
         ".MetaItem[data-shipping-container]"
       );
+      var disclaimer = document.querySelector(
+         ".MetaItem[data-disclaimer-container]"
+      );
       var desk = document.querySelector(".MetaItem.ProductDescription");
       document.querySelector(".read").classList.remove("hovered");
       document.querySelector(".ship").classList.remove("hovered");
+      document.querySelector(".disc").classList.remove("hovered");
       desk.style.height = Theme.helpers.convertRemToPixels(4) + "px";
       shipping.style.height = 0;
+      disclaimer.style.height = 0;
       sizing.style.height = 0;
     },
     convertRemToPixels: function (rem) {

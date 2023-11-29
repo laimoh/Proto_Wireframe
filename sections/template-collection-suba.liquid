@@ -14,20 +14,28 @@
   background: var(--color);
   aspect-ratio: 1 / 1;
   border-radius: 200px;
-  overflow: hidden
+  overflow: hidden;
+  border: var(--lineThickness) solid black;
 }
 
 .list-swatch{
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+    justify-items: center;
+    align-items: center;
+    padding-left: 0;
+
 }
 
 .list-swatch .filter-group-display__list-item{
-  padding: 5px;
+  width: 50%;
+   text-align: center;
 }
 
 .list-swatch .checkbox-color:checked+.label-color{
   padding: 2px;
-  border: 2px solid black;
+  border: var(--lineThickness) solid black;
+  aspect-ratio: 1 / 1.8;
 }
 
 @media screen and (min-width: 1000px) {
