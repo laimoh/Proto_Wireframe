@@ -8,7 +8,14 @@
       inverse
     {% endif %}">
     <a href="{{product.url}}" class="card--header">
-      <p class="product-title">{{ product.title }}</p>
+      <p class="product-title">
+         {% if template contains 'suba' %}
+            {% assign title = product.title | split: ' ' %}
+            {{ title[1] }}
+        {% else %}    
+           {{ product.title }}
+         {% endif %}
+      </p>
       <p class="product-type">{{ product.type }}</p>
     </a>
     <a style="flex-grow:1;width:100%; opacity:0;" href="{{ product.url }}"></a>
