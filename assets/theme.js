@@ -439,10 +439,6 @@ var Theme = {
         allFilterForms.forEach((filterForm) => {
           var viewChanger = filterForm.querySelector("#toggle");
 
-          if(!viewChanger){
-            return
-          }
-          
           viewChanger.addEventListener("click", function () {
             section
               .querySelector("[data-next-page]")
@@ -454,7 +450,8 @@ var Theme = {
           });
 
           filterForm.addEventListener("change", function () {
-            console.log('Filter Changed');
+            console.log('Filter changed');
+      
             var searchParams = new URLSearchParams(
               new FormData(filterForm)
             ).toString();

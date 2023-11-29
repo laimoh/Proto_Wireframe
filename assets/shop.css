@@ -111,6 +111,10 @@
    grid-area: 1 / 5;
 }
 
+.template-collection-suba .toggleViewBtn {
+   display: none;
+}
+
 .toggle_label {
    margin: 0px 4%;
 }
@@ -267,10 +271,6 @@
 }
 
 
-.template-collection-suba .grid-5-5 {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
 
 .row.oddResizer {
    grid-auto-flow: row;
@@ -588,6 +588,7 @@ padding: 0.2rem 0.3rem;
    .toggleViewBtn {
       display: none;
    }
+   
     .Menu--middle {
       font-family: "Pressura";
       font-size: 0.8rem;

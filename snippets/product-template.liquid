@@ -1,0 +1,227 @@
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+  <div data-section-type="Product" class="SectionContainer ProductContainer">
+  <div data-meta class="ProductMeta--Container">
+    <div class="ProductMeta">
+      <div class="ProductTitle">
+        <p style="display:flex; flex-direction:column">
+          {{ product.title }}
+          <span class="product_colorway">{{ product.metafields.descriptors.subtitle.value }}</span>
+        </p>
+        <p>
+          {{ product.type }}</p>
+      </div>
+      <div class="MetaItem ProductDescription">
+        {{ product.description }}
+      </div>
+      <div class="Collapsible">
+        <div class="pill-tiny read"></div>
+        <div
+          onclick="Theme.helpers.toggleDesc();"
+          data-readmore-desc
+          class="Collapsible--label">
+          Read More
+        </div>
+      </div>
+      <div class="MetaItem" data-shipping-container>
+        <p class="shipping-wrapper">
+          Live in the States? We’ll send your shoes for free through standard ground shipping. Want it faster? We don’t
+          blame you. <br><br> Choose to expedite your order at checkout. International? We’ll send your order through local
+          couriers and cover all duties and customs. More questions? <br><br>
+          Visit our
+          <a href="/pages/returns">Deliveries + Returns
+          </a>
+          page.
+        </p>
+      </div>
+      <div class="Collapsible">
+        <div class="pill-tiny ship"></div>
+        <div onclick="Theme.helpers.toggleShipping();" class="Collapsible--label">SHIPPING INFO</div>
+      </div>
+
+      <div class="MetaItem" data-sizing-container></div>
+
+      <div class="Collapsible">
+        <div class="pill-tiny"></div>
+        <div
+          data-readmore-sizing
+          data-modal-target="sizeChart"
+          class="Collapsible--label">
+          SIZING HELP
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    data-modal
+    class="Modal--Wrapper"
+    id="sizeChart">
+    <div class="Modal--Content">
+      {% render 'sizing-chart' %}
+    </div>
+  </div>
+
+  <style>
+    .imgPointerContainer {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    .pointerText {
+      text-transform: uppercase;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    .Product--Image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .Product--Image img {
+      max-height: 100%;
+    }
+
+    .imgLine {
+      height: 10%;
+      position: absolute;
+      border-right: 1px solid black;
+    }
+  </style>
+
+  <div class="ProductMedia--Container">
+    <div data-media class="ProductMedia">
+      <div class="ProductMedia--Counter">
+        {% for media in product.media %}
+          {% case media.media_type %}
+            {% when 'image' %}
+            <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ProductMedia">
+      {% for media in product.media %}
+        {% case media.media_type %}
+          {% when 'image' %}
+          <div class="Product--Image">
+            {% if media.alt contains '$' %}
+              {% assign position = media.alt | split: '$' | first %}
+              {% assign position_x = position | split: '-' | first %}
+              {% assign position_split = position | split: '-' %}
+              {% assign position_y = position_split[1] %}
+              {% assign position_text = position_split | last %}
+
+              {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
+              {{
+                 imgpointer
+               | replace: '_left_', position_x
+               | replace: '_top_', position_y
+               | replace: '[text]', position_text }}
+
+            {% else %}
+              {% assign imgpointer = '' %}
+            {% endif %}
+
+            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+          </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div data-variant-container class="ProductVariant--Container">
+    <div class="ProductVariant">
+      {% form 'product', product %}
+        {% for options in product.options_with_values %}
+          {% assign optionrow = forloop.index %}
+          <div class="optionsNameContainer">
+            <span>
+              PICK A {{ options.name | upcase }}</span>
+          </div>
+          <div class="optionValuesContainer">
+            {% for value in options.values %}
+              <input
+                name="{{option | append: "--" | append: optionrow}}"
+                id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
+                style="display:none"
+                {% if forloop.first %}
+                checked="checked"
+                {% endif %}
+                type="radio"
+                value="{{value}}"
+                data-option="{{ optionrow}}">
+              <label for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">
+                {{- value -}}
+              </label>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <div class="productQty">
+          <span style="text-transform:uppercase">Quantity</span>
+          <div class="qty">
+            {% render 'qty', product: product %}
+          </div>
+        </div>
+        <div data-sticky class="ProductAtcSmall">
+          <p data-variant-price class="ProductPrice">
+         <span class="{% if product.compare_at_price > 0 %} saleprice {% else %}  price {% endif %}">
+            {{ product.price | money | remove: '.00' }} 
+         </span>
+         <span class="{% if product.compare_at_price > 0 %} price compareprice    {% else %} hide {% endif %}">  
+            {{ product.compare_at_price | money | remove: '.00' }}
+         </span>
+          </p>
+          <div class="pill-tiny vert"></div>
+          <span data-ajax-add>ADD TO CART</span>
+        </div>
+      {% endform %}
+      <textarea
+        data-variant-json
+        class="hide"
+        aria-hidden="true"
+        aria-label="Product JSON">
+        {{ product.variants | json }}
+      </textarea>
+      {%- if product.options.size > 1 -%}
+        <textarea
+          data-current-variant-json
+          class="hide"
+          aria-hidden="true"
+          aria-label="Variant JSON">
+          {{ current_variant | json }}
+        </textarea>
+      {%- endif -%}
+    </div>
+  </div>
+  <div data-sticky class="stickyATC">
+    <p data-variant-price class="ProductPrice">
+   <span class="{% if product.compare_at_price > 0 %} saleprice {% else %}  price {% endif %}">
+      {{ product.price | money | remove: '.00' }} 
+   </span>
+   <span class="{% if product.compare_at_price > 0 %} price compareprice    {% else %} hide {% endif %}">  
+      {{ product.compare_at_price | money | remove: '.00' }}
+   </span>
+    </p>
+    <div class="pill-tiny vert"></div>
+    <span data-ajax-add>ADD TO CART</span>
+  </div>
+
+  <!-- /* Mobile Components */ -->
+
+  <div data-mobile-slider class="Mobile--ProductSlider hide--desktop">
+    {% for media in product.media %}
+      {% case media.media_type %}
+        {% when 'image' %}
+        <div class="Mobile--ProductImage">
+          <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>

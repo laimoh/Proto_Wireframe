@@ -41,6 +41,19 @@
     height: auto;
     margin: auto; 
   }
+  
+  @media screen and (max-width: 649px) {
+
+   .collectionSwatches {
+      padding: 3vw;
+   }
+  }
+
+  .list-color.suba{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+
 </style>
 
 <div data-section-type="Product" class="SectionContainer ProductContainer">
@@ -291,10 +304,10 @@
   <div data-sticky class="stickyATC">
     <p data-variant-price class="ProductPrice">
       {% comment %} MOBILE PDP {% endcomment %}
-      <span class="{% if product.compare_at_price %} saleprice {% else %}  price {% endif %}">
+      <span class="{% if product.compare_at_price > 0 %} saleprice {% else %}  price {% endif %}">
         {{ product.price | money | remove: '.00' }}
       </span>
-      <span class="{% if product.compare_at_price %} price compareprice    {% else %} hide {% endif %}">
+      <span class="{% if product.compare_at_price > 0 %} price compareprice    {% else %} hide {% endif %}">
         {{ product.compare_at_price | money | remove: '.00' }}
       </span>
     </p>

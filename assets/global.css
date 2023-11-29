@@ -752,7 +752,6 @@ form.search {
 .backbtn {
    display: none;
 }
-
 @media screen and (max-width: 649px) {
 
    :root {
@@ -874,7 +873,7 @@ form.search {
       height: 100%;
    }
 
-   .template-collection main {
+   .template-collection main, .template-collection-suba main {
       padding-top: var(--headerHeight);
   }
 
@@ -891,6 +890,17 @@ form.search {
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
+   }
+
+   .template-collection-suba .Menu--middle .Button.FilterButton {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+   }
+
+   /*Dunno how the AN Bar was added, but please check*/
+   .MainMenu.Fixed .announcement-bar{
+      /* transform: translate(0,calc(-100% + 6px)); */
    }
 
    .MobileMenu--Items .closeButton {
