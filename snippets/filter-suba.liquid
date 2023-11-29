@@ -19,7 +19,6 @@
     {% assign filter_first = section.settings.first_filter %}
     {%- for filter in collection.filters -%}
         {% unless filter_first contains filter.label %}
-            SKIPPING1: {{ filter.label }}
             {% continue %}
         {% endunless %}
       <div class="details">
@@ -141,10 +140,12 @@
 
     {% assign colorValues = shop.metaobjects['filter_color_holder']['filter-color-holder-storefront'] %}
     {% assign colorArray = colorValues.storefront_filters.value %}
-
-
     {% assign filter_second = section.settings.second_filter %}
+
     {%- for filter in collection.filters -%}
+      {% unless filter_second contains filter.label %}
+        {% continue %}
+    {% endunless %}
         <div class="details">
           {% assign label = filter.label %}
           {% case label %}

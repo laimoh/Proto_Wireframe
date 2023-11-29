@@ -49,9 +49,44 @@ Shopify.formatMoney = function (cents, format) {
   }
 
   return formatString.replace(placeholderRegex, value);
+  return formatString.replace(placeholderRegex, value);
 };
 
 var Theme = {
+  init: function () {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    let logoheight = document.querySelector(
+      "#LogoContainerParent"
+    ).offsetHeight;
+    let logoContainerWidth = document.querySelector(
+      "#LogoContainerParent"
+    ).offsetWidth;
+    document.documentElement.style.setProperty(
+      "--logoheight",
+      `${logoContainerWidth / 4.4}px`
+    );
+    var sections = document.querySelectorAll("[data-section-type]");
+    const isProduct = window.location.pathname.includes("products");
+    if (window.innerWidth > 679 && !isProduct) {
+      var logo = document.querySelector("#DesktopLogo");
+      var navHeight = document.querySelector(".MainMenu.Fixed").offsetHeight;
+      document.documentElement.style.setProperty(
+        "--navHeight",
+        navHeight - 1 + "px"
+      );
+      let content = document.querySelector(".content");
+      if (document.body.classList.contains("template-index")) {
+        content.addEventListener(
+          "scroll",
+            () => {
+               if (content.scrollTop > 50) {
+               logo.classList.remove("enlargeState");
+               logo.classList.add("shrinkState");
+               } else {
+               logo.classList.remove("shrinkState");
+               logo.classList.add("enlargeState");
   init: function () {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -155,6 +190,78 @@ var Theme = {
       });
     }, options);
     el.forEach((e) => observer.observe(e));
+            },
+          {
+            passive: true,
+          }
+        );
+      } else {
+        window.addEventListener(
+          "scroll",
+          () => {
+            let scrolled = window.scrollY;
+            if (scrolled > 50) {
+              logo.classList.remove("enlargeState");
+              logo.classList.add("shrinkState");
+            } else {
+              logo.classList.remove("shrinkState");
+              logo.classList.add("enlargeState");
+            }
+          },
+          {
+            passive: true,
+          }
+        );
+      }
+    } else if (isProduct) {
+      document.querySelector("main").style.paddingTop = navHeight + "px";
+    }
+    const el = document.querySelectorAll("section");
+    const options = {
+      rootMargin: "0px",
+      threshold: 0.7,
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let root = document.documentElement;
+          if (entry.target.classList.contains("impact-module")) {
+            root.style.setProperty("--colorSVG", "var(--marshmellow)");
+            root.style.setProperty("--colorHTML", "var(--marshmellow)");
+            root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("impact-dark-module")) {
+            root.style.setProperty("--colorSVG", "var(--black)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("pill_crop-module")) {
+            root.style.setProperty("--colorSVG", "var(--red)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("marquee-module")) {
+            root.style.setProperty("--colorSVG", "var(--black)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("editorial-module")) {
+            root.style.setProperty("--colorSVG", "var(--black)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
+          } else if (entry.target.classList.contains("ending-module")) {
+            root.style.setProperty("--colorSVG", "var(--red)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "none");
+          } else {
+            root.style.setProperty("--colorSVG", "var(--red)");
+            root.style.setProperty("--colorHTML", "var(--black)");
+            root.style.setProperty("--colorBG", "var(--marshmellow)");
+          }
+        } else {
+          // root.style.setProperty('--colorSVG', 'var(--red)');
+          //    root.style.setProperty('--colorHTML', 'var(--black)');
+          //    root.style.setProperty('--colorBG', 'var(--marshmellow)');
+        }
+      });
+    }, options);
+    el.forEach((e) => observer.observe(e));
 
     sections.forEach((section) => {
       if (!this.sections[section.getAttribute("data-section-type")]) {
@@ -209,7 +316,7 @@ var Theme = {
     });
   },
   addedProduct: function (data) {
-    console.log(data);
+    
     if (data.sections) {
       if (data.sections.ajaxcard) {
         var cardcontainer = document.querySelector("#ajaxCardContainer");
@@ -300,8 +407,6 @@ var Theme = {
 
       var qtys = CartDrawer.querySelectorAll(".qty--wrapper");
       qtys.forEach((quantity) => {
-        console.log(quantity);
-        console.log(quantity);
         quantity.addEventListener("click", function (event) {
           Theme.helpers.qty(event, quantity, true);
         });
@@ -388,7 +493,7 @@ var Theme = {
     fetch(window.Shopify.routes.root + "?sections=mini-cart")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        
 
         var node = document.createElement("div");
         node.innerHTML = data["mini-cart"];
@@ -448,48 +553,42 @@ var Theme = {
           });
 
           filterForm.addEventListener("change", function () {
-            console.log(
-              new URLSearchParams(new FormData(filterForm)).toString()
-            );
+      
             var searchParams = new URLSearchParams(
               new FormData(filterForm)
             ).toString();
             var baseURL = window.location.pathname;
             var sectionID = section.getAttribute("data-section-id");
-            console.log(searchParams);
+      
             const url =
               baseURL + "?section_id=" + sectionID + "&" + searchParams;
 
-            fetch(url)
-              .then((response) => response.text())
-              .then((data) => {
-                console.log(data);
-                var html = document.createElement("div");
-                html.innerHTML = data;
-                var newProducts =
-                  html.querySelector("[data-next-page]").innerHTML;
-                section.querySelector("[data-next-page]").innerHTML =
-                  newProducts;
-                Theme.sections.collectionHelpers.init(section);
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-          });
-        });
-      }
-      this.collectionHelpers.init(section);
-    },
-    collectionHelpers: {
-      init: function (section) {
-        var ajaxSelectorPopups = section.querySelectorAll("[data-ajax-open]");
-        ajaxSelectorPopups.forEach((trigger) => {
-          var popupContainer = trigger.closest("[data-ajax-card]");
-          trigger.addEventListener("click", function () {
-            popupContainer
-              .querySelector("[data-variant-popup]")
-              .classList.add("display");
-          });
+               fetch(url)
+                  .then(response => response.text())
+                  .then(data => {
+                     console.log(data);
+                     var html = document.createElement('div');
+                     html.innerHTML = data;
+                     var newProducts = html.querySelector('[data-next-page]').innerHTML;
+                     section.querySelector('[data-next-page]').innerHTML = newProducts;
+                     Theme.sections.collectionHelpers.init(section);
+                  })
+                  .catch((error) => {
+                     console.error('Error:', error);
+                  });
+            });
+         })
+         }
+         this.collectionHelpers.init(section);
+      },
+      collectionHelpers: {
+         init: function (section) {
+            var ajaxSelectorPopups = section.querySelectorAll('[data-ajax-open]');
+            ajaxSelectorPopups.forEach((trigger) => {
+               var popupContainer = trigger.closest('[data-ajax-card]');
+               trigger.addEventListener('click', function () {
+                  popupContainer.querySelector('[data-variant-popup]').classList.add('display');
+               });
 
           var close = popupContainer.querySelector(".CartItem--remove");
           close.addEventListener("click", function () {
@@ -501,7 +600,7 @@ var Theme = {
             popupContainer.querySelector("[data-variant-json]").innerHTML
           );
           var atc = popupContainer.querySelector("[data-ajax-add]");
-          console.log(variants);
+         
           popupContainer
             .querySelector("[data-variant-popup]")
             .addEventListener("change", function () {
@@ -518,7 +617,7 @@ var Theme = {
                   variantContainers.forEach((container) => {
                     var checked =
                       container.querySelector("input:checked").value;
-                    console.log(checked);
+                 
                     selectedOptions.push(checked);
                   });
                   return variants.find(
@@ -645,15 +744,6 @@ var Theme = {
           }
        
        
-
-      //   if (selected.compare_at_price) {
-      //    stickyATC.querySelector("[data-variant-price] .saleprice").classList.remove('hide')
-      //    stickyATC.querySelector("[data-variant-price] .price").classList.add('offer')
-      //   } else {
-      //    stickyATC.querySelector("[data-variant-price] .saleprice").classList.add('hide')
-      //    stickyATC.querySelector("[data-variant-price] .price").classList.remove('offer')
-      //   }
-
    
       });
 
@@ -677,7 +767,7 @@ var Theme = {
 
       mediaCounter.forEach((dot, index) => {
         dot.addEventListener("click", function () {
-          console.log(DeskMedia[index].offsetTop);
+     
           removeDots();
           dot.classList.add("active");
           window.scrollTo({
@@ -725,12 +815,12 @@ var Theme = {
           var targetModal = "#".concat(
             trigger.getAttribute("data-modal-target")
           );
-          console.log(targetModal);
+  
           if (document.querySelector(targetModal)) {
             var targetModal = document.querySelector(targetModal);
             targetModal.classList.add("flex");
             targetModal.classList.add("visible");
-            console.log(targetModal);
+         
             targetModal
               .querySelector("[data-closemodal]")
               .addEventListener("click", function () {
@@ -809,7 +899,7 @@ var Theme = {
       var current = parseFloat(text.getAttribute("data-value"));
       if (e.target.closest(".plus")) {
         var newValue = current + 1;
-        console.log(current, newValue);
+
         text.setAttribute("data-value", newValue);
         text.textContent = newValue;
         if (!ajaxCart) {
@@ -866,7 +956,7 @@ var Theme = {
       var mobileMenu = document.querySelector(
         "#shopify-section-header .MobileMenu--Items"
       );
-      console.log(mobileMenu);
+    
       mobileMenu.style.height = 0 + "px";
     },
   },
@@ -907,7 +997,7 @@ var Theme = {
       var form = document.querySelector("#mobileSearch form");
 
       if (value) {
-        console.log(value, form);
+        
         form.submit();
       }
     },

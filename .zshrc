@@ -1,0 +1,2 @@
+alias purplepanda = "purplepanda.sh"
+

@@ -1,6 +1,39 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 
-  <div data-section-type="Product" class="SectionContainer ProductContainer">
+<!-- Hasso@purplepandade: Using Inline Styles for faster Rendering -->
+<style>
+
+  .swatch--color{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: var(--color);
+    aspect-ratio: 1 / 1;
+    border-radius: 200px;
+    overflow: hidden
+  }
+
+  .list-swatch{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .list-swatch .filter-group-display__list-item{
+    padding: 5px;
+  }
+  
+  .swatch--color.active{
+    padding: 2px;
+    border: 2px solid black;
+    aspect-ratio: 1 / 2;
+    height: auto;
+    margin: auto;
+  }
+</style>
+
+<div data-section-type="Product" class="SectionContainer ProductContainer">
   <div data-meta class="ProductMeta--Container">
     <div class="ProductMeta">
       <div class="ProductTitle">
@@ -9,7 +42,8 @@
           <span class="product_colorway">{{ product.metafields.descriptors.subtitle.value }}</span>
         </p>
         <p>
-          {{ product.type }}</p>
+          {{ product.type }}
+        </p>
       </div>
       <div class="MetaItem ProductDescription">
         {{ product.description }}
@@ -19,18 +53,22 @@
         <div
           onclick="Theme.helpers.toggleDesc();"
           data-readmore-desc
-          class="Collapsible--label">
+          class="Collapsible--label"
+        >
           Read More
         </div>
       </div>
       <div class="MetaItem" data-shipping-container>
         <p class="shipping-wrapper">
-          Live in the States? We’ll send it for free through standard ground shipping on orders over $150. Want it faster? We don’t blame you. Choose to expedite your order at checkout.
-          <br><br> International? We’ll send your order through local couriers and cover all duties and customs. 
-          <br><br>More questions?<br>
+          Live in the States? We’ll send it for free through standard ground shipping on orders over $150. Want it
+          faster? We don’t blame you. Choose to expedite your order at checkout.
+          <br>
+          <br>
+          International? We’ll send your order through local couriers and cover all duties and customs. <br>
+          <br>
+          More questions?<br>
           Visit our
-          <a href="/pages/returns">Deliveries + Returns
-          </a>
+          <a href="/pages/returns">Deliveries + Returns </a>
           page.
         </p>
       </div>
@@ -46,7 +84,8 @@
         <div
           data-readmore-sizing
           data-modal-target="sizeChart"
-          class="Collapsible--label">
+          class="Collapsible--label"
+        >
           SIZING HELP
         </div>
       </div>
@@ -56,7 +95,8 @@
   <div
     data-modal
     class="Modal--Wrapper"
-    id="sizeChart">
+    id="sizeChart"
+  >
     <div class="Modal--Content">
       {% render 'sizing-chart' %}
     </div>
@@ -78,7 +118,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
     }
 
     .Product--Image img {
@@ -98,7 +137,7 @@
         {% for media in product.media %}
           {% case media.media_type %}
             {% when 'image' %}
-            <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
+              <div class="Product--Image--Anchor {%if forloop.index == 1%}active{%endif%}"></div>
           {% endcase %}
         {% endfor %}
       </div>
@@ -108,27 +147,28 @@
       {% for media in product.media %}
         {% case media.media_type %}
           {% when 'image' %}
-          <div class="Product--Image">
-            {% if media.alt contains '$' %}
-              {% assign position = media.alt | split: '$' | first %}
-              {% assign position_x = position | split: '-' | first %}
-              {% assign position_split = position | split: '-' %}
-              {% assign position_y = position_split[1] %}
-              {% assign position_text = position_split | last %}
+            <div class="Product--Image">
+              {% if media.alt contains '$' %}
+                {% assign position = media.alt | split: '$' | first %}
+                {% assign position_x = position | split: '-' | first %}
+                {% assign position_split = position | split: '-' %}
+                {% assign position_y = position_split[1] %}
+                {% assign position_text = position_split | last %}
 
-              {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-              {{
-                 imgpointer
-               | replace: '_left_', position_x
-               | replace: '_top_', position_y
-               | replace: '[text]', position_text }}
+                {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
+                {{
+                  imgpointer
+                  | replace: '_left_', position_x
+                  | replace: '_top_', position_y
+                  | replace: '[text]', position_text
+                }}
 
-            {% else %}
-              {% assign imgpointer = '' %}
-            {% endif %}
+              {% else %}
+                {% assign imgpointer = '' %}
+              {% endif %}
 
-            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-          </div>
+              <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+            </div>
         {% endcase %}
       {% endfor %}
     </div>
@@ -140,8 +180,7 @@
         {% for options in product.options_with_values %}
           {% assign optionrow = forloop.index %}
           <div class="optionsNameContainer">
-            <span>
-              PICK A {{ options.name | upcase }}</span>
+            <span> PICK A {{ options.name | upcase }}</span>
           </div>
           <div class="optionValuesContainer">
             {% for value in options.values %}
@@ -150,17 +189,37 @@
                 id="{{product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
                 style="display:none"
                 {% if forloop.first %}
-                checked="checked"
+                  checked="checked"
                 {% endif %}
                 type="radio"
                 value="{{value}}"
-                data-option="{{ optionrow}}">
-              <label for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}" class="optionValue">
+                data-option="{{ optionrow}}"
+              >
+              <label
+                for="{{ product.id | append: "--" | append: optionrow | append: "--" | append: forloop.index }}"
+                class="optionValue"
+              >
                 {{- value -}}
               </label>
             {% endfor %}
           </div>
         {% endfor %}
+
+        <div class="collectionSwatches productQty">
+          {% assign swatch_collection = collections['suba-q'] %}
+
+          <div class="list-swatch">
+            {% assign initial_id = product.id %}
+            {% for product in swatch_collection.products %}
+              {% if product.metafields.meta.swatch_color != blank %}
+                <a href="{{ product.url }}" style="--color:{{ product.metafields.meta.swatch_color }}" class="label-color swatch--color {% if product.id == initial_id %}active{% endif %}">
+                  
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
         <div class="productQty">
           <span style="text-transform:uppercase">Quantity</span>
           <div class="qty">
@@ -179,13 +238,15 @@
           <div class="pill-tiny vert"></div>
           <span data-ajax-add>ADD TO CART</span>
           <div data-carterror class="CartErrors" hidden></div>
+          <div data-carterror class="CartErrors" hidden></div>
         </div>
       {% endform %}
       <textarea
         data-variant-json
         class="hide"
         aria-hidden="true"
-        aria-label="Product JSON">
+        aria-label="Product JSON"
+      >
         {{ product.variants | json }}
       </textarea>
       {%- if product.options.size > 1 -%}
@@ -193,7 +254,8 @@
           data-current-variant-json
           class="hide"
           aria-hidden="true"
-          aria-label="Variant JSON">
+          aria-label="Variant JSON"
+        >
           {{ current_variant | json }}
         </textarea>
       {%- endif -%}
@@ -219,24 +281,24 @@
     {% for media in product.media %}
       {% case media.media_type %}
         {% when 'image' %}
-        <div class="Mobile--ProductImage">
-          <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-        </div>
+          <div class="Mobile--ProductImage">
+            <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
+          </div>
       {% endcase %}
     {% endfor %}
   </div>
 </div>
 
 {% schema %}
-  {
-    "name": "Product",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "sizingHelpAdd",
-        "default": true,
-        "label": "Add Sizing Help"
-      }
-    ]
-  }
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "sizingHelpAdd",
+      "default": true,
+      "label": "Add Sizing Help"
+    }
+  ]
+}
 {% endschema %}

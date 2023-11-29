@@ -52,6 +52,7 @@
 
   </style>
 
+
   {% paginate collection.products by 15 %}
     <div data-next-page class="product-grid grid-5-5">
       {% for product in collection.products %}
@@ -103,3 +104,4 @@
     ]
   }
 {% endschema %}
+
