@@ -454,7 +454,7 @@ var Theme = {
           });
 
           filterForm.addEventListener("change", function () {
-      
+            console.log('Filter Changed');
             var searchParams = new URLSearchParams(
               new FormData(filterForm)
             ).toString();
