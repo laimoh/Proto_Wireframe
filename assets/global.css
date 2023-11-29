@@ -752,7 +752,6 @@ form.search {
 .backbtn {
    display: none;
 }
-
 @media screen and (max-width: 649px) {
 
    :root {
@@ -874,7 +873,7 @@ form.search {
       height: 100%;
    }
 
-   .template-collection main {
+   .template-collection main, .template-collection-suba main {
       padding-top: var(--headerHeight);
   }
 

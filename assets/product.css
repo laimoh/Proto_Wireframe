@@ -430,7 +430,7 @@ height: 70vh;
      
     }
 
-    [data-shipping-container], [data-sizing-container] {
+    [data-shipping-container],[data-disclaimer-container],[data-sizing-container] {
       width: 100%;
     }
     .sizing-wrapper {
