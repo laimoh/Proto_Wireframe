@@ -439,6 +439,10 @@ var Theme = {
         allFilterForms.forEach((filterForm) => {
           var viewChanger = filterForm.querySelector("#toggle");
 
+          if(!viewChanger){
+            return
+          }
+          
           viewChanger.addEventListener("click", function () {
             section
               .querySelector("[data-next-page]")
