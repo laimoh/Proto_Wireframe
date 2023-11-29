@@ -1,0 +1,12 @@
+{
+  "name": "protocollective-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "shopify theme dev --theme-editor-sync --live-reload hot-reload --store protocollective"
+  },
+  "keywords": [],
+  "author": "PurplePanda Ecom",
+  "license": "ISC"
+}

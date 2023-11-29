@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-template-suba",
+      "settings": {
+      }
+    },
+    "d89e6e76-1031-4899-84d8-e90ec44e61fb": {
+      "type": "featured-goods",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d89e6e76-1031-4899-84d8-e90ec44e61fb"
+  ]
+}
