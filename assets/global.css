@@ -892,6 +892,12 @@ form.search {
       display: flex !important;
    }
 
+   .template-collection-suba .Menu--middle .Button.FilterButton {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+   }
+
    .MobileMenu--Items .closeButton {
       color: black;
       font-family: "Pressura";
