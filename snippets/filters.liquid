@@ -18,19 +18,6 @@
     </ul>
   </div>
 
-  <style>
-.list-color.suba{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-}
-
-.template-collection-suba .grid-5-5{
-  grid-template-columns: 1fr!important;
-
-}
-
-  </style>
-
   {%- for filter in collection.filters -%}
     <div class="details">
       {% assign label = filter.label %}
