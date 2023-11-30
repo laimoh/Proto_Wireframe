@@ -93,7 +93,7 @@
   </style>
 
 
-  {% paginate collection.products by 36 %}
+  {% paginate collection.products by 48 %}
     <div data-next-page class="product-grid grid-5-5">
       {% for product in collection.products %}
         {% render 'product-card', product: product %}
