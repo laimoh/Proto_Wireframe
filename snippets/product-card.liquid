@@ -9,9 +9,8 @@
     {% endif %}">
     <a href="{{ product.url }}" class="card--header">
       <p class="product-title">
-         {% if template contains 'suba' %}
-            {% assign title = product.title | split: ' ' %}
-            {{ title[1] }}
+         {% if product.title contains 'Suba' %}
+            Suba Q
         {% else %}    
            {{ product.title }}
          {% endif %}
