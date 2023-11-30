@@ -148,7 +148,7 @@
    transition: all 0.1s ease-in-out;
 }
 
-.template-collection .details:nth-last-of-type{
+.template-collection .details:nth-child(2) {
    display: none;
 }
 
