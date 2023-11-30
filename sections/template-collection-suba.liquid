@@ -6,16 +6,7 @@
 
   <style>
     /*Using Inline Overwrites for faster Rendering | Hasaan @purplepandade */
-    .swatch--color {
-      width: 100%;
-      height: 100%;
-      display: block;
-      background: var(--color);
-      aspect-ratio: 1 / 1;
-      border-radius: 200px;
-      overflow: hidden;
-      border: var(--lineThickness) solid black;
-   }
+
 
 .list-swatch{
   grid-template-columns: repeat(8, 1fr);
@@ -27,18 +18,31 @@
 }
 
 .list-swatch .filter-group-display__list-item{
-  width: 50%;
+  width: 90%;
   text-align: center;
 }
 
-.list-swatch .checkbox-color:checked+.label-color {
-  padding: 2px;
-  border: var(--lineThickness) solid black;
-  aspect-ratio: 1 / 1.8;
-}
+.filter-group-display__list-item .checkbox-color+.swatch--color {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: var(--color);
+      aspect-ratio: 1 / 1;
+      border-radius: 200px;
+      overflow: hidden;
+      border: var(--lineThickness) solid black;
+   }
+
+   .filter-group-display__list-item.active .swatch--color {
+      padding: 2px;
+      border: var(--lineThickness) solid black;
+      aspect-ratio: 1.2 / 2;
+      transform: rotate(90deg);
+   }
 
 
 @media screen and (min-width: 1000px) {
+   
   .grid-5-5{
     display: grid;
     grid-template-columns: repeat(6,1fr)!important;
@@ -57,11 +61,24 @@
 
    .list-color.suba{
       display: grid;
-      grid-template-columns: repeat(5,1fr);
+      grid-template-columns: repeat(6,1fr);
+      justify-items: center;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem;
    }
 
-   .label-color {
-      width: 30%;
+
+   .list-swatch .filter-group-display__list-item{
+      width: 50%;
+      text-align: center;
+   }
+
+   .filter-group-display__list-item.active .swatch--color {
+      padding: 2px;
+      border: var(--lineThickness) solid black;
+      aspect-ratio: 1.2 / 2;
+      transform: rotate(90deg);
    }
 
    }
@@ -71,7 +88,7 @@
   </style>
 
 
-  {% paginate collection.products by 15 %}
+  {% paginate collection.products by 36 %}
     <div data-next-page class="product-grid grid-5-5">
       {% for product in collection.products %}
         {% render 'product-card', product: product %}
