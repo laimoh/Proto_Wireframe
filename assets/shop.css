@@ -61,7 +61,7 @@
 .item-filter_title {
    text-decoration: none;
    list-style: none;
-   
+   margin-left: 0.5rem;
    font-family: "Exposure";
    font-size: var(--filter-exposure);
    transition: all 0.2s ease-out;
