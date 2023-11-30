@@ -98,7 +98,7 @@
               {% endif %}
             </p>
           </div>
-          <div class="group-transition">
+          <div class="group-transition {% if collection.handle == "suba-q" %}suba{% endif %}">
             <ul class="filter-group-display__list list-color {% if collection.title contains 'suba' or collection.title contains 'Suba' %}suba{% endif %}">
               {% if collection.title contains 'suba' or collection.title contains 'Suba' %}
                 {%- for filter_value in filter.values -%}
