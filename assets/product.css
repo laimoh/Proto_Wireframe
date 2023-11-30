@@ -350,10 +350,10 @@ height: 70vh;
 }
 
 .shipping-wrapper, .disclaimer-wrapper {
-    margin: 2rem 0;
+    margin: 1rem 0;
     text-transform: unset;
     font-family: "Walsheim";
-    font-size: 0.7rem;
+    font-size: 0.9rem;
 }
 
 .shipping-wrapper a {

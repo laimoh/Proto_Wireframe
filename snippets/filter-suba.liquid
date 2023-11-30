@@ -1,5 +1,5 @@
 <form class="filter-form storeFrontFilters subaform">
-    <div class="filter-group-collection" x-show="show">
+    <div class="filter-group-collection" >
       <ul>
         {% for link in linklists['collection-links'].links %}
           <li class="item-filter_title">
@@ -101,7 +101,7 @@
                 {% endif %}
               </p>
             </div>
-            <div class="group-transition">
+            <div class="group-transition suba">
               <ul class="filter-group-display__list list-color">
                 {%- for filter_value in filter.values -%}
                   <li class="filter-group-display__list-item">
@@ -226,7 +226,7 @@
                   {% endif %}
                 </p>
               </div>
-              <div class="group-transition">
+              <div class="group-transition suba">
                 <ul class="filter-group-display__list list-color list-swatch">
                   {%- for filter_value in filter.values -%}
                     <li class="filter-group-display__list-item">
@@ -269,7 +269,7 @@
         </div>
       {% endfor %}
   
-    <div class="clear" x-show="show">
+    <div class="clear">
       <a
         href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
         {% if filter.active_values.size > 0 %}

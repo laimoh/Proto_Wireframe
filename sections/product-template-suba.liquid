@@ -49,6 +49,12 @@
     grid-template-columns: repeat(4,1fr);
   }
 
+  .grow {
+    height: auto;
+ }
+
+
+
 </style>
 
 <div data-section-type="Product" class="SectionContainer ProductContainer">
@@ -76,21 +82,16 @@
 
       <div class="MetaItem" data-disclaimer-container>
          <p class="disclaimer-wrapper">
-            The Suba-Q is a Prototype of how to create the most comfortable thing feet can wear in and around your home. Done by using local waste materials, intercepting them before they end up in the landfill.
-
-            The use of upcycled materials lead to each color existing in only a limited quantity. While not being mass produced allows us to celebrate beauty in the inconsistency of natural materials. Each pair is perfectly imperfect.
-            
-            Hues and dyes of the natural material may inherently transfer to lighter colors.
-            
-            The granulated cork and soft leather upper will form to your foot with wear. To reset, simply fluff as you would a pillow.
-            
-            There is no left or right, only one spacious fit for your toes to relax into. One less thing to think about while the sun is asleep.
-            Practice is Perfect.
+            Hand made by Lalaland in Los Angeles, CA.
+            Upper and sole made entirely of upcycled leather remains from past factory productions.
+            Outsole pods made from factory off cuts. Stamping process is done in-house.
+            All thread is sourced from existing factory stock.
+            Sole filled with loose cork granules from Jelinek, sourced as a by-product of the California wine industry. Cork is renewable, compostable, and a carbon negative alternative to the fossil fuel based foam that is often used for footwear cushioning.
          </p>
        </div>
        <div class="Collapsible">
          <div class="pill-tiny disc"></div>
-         <div onclick="Theme.helpers.toggleDisclaimer();" class="Collapsible--label">DISCLAIMER</div>
+         <div onclick="Theme.helpers.toggleDisclaimer();" class="Collapsible--label">Ingredients</div>
        </div>
       
       <div class="MetaItem" data-shipping-container>
@@ -173,41 +174,25 @@
         {% for media in product.media %}
           {% case media.media_type %}
             {% when 'image' %}
-              <div class="Product--Image--Anchor {% if forloop.index == 1 %}active{%endif%}"></div>
+              <div class="Product--Image--Anchor {% if forloop.index == 1 %}active{% endif %}"></div>
           {% endcase %}
         {% endfor %}
       </div>
     </div>
 
-    <div class="ProductMedia">
-      {% for media in product.media %}
-        {% case media.media_type %}
-          {% when 'image' %}
-            <div class="Product--Image">
-              {% if media.alt contains '$' %}
-                {% assign position = media.alt | split: '$' | first %}
-                {% assign position_x = position | split: '-' | first %}
-                {% assign position_split = position | split: '-' %}
-                {% assign position_y = position_split[1] %}
-                {% assign position_text = position_split | last %}
 
-                {% assign imgpointer = '<div class="imgPointerContainer"><div class="pointerText" style="left:_left_%; top: _top_%">[text]</div> <div class="imgLine" style="left:_left_%; top: _top_%"></div> </div>' %}
-                {{
-                  imgpointer
-                  | replace: '_left_', position_x
-                  | replace: '_top_', position_y
-                  | replace: '[text]', position_text
-                }}
+<div class="ProductMedia">
+  {% for media in product.media %}
+    {% case media.media_type %}
+      {% when 'image' %}
+        <div class="Product--Image">
+          <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}" {% if forloop.index == 1 %}loading="eager"{% else %}loading="lazy"{% endif %}>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
 
-              {% else %}
-                {% assign imgpointer = '' %}
-              {% endif %}
-
-              <img class="Product--Image--Child" src="{{ media | img_url: "1000x" }}">
-            </div>
-        {% endcase %}
-      {% endfor %}
-    </div>
+    
   </div>
 
   <div data-variant-container class="ProductVariant--Container">

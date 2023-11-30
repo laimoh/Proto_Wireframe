@@ -883,22 +883,25 @@ var Theme = {
   filter: {
     open: function () {
       Theme.closeAll();
+      console.log('OPEN');
       var filter = document.querySelector("#FilterMobile");
-      filter.style.height = Theme.helpers.convertRemToPixels(18.3) + "px";
+      filter.style.height = filter.scrollHeight + "px";
       document.querySelector(".FilterButton").style.opacity = "0";
     },
     close: function () {
       var filter = document.querySelector("#FilterMobile");
       filter.style.height = 0 + "px";
       document.querySelector(".FilterButton").style.opacity = "1";
-      document.querySelectorAll('.group-transition').forEach(group => group.classList.remove('grow'))
+      document.querySelectorAll('.group-transition').forEach(group => group.classList.remove('grow'));
     },
     resize: function (filtertype) {
-      console.log(filtertype)
+      return
+      console.log('resize');
       let open = false
       var filter = document.querySelector("#FilterMobile");
       if (!open){
-      filter.style.height = Theme.helpers.convertRemToPixels(28.3) + "px";}
+      filter.style.height = filter.style.height = filter.scrollHeight + "px";
+      }
       else {
          Theme.filter.open();
       }
