@@ -172,6 +172,10 @@
    overflow-y: scroll;
    overflow-x: hidden;
 }
+/*Hasso*/
+#FilterMobile .group-transition.grow{
+   height: auto!important;
+}
 
 .growLarge {
    height: 24vh;
