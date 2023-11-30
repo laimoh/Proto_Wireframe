@@ -1,12 +1,15 @@
-document.querySelectorAll('.details').forEach((el) => {
-   
+document.querySelectorAll('.filter-group').forEach((el) => {
    el.addEventListener('click', () => {
-      
-      const filterGroup = el.lastElementChild;
-      if (filterGroup.classList.contains('size-transition')){
-      filterGroup.classList.toggle('growLarge');} else{
-         filterGroup.classList.toggle('grow');
+      const filterGroup = el.nextElementSibling;
+      filterGroup.classList.toggle('grow');
+   });
+});
+const isMobile = window.innerWidth < 649
+document.querySelectorAll('.filter-group-display__list-item').forEach((el) => {
+   el.addEventListener('click', () => {
+      if (!isMobile){
+            el.classList.toggle('active')
       }
       
    });
-});
+})

@@ -886,7 +886,7 @@ form.search {
       display: none !important;
    }
 
-   .template-collection .Menu--middle .Button.FilterButton {
+   /* .template-collection .Menu--middle .Button.FilterButton {
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
@@ -896,8 +896,17 @@ form.search {
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
+   } */
+
+   .template-product-suba .Menu--middle .Button.BackToCollection.BackToSuba {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
    }
 
+   .filter-group-display__list-item {
+      width: 40%;
+   }
    /*Dunno how the AN Bar was added, but please check*/
    .MainMenu.Fixed .announcement-bar{
       /* transform: translate(0,calc(-100% + 6px)); */
