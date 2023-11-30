@@ -162,13 +162,14 @@
 }
 
 .grow {
-   height: 12vh;
+   height: 10rem;
    transform: scaleY(1);
    opacity: 1;
    transition: all 0.4s ease-in;
    overflow-y: hidden;
    overflow-x: hidden;
 }
+
 .growLarge {
    height: 24vh;
    transform: scaleY(1);
