@@ -7,7 +7,7 @@
     {% if product.metafields.custom.product_card_color_inverse.value == true %}
       inverse
     {% endif %}">
-    <a href="{{product.url}}" class="card--header">
+    <a href="{{ product.url }}" class="card--header">
       <p class="product-title">
          {% if template contains 'suba' %}
             {% assign title = product.title | split: ' ' %}

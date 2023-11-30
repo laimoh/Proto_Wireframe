@@ -6,43 +6,42 @@
 
   <style>
     /*Using Inline Overwrites for faster Rendering | Hasaan @purplepandade */
-    .swatch--color{
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: var(--color);
-  aspect-ratio: 1 / 1;
-  border-radius: 200px;
-  overflow: hidden;
-  border: var(--lineThickness) solid black;
-}
+    .swatch--color {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: var(--color);
+      aspect-ratio: 1 / 1;
+      border-radius: 200px;
+      overflow: hidden;
+      border: var(--lineThickness) solid black;
+   }
 
 .list-swatch{
   grid-template-columns: repeat(8, 1fr);
   gap: 10px;
-    justify-items: center;
-    align-items: center;
-    padding-left: 0;
+   justify-items: center;
+   align-items: center;
+   padding-left: 0;
 
 }
 
 .list-swatch .filter-group-display__list-item{
   width: 50%;
-   text-align: center;
+  text-align: center;
 }
 
-.list-swatch .checkbox-color:checked+.label-color{
+.list-swatch .checkbox-color:checked+.label-color {
   padding: 2px;
   border: var(--lineThickness) solid black;
   aspect-ratio: 1 / 1.8;
 }
 
 
-
 @media screen and (min-width: 1000px) {
   .grid-5-5{
     display: grid;
-    grid-template-columns: repeat(5,1fr)!important;
+    grid-template-columns: repeat(6,1fr)!important;
   }
 
   .card-content{
@@ -57,20 +56,18 @@
 @media screen and (max-width: 649px) {
 
    .list-color.suba{
-   display: grid;
-   grid-template-columns: repeat(4,1fr);
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
    }
 
    .label-color {
-      width: 20%;
+      width: 30%;
    }
-}
-/*DEBUG*/
 
-.remove{
-}
-
-
+   }
+   /*DEBUG*/
+   .remove {
+   }
   </style>
 
 
