@@ -1,7 +1,7 @@
 {% assign colorValues = shop.metaobjects['filter_color_holder']['filter-color-holder-storefront'] %}
 {% assign colorArray = colorValues.storefront_filters.value %}
 <form class="filter-form storeFrontFilters">
-  <div class="filter-group-collection" x-show="show">
+  <div class="filter-group-collection">
     <ul>
       {% for link in linklists['collection-links'].links %}
         <li class="item-filter_title">
@@ -23,28 +23,13 @@
       {% assign label = filter.label %}
       {% case label %}
         {% when 'Size' %}
-          <div
-            onclick="Theme.filter.resize()"
-            class="filter-group"
-            x-on:click="show = false"
-          >
+          <button
+            onclick="Theme.filter.resize(this)"
+            class="filter-group">
             <span class="filter-label">{{ filter.label }}</span>
             <span class="line"></span>
-            <p>
-              {%- if filter.active_values.size > 0 -%}
-                {%- for filter_value in filter.active_values limit: 3 -%}
-                  {% if forloop.index == 3 and filter.active_values.size > 3 %}
-                    <span class="filter-value">{{ filter_value.label }}...</span>
-                  {% else %}
-                    <span class="filter-value">{{ filter_value.label }}</span>
-                    /
-                  {% endif %}
-                {%- endfor -%}
-              {% else %}
-                <span class="filter-value">all</span>
-              {% endif %}
-            </p>
-          </div>
+            <p class="filter-value">⤵</p>
+          </button>
           <div class="group-transition size-transition">
             <ul class="filter-group-display__list list-size">
               {%- for filter_value in filter.values -%}
@@ -72,19 +57,20 @@
                 </li>
               {%- endfor -%}
             </ul>
-            <div
+            {% comment %} <div
               x-on:click="show = true"
               onclick="Theme.filter.open()"
               class="backbtn"
             >
               ←
-            </div>
+            </div> {% endcomment %}
           </div>
         {% when 'Color' %}
-          <div onclick="Theme.filter.resize()" class="filter-group">
+          <div onclick="Theme.filter.resize(this)" class="filter-group">
             <span class="filter-label">{{ filter.label }}</span>
             <span class="line"></span>
-            <p>
+            <p class="filter-value">⤵</p>
+            {% comment %} <p>
               {%- if filter.active_values.size > 0 -%}
                 {%- for filter_value in filter.active_values limit: 2 -%}
                   {% if forloop.index == 2 and filter.active_values.size > 2 %}
@@ -97,7 +83,7 @@
               {% else %}
                 <span class="filter-value">all</span>
               {% endif %}
-            </p>
+            </p> {% endcomment %}
           </div>
           <div class="group-transition">
             <ul class="filter-group-display__list list-color {% if collection.title contains 'suba' or collection.title contains 'Suba' %}suba{% endif %}">
@@ -155,13 +141,13 @@
             {% endif %}
 
             </ul>
-            <div
+            {% comment %} <div
               x-on:click="show = true"
               onclick="Theme.filter.open()"
               class="backbtn"
             >
               ←
-            </div>
+            </div> {% endcomment %}
           </div>
       {% endcase %}
     </div>

@@ -881,6 +881,7 @@ var Theme = {
     },
   },
   filter: {
+   isOpen: false,
     open: function () {
       Theme.closeAll();
       var filter = document.querySelector("#FilterMobile");
@@ -888,19 +889,24 @@ var Theme = {
       document.querySelector(".FilterButton").style.opacity = "0";
     },
     close: function () {
+      console.log('close')
       var filter = document.querySelector("#FilterMobile");
       filter.style.height = 0 + "px";
       document.querySelector(".FilterButton").style.opacity = "1";
       document.querySelectorAll('.group-transition').forEach(group => group.classList.remove('grow'))
     },
-    resize: function (filtertype) {
-      console.log(filtertype)
-      let open = false
-      var filter = document.querySelector("#FilterMobile");
-      if (!open){
-      filter.style.height = Theme.helpers.convertRemToPixels(28.3) + "px";}
-      else {
+    resize: function (el) {
+      console.log('resize')
+      if (!Theme.filter.isOpen){
+         var filter = document.querySelector("#FilterMobile");
+         filter.style.height = Theme.helpers.convertRemToPixels(28.3) + "px";
+         const filterGroup = el.nextElementSibling;
+         filterGroup.classList.add('grow');
+         Theme.filter.isOpen = true
+      } else {
+         filterGroup.classList.remove('grow');
          Theme.filter.open();
+         Theme.filter.isOpen = false
       }
     },
   },
