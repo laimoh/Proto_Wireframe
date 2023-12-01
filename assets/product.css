@@ -477,6 +477,10 @@ height: 70vh;
     border-top: var(--wireframe);
     }
 
+    .template-product-suba .ProductVariant--Container {
+      height: 94dvh;
+    }
+
     .ProductVariant {
       margin-right:0 ;
       border-bottom: none;
