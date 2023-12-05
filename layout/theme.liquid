@@ -25,7 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="canonical" href="{{ canonical_url }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ content_for_header }}<!-- Header hook for plugins -->
-    <!--Proto Theme Developed by Laiqa Mohid and Hasaan Latif  -->{{ 'application.css' | asset_url | stylesheet_tag }}<script defer src="{{ 'theme.js' | asset_url }}"> </script>
+    {{ 'application.css' | asset_url | stylesheet_tag }}<script defer src="{{ 'theme.js' | asset_url }}"> </script>
     {{ 'global.css' | asset_url | stylesheet_tag }}
     {{ 'product.css' | asset_url | stylesheet_tag }}
     {{ 'helpers.css' | asset_url | stylesheet_tag }}
