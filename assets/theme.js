@@ -495,32 +495,50 @@ var Theme = {
         });
       }
       this.collectionHelpers.init(section);
+
+      window.addEventListener('collection:ajax', function(){
+      this.collectionHelpers.init(section);
+      })
+
     },
     collectionHelpers: {
       init: function (section) {
         var ajaxSelectorPopups = section.querySelectorAll("[data-ajax-open]");
         ajaxSelectorPopups.forEach((trigger) => {
           var popupContainer = trigger.closest("[data-ajax-card]");
-          trigger.addEventListener("click", function () {
-            popupContainer
-              .querySelector("[data-variant-popup]")
-              .classList.add("display");
-          });
+
+
+          if(!trigger.hasAttribute('inited')){
+            trigger.addEventListener("click", function () {
+              popupContainer
+                .querySelector("[data-variant-popup]")
+                .classList.add("display");
+            });
+          }
+          trigger.setAttribute('inited', true);
+
 
           var close = popupContainer.querySelector(".CartItem--remove");
-          close.addEventListener("click", function () {
-            popupContainer
-              .querySelector("[data-variant-popup]")
-              .classList.remove("display");
-          });
+
+          if(!close.hasAttribute('inited')){
+            close.addEventListener("click", function () {
+              popupContainer
+                .querySelector("[data-variant-popup]")
+                .classList.remove("display");
+            });
+          }
+          close.setAttribute('inited', true);
           var variants = JSON.parse(
             popupContainer.querySelector("[data-variant-json]").innerHTML
           );
+
           var atc = popupContainer.querySelector("[data-ajax-add]");
-         
-          popupContainer
+        
+          if(!popupContainer.hasAttribute('inited')){
+            popupContainer
             .querySelector("[data-variant-popup]")
             .addEventListener("change", function () {
+
               if (variants) {
                 function getVariant(section) {
                   var selectedOptions = [];
@@ -562,10 +580,90 @@ var Theme = {
                 }
               }
             });
+          }
+
+          popupContainer.setAttribute('inited', true);
+         
           Theme.initAjaxSection(section);
         });
       },
     },
+
+    InifnityScroll: function(section) {
+      this.page = 0;
+      let page = this.page;
+      this.busy = false; // Initialize the busy state
+    
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+
+      function updateQueryStringParameter(uri, key, value) {
+        const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        const separator = uri.indexOf('?') !== -1 ? "&" : "?";
+      
+        if (uri.match(re)) {
+          return uri.replace(re, '$1' + key + "=" + value + '$2');
+        } else {
+          return uri + separator + key + "=" + value;
+        }
+      }
+    
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.busy) {
+            // Section is in the viewport and not busy
+            console.log('Section is in the viewport!');
+    
+            // Set the state to busy to prevent multiple requests
+            this.busy = true;
+    
+            const currentURL = window.location.href;
+            const updatedURL = updateQueryStringParameter(currentURL, 'page', page.toString());
+    
+            // Perform fetch request
+            fetch(updatedURL)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.text(); // Get the HTML content as text
+              })
+              .then(htmlContent => {
+                const temporaryDiv = document.createElement('div');
+                temporaryDiv.innerHTML = htmlContent;
+    
+                const elements = temporaryDiv.querySelectorAll('[data-next-page] [data-ajax-card]');
+                let container = document.querySelector('[data-next-page]');
+    
+                elements.forEach(element => {
+                  container.appendChild(element);
+                });
+    
+                // Increment page number for the next fetch
+                page++;
+    
+                // Reset the busy state after completing the fetch and processing HTML
+                this.busy = false;
+                console.log('Fetch request completed and HTML processed!');
+              })
+              .catch(error => {
+                console.error('Error fetching or processing data:', error);
+                this.busy = false; // Reset the busy state in case of an error
+              });
+          } else if (!entry.isIntersecting) {
+            // Section is out of the viewport
+            console.log('Section is out of the viewport!');
+          }
+        });
+      }, options);
+    
+      // Start observing the section
+      observer.observe(section);
+    },
+
     Product: function (section) {
       var headerHeight = document.querySelector(".MainMenu.Fixed").clientHeight;
       var sectionHeight = window.innerHeight - headerHeight;
