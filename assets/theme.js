@@ -203,16 +203,20 @@ var Theme = {
   initAjaxSection: function (section) {
     var ajaxAtc = section.querySelectorAll("[data-ajax-add]");
     ajaxAtc.forEach((addToCart) => {
-      var id = addToCart.getAttribute("data-ajax-add");
-      if (!id) {
-        console.log("somethings wrong with ajax");
-        return;
-      }
-      addToCart.addEventListener("click", function () {
-        if (!addToCart.hasAttribute("disabled")) {
-          Theme.addToCart(id);
+      if(!addToCart.hasAttribute('inited')){
+        var id = addToCart.getAttribute("data-ajax-add");
+        if (!id) {
+          console.log("somethings wrong with ajax");
+          return;
         }
-      });
+        addToCart.addEventListener("click", function () {
+          if (!addToCart.hasAttribute("disabled")) {
+            Theme.addToCart(id);
+          }
+        });
+      }
+      addToCart.setAttribute('inited', true);
+
     });
   },
   addedProduct: function (data) {
@@ -496,9 +500,12 @@ var Theme = {
       }
       this.collectionHelpers.init(section);
 
-      window.addEventListener('collection:ajax', function(){
-      this.collectionHelpers.init(section);
-      })
+      const handleCollectionAjax = () => {
+        console.log('init ajax');
+        Theme.sections.collectionHelpers.init(section);
+      };
+  
+      document.addEventListener('collection:ajax', handleCollectionAjax);
 
     },
     collectionHelpers: {
@@ -581,16 +588,15 @@ var Theme = {
               }
             });
           }
-
           popupContainer.setAttribute('inited', true);
-         
           Theme.initAjaxSection(section);
         });
       },
     },
 
     InifnityScroll: function(section) {
-      this.page = 0;
+      section.style.visibility = 'hidden'
+      this.page = 2;
       let page = this.page;
       this.busy = false; // Initialize the busy state
     
@@ -644,6 +650,7 @@ var Theme = {
     
                 // Increment page number for the next fetch
                 page++;
+                document.dispatchEvent(new Event('collection:ajax'));
     
                 // Reset the busy state after completing the fetch and processing HTML
                 this.busy = false;
