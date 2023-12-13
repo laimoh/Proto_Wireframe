@@ -6,9 +6,7 @@
   {% paginate collection.products by 15 %}
     <div data-next-page class="product-grid">
       {% for product in collection.products %}
-        {% cycle '<div class="row">', '', '' %}
         {% render 'product-card', product: product %}
-        {% cycle '', '', '</div>' %}
       {% endfor %}
     </div>
 
@@ -33,3 +31,40 @@
   {% endpaginate %}
 </div>
 <script src="{{ 'shop.js' | asset_url }}" async></script>
+
+<style>
+
+  @media screen and (min-width: 1000px) {
+   
+    .product-grid{
+      display: grid;
+      grid-template-columns: repeat({{ section.settings.columns }},1fr)!important;
+    }
+
+    .card-content{
+      aspect-ratio: 1 / 1;
+    }
+  
+    .product-card{
+      height: auto;
+    }
+
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Collection Main",
+    "settings": [
+      {
+        "type": "range",
+        "id": "columns",
+        "label": "Column Count Desktop",
+        "default": 3,
+        "min": 1,
+        "max": 6,
+        "step": 1
+      }
+    ]
+  }
+{% endschema %}

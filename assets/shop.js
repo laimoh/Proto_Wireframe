@@ -17,8 +17,17 @@ const isMobile = window.innerWidth < 649
 document.querySelectorAll('.filter-group-display__list-item').forEach((el) => {
    el.addEventListener('click', () => {
       if (!isMobile){
-            el.classList.toggle('active')
+         //Edited the Toggle to validate the input fields
+            if(el.querySelector('input')){
+               let input = el.querySelector('input');
+               if(input.checked){
+                  el.classList.add('active')
+               }else{
+                  el.classList.remove('active')
+
+               }
+            }
+            //el.classList.toggle('active')
       }
-      
    });
 })

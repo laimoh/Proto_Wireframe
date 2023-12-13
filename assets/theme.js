@@ -96,6 +96,9 @@ var Theme = {
         window.addEventListener(
           "scroll",
           () => {
+            if(!logo){
+              return
+            }
             let scrolled = window.scrollY;
             if (scrolled > 50) {
               logo.classList.remove("enlargeState");
@@ -454,7 +457,19 @@ var Theme = {
             
             var searchParams = new URLSearchParams(
               new FormData(filterForm)
-            ).toString();
+            )
+
+
+            //Appending availability Filter on Variant Level
+            if(searchParams.size > 0){
+              searchParams.append('filter.v.availability', 1)
+            }
+            
+            searchParams = searchParams.toString();
+
+            console.log(searchParams);
+
+
             var baseURL = window.location.pathname;
             var sectionID = section.getAttribute("data-section-id");
       
