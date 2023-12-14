@@ -33,7 +33,7 @@
 }
 
 .ProductMedia--Mobile{
-    display:none!important;
+    display: none!important;
 }
    .ProductMeta {
       position: absolute;
@@ -210,6 +210,10 @@ thead th:not(:first-child) {
    border-radius: 15px;
    width: 20px;
    cursor: pointer;
+}
+
+.Product--Image--Anchor.active:only-child {
+   visibility: hidden;
 }
 
 .Product--Image--Anchor.active{

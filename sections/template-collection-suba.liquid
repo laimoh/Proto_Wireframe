@@ -95,9 +95,10 @@
   {% paginate collection.products by 48 %}
     <div data-next-page class="product-grid grid-5-5">
     {% if collection.products.size == 0 %}
-        <div class="" style="grid-column: 1 / -1; width: 100%; text-align:center; padding: 20px;">
-          No Products were found <br>
-          <a href="/collections/all">Shop Products here</a>
+        <div class="no-product-wrapper">
+          <p>Sorry, No products were found!</p>
+          <div class="line"></div>
+          <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}">Try expanding your search</a>
         </div>
     {% endif %}
       {% for product in collection.products %}
