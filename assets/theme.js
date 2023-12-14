@@ -921,10 +921,14 @@ var Theme = {
       var desk = document.querySelector(".MetaItem.ProductDescription");
       document.querySelector(".read").classList.remove("hovered");
       document.querySelector(".ship").classList.remove("hovered");
-      document.querySelector(".disc").classList.remove("hovered");
+        if(document.querySelector(".disc")){
+          document.querySelector(".disc").classList.remove("hovered");
+        }
       desk.style.height = Theme.helpers.convertRemToPixels(4) + "px";
       shipping.style.height = 0;
-      disclaimer.style.height = 0;
+      if(disclaimer){
+        disclaimer.style.height = 0;
+      }
       sizing.style.height = 0;
     },
     convertRemToPixels: function (rem) {

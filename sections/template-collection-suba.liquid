@@ -42,10 +42,9 @@
 
 
 @media screen and (min-width: 1000px) {
-   
-  .grid-5-5{
+  .product-grid{
     display: grid;
-    grid-template-columns: repeat(6,1fr)!important;
+    grid-template-columns: repeat({{ section.settings.columns }},1fr)!important;
   }
 
   .card-content{
@@ -95,6 +94,12 @@
 
   {% paginate collection.products by 48 %}
     <div data-next-page class="product-grid grid-5-5">
+    {% if collection.products.size == 0 %}
+        <div class="" style="grid-column: 1 / -1; width: 100%; text-align:center; padding: 20px;">
+          No Products were found <br>
+          <a href="/collections/all">Shop Products here</a>
+        </div>
+    {% endif %}
       {% for product in collection.products %}
         {% render 'product-card', product: product %}
       {% endfor %}
@@ -138,6 +143,15 @@
       "label": "Second Filter",
       "default": "Color,color"
 
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Column Count Desktop",
+      "default": 5,
+      "min": 1,
+      "max": 6,
+      "step": 1
     }
     ]
   }
