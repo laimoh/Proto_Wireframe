@@ -5,7 +5,7 @@
       "settings": {
         "first_filter": "Size,size",
         "second_filter": "Color,color",
-        "columns": 3
+        "columns": 6
       }
     }
   },

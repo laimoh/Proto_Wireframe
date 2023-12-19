@@ -31,7 +31,7 @@
    grid-template-columns: repeat(3, 1fr) 0.2fr;
    margin: 0 var(--margin);
    justify-items: center;
-   align-items: center;
+   align-items: baseline;
    padding: 0.2%;
    height: auto;
    max-height: 100%;
