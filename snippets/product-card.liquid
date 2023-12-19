@@ -40,7 +40,6 @@
   </div>
   <a href="{{ product.url }}" class="card-link">
     <div style="background-image: url({{ product.featured_image | img_url: 'master' }});" class="card-img"></div>
-    <div style="background-image: url({{ product.images[random_number].src | img_url: 'master' }});" class="card-img remove"></div>
   </a>
   <div data-variant-popup class="VariantSelectors--Ajax">
     <div class="CartItem--remove">

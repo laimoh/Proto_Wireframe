@@ -211,6 +211,9 @@ thead th:not(:first-child) {
    width: 20px;
    cursor: pointer;
 }
+.Product--Image--Anchor.active:only-child {
+   visibility: hidden;
+}
 
 .Product--Image--Anchor.active{
     background: black;

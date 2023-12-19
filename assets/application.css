@@ -155,7 +155,7 @@ img {
    text-transform: uppercase;
    padding: calc(var(--margin));
    font-family: "Pressura";
-   font-size: 1var(--lineThickness);
+   font-size: 0.8rem;
    color: var(--colorHTML);
 
 }
